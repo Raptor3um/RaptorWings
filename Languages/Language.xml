@@ -1,0 +1,452 @@
+<?xml version="1.0"?>
+<RaptorWings>
+	<Hints>
+		<CountryCodes>
+			<text>http://www.codedigest.com/CodeDigest/207-Get-All-Language-Country-Code-List-for-all-Culture-in-C---ASP-Net.aspx</text>
+		</CountryCodes>
+	</Hints>
+	<Languages>
+		<ENGLISH>
+			<CountryCode>en-EN</CountryCode>
+			<title>English</title>
+			<XMLCode>EN</XMLCode>
+			<README>README_EN</README>
+			<Creator></Creator>
+		</ENGLISH>
+		<GERMAN>
+			<CountryCode>de-DE</CountryCode>
+			<title>German</title>
+			<XMLCode>GER</XMLCode>
+			<README>README_GER</README>
+			<Creator>Discord: Germardies#9611</Creator>
+		</GERMAN>
+	</Languages>
+	<Main>
+		<TabPages>
+			<TabPage1>
+				<EN>Overview</EN>
+				<GER>Übersicht</GER>
+			</TabPage1>
+			<TabPage2>
+				<EN>Wallets</EN>
+				<GER>Wallets</GER>
+			</TabPage2>
+			<TabPage3>
+				<EN>Mining</EN>
+				<GER>Mining</GER>
+			</TabPage3>
+			<TabPage6>
+				<EN>About</EN>
+				<GER>Über</GER>
+			</TabPage6>
+		</TabPages>
+		<ToolStrip>
+			<ToolStripLabel1>
+				<EN>RaptorWINGS Donation-Adress:</EN>
+				<GER>RaptorWINGS Spendenadresse:</GER>
+			</ToolStripLabel1>
+		</ToolStrip>
+	</Main>
+	<OverviewPage>
+		<Labels>
+			<Label2>
+				<description>Wallet Balace</description>
+				<EN>Balance of all your addresses:</EN>
+				<GER>Balance deiner Wallet Adressen</GER>
+			</Label2>
+			<Label4>
+				<description>introduction</description>
+				<EN>Your GUI for RTM wallets and RTM mining</EN>
+				<GER>Dein GUI für RTM Wallets und RTM Mining</GER>
+			</Label4>
+		</Labels>
+	</OverviewPage>
+	<WalletPage>
+		<Buttons>
+			<Button1>
+				<description>New Wallet Entry Button</description>
+				<EN>Capture new wallet</EN>
+				<GER>Neue Wallet erfassen</GER>
+			</Button1>
+			<Button2>
+				<description>Save Wallet List</description>
+				<EN>Save</EN>
+				<GER>Speichern</GER>
+			</Button2>
+			<Button13>
+				<description>Delet Wallet List</description>
+				<EN>Delet select Wallet</EN>
+				<GER>Lösche markierte Wallet</GER>
+			</Button13>
+			<Button14>
+				<description>Open Wallet in Explorer</description>
+				<EN>Open selected Wallet on Explorer</EN>
+				<GER>Öffne markeirte Wallet im Explorer</GER>
+			</Button14>
+		</Buttons>
+		<Labels>
+			<Label19>
+				<description>Hints on Wallet Page</description>
+				<EN>All wallet information is read out via the RTM Explorer API. All prizes are transmitted through the Coingecko API.</EN>
+				<GER>Alle Wallet Angaben werden über die RTM Explorer API ausgelesen. Alle Preise werden durch die Coingecko API übertragen.</GER>            
+			</Label19>
+		</Labels>
+		<Columns>
+			<Column11>
+				<description>Header Text Tabel Wallets</description>
+				<EN>Adresses</EN>
+				<GER>Adresse</GER>
+			</Column11>
+			<Column12>
+				<description>Header Text Tabel Wallets</description>
+				<EN>description</EN>
+				<GER>Beschreibung</GER>
+			</Column12>        
+		</Columns>
+	</WalletPage>
+	<MiningDevicePage>
+		<Buttons>
+			<Button3>
+				<description>Button to confirm the mining notes</description>
+				<EN>I have read and understood the warning and would like to proceed</EN>
+				<GER>Ich habe die Hinweise gelesen, verstanden und möchte fortfahren.</GER>
+			</Button3>
+			<Button4>
+				<description>Button to Start mining on local Device</description>
+				<EN>Start Mining</EN>
+			<GER>Starte Mining</GER>
+			</Button4>
+			<Button5>
+				<description>Button so safe the WingSheet</description>
+				<EN>Save Wingsheet</EN>
+				<GER>WingSheet speichern</GER>
+			</Button5>
+			<Button6>
+				<description>Button so Delet an WingSheet</description>
+				<EN>Delete</EN>
+				<GER>Löschen</GER>
+			</Button6>
+		</Buttons>
+		<Labels>
+			<Label5>
+				<description>Notices1 that the POW area will be entered</description>
+				<EN>Danger! +NewLine+ On this page you can get the device running this program to mine RTM Coins. +NewLine+ You yourself take full responsibility for what you do here and start.</EN>
+				<GER>ACHTUNG! +NewLine+ Auf dieser Seite kannst du dieses Gerät dazu bringen den RTM Coin zu erminen. +NewLine+ Du bist selbst verantwortlich dafür was du hier machst.</GER>
+			</Label5>
+			<Label6>
+				<description>Choose Pool</description>
+				<EN>Choos a Pool:</EN>
+				<GER>Wähle einen Pool</GER>
+			</Label6>
+			<Label7>
+				<description>Choose Wallet</description>
+				<EN>Choos a Wallet:</EN>
+				<GER>Wähle eine Wallet:</GER>
+			</Label7>
+			<Label8>
+				<description>Device Name</description>
+				<EN>Rig name: </EN>
+				<GER>Name des Rig's: </GER>
+			</Label8>
+			<Label9>
+				<description>Password</description>
+				<EN>Choos a Password:</EN>
+				<GER>Wähle ein Passwort:</GER>
+			</Label9>
+			<Label10>
+				<description>Mining Software</description>
+				<EN>Choos a Miner:</EN>
+				<GER>Wähle einen Miner</GER>
+			</Label10>
+			<Label11>
+				<description>Notices2 that the POW area will be entered</description>
+				<EN>During the process, the selected third-party mining software will be downloaded +NewLine+ and stored on this device.</EN>
+				<GER>Wärend dieses Vorganges wird Mining Software von Drittanbietern herruntergeladen +NewLine+	und auf diesem Gerät gespeichert.</GER>
+			</Label11>
+			<Label12>
+				<description>Choos as Serverport</description>
+				<EN>Choos a Port:</EN>
+				<GER>Wähle einen Port:</GER>
+			</Label12>
+			<Label13>
+				<description>CPU Cores</description>
+				<EN>Number of Cores/Threads to use:</EN>
+				<GER>Anzahl der CPU/Threads:</GER>
+			</Label13>
+			<Label15>
+				<description>Hints on This Device Mining Page</description>
+				<EN>Please check the mining fee and the mining conditions independently on the respective websites of all providers.</EN>
+				<GER>Bitte prüfe selber die Mining Gebühren und die Mining Bedingungen auf den Internetseiten der Anbieter.</GER>
+			</Label15>
+			<Label16>
+				<description>Hints on This Device Mining Page</description>
+				<EN>Please do not select a wallet address from an exchange server. You could lose your mined coins as a result.</EN>
+				<GER>Bitte Wähle keine Walletadresse die einem Exchange Server gehört. Du könntest deine Coins verlieren.</GER>
+			</Label16>
+			<Label18>
+				<description>Choos Wingsheet</description>
+				<EN>Use WingSheet:</EN>
+				<GER>Wähle Wingsheet:</GER>
+			</Label18>
+			<Label20>
+				<description>Wingsheet Save an Delet</description>
+				<EN>Name of the WingSheet</EN>
+				<GER>Name des Wingsheet:</GER>
+			</Label20>
+		</Labels>
+		<CheckBoxes>
+			<Checkbox1>
+				<description>Question check box:Hide miner</description>
+				<EN>Start Miner in background</EN>
+				<GER>Starte Miner im Hintergrund</GER>
+			</Checkbox1>
+			<Checkbox2>
+				<description>Close RaptorWings</description>
+				<EN>Close RaptorWINGS after start Mining</EN>
+				<GER>RaptorWings nach start schließen</GER>
+			</Checkbox2>                    
+		</CheckBoxes>
+	</MiningDevicePage>
+	<MultiWingMiningPage>
+		<Buttons>
+			<Button7>
+				<description>Delete a Device on MultiWing DeviceList</description>
+				<EN>Delete Device</EN>
+				<GER>Gerät löschen</GER>
+			</Button7>
+			<Button8>
+				<description>Save a Device on MultiWing DeviceList</description>
+				<EN>Save Device</EN>
+				<GER>Gerät speichern</GER>
+			</Button8>
+			<Button9>
+				<description>New Device on MultiWing DeviceList</description>
+				<EN>New Device</EN>
+				<GER>Neues Gerät</GER>
+			</Button9>
+			<Button10>
+				<description>Start MULTIMINING</description>
+				<EN>Start mining</EN>
+				<GER>Starte Mining</GER>
+			</Button10>
+			<Button11>
+				<description>Mark all entries in the device list</description>
+				<EN>Select all</EN>
+				<GER>Makiere alle</GER>
+			</Button11>
+		</Buttons>
+		<Labels>
+			<Label3>
+				<description>device selection</description>
+				<EN>Select Device to change Properties.</EN>
+				<GER>Wähle ein Gerät um es zu ändern.</GER>
+			</Label3>
+			<Label14>
+				<description>Device Name</description>
+				<EN>Device Name:</EN>
+				<GER>Geräte Name:</GER>
+			</Label14>
+			<Label24>
+				<description>Username extern Rig</description>
+				<EN>Username:</EN>
+				<GER>Benutzername:</GER>
+			</Label24>
+			<Label25>
+				<description>Password extern Rig</description>
+				<EN>Password:</EN>
+				<GER>Passwort:</GER>
+			</Label25>
+			<Label26>
+				<description>Path extern Rig</description>
+				<EN>Path</EN>
+				<GER>Dateipfad:</GER>
+			</Label26>
+			<Label28>
+				<description>Hints</description>
+				<EN>Mark your devices, choose a WingSheet and start mining.</EN>
+				<GER>Markieren Sie Ihre Geräte, wählen Sie ein WingSheet +NewLine+ und beginnen Sie mit dem Mining.</GER>
+			</Label28>
+			<Label31>
+				<description>Hints under Path</description>
+				<EN>The directory must exist!</EN>
+				<GER>Das Verzeichniss muss existieren!</GER>
+			</Label31>        
+		</Labels>
+		<TabPages>
+				<TabPage4>
+					<EN>This Device</EN>
+					<GER>Dieses Gerät</GER>
+				</TabPage4>
+				<TabPage5>
+					<EN>MultiWING Mining</EN>
+					<GER>MultiWING Mining</GER>
+				</TabPage5>
+				<TabPage7>
+					<EN>Mining</EN>
+					<GER>Mining</GER>         
+				</TabPage7>
+				<TabPage8>
+					<EN>Devices</EN>
+					<GER>Geräte</GER>
+				</TabPage8>
+		</TabPages>
+		<TextBoxes>
+			<TextBox10>
+				<EN>All ring data is transferred from the PoolAPI after 60 seconds.</EN>
+				<GER>Alle Rigdaten werden nach 60Sekunden von der PoolAPI übertragen.</GER>
+			</TextBox10>
+		</TextBoxes>
+		<Columns>
+			<Column21>
+				<description>Header Text Tabel Devices</description>
+				<EN>Device</EN>
+				<GER>Gerät</GER>
+			</Column21>     
+		</Columns>		
+	</MultiWingMiningPage>
+	<Messages>
+		<Message1>
+			<description>Delete Wallet Entrys</description>
+				<Message1.1>
+					<EN>You are about to delete wallet +NewLine+ (selectwallet) +NewLine+ from this List? +NewLine+ This action can not be undone. +NewLine+ +NewLine+ Do you want to delete the entry?</EN>
+					<GER>Sie sind dabei die Wallet +NewLine+ (selectwallet) +NewLine+ aus der Liste löschen? +NewLine+ Dieser Vorgang kann nicht Rückgängig gemacht werden. +NewLine+ +NewLine+ Wollen Sie den Eintrag löschen?</GER>
+				</Message1.1>
+				<Message1.2>
+					<EN>Entry deleted but not yet saved.</EN>
+					<GER>Entry deleted but not yet saved.</GER>
+				</Message1.2>
+				<Message1.3>
+					<EN>Warning</EN>
+					<GER>Warnung</GER>
+				</Message1.3>
+		</Message1>	
+		<Message2>
+			<description>Message when saving the wallet list</description>
+				<Message2.1>
+					<EN>Sorry. Nothing to Save. Please Add a new Entry</EN>
+					<GER>Entschuldigung. Es gibt nichts zu speichern. Bitte erzeuge einene neuen Eintrag</GER>
+				</Message2.1>
+		</Message2>	
+		<Message3>
+			<description>Message when saving the wallet list</description>
+				<Message3.1>
+					<EN>Save completed successfully</EN>
+					<GER>Speichern erfolgreich beendet</GER>
+				</Message3.1>
+		</Message3>	
+		<Message4>
+			<description>Message when start Mining on the Device</description>
+				<Message4.1>
+					<EN>You are about to mine (Proof of Work - PoW) on this device. +NewLine+ +NewLine+ Use of this feature is your own responsibility. +NewLine+ +NewLine+ Third-party files and programs will be started on this device. +NewLine+ +Newline+ Make sure that this device is yours personally and that there are no disadvantages on these devices through Proof of Work. +NewLine+ +NewLine+ By confirming this, you assume full responsibility for this function. +NewLine+ +NewLine+ Do you want to start the process?</EN>
+					<GER>Sie sind dabei auf diesem Gerät Mining (Proof of Work - PoW) zu betreiben. +NewLine+ +NewLine+ Für die Nutzung dieser Funktion sind Sie eigenständig verantwortlich. +NewLine+ +NewLine+ Es werden Dateien und Programme von Drittanbietern, auf diesem Gerät gestartet. +NewLine+ +NewLine+ Stellen Sie sicher, dass dieses Geräte Ihnen persöhnlich gehört und das auf diesen Geräten, durch Proof of Work keine Nachteile entstehen. +NewLine+ +NewLine+ Durch Ihre Bestätigung übernehmen Sie die volle Verwantwortung für diese Funktion. +NewLine+ +NewLine+ Möchten Sie den Prozess starten?</GER>
+				</Message4.1>
+				<Message4.2>
+					<EN>Warning</EN>
+					<GER>Warnung</GER>
+				</Message4.2>			
+		</Message4>
+		<Message5>
+			<description>Message when start Mining and you have no Wallet choos</description>
+				<Message5.1>
+					<EN>Pleas Choos a Waalet Adress</EN>
+					<GER>Bitte Wähle eine Walletadresse</GER>
+				</Message5.1>
+		</Message5>
+		<Message6>
+			<description>Message when save/delet the Wingsheet</description>
+				<Message6.1>
+					<EN>Please enter a name for the WingSheet.</EN>
+					<GER>Bitte einen Namen für das WingSheet angeben.</GER>
+				</Message6.1>
+		</Message6>
+		<Message7>
+			<description>Message when your Rig have no Name</description>
+				<Message7.1>
+					<EN>Please enter a name for your Rig.</EN>
+					<GER>Bitte einen Namen für dein Rig ein.</GER>
+				</Message7.1>
+		</Message7>
+		<Message8>
+			<description>Message when WingSheet is saved</description>
+				<Message8.1>
+					<EN>Wingsheet saved.</EN>
+					<GER>WingSheet gespeichert.</GER>
+				</Message8.1>
+		</Message8>
+		<Message9>
+			<description>Message when you try to overwrite the default profile</description>
+				<Message9.1>
+					<EN>Overriding default is not supported.</EN>
+					<GER>Default überschreiben wird nicht unterstützt.</GER>
+				</Message9.1>
+		</Message9>
+		<Message10>
+			<description>Message when you delete a Wingsheet</description>
+				<Message10.1>
+					<EN>You are about to delete WingSheet. +NewLine+ This action can not be undone. +Newline+ +NewLine+ Do you want to delete the entry?</EN>
+					<GER>ie sind dabei das Wingsheet zu löschen. +NewLine+ Dieser Vorgang kann nicht Rückgängig gemacht werden. +NewLine+ +NewLine+ Wollen Sie den Eintrag löschen?</GER>
+				</Message10.1>	
+				<Message10.2>
+					<EN>Warning</EN>
+					<GER>Warnung</GER>
+				</Message10.2>
+		</Message10>
+		<Message11>
+			<description>Message when you have delete a Wingsheet</description>
+				<Message11.1>
+					<EN>Wingsheet delete.</EN>
+					<GER>WingSheet gelöscht</GER>
+				</Message11.1>
+		</Message11>
+		<Message12>
+			<description>Message when you will delete a Device</description>
+				<Message12.1>
+					<EN>You are about to delete Device (device) from this List? +NewLine+ This action can not be undone. +NewLine+ +NewLine+ Do you want to delete the entry?</EN>
+					<GER>Sie sind dabei das Gerät (device) aus der Liste löschen? +NewLine+ Dieser Vorgang kann nicht Rückgängig gemacht werden. +NewLine+ +NewLine+ Wollen Sie den Eintrag löschen?</GER>
+				</Message12.1>
+				<Message12.2>
+					<EN>Warning</EN>
+					<GER>Warnung</GER>
+				</Message12.2>
+		</Message12>
+		<Message13>
+			<description>Message when you have will delete a Device</description>
+				<Message13.1>
+					<EN>Dataset saved.</EN>
+					<GER>Datensatz gespeicher</GER>
+				</Message13.1>
+		</Message13>
+		<Message14>
+			<description>Message when you start MULTIMINING</description>
+				<Message14.1>
+					<EN>You are about to mine (Proof of Work - PoW) on external devices. +NewLine+ +NewLine+ Use of this feature is your own responsibility. +NewLine+ +NewLine+ Third-party files and programs will be transferred to the devices you select. +NewLine+ +NewLine+ Make sure that the selected devices belong to you personally and that there are no disadvantages on these devices through Proof of Work. +NewLine+ +NewLine+ By confirming this, you assume full responsibility for this function. +NewLine+ +NewLine+ Do you want to start the process?</EN>
+					<GER>Sie sind dabei Mining (Proof of Work - PoW) auf externen Geräten zu betreiben. +NewLine+ +NewLine+ Für die Nutzung dieser Funktion sind Sie eigenständig verantwortlich. +NewLine+ +NewLine+ Es werden Dateien und Programme von Drittanbietern, auf die von ihnen gewählten Geräten, übertragen. +NewLine+ +NewLine+ Stellen Sie sicher, dass die ausgewählten Geräte Ihnen persöhnlich gehören und das auf diesen Geräten, durch Proof of Work keine Nachteile entstehen. +NewLine+ +NewLine+ Durch Ihre Bestätigung übernehmen Sie die volle Verwantwortung für diese Funktion. +NewLine+ +NewLine+ Möchten Sie den Prozess starten?</GER>
+				</Message14.1>
+				<Message14.2>
+					<EN>Warning</EN>
+					<GER>Warnung</GER>
+				</Message14.2>
+		</Message14>
+		<Message15>
+			<description>Message when you will save a Device</description>
+				<Message15.1>
+					<EN>Dataset saved.</EN>
+					<GER>Datensatz gespeicher.</GER>
+				</Message15.1>
+		</Message15>
+		<Message16>
+			<description>No Wallet on MULTIRIG MINING</description>
+				<Message16.1>
+					<EN>You need a Wallet</EN>
+					<GER>Du benötigst eine Wallet.</GER>
+				</Message16.1>
+		</Message16>
+		<Message17>
+			<description>No Wallet on RTM Explorer Found</description>
+				<Message17.1>
+					<EN>The entered wallet address was not found on the RTM Explorer. The process is aborted.</EN>
+					<GER>Die eingegebene Walletadresse wurde auf dem RTM Explorer nicht gefunden. Der Vorgang wird abgebrochen.</GER>
+				</Message17.1>
+		</Message17>		
+	</Messages>
+</RaptorWings>

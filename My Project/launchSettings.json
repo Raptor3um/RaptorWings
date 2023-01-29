@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "RaptorWings": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\marcu\\Desktop\\Raptorwings bin\\debug"
+    }
+  }
+}

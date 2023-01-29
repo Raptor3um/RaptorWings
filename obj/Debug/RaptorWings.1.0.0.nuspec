@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>RaptorWings</id>
+    <version>1.0.0</version>
+    <authors>RaptorWings</authors>
+    <description>GUI Siftware for RTM API's and Mining</description>
+    <copyright>Discord Germardies#9611</copyright>
+    <dependencies>
+      <group targetFramework="net6.0-windows10.0.17763" />
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net6.0-windows10.0.17763">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+    <contentFiles>
+      <files include="any/net6.0-windows10.0.17763/Resources/Rptorwings_logo_6.ico" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="C:\Users\marcu\Desktop\Raptorwings\bin\Debug\net6.0-windows10.0.17763.0\RaptorWings.runtimeconfig.json" target="lib\net6.0-windows10.0.17763\RaptorWings.runtimeconfig.json" />
+    <file src="C:\Users\marcu\Desktop\Raptorwings\bin\Debug\net6.0-windows10.0.17763.0\RaptorWings.dll" target="lib\net6.0-windows10.0.17763\RaptorWings.dll" />
+    <file src="C:\Users\marcu\Desktop\Raptorwings\Resources\Rptorwings_logo_6.ico" target="content\Resources\Rptorwings_logo_6.ico" />
+    <file src="C:\Users\marcu\Desktop\Raptorwings\Resources\Rptorwings_logo_6.ico" target="contentFiles\any\net6.0-windows10.0.17763\Resources\Rptorwings_logo_6.ico" />
+  </files>
+</package>

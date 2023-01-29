@@ -1,0 +1,8 @@
+Z:\Dokumente\Programmierungen\RTMTool\RTMTool\obj\Debug\net6.0-windows\RaptorWING.vbproj.AssemblyReference.cache
+Z:\Dokumente\Programmierungen\RTMTool\RTMTool\obj\Debug\net6.0-windows\RaptorWING.Form1.resources
+Z:\Dokumente\Programmierungen\RTMTool\RTMTool\obj\Debug\net6.0-windows\RaptorWING.Resources.resources
+Z:\Dokumente\Programmierungen\RTMTool\RTMTool\obj\Debug\net6.0-windows\RaptorWING.vbproj.GenerateResource.cache
+Z:\Dokumente\Programmierungen\RTMTool\RTMTool\obj\Debug\net6.0-windows\RaptorWING.GeneratedMSBuildEditorConfig.editorconfig
+Z:\Dokumente\Programmierungen\RTMTool\RTMTool\obj\Debug\net6.0-windows\RaptorWING.AssemblyInfoInputs.cache
+Z:\Dokumente\Programmierungen\RTMTool\RTMTool\obj\Debug\net6.0-windows\RaptorWING.AssemblyInfo.vb
+Z:\Dokumente\Programmierungen\RTMTool\RTMTool\obj\Debug\net6.0-windows\RaptorWING.vbproj.CoreCompileInputs.cache

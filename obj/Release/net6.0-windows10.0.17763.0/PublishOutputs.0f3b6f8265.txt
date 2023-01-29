@@ -1,0 +1,8 @@
+Z:\Dokumente\Programmierungen\RTMTool\RTMTool\bin\Release\net6.0-windows10.0.17763.0\publish\RaptorWings.exe
+Z:\Dokumente\Programmierungen\RTMTool\RTMTool\bin\Release\net6.0-windows10.0.17763.0\publish\RaptorWings.dll
+Z:\Dokumente\Programmierungen\RTMTool\RTMTool\bin\Release\net6.0-windows10.0.17763.0\publish\RaptorWings.deps.json
+Z:\Dokumente\Programmierungen\RTMTool\RTMTool\bin\Release\net6.0-windows10.0.17763.0\publish\RaptorWings.runtimeconfig.json
+Z:\Dokumente\Programmierungen\RTMTool\RTMTool\bin\Release\net6.0-windows10.0.17763.0\publish\RaptorWings.pdb
+Z:\Dokumente\Programmierungen\RTMTool\RTMTool\bin\Release\net6.0-windows10.0.17763.0\publish\Microsoft.Windows.SDK.NET.dll
+Z:\Dokumente\Programmierungen\RTMTool\RTMTool\bin\Release\net6.0-windows10.0.17763.0\publish\WinRT.Runtime.dll
+Z:\Dokumente\Programmierungen\RTMTool\RTMTool\bin\Release\net6.0-windows10.0.17763.0\publish\Newtonsoft.Json.dll

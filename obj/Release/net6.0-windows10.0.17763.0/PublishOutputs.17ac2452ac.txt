@@ -1,0 +1,12 @@
+C:\Users\marcu\Desktop\Raptorwings\bin\Release\net6.0-windows10.0.17763.0\publish\Languages\Language.xml
+C:\Users\marcu\Desktop\Raptorwings\bin\Release\net6.0-windows10.0.17763.0\publish\README.md
+C:\Users\marcu\Desktop\Raptorwings\bin\Release\net6.0-windows10.0.17763.0\publish\README_GER.md
+C:\Users\marcu\Desktop\Raptorwings\bin\Release\net6.0-windows10.0.17763.0\publish\Thirdparty\plink.exe
+C:\Users\marcu\Desktop\Raptorwings\bin\Release\net6.0-windows10.0.17763.0\publish\Thirdparty\pscp.exe
+C:\Users\marcu\Desktop\Raptorwings\bin\Release\net6.0-windows10.0.17763.0\publish\RaptorWings.exe
+C:\Users\marcu\Desktop\Raptorwings\bin\Release\net6.0-windows10.0.17763.0\publish\RaptorWings.dll
+C:\Users\marcu\Desktop\Raptorwings\bin\Release\net6.0-windows10.0.17763.0\publish\RaptorWings.deps.json
+C:\Users\marcu\Desktop\Raptorwings\bin\Release\net6.0-windows10.0.17763.0\publish\RaptorWings.runtimeconfig.json
+C:\Users\marcu\Desktop\Raptorwings\bin\Release\net6.0-windows10.0.17763.0\publish\RaptorWings.pdb
+C:\Users\marcu\Desktop\Raptorwings\bin\Release\net6.0-windows10.0.17763.0\publish\Microsoft.Windows.SDK.NET.dll
+C:\Users\marcu\Desktop\Raptorwings\bin\Release\net6.0-windows10.0.17763.0\publish\WinRT.Runtime.dll
