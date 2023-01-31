@@ -38,7 +38,7 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Formload / Programmstart
         Cursor.Current = Cursors.WaitCursor
-
+        selfpath = Application.StartupPath
         Me.TextBox1.Text = Environment.MachineName 'Machine Name as Rigname / name dieses Gerätes an Rigbezeichnung
 
         'Create RaptorWINGSS Folder in "%AppData%/Lokal if not exists

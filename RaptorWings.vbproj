@@ -8,8 +8,8 @@
     <MyType>WindowsForms</MyType>
     <Description>GUI Siftware for RTM API's and Mining</Description>
     <Copyright>Raptoreum &amp; Germardies</Copyright>
-    <AssemblyVersion>0.90</AssemblyVersion>
-    <FileVersion>0.90</FileVersion>
+    <AssemblyVersion>0.99</AssemblyVersion>
+    <FileVersion>0.99</FileVersion>
     <ApplicationIcon>Resources\Rptorwings_logo_6.ico</ApplicationIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>

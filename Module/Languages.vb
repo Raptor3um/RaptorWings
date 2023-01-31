@@ -101,7 +101,7 @@ Module Languages
                     For i2 As Integer = 0 To Form1.ComboBox9.Items.Count - 1
                         If Form1.ComboBox9.Items(i2).ToString.Contains(xmlcode) Then
                             Form1.ComboBox9.SelectedIndex = i2
-                            'Diese Funktion Ändert den Wert in der Combobox, wodurch automatisch die Funktion languagecontrolls() gestartet wird
+                            'Diese Funktion Ändert den Wert In der Combobox, wodurch automatisch die Funktion languagecontrolls() gestartet wird
                             Exit Function
                         End If
                     Next
@@ -226,7 +226,7 @@ Module Languages
                 End While
             End Using
         Else
-            Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(Str(selfpath) + "README.md")
+            Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(selfpath + "README.md")
                 While Not MyReader.EndOfData
                     Try
                         Form1.RichTextBox3.Text = MyReader.ReadToEnd
