@@ -366,3 +366,5 @@ RaptorWings.vbproj.user
 .vs\
 [Oo]bj\
 bin\
+My Project/launchSettings.json
+My Project/PublishProfiles/FolderProfile.pubxml

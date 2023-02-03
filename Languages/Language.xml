@@ -87,7 +87,7 @@
 		<Labels>
 			<Label19>
 				<description>Hints on Wallet Page</description>
-				<EN>All wallet information is read out via the RTM Explorer API. All prizes are transmitted through the Coingecko API.</EN>
+				<EN>All wallet information is read out via the RTM Explorer API. All prices are transmitted through the Coingecko API.</EN>
 				<GER>Alle Wallet Angaben werden über die RTM Explorer API ausgelesen. Alle Preise werden durch die Coingecko API übertragen.</GER>            
 			</Label19>
 		</Labels>
@@ -99,7 +99,7 @@
 			</Column11>
 			<Column12>
 				<description>Header Text Tabel Wallets</description>
-				<EN>description</EN>
+				<EN>Description</EN>
 				<GER>Beschreibung</GER>
 			</Column12>        
 		</Columns>
@@ -337,7 +337,7 @@
 		<Message4>
 			<description>Message when start Mining on the Device</description>
 				<Message4.1>
-					<EN>You are about to mine (Proof of Work - PoW) on this device. +NewLine+ +NewLine+ Use of this feature is your own responsibility. +NewLine+ +NewLine+ Third-party files and programs will be started on this device. +NewLine+ +Newline+ Make sure that this device is yours personally and that there are no disadvantages on these devices through Proof of Work. +NewLine+ +NewLine+ By confirming this, you assume full responsibility for this function. +NewLine+ +NewLine+ Do you want to start the process?</EN>
+					<EN>You are about to mine (Proof of Work - PoW) on this device. +NewLine+ +NewLine+ Use of this feature is your own responsibility. +NewLine+ +NewLine+ Third-party files and programs will be started on this device. +NewLine+ +NewLine+ Make sure that this device is yours personally and that there are no disadvantages on these devices through Proof of Work. +NewLine+ +NewLine+By confirming this, you assume full responsibility for this function. +NewLine+ +NewLine+ Do you want to start the process?</EN>
 					<GER>Sie sind dabei auf diesem Gerät Mining (Proof of Work - PoW) zu betreiben. +NewLine+ +NewLine+ Für die Nutzung dieser Funktion sind Sie eigenständig verantwortlich. +NewLine+ +NewLine+ Es werden Dateien und Programme von Drittanbietern, auf diesem Gerät gestartet. +NewLine+ +NewLine+ Stellen Sie sicher, dass dieses Geräte Ihnen persöhnlich gehört und das auf diesen Geräten, durch Proof of Work keine Nachteile entstehen. +NewLine+ +NewLine+ Durch Ihre Bestätigung übernehmen Sie die volle Verwantwortung für diese Funktion. +NewLine+ +NewLine+ Möchten Sie den Prozess starten?</GER>
 				</Message4.1>
 				<Message4.2>
@@ -419,7 +419,7 @@
 		<Message14>
 			<description>Message when you start MULTIMINING</description>
 				<Message14.1>
-					<EN>You are about to mine (Proof of Work - PoW) on external devices. +NewLine+ +NewLine+ Use of this feature is your own responsibility. +NewLine+ +NewLine+ Third-party files and programs will be transferred to the devices you select. +NewLine+ +NewLine+ Make sure that the selected devices belong to you personally and that there are no disadvantages on these devices through Proof of Work. +NewLine+ +NewLine+ By confirming this, you assume full responsibility for this function. +NewLine+ +NewLine+ Do you want to start the process?</EN>
+					<EN>You are about to mine (Proof of Work - PoW) on external devices. +NewLine+ +NewLine+ Use of this feature is your own responsibility. +NewLine+ +NewLine+ Third-party files and programs will be transferred to the devices you select. +NewLine+ +NewLine+Make sure that the selected devices belong to you personally and that there are no disadvantages on these devices through Proof of Work. +NewLine+ +NewLine+By confirming this, you assume full responsibility for this function. +NewLine+ +NewLine+ Do you want to start the process?</EN>
 					<GER>Sie sind dabei Mining (Proof of Work - PoW) auf externen Geräten zu betreiben. +NewLine+ +NewLine+ Für die Nutzung dieser Funktion sind Sie eigenständig verantwortlich. +NewLine+ +NewLine+ Es werden Dateien und Programme von Drittanbietern, auf die von ihnen gewählten Geräten, übertragen. +NewLine+ +NewLine+ Stellen Sie sicher, dass die ausgewählten Geräte Ihnen persöhnlich gehören und das auf diesen Geräten, durch Proof of Work keine Nachteile entstehen. +NewLine+ +NewLine+ Durch Ihre Bestätigung übernehmen Sie die volle Verwantwortung für diese Funktion. +NewLine+ +NewLine+ Möchten Sie den Prozess starten?</GER>
 				</Message14.1>
 				<Message14.2>
@@ -447,6 +447,13 @@
 					<EN>The entered wallet address was not found on the RTM Explorer. The process is aborted.</EN>
 					<GER>Die eingegebene Walletadresse wurde auf dem RTM Explorer nicht gefunden. Der Vorgang wird abgebrochen.</GER>
 				</Message17.1>
-		</Message17>		
+		</Message17>
+		<Message18>
+			<description>Save List message</description>
+			<Message18.1>
+				<EN>Please save the list when all addresses have been entered!</EN>
+				<GER>Bitte die Liste speichern, wenn alle Adressen eingetragen wurden!</GER>
+			</Message18.1>
+		</Message18>
 	</Messages>
 </RaptorWings>

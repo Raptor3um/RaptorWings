@@ -2,7 +2,7 @@
   "profiles": {
     "RaptorWings": {
       "commandName": "Project",
-      "workingDirectory": "C:\\RTW"
+      "workingDirectory": "C:\\Users\\marcu\\Desktop\\Raptorwings bin\\debug"
     }
   }
 }

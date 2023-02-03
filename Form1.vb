@@ -38,7 +38,7 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Formload / Programmstart
         Cursor.Current = Cursors.WaitCursor
-        selfpath = Application.StartupPath
+
         Me.TextBox1.Text = Environment.MachineName 'Machine Name as Rigname / name dieses Gerätes an Rigbezeichnung
 
         'Create RaptorWINGSS Folder in "%AppData%/Lokal if not exists
@@ -127,7 +127,7 @@ Public Class Form1
         Else
             Me.DataGridView1.Rows.Add(Me.DataGridView1.Item(0, Me.DataGridView1.Rows.Count - 1).Value.ToString + 1, "", "", "")
         End If
-
+        MessageBox.Show(checkxmllanguage("Message18.1").trim, "Note", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
     Private Sub Button1_MouseHover(sender As Object, e As EventArgs) Handles Button1.MouseHover
         'Hover Efekt für Button1 (New Wallet Entry)
@@ -515,33 +515,35 @@ Public Class Form1
 
         Dim wingsheetcheck As String = False
 
+
         'Load WingSheet
-        Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localwingsheet)
+        If File.Exists(localwingsheet) Then
+            Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localwingsheet)
 
-            MyReader.TextFieldType = Microsoft.VisualBasic.FileIO.FieldType.Delimited
-            MyReader.Delimiters = New String() {","}
-            Dim currentRow As String()
-            While Not MyReader.EndOfData
-                Try
-                    currentRow = MyReader.ReadFields()
-                    If currentRow(0) = wingsheetname Then
-                        dataset.AppendLine(wingsheet)
-                        wingsheetcheck = True
-                    Else
-                        Dim dataline As String = Nothing
-                        For i = 0 To currentRow.Length - 1
-                            dataline = dataline + Chr(34) + currentRow(i) + Chr(34) + ","
-                        Next
-                        dataset.AppendLine(dataline)
-                    End If
-                Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
-                    MessageBox.Show("Line " & ex.Message & " in Wingsheet List is invalid." + System.Environment.NewLine + System.Environment.NewLine + "Progress ends.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Cursor.Current = Cursors.Default
-                    Exit Sub
-                End Try
-            End While
-        End Using
-
+                MyReader.TextFieldType = Microsoft.VisualBasic.FileIO.FieldType.Delimited
+                MyReader.Delimiters = New String() {","}
+                Dim currentRow As String()
+                While Not MyReader.EndOfData
+                    Try
+                        currentRow = MyReader.ReadFields()
+                        If currentRow(0) = wingsheetname Then
+                            dataset.AppendLine(wingsheet)
+                            wingsheetcheck = True
+                        Else
+                            Dim dataline As String = Nothing
+                            For i = 0 To currentRow.Length - 1
+                                dataline = dataline + Chr(34) + currentRow(i) + Chr(34) + ","
+                            Next
+                            dataset.AppendLine(dataline)
+                        End If
+                    Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
+                        MessageBox.Show("Line " & ex.Message & " in Wingsheet List is invalid." + System.Environment.NewLine + System.Environment.NewLine + "Progress ends.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Cursor.Current = Cursors.Default
+                        Exit Sub
+                    End Try
+                End While
+            End Using
+        End If
 
         'If nothing has been written to the variable yet, the WingSheet is entered
         'Wenn bisher nichts in die Variable geschrieben wurde, wird das WingSheet eingetragen
