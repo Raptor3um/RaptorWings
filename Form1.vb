@@ -226,6 +226,7 @@ Public Class Form1
             Exit Sub
         End If
 
+        'Message and selection whether mining should really be started / Meldung und Auswahl, ob das Mining wirklich gestartet werden soll
         Dim msgtext1 As String = checkxmllanguage("Message4.1").trim
         Dim msgtext2 As String = checkxmllanguage("Message4.2").trim
 
@@ -234,7 +235,7 @@ Public Class Form1
             Exit Sub
         End If
 
-        'CHECK MINER
+        'Check if SRB Miner is present -> If not DOWNLAOD / Prüfe, ob SRB Miner vorhanden ist -> Wenn nicht DOWNLAOD
         If Not File.Exists(selfpath + "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe") Then
             Cursor.Current = Cursors.WaitCursor
             If Not Directory.Exists(selfpath + "mining\") Then
@@ -243,10 +244,10 @@ Public Class Form1
 
             Dim downloadpath As String = selfpath + "mining\" + SRBMinerDownloadnameWindows
             Using client As New WebClient()
-
                 client.DownloadFile(SRBMinerDownloadpathWinows, downloadpath)
             End Using
 
+            'UnZip SRB Miner / Entpacke SRB Miner
             If File.Exists(selfpath + "mining\" + SRBMinerDownloadnameWindows) Then
                 ZipFile.ExtractToDirectory(selfpath + "mining\" + SRBMinerDownloadnameWindows, selfpath + "mining\")
                 File.Delete(selfpath + "mining\" + SRBMinerDownloadnameWindows)
@@ -256,86 +257,63 @@ Public Class Form1
 
         'check if a wallet has been selected and cancel if necessary / prüfe, ob eine Wallet ausgewählt wurde, und brich ggf. ab
         If Me.ComboBox1.Text = Nothing Then
-                MessageBox.Show(checkxmllanguage("Message5.1").trim)
-            End If
+            MessageBox.Show(checkxmllanguage("Message5.1").trim)
+        End If
 
-            Dim flightsheet As String = Nothing 'sheet is the variable that gathers all the information for the miner / sheet ist die Variable, die alle Angaben für den Miner zusammenträgt
+        'Split the text of combo box 1 so that only the wallet address remains/ Text der Combobox 1 so splitten, dass nur die Walletadresse übrig bleibt
+        Dim walletsplitt() As String = Me.ComboBox1.Text.Split("(")
+        Dim wallet As String = walletsplitt(1).Replace(")", "")
 
-            'Split the text of combo box 1 so that only the wallet address remains/ Text der Combobox 1 so splitten, dass nur die Walletadresse übrig bleibt
-            Dim walletsplitt() As String = Me.ComboBox1.Text.Split("(")
-            Dim wallet As String = walletsplitt(1).Replace(")", "")
+        Dim server As String = Me.ComboBox4.Text 'variable Poolserver 
+        Dim rig As String = Me.TextBox1.Text 'variable Rigname
+        Dim password As String = Me.TextBox2.Text 'variable password
 
-            Dim server As String = Me.ComboBox4.Text 'variable Poolserver 
+        Dim threads As String = Me.ComboBox5.Text 'CPU Threaths
+        If threads = "Default" Then
+            threads = Me.ComboBox5.Items.Count - 1
+        End If
 
-            Dim rig As String = Me.TextBox1.Text 'variable Rigname
+        Dim donation As String = False
+        If Me.CheckBox5.CheckState = CheckState.Checked Then
+            donation = True
+            threads -= 1
+        End If
 
-            Dim password As String = Me.TextBox2.Text 'variable password
+        Dim wingsheet_main As String = Nothing
+        Dim wingsheet_srb01 As String = Nothing 'sheet is the variable that gathers all the information for the miner / sheet ist die Variable, die alle Angaben für den Miner zusammenträgt
 
-            'Raptorhash Code: -a gr -o stratum+tcp://na.raptorhash.com:6500 -u Wallet.Rig -p c=RTM
-            If Me.ComboBox2.Text = "Raptorhash.com" Then
-                wallet = wallet & "." & rig 'Wallet variable now consists of "Wallet.Rigname" / Walletvariable besteht jetzt aus "Wallet.Rigname"
-            End If
+        If donation = False Then
+            wingsheet_srb01 = selfpath & "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe --disable-gpu --cpu-threads " & threads & " --algorithm ghostrider --pool " & server & " --wallet " & wallet & "." & rig & " --password " & password
+        Else
+            wingsheet_srb01 = selfpath & "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe --disable-gpu --cpu-threads " & threads & ";1 --algorithm ghostrider;ghostrider --pool " & server & ";statum+tcp://na.raptorhash.com:6900 --wallet " & wallet & "." & rig & ";" & donationadress & ".Donation_" & rig & " --password " & password & ";c=RTM"
+        End If
 
-            If Me.ComboBox2.Text = "Raptoreum.Zone" Then
-                wallet = wallet & "." & rig 'Wallet variable now consists of "Wallet.Rigname" / Walletvariable besteht jetzt aus "Wallet.Rigname"
-            End If
-            If Me.ComboBox2.Text = "FlockPool" Then
-                wallet = wallet & "." & rig 'Wallet variable now consists of "Wallet.Rigname" / Walletvariable besteht jetzt aus "Wallet.Rigname"
-            End If
-            Dim spezial As String 'Create a special variable for special functions / Lege Variable spezial an, für Sonderfunktionen
-            Dim algo As String 'Variable for the mining algo / Variable für den Mining Algo
+        'Create Wingsheet / Erstelle Wingsheet
+        If Me.ComboBox2.Text = "Raptorhash.com" Then
+            wingsheet_main = wingsheet_srb01
+        End If
 
-            If Me.CheckBox5.CheckState = CheckState.Unchecked Then
-                'If the SRBMiner was selected in Combobox3, compile the flight sheet / Wenn in Combobox3 der SRBMiner ausgewählt wurde, stelle das Flightsheet zusammen
-                If ComboBox3.Text = "SRBMiner-MULTI" Then
-                spezial = "--disable-gpu --log-file " & selfpath & "mining\" + SRBdirectory + "\log.txt "
-                If Me.CheckBox1.Checked = True Then
-                        'If start in background is selected, this will be added to the special variable / Wenn Starte im Hintegrrund ausgewählt wurde, wird dies der spezialvariable hinzugefügt
-                        spezial = spezial & "--background "
-                    End If
-                    If Not Me.ComboBox5.Text = "Default" Then
-                        spezial = spezial & "--cpu-threads " & Me.ComboBox5.Text & " "
-                    End If
-                    algo = "--algorithm ghostrider "
-                    server = "--pool " & server & " "
-                    wallet = "--wallet " & wallet & " "
-                    password = "--password " & password
-                flightsheet = selfpath & "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe " & spezial & algo & server & wallet & password
-            End If
-            End If
-            If Me.CheckBox5.CheckState = CheckState.Checked Then
-                'If the SRBMiner was selected in Combobox3, compile the flight sheet / Wenn in Combobox3 der SRBMiner ausgewählt wurde, stelle das Flightsheet zusammen
-                If ComboBox3.Text = "SRBMiner-MULTI" Then
-                spezial = "--disable-gpu --log-file " & selfpath & "mining\" + SRBdirectory + "\log.txt "
-                If Me.CheckBox1.Checked = True Then
-                        'If start in background is selected, this will be added to the special variable / Wenn Starte im Hintegrrund ausgewählt wurde, wird dies der spezialvariable hinzugefügt
-                        spezial = spezial & "--background "
-                    End If
-                    spezial = spezial & "--cpu-threads " & Me.ComboBox5.Items.Count - 2 & " --cpu-threads 1 "
-                    algo = "--algorithm ghostrider;ghostrider "
-                    server = "--pool " & server & ";statum+tcp://na.raptorhash.com:6900 "
-                    wallet = "--wallet " & wallet & ";" & donationadress & ".Donation "
-                    password = "--password " & password & ";c=RTM "
-                flightsheet = selfpath & "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe " & spezial & algo & server & wallet & password
-            End If
-            End If
-            If flightsheet = Nothing Then
-                Exit Sub
-            End If
+        If Me.ComboBox2.Text = "Raptoreum.Zone" Then
+            wingsheet_main = wingsheet_srb01
+        End If
 
-            'Write the flightshett to a .bat file and save this file in the miner's folder. If one already exists, the existing one will be overwritten
-            'Schreibe das Flighshett in eine .bat Datei und speicere diese Datei im Ordner des Miners. Sollte schon eine vorhanden sein, wird die vorhande überschrieben
-            Dim file2 As System.IO.StreamWriter
-        file2 = My.Computer.FileSystem.OpenTextFileWriter(selfpath + "mining\" + SRBdirectory + "\rtmtsheet.bat", False, Encoding.Default)
-        file2.Write("@ " & flightsheet)
-            file2.Close()
+        If Me.ComboBox2.Text = "Flockpool" Then
+            wingsheet_main = wingsheet_srb01
+        End If
+
+        'Write the flightshett to a .bat file and save this file in the miner's folder. If one already exists, the existing one will be overwritten
+        'Schreibe das Flighshett in eine .bat Datei und speicere diese Datei im Ordner des Miners. Sollte schon eine vorhanden sein, wird die vorhande überschrieben
+        Dim filewriter As System.IO.StreamWriter
+        filewriter = My.Computer.FileSystem.OpenTextFileWriter(selfpath + "mining\" + SRBdirectory + "\rtmtsheet.bat", False, Encoding.Default)
+        filewriter.Write("@ " & wingsheet_main)
+        filewriter.Close()
         Process.Start(selfpath + "mining\" + SRBdirectory + "\rtmtsheet.bat") 'Run .bat file to start the miner / Starte .bat Datei um den Miner zu starten
 
         'Dim ProcessStartInfo = New ProcessStartInfo With {.FileName = flightsheet, .UseShellExecute = True}
         'Process.Start(ProcessStartInfo)
         If Me.CheckBox2.Checked = True Then
-                End
-            End If
+            End
+        End If
 
     End Sub
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
@@ -1637,5 +1615,13 @@ Public Class Form1
         Process.Start(ProcessStartInfo)
     End Sub
 
-
+    Private Sub ComboBox5_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox5.SelectedIndexChanged
+        If Me.ComboBox5.Text = "1" Then
+            Me.CheckBox5.Enabled = False
+            Me.CheckBox5.CheckState = CheckState.Unchecked
+        Else
+            Me.CheckBox5.Enabled = True
+            Me.CheckBox5.Checked = CheckState.Checked
+        End If
+    End Sub
 End Class

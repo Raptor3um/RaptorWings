@@ -83,6 +83,9 @@
     <None Update="README_GER.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="ROADMAP.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Thirdparty\plink.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
