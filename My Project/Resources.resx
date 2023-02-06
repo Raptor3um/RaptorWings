@@ -121,6 +121,9 @@
   <data name="Save-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Save-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Rptorwings_logo_dark_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rptorwings_logo_dark_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="LINUX-LOGO (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LINUX-LOGO (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,7 +139,7 @@
   <data name="Rptorwings_logo_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Rptorwings_logo_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Rptorwings_logo_dark_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Rptorwings_logo_dark_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="free-help-icon_398557" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\free-help-icon_398557.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

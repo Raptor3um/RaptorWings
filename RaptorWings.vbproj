@@ -63,6 +63,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Instructions.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Languages\Language.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

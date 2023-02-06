@@ -1,5 +1,4 @@
-﻿Imports System.Globalization
-Imports System.IO
+﻿Imports System.IO
 
 'Module for language exploration / Modul für die Erkuung der Sprache
 Module Languages
@@ -8,7 +7,7 @@ Module Languages
     Dim xmlimport As String = Nothing
     Dim xmlline() As String = Nothing
 
-    Public Function languagesxmlload() As IEnumerable(Of String)
+    Public Function Languagesxmlload() As IEnumerable(Of String)
         'Load Languages.xml
         If My.Computer.FileSystem.FileExists(languagefile) Then
             'If FIle exsits load it
@@ -21,7 +20,7 @@ Module Languages
             xmlline = xmlimport.Split(System.Environment.NewLine)
 
             'Start Function findlanguage
-            findLandguage()
+            FindLandguage()
         Else
             MessageBox.Show("The Languages.xml could not be found.")
             End
@@ -29,7 +28,7 @@ Module Languages
 
     End Function
 
-    Public Function findLandguage()
+    Public Function FindLandguage()
         'Here it is checked whether there is a language in the Languages.xml that matches the current system language
         'Hier wird die nachgesehen, ob es in der Languages.xml eine Sprache gibt, die zu der aktuellen Systemsprache passt
 
@@ -119,7 +118,7 @@ Module Languages
         languagecontrolls()
     End Function
 
-    Public Function checkxmllanguage(ByVal bezeichnung As String)
+    Public Function Checkxmllanguage(ByVal bezeichnung As String)
         'Chechxmllangauages is a function that iterates through the XML content line by line.
         'The value that is being searched for is always passed to this function and returned by ByVal
 
@@ -153,13 +152,12 @@ Module Languages
                 If text.Contains("+NewLine+") Then
                     text = text.Replace("+NewLine+", System.Environment.NewLine)
                 End If
-                checkxmllanguage = text
-                found = False
+                Checkxmllanguage = text
                 Exit For
             End If
         Next
     End Function
-    Public Function languagecontrolls()
+    Public Function Languagecontrolls()
         'Here all controls, labels, ect are provided with texts
         'With checkxmllangauges, the text that is in quotes passed to the function is returned to us later.
         'The designation that is in the quotation marks must also be present in the Languages.xml
@@ -168,49 +166,49 @@ Module Languages
         'Mit checkxmllangauges wird der Text, der in Anführunsgstrichen steht an die Funktion übergeben uns später zurück gegeben.
         'Die Bezeichnung die in den Anführungsstrichen steht, muss auch in der Languages.xml vorhanden sein
 
-        Form1.Button3.Text = checkxmllanguage("Button3")
-        Form1.Button4.Text = checkxmllanguage("Button4")
-        Form1.Button10.Text = checkxmllanguage("Button10")
-        Form1.Button11.Text = checkxmllanguage("Button11")
-        Form1.Label2.Text = checkxmllanguage("Label2")
-        Form1.Label3.Text = checkxmllanguage("Label3")
-        Form1.Label4.Text = checkxmllanguage("Label4")
-        Form1.Label5.Text = checkxmllanguage("Label5")
-        Form1.Label6.Text = checkxmllanguage("Label6")
-        Form1.Label7.Text = checkxmllanguage("Label7")
-        Form1.Label8.Text = checkxmllanguage("Label8")
-        Form1.Label9.Text = checkxmllanguage("Label9")
-        Form1.Label10.Text = checkxmllanguage("Label10")
-        Form1.Label11.Text = checkxmllanguage("Label11")
-        Form1.Label12.Text = checkxmllanguage("Label12")
-        Form1.Label13.Text = checkxmllanguage("Label13")
-        Form1.Label14.Text = checkxmllanguage("Label14")
-        Form1.Label15.Text = checkxmllanguage("Label15")
-        Form1.Label16.Text = checkxmllanguage("Label16")
-        Form1.Label18.Text = checkxmllanguage("Label18")
-        Form1.Label19.Text = checkxmllanguage("Label19")
-        Form1.Label20.Text = checkxmllanguage("Label20")
-        Form1.Label24.Text = checkxmllanguage("Label24")
-        Form1.Label25.Text = checkxmllanguage("Label25")
-        Form1.Label26.Text = checkxmllanguage("Label26")
-        Form1.Label28.Text = checkxmllanguage("Label28")
-        Form1.Label31.Text = checkxmllanguage("Label31")
-        Form1.TabPage1.Text = checkxmllanguage("TabPage1")
-        Form1.TabPage2.Text = checkxmllanguage("TabPage2")
-        Form1.TabPage3.Text = checkxmllanguage("TabPage3")
-        Form1.TabPage4.Text = checkxmllanguage("TabPage4")
-        Form1.TabPage5.Text = checkxmllanguage("TabPage5")
-        Form1.TabPage6.Text = checkxmllanguage("TabPage6")
-        Form1.TabPage7.Text = checkxmllanguage("TabPage7")
-        Form1.TabPage8.Text = checkxmllanguage("TabPage8")
-        Form1.DataGridView1.Columns(1).HeaderText = checkxmllanguage("Column11")
-        Form1.DataGridView1.Columns(2).HeaderText = checkxmllanguage("Column12")
-        Form1.DataGridView2.Columns(1).HeaderText = checkxmllanguage("Column21")
-        Form1.CheckBox1.Text = checkxmllanguage("Checkbox1")
-        Form1.CheckBox2.Text = checkxmllanguage("Checkbox2")
+        Form1.Button3.Text = Checkxmllanguage("Button3")
+        Form1.Button4.Text = Checkxmllanguage("Button4")
+        Form1.Button10.Text = Checkxmllanguage("Button10")
+        Form1.Button11.Text = Checkxmllanguage("Button11")
+        Form1.Label2.Text = Checkxmllanguage("Label2")
+        Form1.Label3.Text = Checkxmllanguage("Label3")
+        Form1.Label4.Text = Checkxmllanguage("Label4")
+        Form1.Label5.Text = Checkxmllanguage("Label5")
+        Form1.Label6.Text = Checkxmllanguage("Label6")
+        Form1.Label7.Text = Checkxmllanguage("Label7")
+        Form1.Label8.Text = Checkxmllanguage("Label8")
+        Form1.Label9.Text = Checkxmllanguage("Label9")
+        Form1.Label10.Text = Checkxmllanguage("Label10")
+        Form1.Label11.Text = Checkxmllanguage("Label11")
+        Form1.Label12.Text = Checkxmllanguage("Label12")
+        Form1.Label13.Text = Checkxmllanguage("Label13")
+        Form1.Label14.Text = Checkxmllanguage("Label14")
+        Form1.Label15.Text = Checkxmllanguage("Label15")
+        Form1.Label16.Text = Checkxmllanguage("Label16")
+        Form1.Label18.Text = Checkxmllanguage("Label18")
+        Form1.Label19.Text = Checkxmllanguage("Label19")
+        Form1.Label20.Text = Checkxmllanguage("Label20")
+        Form1.Label24.Text = Checkxmllanguage("Label24")
+        Form1.Label25.Text = Checkxmllanguage("Label25")
+        Form1.Label26.Text = Checkxmllanguage("Label26")
+        Form1.Label28.Text = Checkxmllanguage("Label28")
+        Form1.Label31.Text = Checkxmllanguage("Label31")
+        Form1.TabPage1.Text = Checkxmllanguage("TabPage1")
+        Form1.TabPage2.Text = Checkxmllanguage("TabPage2")
+        Form1.TabPage3.Text = Checkxmllanguage("TabPage3")
+        Form1.TabPage4.Text = Checkxmllanguage("TabPage4")
+        Form1.TabPage5.Text = Checkxmllanguage("TabPage5")
+        Form1.TabPage6.Text = Checkxmllanguage("TabPage6")
+        Form1.TabPage7.Text = Checkxmllanguage("TabPage7")
+        Form1.TabPage8.Text = Checkxmllanguage("TabPage8")
+        Form1.DataGridView1.Columns(1).HeaderText = Checkxmllanguage("Column11")
+        Form1.DataGridView1.Columns(2).HeaderText = Checkxmllanguage("Column12")
+        Form1.DataGridView2.Columns(1).HeaderText = Checkxmllanguage("Column21")
+        Form1.CheckBox1.Text = Checkxmllanguage("Checkbox1")
+        Form1.CheckBox2.Text = Checkxmllanguage("Checkbox2")
         'Form1.RichTextBox3.Text = checkxmllanguage("TextBox3").trim
-        Form1.TextBox10.Text = checkxmllanguage("TextBox10").trim
-        Form1.ToolStripStatusLabel1.Text = checkxmllanguage("ToolStripLabel1")
+        Form1.TextBox10.Text = Checkxmllanguage("TextBox10").trim
+        Form1.ToolStripStatusLabel1.Text = Checkxmllanguage("ToolStripLabel1")
         Form1.ToolStripStatusLabel2.Text = "REGCJ1eEiopwUFwaHVmUiXZTSPW9gfZdyH"
 
         'reas Readme_XXX.txt for About Page

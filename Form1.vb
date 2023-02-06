@@ -29,9 +29,7 @@ Imports System.IO
 Imports System.IO.Compression
 Imports System.Net
 Imports System.Text
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
-Imports Microsoft
-Imports Windows.Media.Protection.PlayReady
+Imports Windows.Media.Control
 
 Public Class Form1
 
@@ -48,7 +46,6 @@ Public Class Form1
 
         'Load Wallet file / Lade Wallet datei
         'if Wallet File exits, the read it / Wenn die Datei vorhanden ist, dann wird diese eingelesen
-
         If File.Exists(localwallet) Then
             Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localwallet)
 
@@ -111,11 +108,10 @@ Public Class Form1
         Me.CheckBox4.Checked = True
 
         Readbalance() 'Start Function Readbalance / Starte Funktion readbalance
-        Readprice() 'Start Function Readprice / Starte Funktion readprice
         Timer2.Start() ' Starte Timer 2 um nach zu sehen, ob die Minindungsoftware läuft
 
         'Find System Language / Erkenne Systemsprache
-        languagesxmlload()
+        Languagesxmlload()
         Cursor.Current = Cursors.Default
     End Sub
 
@@ -123,21 +119,22 @@ Public Class Form1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         'New Wallet Entry / Neuer Wallet Eintrag
         If Me.DataGridView1.Rows.Count - 1 = -1 Then
+            'Set the First Entry
             Me.DataGridView1.Rows.Add("1", "", "", "")
         Else
             Me.DataGridView1.Rows.Add(Me.DataGridView1.Item(0, Me.DataGridView1.Rows.Count - 1).Value.ToString + 1, "", "", "")
         End If
-        MessageBox.Show(checkxmllanguage("Message18.1").trim, "Note", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show(Checkxmllanguage("Message18.1").trim, "Note", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
     Private Sub Button1_MouseHover(sender As Object, e As EventArgs) Handles Button1.MouseHover
         'Hover Efekt für Button1 (New Wallet Entry)
-        Me.ToolTip1.SetToolTip(Button1, checkxmllanguage("Button1").trim)
+        Me.ToolTip1.SetToolTip(Button1, Checkxmllanguage("Button1").trim)
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         'Save the Wallet List / Speichere die Wallet Liste
         If Me.DataGridView1.Rows.Count - 1 = -1 Then 'If there is no entry, the process is aborted / Wenn kein Eintrag vorhanden ist wird abgebrochen
-            MessageBox.Show(checkxmllanguage("Message2.1").trim)
+            MessageBox.Show(Checkxmllanguage("Message2.1").trim)
             Exit Sub
         End If
 
@@ -160,12 +157,12 @@ Public Class Form1
 
         'Confirmation that the procedure has been completed / Bestätigung, dass die Prozedur durchlaufen wurde
 
-        MessageBox.Show((checkxmllanguage("Message3.1").trim))
+        MessageBox.Show((Checkxmllanguage("Message3.1").trim))
 
     End Sub
     Private Sub Button2_MouseHover(sender As Object, e As EventArgs) Handles Button2.MouseHover
         'Hover Efekt für Button2 (Save Wallet List)
-        Me.ToolTip1.SetToolTip(Button2, checkxmllanguage("Button2").trim)
+        Me.ToolTip1.SetToolTip(Button2, Checkxmllanguage("Button2").trim)
     End Sub
 
     Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellEndEdit
@@ -182,7 +179,7 @@ Public Class Form1
         Dim response As String = client.DownloadString(apiwalletbalanceurl + walletadress)
         If response = "{}" Then
             'No Wallet Found on RTM Explorer
-            MessageBox.Show((checkxmllanguage("Message17.1").trim))
+            MessageBox.Show((Checkxmllanguage("Message17.1").trim))
             Me.DataGridView1.Item(1, Me.DataGridView1.Rows.Count - 1).Value = ""
             Exit Sub
         End If
@@ -194,7 +191,6 @@ Public Class Form1
 
         Timer1.Stop()
         Readbalance()
-        Readprice()
         Timer1.Start()
         Cursor.Current = Cursors.Default
     End Sub
@@ -227,8 +223,8 @@ Public Class Form1
         End If
 
         'Message and selection whether mining should really be started / Meldung und Auswahl, ob das Mining wirklich gestartet werden soll
-        Dim msgtext1 As String = checkxmllanguage("Message4.1").trim
-        Dim msgtext2 As String = checkxmllanguage("Message4.2").trim
+        Dim msgtext1 As String = Checkxmllanguage("Message4.1").trim
+        Dim msgtext2 As String = Checkxmllanguage("Message4.2").trim
 
         Dim result = MessageBox.Show(msgtext1, msgtext2, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
         If result = DialogResult.No Then
@@ -243,9 +239,8 @@ Public Class Form1
             End If
 
             Dim downloadpath As String = selfpath + "mining\" + SRBMinerDownloadnameWindows
-            Using client As New WebClient()
-                client.DownloadFile(SRBMinerDownloadpathWinows, downloadpath)
-            End Using
+            Dim client As New Net.WebClient
+            client.DownloadFile(SRBMinerDownloadpathWinows, downloadpath)
 
             'UnZip SRB Miner / Entpacke SRB Miner
             If File.Exists(selfpath + "mining\" + SRBMinerDownloadnameWindows) Then
@@ -257,7 +252,7 @@ Public Class Form1
 
         'check if a wallet has been selected and cancel if necessary / prüfe, ob eine Wallet ausgewählt wurde, und brich ggf. ab
         If Me.ComboBox1.Text = Nothing Then
-            MessageBox.Show(checkxmllanguage("Message5.1").trim)
+            MessageBox.Show(Checkxmllanguage("Message5.1").trim)
         End If
 
         'Split the text of combo box 1 so that only the wallet address remains/ Text der Combobox 1 so splitten, dass nur die Walletadresse übrig bleibt
@@ -283,9 +278,9 @@ Public Class Form1
         Dim wingsheet_srb01 As String = Nothing 'sheet is the variable that gathers all the information for the miner / sheet ist die Variable, die alle Angaben für den Miner zusammenträgt
 
         If donation = False Then
-            wingsheet_srb01 = selfpath & "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe --disable-gpu --cpu-threads " & threads & " --algorithm ghostrider --pool " & server & " --wallet " & wallet & "." & rig & " --password " & password
+            wingsheet_srb01 = Chr(34) & selfpath & "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe" & Chr(34) & " --disable-gpu --cpu-threads " & threads & " --algorithm ghostrider --pool " & server & " --wallet " & wallet & "." & rig & " --password " & password
         Else
-            wingsheet_srb01 = selfpath & "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe --disable-gpu --cpu-threads " & threads & ";1 --algorithm ghostrider;ghostrider --pool " & server & ";statum+tcp://na.raptorhash.com:6900 --wallet " & wallet & "." & rig & ";" & donationadress & ".Donation_" & rig & " --password " & password & ";c=RTM"
+            wingsheet_srb01 = Chr(34) & selfpath & "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe" & Chr(34) & " --disable-gpu --cpu-threads " & threads & ";1 --algorithm ghostrider;ghostrider --pool " & server & ";statum+tcp://na.raptorhash.com:6900 --wallet " & wallet & "." & rig & ";" & donationadress & ".Donation_" & rig & " --password " & password & ";c=RTM"
         End If
 
         'Create Wingsheet / Erstelle Wingsheet
@@ -427,19 +422,19 @@ Public Class Form1
         'Name of the WingSheet / Name des WingSheet
         'Check the Text / Prüfe den TExt
         If Me.TextBox3.Text = "" Or Me.TextBox3.Text = Nothing Or Me.TextBox3.Text = " " Then
-            MessageBox.Show(checkxmllanguage("Message6.1").trim)
+            MessageBox.Show(Checkxmllanguage("Message6.1").trim)
             Exit Sub
         End If
 
         'Check Rigname / Prüfe Rigname
         If Me.TextBox1.Text = "" Or Me.TextBox1.Text = Nothing Or Me.TextBox1.Text = " " Then
-            MessageBox.Show(checkxmllanguage("Message7.1").trim)
+            MessageBox.Show(Checkxmllanguage("Message7.1").trim)
             Exit Sub
         End If
 
         'Check Wingsheetname "Default" / Prüfe Wingsheet "Default"
         If Me.TextBox3.Text = "Default" Then
-            MessageBox.Show(checkxmllanguage("Message9.1").trim)
+            MessageBox.Show(Checkxmllanguage("Message9.1").trim)
             Exit Sub
         End If
 
@@ -544,19 +539,18 @@ Public Class Form1
         End If
 
         'Select wingsheet in combobox6 / Wingsheet in Combobox6 auswählen
-        Dim comboindex = 0
         For i As Integer = 0 To ComboBox6.Items.Count - 1
             If Me.ComboBox6.Items(i).ToString = wingsheetname Then
                 Me.ComboBox6.SelectedIndex = i
             End If
         Next
 
-        MessageBox.Show(checkxmllanguage("Message8.1").trim)
+        MessageBox.Show(Checkxmllanguage("Message8.1").trim)
 
     End Sub
     Private Sub Button5_MouseHover(sender As Object, e As EventArgs) Handles Button5.MouseHover
         'Hover Efekt für Button5 (Save Wingsheet)
-        Me.ToolTip1.SetToolTip(Button5, checkxmllanguage("Button5").trim)
+        Me.ToolTip1.SetToolTip(Button5, Checkxmllanguage("Button5").trim)
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
@@ -567,20 +561,20 @@ Public Class Form1
         'Check whether Default should be deleted and abort the procedure if it is
         'Prüfe, ob Default gelöscht werden soll und brich die Prozedur ab, wenn es so ist
         If wingsheetname = "Default" Then
-            MessageBox.Show(checkxmllanguage("Message9.1").trim)
+            MessageBox.Show(Checkxmllanguage("Message9.1").trim)
             Exit Sub
         End If
 
         ''Check whether a WingSheet name has been assigned / Prüfe, ob ein WingSheet Name vergeben wurde
         If Me.TextBox3.Text = "" Or Me.TextBox3.Text = Nothing Or Me.TextBox3.Text = " " Then
-            MessageBox.Show(checkxmllanguage("Message6.1").trim)
+            MessageBox.Show(Checkxmllanguage("Message6.1").trim)
             Exit Sub
         End If
 
         'Warn that the entry will be deleted if you continue
         'Warnung ausgeben, dass der Eintrag gelöscht wird, wenn man weiter macht
-        Dim msgtext1 As String = checkxmllanguage("Message10.1").trim
-        Dim msgtext2 As String = checkxmllanguage("Message10.2").trim
+        Dim msgtext1 As String = Checkxmllanguage("Message10.1").trim
+        Dim msgtext2 As String = Checkxmllanguage("Message10.2").trim
 
         Dim result = MessageBox.Show(msgtext1, msgtext2, MessageBoxButtons.YesNo)
         If result = DialogResult.No Then
@@ -641,11 +635,11 @@ Public Class Form1
         Me.CheckBox3.CheckState = CheckState.Unchecked
 
 
-        MessageBox.Show(checkxmllanguage("Message11.1").trim)
+        MessageBox.Show(Checkxmllanguage("Message11.1").trim)
     End Sub
     Private Sub Button6_MouseHover(sender As Object, e As EventArgs) Handles Button6.MouseHover
         'Hover Effekt for Button6 (Delete Wingsheet)
-        Me.ToolTip1.SetToolTip(Button6, checkxmllanguage("Button6").trim)
+        Me.ToolTip1.SetToolTip(Button6, Checkxmllanguage("Button6").trim)
     End Sub
 
     Private Sub TabPage1_Enter(sender As Object, e As EventArgs) Handles TabPage1.Enter
@@ -814,7 +808,6 @@ Public Class Form1
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         'Timer to perform various functions for a refresh / Timer um diverse Funktion für einen Refresh durch zu führen
         Readbalance()
-        Readprice()
     End Sub
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
@@ -850,7 +843,7 @@ Public Class Form1
 
     Private Sub Button9_MouseHover(sender As Object, e As EventArgs) Handles Button9.MouseHover
         'Hover Efekt für Button14 (RTM Explorer)
-        Me.ToolTip1.SetToolTip(Button9, checkxmllanguage("Button9").trim)
+        Me.ToolTip1.SetToolTip(Button9, Checkxmllanguage("Button9").trim)
     End Sub
     Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles TextBox4.TextChanged
         'Device Name
@@ -1056,13 +1049,13 @@ Public Class Form1
         Me.TextBox9.BackColor = Color.White
         Me.TextBox11.Text = "/home/"
 
-        MessageBox.Show(checkxmllanguage("Message15.1").trim)
+        MessageBox.Show(Checkxmllanguage("Message15.1").trim)
 
     End Sub
 
     Private Sub Button8_MouseHover(sender As Object, e As EventArgs) Handles Button8.MouseHover
         'Hover Efekt für Button14 (RTM Explorer)
-        Me.ToolTip1.SetToolTip(Button8, checkxmllanguage("Button8").trim)
+        Me.ToolTip1.SetToolTip(Button8, Checkxmllanguage("Button8").trim)
     End Sub
 
     Private Sub ComboBox8_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox8.SelectedIndexChanged
@@ -1096,8 +1089,8 @@ Public Class Form1
         Dim dataset As New StringBuilder
 
 
-        Dim msgtext1 As String = checkxmllanguage("Message12.1").trim
-        Dim msgtext2 As String = checkxmllanguage("Message12.2").trim
+        Dim msgtext1 As String = Checkxmllanguage("Message12.1").trim
+        Dim msgtext2 As String = Checkxmllanguage("Message12.2").trim
 
         Dim result = MessageBox.Show(msgtext1, msgtext2, MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If result = DialogResult.Yes Then
@@ -1136,13 +1129,13 @@ Public Class Form1
 
             Me.Button7.Enabled = False
 
-            MessageBox.Show(checkxmllanguage("Message13.1").trim)
+            MessageBox.Show(Checkxmllanguage("Message13.1").trim)
         End If
     End Sub
 
     Private Sub Button7_MouseHover(sender As Object, e As EventArgs) Handles Button7.MouseHover
         'Hover Efekt für Button14 (RTM Explorer)
-        Me.ToolTip1.SetToolTip(Button7, checkxmllanguage("Button7").trim)
+        Me.ToolTip1.SetToolTip(Button7, Checkxmllanguage("Button7").trim)
     End Sub
 
     Private Sub ComboBox7_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles ComboBox7.SelectedIndexChanged
@@ -1242,8 +1235,8 @@ Public Class Form1
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
         'Start MuliWing Mining
 
-        Dim msgtext1 As String = checkxmllanguage("Message14.1").trim
-        Dim msgtext2 As String = checkxmllanguage("Message14.2").trim
+        Dim msgtext1 As String = Checkxmllanguage("Message14.1").trim
+        Dim msgtext2 As String = Checkxmllanguage("Message14.2").trim
 
         Dim result = MessageBox.Show(msgtext1, msgtext2, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
         If result = DialogResult.No Then
@@ -1291,7 +1284,7 @@ Public Class Form1
                 wallet = Me.DataGridView1.Item(1, 0).Value.ToString
             End If
             If wallet = "you need a Waalet then" Then
-                MessageBox.Show(checkxmllanguage("Message16.1").trim)
+                MessageBox.Show(Checkxmllanguage("Message16.1").trim)
                 Exit Sub
             End If
 
@@ -1346,7 +1339,7 @@ Public Class Form1
                 If cores = "0" Then
                     spezial = "--disable-gpu --cpu-threads 0\;1 "
                 Else
-                    spezial = "--disable-gpu --cpu-threads " & cores & "\;1 "
+                    spezial = "--disable-gpu --cpu-threads " & cores - 1 & "\;1 "
                 End If
                 algo = "--algorithm ghostrider\;ghostrider "
                 server = "--pool " & server & "\;stratum+tcp://na.raptorhash.com:6900 "
@@ -1469,7 +1462,7 @@ Public Class Form1
         Dim xmllanguagecode As String = combtextsplitt(1)
         xmllanguagecode = xmllanguagecode.Trim
         xmlLanguagesCodes = xmllanguagecode
-        languagecontrolls()
+        Languagecontrolls()
     End Sub
 
     Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
@@ -1479,6 +1472,7 @@ Public Class Form1
     End Sub
 
     Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
+        'When a rig is clicked, the details about it are displayed / Wenn ein Rig angeklickt wird, werden die Details dazu angezeigt
         Showrigdetail()
     End Sub
 
@@ -1503,9 +1497,9 @@ Public Class Form1
             Dim selectRowDGV1 As Integer = Me.DataGridView1.CurrentCell.RowIndex.ToString
             Dim selectwallet As String = "Nr. " & Me.DataGridView1.Item(0, selectRowDGV1).Value.ToString & " - " & Me.DataGridView1.Item(2, selectRowDGV1).Value.ToString & " (" & Me.DataGridView1.Item(1, selectRowDGV1).Value.ToString & ")"
 
-            Dim msgtext1 As String = checkxmllanguage("Message1.1").trim
-            Dim msgtext2 As String = checkxmllanguage("Message1.2").trim
-            Dim msgtext3 As String = checkxmllanguage("Message1.3").trim
+            Dim msgtext1 As String = Checkxmllanguage("Message1.1").trim
+            Dim msgtext2 As String = Checkxmllanguage("Message1.2").trim
+            Dim msgtext3 As String = Checkxmllanguage("Message1.3").trim
 
             Dim result = MessageBox.Show(msgtext1, msgtext3, MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If result = DialogResult.Yes Then
@@ -1520,7 +1514,7 @@ Public Class Form1
 
     Private Sub Button13_MouseHover(sender As Object, e As EventArgs) Handles Button13.MouseHover
         'Hover Efekt für Button13 (Delete Wallet Entry)
-        Me.ToolTip1.SetToolTip(Button13, checkxmllanguage("Button13").trim)
+        Me.ToolTip1.SetToolTip(Button13, Checkxmllanguage("Button13").trim)
     End Sub
 
     Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
@@ -1530,7 +1524,7 @@ Public Class Form1
     End Sub
     Private Sub Button14_MouseHover(sender As Object, e As EventArgs) Handles Button14.MouseHover
         'Hover Efekt für Button14 (RTM Explorer)
-        Me.ToolTip1.SetToolTip(Button14, checkxmllanguage("Button14").trim)
+        Me.ToolTip1.SetToolTip(Button14, Checkxmllanguage("Button14").trim)
     End Sub
 
     Private Sub CheckBox4_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox4.CheckedChanged
@@ -1616,6 +1610,7 @@ Public Class Form1
     End Sub
 
     Private Sub ComboBox5_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox5.SelectedIndexChanged
+        'If only 1 thread is selected, then turn off Donation / Wenn nur 1 Thread ausgewählt wurde, dann schalte Donation ab
         If Me.ComboBox5.Text = "1" Then
             Me.CheckBox5.Enabled = False
             Me.CheckBox5.CheckState = CheckState.Unchecked
@@ -1624,4 +1619,5 @@ Public Class Form1
             Me.CheckBox5.Checked = CheckState.Checked
         End If
     End Sub
+
 End Class

@@ -3,16 +3,21 @@ RAPROTWINGS ©2023 by Raptoreum und Germardies
 =============================================
 Lightpapaer
 -----------
-RAPTORWINGS ist eine kostenlose GUI Software. Es handelt sich hierbei um eine open Source Software.
-Es dient als Raptoreum Dashboard und als Mining (Proof of Work - PoW) Unterstützung. 
+RAPTORWINGS ist eine vollständig quelloffene, kostenlose GUI-Software.
+Sie dient als Raptoreum-Dashboard und als einfaches Werkzeug für das Mining und die Verfolgung von RTM für den täglichen Benutzer.
+
 Diese Software wurde geschrieben um der RTM Community folgendes zu bieten:
 1. Eine Übersicht der eigenen Walletadressen mit Balance und Preisanzeige
 2. Eine Grafische Oberfläche für lokales Mining
 3. Eine Grafische Oberfläche für das Mining auf externen Geräten
-Aktuell werden keine Gebühren oder der gleichen für die Nutzung erhoben.
-Die Mining Fee wird vom Drittanbieter Miner und vom Poolserver vorgegeben.
-Der Nutzer kann eigenständig im Menü auswählen, ob jeweils 1 Thread auf die Spendenadresse, im Dualmining, mint.
-Ziel ist es, bei Akzeptanz des Programms, dieses zu ständig zu erweitern (Roadmap)
+4. Einer der einfachsten Wege in der Blockchain sowohl für neue als auch für erfahrene Miner, um mit dem Raptoreum-Mining zu beginnen, 
+sowohl mit lokalen als auch mit cloudbasierten Implementierungen
+
+Die Nutzung ist völlig kostenlos und ohne jegliche Gebühr.
+Mining Gebühr wird von den Drittanbietern und der Pool-Server festgelegt.
+Der Benutzer kann selbständig wählen, ob er jeweils 1 Thread an die Spendenadresse spenden möchte, um den Fortschritt von Raptorwings, 
+Dualmining, Mint zu unterstützen, aber dies ist nicht obligatorisch und diese Software ist völlig kostenlos zu benutzen.
+Wenn Raptorwings sich als beliebt erweist, werden wir es weiter ausbauen.
 
 API's: 
 ------
@@ -43,8 +48,13 @@ Alle von Ihnen gespeicherten Daten werden ausschließlich auf Ihren Geräten abg
  
 HINWEIS
 -------
-- Dieses Software ist ein offizielles Programm von Raptoreum
+- Dieses Software ist ein offizielles Programm von Raptoreum, Feathered Corp.
 - Es werden Dateien auf Ihrem PC abgelegt "C:\Users\<user>\Appdata\Locale\Raptorwings\" welche der Speicherung Ihrer Daten dient.
+ 
+BETEILIGTE
+-------------------
+Germardies - Code
+Zlata Amaranth - Graphics
  
 COPYRIGHT
 ---------

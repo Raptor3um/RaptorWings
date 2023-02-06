@@ -1,6 +1,10 @@
 ﻿Module showRigDetail_rtm
     Public Sub Showrigdetail()
         'Rigdetails in MUltiWingMining
+        If Form1.DataGridView2.Rows.Count - 1 = -1 Then
+            Exit Sub
+        End If
+
         Dim i As Integer = Form1.DataGridView2.CurrentCell.RowIndex.ToString
         Dim selectrig As String = Form1.DataGridView2.Item(2, i).Value
         Dim selectpool As String = Form1.DataGridView2.Item(9, i).Value

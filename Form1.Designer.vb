@@ -1513,7 +1513,7 @@ Partial Class Form1
         Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "RaptorWing v0.99 ""Eyas"""
+        Me.Text = "Raptorwings v0.99 ""Eyas"""
         Me.TabPage6.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
         Me.TabControl2.ResumeLayout(False)

@@ -15,6 +15,7 @@ There is no ban on thinking here. Every idea and every suggestion is welcome.
 
 4) Future Functions (Not in order)
 --> Primary: Implementing the wishes of the community, if feasible
+--> Expert Mode
 --> Integration of further mining pools
 --> “Flock“
 --> "Transfer"

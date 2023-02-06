@@ -1,7 +1,8 @@
 ﻿Imports System.Net
+Imports System.Net.Http
 
 Module readApiPool_rtm
-    Public Function Apipoolread()
+    Public Async Function Apipoolread() As Task
         Cursor.Current = Cursors.WaitCursor
         Dim nowsummary As Double = 0
         Dim avgsummy As Double = 0
@@ -26,92 +27,110 @@ Module readApiPool_rtm
                 Form1.DataGridView2.Item(3, i).Value = "offline"
             End If
 
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 'Security protocol for downloading API data / Security Protokoll für das Downloadne der API Daten
+            'ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 'Security protocol for downloading API data / Security Protokoll für das Downloadne der API Daten
+            Dim client As HttpClient = New HttpClient()
 
             If pool = "Raptorhash" Then
+                Try
+                    Using response As HttpResponseMessage = Await client.GetAsync(poolurlraptorhash + wallet)
+                        response.EnsureSuccessStatusCode()
+                        Dim responseBody As String = Await response.Content.ReadAsStringAsync()
 
-                Dim client As New WebClient
-                client.Headers.Add("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)")
-                Dim response As String = client.DownloadString(poolurlraptorhash + wallet)
-                Dim now As String = "k.A."
-                Dim avg As String = "k.A."
-                If response.Contains(rigname) Then
-                    Form1.DataGridView2.Rows(i).Cells(3).Style.ForeColor = color1
-                    Form1.DataGridView2.Item(3, i).Value = pool & ": Rig online h/s=k.A."
-                    Form1.DataGridView2.Item(12, i).Value = Date.Now
-                Else
-                    Form1.DataGridView2.Rows(i).Cells(3).Style.ForeColor = color2
-                    Form1.DataGridView2.Item(3, i).Value = pool & ": Rig offline"
-                End If
-                Form1.DataGridView2.Item(13, i).Value = now
-                Form1.DataGridView2.Item(14, i).Value = avg
+                        Dim now As String = "k.A."
+                        Dim avg As String = "k.A."
+                        If responseBody.Contains(rigname) Then
+                            Form1.DataGridView2.Rows(i).Cells(3).Style.ForeColor = color1
+                            Form1.DataGridView2.Item(3, i).Value = pool & ": Rig online h/s=k.A."
+                            Form1.DataGridView2.Item(12, i).Value = Date.Now
+                        Else
+                            Form1.DataGridView2.Rows(i).Cells(3).Style.ForeColor = color2
+                            Form1.DataGridView2.Item(3, i).Value = pool & ": Rig offline"
+                        End If
+                        Form1.DataGridView2.Item(13, i).Value = now
+                        Form1.DataGridView2.Item(14, i).Value = avg
+                    End Using
+                Catch e As HttpRequestException
+                    MessageBox.Show("Raptorhash API Request: ", e.Message)
+                End Try
+
             End If
 
             If pool = "FlockPool" Then
-                Dim client As New WebClient
-                client.Headers.Add("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)")
-                Dim response As String = client.DownloadString(poolurlflockpool + wallet)
+                Try
+                    Using response As HttpResponseMessage = Await client.GetAsync(poolurlflockpool + wallet)
+                        response.EnsureSuccessStatusCode()
+                        Dim responseBody As String = Await response.Content.ReadAsStringAsync()
 
-                Dim now As String = "k.A."
-                Dim avg As String = "k.A."
-                If response.Contains(rigname) Then
-                    Dim responssplitt() As String = response.Split(",")
+                        Dim now As String = "k.A."
+                        Dim avg As String = "k.A."
+                        If responseBody.Contains(rigname) Then
+                            Dim responssplitt() As String = responseBody.Split(",")
 
-                    For i2 As Integer = 0 To responssplitt.Length - 1
-                        If responssplitt(i2).Contains("now") Then
-                            now = responssplitt(i2).Replace(Chr(34), "")
-                            now = now.Replace("hashrate:{now:", "")
-                            now = now.Replace(".", ",")
-                            Dim nowsplitt() As String = now.Split(",")
-                            now = nowsplitt(0)
+                            For i2 As Integer = 0 To responssplitt.Length - 1
+                                If responssplitt(i2).Contains("now") Then
+                                    now = responssplitt(i2).Replace(Chr(34), "")
+                                    now = now.Replace("hashrate:{now:", "")
+                                    now = now.Replace(".", ",")
+                                    Dim nowsplitt() As String = now.Split(",")
+                                    now = nowsplitt(0)
+                                End If
+                                If responssplitt(i2).Contains("avg") Then
+                                    avg = responssplitt(i2).Replace(Chr(34), "")
+                                    avg = avg.Replace("avg:", "")
+                                    avg = avg.Replace("}", "")
+                                    avg = avg.Replace(".", ",")
+                                    Dim avgsplitt() As String = avg.Split(",")
+                                    avg = avgsplitt(0)
+                                End If
+                            Next
+
+                            Form1.DataGridView2.Rows(i).Cells(3).Style.ForeColor = color1
+                            Form1.DataGridView2.Item(3, i).Value = pool & ": Rig online (NOW:" & now & "H/s  / AVG:" & avg & "H/s)"
+                            Form1.DataGridView2.Item(12, i).Value = Date.Now
+                            If now >= 0 Then
+                                'nowsummary = nowsummary + now
+                                nowsummary += now
+                            End If
+                            If avg >= 0 Then
+                                'avgsummy = avgsummy + avg
+                                avgsummy += avg
+                            End If
+                        Else
+                            Form1.DataGridView2.Rows(i).Cells(3).Style.ForeColor = color2
+                            Form1.DataGridView2.Item(3, i).Value = pool & ": Rig offline"
                         End If
-                        If responssplitt(i2).Contains("avg") Then
-                            avg = responssplitt(i2).Replace(Chr(34), "")
-                            avg = avg.Replace("avg:", "")
-                            avg = avg.Replace("}", "")
-                            avg = avg.Replace(".", ",")
-                            Dim avgsplitt() As String = avg.Split(",")
-                            avg = avgsplitt(0)
-                        End If
-                    Next
-
-
-                    Form1.DataGridView2.Rows(i).Cells(3).Style.ForeColor = color1
-                    Form1.DataGridView2.Item(3, i).Value = pool & ": Rig online (NOW:" & now & "H/s  / AVG:" & avg & "H/s)"
-                    Form1.DataGridView2.Item(12, i).Value = Date.Now
-                    If now >= 0 Then
-                        nowsummary = nowsummary + now
-                    End If
-                    If avg >= 0 Then
-                        avgsummy = avgsummy + avg
-                    End If
-                Else
-                    Form1.DataGridView2.Rows(i).Cells(3).Style.ForeColor = color2
-                    Form1.DataGridView2.Item(3, i).Value = pool & ": Rig offline"
-                End If
-                Form1.DataGridView2.Item(13, i).Value = now
-                Form1.DataGridView2.Item(14, i).Value = avg
+                        Form1.DataGridView2.Item(13, i).Value = now
+                        Form1.DataGridView2.Item(14, i).Value = avg
+                    End Using
+                Catch e As HttpRequestException
+                    MessageBox.Show("Flockpool API Request: ", e.Message)
+                End Try
             End If
 
+
             If pool = "Raptoreum.Zone" Then
-                Dim client As New WebClient
-                client.Headers.Add("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)")
-                Dim response As String = client.DownloadString(poolurlraptoreumzone + wallet)
+                Try
+                    Using response As HttpResponseMessage = Await client.GetAsync("http://www.contoso.com/")
+                        response.EnsureSuccessStatusCode()
+                        Dim responseBody As String = Await response.Content.ReadAsStringAsync()
 
-                Dim now As String = "k.A."
-                Dim avg As String = "k.A."
+                        Dim now As String = "k.A."
+                        Dim avg As String = "k.A."
 
-                If response.Contains(rigname) Then
-                    Form1.DataGridView2.Rows(i).Cells(3).Style.ForeColor = color1
-                    Form1.DataGridView2.Item(3, i).Value = pool & ": Rig online h/s=k.A."
-                    Form1.DataGridView2.Item(12, i).Value = Date.Now
-                Else
-                    Form1.DataGridView2.Rows(i).Cells(3).Style.ForeColor = color2
-                    Form1.DataGridView2.Item(3, i).Value = pool & ": Rig offline"
-                End If
-                Form1.DataGridView2.Item(13, i).Value = now
-                Form1.DataGridView2.Item(14, i).Value = avg
-
+                        If responseBody.Contains(rigname) Then
+                            Form1.DataGridView2.Rows(i).Cells(3).Style.ForeColor = color1
+                            Form1.DataGridView2.Item(3, i).Value = pool & ": Rig online h/s=k.A."
+                            Form1.DataGridView2.Item(12, i).Value = Date.Now
+                        Else
+                            Form1.DataGridView2.Rows(i).Cells(3).Style.ForeColor = color2
+                            Form1.DataGridView2.Item(3, i).Value = pool & ": Rig offline"
+                        End If
+                        Form1.DataGridView2.Item(13, i).Value = now
+                        Form1.DataGridView2.Item(14, i).Value = avg
+                    End Using
+                Catch e As HttpRequestException
+                    MessageBox.Show("Raptoreum.Zone API Request: ", e.Message)
+                End Try
             End If
 
         Next

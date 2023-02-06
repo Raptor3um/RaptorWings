@@ -51,5 +51,7 @@ Module readbalance_rtm
 
         Form1.Timer1.Start()
         Cursor.Current = Cursors.Default
+
+        Readprice() 'Start Function Readprice / Starte Funktion readprice
     End Function
 End Module
