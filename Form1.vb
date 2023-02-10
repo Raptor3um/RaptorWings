@@ -1,31 +1,4 @@
-﻿'This software is written for the RTM community. It is part of the Raptoreum program and was developed by
-'Germardies (https://github.com/Germardies).
-'It should be freely available To everyone.
-
-'Diese Software ist für die RTM Community geschrieben.
-'Sie ist Teil von Raptoreum (https://github.com/Raptor3um/raptoreum) und wurde
-'Entwickelt durch Germardies (https://github.com/Germardies)
-'Sie soll jedem frei zugänglich sein.
-
-'Copyright(c) 2023 The Raptoreum developers
-'Copyright(c) 2023 Germardies
-
-'It was tried to leave all comments in German and English
-'I would be happy to keep it that way so that many people understand what is happening here
-'Es wurde versucht alle Kommentare in Deutsch und English zu hinterlassen
-'Es würde mich freuen, dies so bei zu behalten, damit viele Menschen verstehen was hier passiert
-
-'A Clue: / Ein Hinweis:
-'I prefer to be able to read a code from top to bottom than to use a stylish modern codestyle'. 
-'that ends up being read by only a handful of people. 
-'Mir ist es lieber ein Code von oben nach unten lesen zu können als einen Stylischen modernen Codestyle 
-'zu nutzen, der am Ende nur von einer Hand voll Leuten gelesen werden kann. 
-
-'It was tried to store all global variables, if it was possible in the globale.vb out
-'Es wurde versucht alle Globalen Variablen, sofern es möglich war in die globale.vb aus zu lagern
-
-'Imports System.DirectoryServices.ActiveDirectory
-Imports System.IO
+﻿Imports System.IO
 Imports System.IO.Compression
 Imports System.Net
 Imports System.Text
@@ -34,18 +7,14 @@ Imports Windows.Media.Control
 Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Formload / Programmstart
         Cursor.Current = Cursors.WaitCursor
 
-        Me.TextBox1.Text = Environment.MachineName 'Machine Name as Rigname / name dieses Gerätes an Rigbezeichnung
+        Me.TextBox1.Text = Environment.MachineName
 
-        'Create RaptorWINGSS Folder in "%AppData%/Lokal if not exists
         If Not My.Computer.FileSystem.DirectoryExists(localfolder) Then
             My.Computer.FileSystem.CreateDirectory(localfolder)
         End If
 
-        'Load Wallet file / Lade Wallet datei
-        'if Wallet File exits, the read it / Wenn die Datei vorhanden ist, dann wird diese eingelesen
         If File.Exists(localwallet) Then
             Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localwallet)
 
@@ -65,7 +34,6 @@ Public Class Form1
             End Using
         End If
 
-        'Load WingSheet
         If File.Exists(localwingsheet) Then
             Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localwingsheet)
 
@@ -75,8 +43,8 @@ Public Class Form1
                 While Not MyReader.EndOfData
                     Try
                         currentRow = MyReader.ReadFields()
-                        Me.ComboBox6.Items.Add(currentRow(0)) 'Mining My Device
-                        Me.ComboBox7.Items.Add(currentRow(0)) 'Mining Other Device
+                        Me.ComboBox6.Items.Add(currentRow(0))
+                        Me.ComboBox7.Items.Add(currentRow(0))
                     Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
                         MessageBox.Show("Line " & ex.Message & " in Wingsheet List is invalid." + System.Environment.NewLine + System.Environment.NewLine + "Raptorwings will end.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End Try
@@ -85,7 +53,6 @@ Public Class Form1
             End Using
         End If
 
-        'Find out the number of CPU cores and enter them in CB5 (Mining) / Anzahl der CPU Kerne herrausfinden und in CB5 (Mining) eintragen
         Dim corenumbers As Integer = Environment.ProcessorCount
         Me.ComboBox5.Items.Add("Default")
         For i As Integer = 1 To corenumbers
@@ -93,7 +60,6 @@ Public Class Form1
         Next
         corenumbers = Nothing
 
-        'Set all Comboboxes on INdex 0 / Setzte alle Comboboxen auf Index 0
         If ComboBox1.Items.Count - 1 >= 0 Then
             Me.ComboBox1.SelectedIndex = 0
         End If
@@ -104,22 +70,18 @@ Public Class Form1
         Me.ComboBox6.SelectedIndex = 0
         Me.ComboBox7.SelectedIndex = 0
 
-        'Set Color
         Me.CheckBox4.Checked = True
 
-        Readbalance() 'Start Function Readbalance / Starte Funktion readbalance
-        Timer2.Start() ' Starte Timer 2 um nach zu sehen, ob die Minindungsoftware läuft
+        Readbalance()
+        Timer2.Start()
 
-        'Find System Language / Erkenne Systemsprache
         Languagesxmlload()
         Cursor.Current = Cursors.Default
     End Sub
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        'New Wallet Entry / Neuer Wallet Eintrag
         If Me.DataGridView1.Rows.Count - 1 = -1 Then
-            'Set the First Entry
             Me.DataGridView1.Rows.Add("1", "", "", "")
         Else
             Me.DataGridView1.Rows.Add(Me.DataGridView1.Item(0, Me.DataGridView1.Rows.Count - 1).Value.ToString + 1, "", "", "")
@@ -127,20 +89,17 @@ Public Class Form1
         MessageBox.Show(Checkxmllanguage("Message18.1").trim, "Note", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
     Private Sub Button1_MouseHover(sender As Object, e As EventArgs) Handles Button1.MouseHover
-        'Hover Efekt für Button1 (New Wallet Entry)
         Me.ToolTip1.SetToolTip(Button1, Checkxmllanguage("Button1").trim)
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        'Save the Wallet List / Speichere die Wallet Liste
-        If Me.DataGridView1.Rows.Count - 1 = -1 Then 'If there is no entry, the process is aborted / Wenn kein Eintrag vorhanden ist wird abgebrochen
+        If Me.DataGridView1.Rows.Count - 1 = -1 Then
             MessageBox.Show(Checkxmllanguage("Message2.1").trim)
             Exit Sub
         End If
 
         Dim sb = New StringBuilder
 
-        'Read each line of the DGV1 (wallet) individually, write the data to the record variable / Lies jede zeile der DGV1 (Wallet) einzeln aus, schreibe die Daten in die record variable
         For i As Integer = 0 To Me.DataGridView1.Rows.Count - 1
             If Me.DataGridView1.Item(0, i).Value.ToString = Nothing Then
                 Continue For
@@ -155,30 +114,23 @@ Public Class Form1
 
         System.IO.File.WriteAllText(localwallet, sb.ToString)
 
-        'Confirmation that the procedure has been completed / Bestätigung, dass die Prozedur durchlaufen wurde
-
         MessageBox.Show((Checkxmllanguage("Message3.1").trim))
 
     End Sub
     Private Sub Button2_MouseHover(sender As Object, e As EventArgs) Handles Button2.MouseHover
-        'Hover Efekt für Button2 (Save Wallet List)
         Me.ToolTip1.SetToolTip(Button2, Checkxmllanguage("Button2").trim)
     End Sub
 
     Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellEndEdit
-        'In the case of changes in the DGV1, a comparison is made with the wallet list in the mining area to keep it up to date
-        'Bei Änderungen in der DGV1 eerfolgt ein Abgleich mit der Walletliste im Bereich Mining um diese aktuel zu halten
         Cursor.Current = Cursors.WaitCursor
 
-        'First Check the API
         Dim walletadress As String = Me.DataGridView1.Item(1, Me.DataGridView1.Rows.Count - 1).Value.ToString
-        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 'Security protocol for downloading API data / Security Protokoll für das Downloadne der API Daten
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         Dim client As New WebClient
         client.Headers.Add("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)")
 
         Dim response As String = client.DownloadString(apiwalletbalanceurl + walletadress)
         If response = "{}" Then
-            'No Wallet Found on RTM Explorer
             MessageBox.Show((Checkxmllanguage("Message17.1").trim))
             Me.DataGridView1.Item(1, Me.DataGridView1.Rows.Count - 1).Value = ""
             Exit Sub
@@ -196,7 +148,6 @@ Public Class Form1
     End Sub
 
     Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
-        'Warning button to enter mining area / Button zum Warnen um den Mining Bereich zu betreten
         Me.Button3.Visible = False
         Me.Label5.Visible = False
         Me.Label11.Visible = False
@@ -212,9 +163,6 @@ Public Class Form1
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        'START MINING BUTTON / STARTE MINING BUTTON
-
-        'If Miner running then Stop Process
         If Me.Button4.BackColor = Color.PaleVioletRed Then
             For Each Process In System.Diagnostics.Process.GetProcessesByName("SRBMiner-MULTI")
                 Process.Kill()
@@ -222,7 +170,6 @@ Public Class Form1
             Exit Sub
         End If
 
-        'Message and selection whether mining should really be started / Meldung und Auswahl, ob das Mining wirklich gestartet werden soll
         Dim msgtext1 As String = Checkxmllanguage("Message4.1").trim
         Dim msgtext2 As String = Checkxmllanguage("Message4.2").trim
 
@@ -231,7 +178,6 @@ Public Class Form1
             Exit Sub
         End If
 
-        'Check if SRB Miner is present -> If not DOWNLAOD / Prüfe, ob SRB Miner vorhanden ist -> Wenn nicht DOWNLAOD
         If Not File.Exists(selfpath + "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe") Then
             Cursor.Current = Cursors.WaitCursor
             If Not Directory.Exists(selfpath + "mining\") Then
@@ -242,7 +188,6 @@ Public Class Form1
             Dim client As New Net.WebClient
             client.DownloadFile(SRBMinerDownloadpathWinows, downloadpath)
 
-            'UnZip SRB Miner / Entpacke SRB Miner
             If File.Exists(selfpath + "mining\" + SRBMinerDownloadnameWindows) Then
                 ZipFile.ExtractToDirectory(selfpath + "mining\" + SRBMinerDownloadnameWindows, selfpath + "mining\")
                 File.Delete(selfpath + "mining\" + SRBMinerDownloadnameWindows)
@@ -250,20 +195,18 @@ Public Class Form1
             Cursor.Current = Cursors.Default
         End If
 
-        'check if a wallet has been selected and cancel if necessary / prüfe, ob eine Wallet ausgewählt wurde, und brich ggf. ab
         If Me.ComboBox1.Text = Nothing Then
             MessageBox.Show(Checkxmllanguage("Message5.1").trim)
         End If
 
-        'Split the text of combo box 1 so that only the wallet address remains/ Text der Combobox 1 so splitten, dass nur die Walletadresse übrig bleibt
         Dim walletsplitt() As String = Me.ComboBox1.Text.Split("(")
         Dim wallet As String = walletsplitt(1).Replace(")", "")
 
-        Dim server As String = Me.ComboBox4.Text 'variable Poolserver 
-        Dim rig As String = Me.TextBox1.Text 'variable Rigname
-        Dim password As String = Me.TextBox2.Text 'variable password
+        Dim server As String = Me.ComboBox4.Text
+        Dim rig As String = Me.TextBox1.Text
+        Dim password As String = Me.TextBox2.Text
 
-        Dim threads As String = Me.ComboBox5.Text 'CPU Threaths
+        Dim threads As String = Me.ComboBox5.Text
         If threads = "Default" Then
             threads = Me.ComboBox5.Items.Count - 1
         End If
@@ -275,7 +218,7 @@ Public Class Form1
         End If
 
         Dim wingsheet_main As String = Nothing
-        Dim wingsheet_srb01 As String = Nothing 'sheet is the variable that gathers all the information for the miner / sheet ist die Variable, die alle Angaben für den Miner zusammenträgt
+        Dim wingsheet_srb01 As String = Nothing
 
         If donation = False Then
             wingsheet_srb01 = Chr(34) & selfpath & "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe" & Chr(34) & " --disable-gpu --cpu-threads " & threads & " --algorithm ghostrider --pool " & server & " --wallet " & wallet & "." & rig & " --password " & password
@@ -283,7 +226,6 @@ Public Class Form1
             wingsheet_srb01 = Chr(34) & selfpath & "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe" & Chr(34) & " --disable-gpu --cpu-threads " & threads & ";1 --algorithm ghostrider;ghostrider --pool " & server & ";statum+tcp://na.raptorhash.com:6900 --wallet " & wallet & "." & rig & ";" & donationadress & ".Donation_" & rig & " --password " & password & ";c=RTM"
         End If
 
-        'Create Wingsheet / Erstelle Wingsheet
         If Me.ComboBox2.Text = "Raptorhash.com" Then
             wingsheet_main = wingsheet_srb01
         End If
@@ -292,41 +234,31 @@ Public Class Form1
             wingsheet_main = wingsheet_srb01
         End If
 
-        If Me.ComboBox2.Text = "Flockpool" Then
+        If Me.ComboBox2.Text = "FlockPool" Then
             wingsheet_main = wingsheet_srb01
         End If
 
-        'Write the flightshett to a .bat file and save this file in the miner's folder. If one already exists, the existing one will be overwritten
-        'Schreibe das Flighshett in eine .bat Datei und speicere diese Datei im Ordner des Miners. Sollte schon eine vorhanden sein, wird die vorhande überschrieben
         Dim filewriter As System.IO.StreamWriter
         filewriter = My.Computer.FileSystem.OpenTextFileWriter(selfpath + "mining\" + SRBdirectory + "\rtmtsheet.bat", False, Encoding.Default)
         filewriter.Write("@ " & wingsheet_main)
         filewriter.Close()
-        Process.Start(selfpath + "mining\" + SRBdirectory + "\rtmtsheet.bat") 'Run .bat file to start the miner / Starte .bat Datei um den Miner zu starten
+        Process.Start(selfpath + "mining\" + SRBdirectory + "\rtmtsheet.bat")
 
-        'Dim ProcessStartInfo = New ProcessStartInfo With {.FileName = flightsheet, .UseShellExecute = True}
-        'Process.Start(ProcessStartInfo)
         If Me.CheckBox2.Checked = True Then
             End
         End If
 
     End Sub
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
-        'When changing the selection of Combobox2 (Poolserver) start the Miningsetting function
-        'Bei Änderung der Auswahl vom Combobox2 (Poolserver) die Funktion Miningsetting starten
         Miningsetting()
     End Sub
     Private Sub CheckBox3_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
-        'When changing the selection of Combobox3 (Miner) start the Miningsetting function
-        'Bei Änderung der Auswahl vom Combobox3 (Miner) die Funktion Miningsetting starten
         Miningsetting()
     End Sub
 
     Private Sub ComboBox6_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox6.SelectedIndexChanged
-        'Index Change (WingSheet) / 'Änderung der WingSheet auswahl
         Cursor.Current = Cursors.WaitCursor
 
-        'Check that Default has been selected / Prüfen, ob Default ausgewählt wurde
         If Me.ComboBox6.Text = "Default" Then
             If Me.DataGridView1.Rows.Count - 1 >= 0 Then
                 Me.ComboBox1.Text = Me.DataGridView1.Item(2, 0).Value.ToString + " (" + Me.DataGridView1.Item(1, 0).Value.ToString + ")"
@@ -345,7 +277,6 @@ Public Class Form1
             Exit Sub
         End If
 
-        'Load Wingsheet File / Lade WingSheet Datei
         Dim wingsheetname As String = Me.ComboBox6.Text
 
         Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localwingsheet)
@@ -357,11 +288,9 @@ Public Class Form1
                 Try
                     currentRow = MyReader.ReadFields()
 
-                    'Check if the first split entry matches WingSheet / Prüfe, ob der erste Splitteintrag mit WingSheet übereinstimmt
                     If currentRow(0) = wingsheetname Then
-                        Me.TextBox3.Text = currentRow(0) 'Textbox gets the WingSheet name / Textbox bekommt den WingSheet namen
+                        Me.TextBox3.Text = currentRow(0)
 
-                        'Select Wallet in Combobox1 / Wähle Wallet in der Combobox1 aus
                         Dim comboboxindex As Integer = 0
                         For i As Integer = 0 To ComboBox1.Items.Count - 1
                             Dim comboboxtext As String = Me.ComboBox1.Items(i).ToString
@@ -370,32 +299,31 @@ Public Class Form1
                             End If
                         Next
 
-                        Me.ComboBox2.Text = currentRow(2) 'Poolserver
-                        Me.ComboBox4.Text = currentRow(3) 'Server + Port
-                        Me.TextBox1.Text = currentRow(4) 'RigName
-                        Me.TextBox2.Text = currentRow(5) 'password
-                        Me.ComboBox3.Text = currentRow(6) 'Miner
-                        Me.ComboBox5.Text = currentRow(7) 'Cores
+                        Me.ComboBox2.Text = currentRow(2)
+                        Me.ComboBox4.Text = currentRow(3)
+                        Me.TextBox1.Text = currentRow(4)
+                        Me.TextBox2.Text = currentRow(5)
+                        Me.ComboBox3.Text = currentRow(6)
+                        Me.ComboBox5.Text = currentRow(7)
 
-                        'Check the Setting for Checkbox
-                        If currentRow(8) = True Then 'Background
+                        If currentRow(8) = True Then
                             Me.CheckBox1.CheckState = CheckState.Checked
                         Else
                             Me.CheckBox1.CheckState = CheckState.Unchecked
                         End If
 
-                        If currentRow(9) = True Then 'Close Tool
+                        If currentRow(9) = True Then
                             Me.CheckBox2.CheckState = CheckState.Checked
                         Else
                             Me.CheckBox2.CheckState = CheckState.Unchecked
                         End If
 
-                        If currentRow(10) = True Then 'Solo?
+                        If currentRow(10) = True Then
                             Me.CheckBox3.CheckState = CheckState.Checked
                         Else
                             Me.CheckBox3.CheckState = CheckState.Unchecked
                         End If
-                        If currentRow(11) = True Then 'Donate?
+                        If currentRow(11) = True Then
                             Me.CheckBox5.CheckState = CheckState.Checked
                         Else
                             Me.CheckBox5.CheckState = CheckState.Unchecked
@@ -415,35 +343,25 @@ Public Class Form1
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        'Safe Wingsheet / Speichern des WingSheets
-
-        'First, check the Entrys / Zuerst die Einträge prüfen
-
-        'Name of the WingSheet / Name des WingSheet
-        'Check the Text / Prüfe den TExt
         If Me.TextBox3.Text = "" Or Me.TextBox3.Text = Nothing Or Me.TextBox3.Text = " " Then
             MessageBox.Show(Checkxmllanguage("Message6.1").trim)
             Exit Sub
         End If
 
-        'Check Rigname / Prüfe Rigname
         If Me.TextBox1.Text = "" Or Me.TextBox1.Text = Nothing Or Me.TextBox1.Text = " " Then
             MessageBox.Show(Checkxmllanguage("Message7.1").trim)
             Exit Sub
         End If
 
-        'Check Wingsheetname "Default" / Prüfe Wingsheet "Default"
         If Me.TextBox3.Text = "Default" Then
             MessageBox.Show(Checkxmllanguage("Message9.1").trim)
             Exit Sub
         End If
 
 
-        'Collect variables for the data set / Variabelen für den Datensatz zusammentragen
         Dim wingsheet As String
         Dim wingsheetname As String = Me.TextBox3.Text
 
-        'Splitt Wallettext from Combobox6 / Splitte Wallettext in Combobox6
         Dim wallet As String
         Dim walletsplitt() As String = Me.ComboBox1.Text.Split("(")
         wallet = walletsplitt(1).Replace(")", "")
@@ -478,18 +396,12 @@ Public Class Form1
         Else
             donate = False
         End If
-        'Create WingSheet / Erstelle Wingsheet
         wingsheet = Chr(34) + wingsheetname + Chr(34) + "," + Chr(34) + wallet + Chr(34) + "," + Chr(34) + pool + Chr(34) + "," + Chr(34) + server + Chr(34) + "," + Chr(34) + rigname + Chr(34) + "," + Chr(34) + password + Chr(34) + "," + Chr(34) + miner + Chr(34) + "," + Chr(34) + corenumber + Chr(34) + "," + Chr(34) + check1 + Chr(34) + "," + Chr(34) + check2 + Chr(34) + "," + Chr(34) + check3 + Chr(34) + "," + Chr(34) + donate + Chr(34)
-        'Vorgehensweise:
-        'Zuerst wird versucht die Winshet datei zu lesen und es werden alle Daten eingelesen. Dabei wird geprüft, ob das 
-        'Wingsheet bereits unter dem Namen existiert. Wenn es existiert, wird es ersetz.
-
         Dim dataset As New StringBuilder
 
         Dim wingsheetcheck As String = False
 
 
-        'Load WingSheet
         If File.Exists(localwingsheet) Then
             Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localwingsheet)
 
@@ -518,27 +430,19 @@ Public Class Form1
             End Using
         End If
 
-        'If nothing has been written to the variable yet, the WingSheet is entered
-        'Wenn bisher nichts in die Variable geschrieben wurde, wird das WingSheet eingetragen
         If wingsheetcheck = False Then
             dataset.AppendLine(wingsheet)
         End If
 
-        'Save Wingsheet Data / Speichere Wingsheet data
         System.IO.File.WriteAllText(localwingsheet, dataset.ToString)
 
-        'If WingShett does not yet exist in Combobox6 (WingSheet), it will be entered
-        'Wenn WingShett noch nicht in Combobox6 (WingSheet) vorhanden ist, wird es eingetragen
         If Not Me.ComboBox6.Items.Contains(wingsheetname) Then
             Me.ComboBox6.Items.Add(wingsheetname)
         End If
-        'If WingShett does not yet exist in Combobox7 (Other Devices), it will be entered
-        'Wenn WingShett noch nicht in Combobox6 (Andere Geräte) vorhanden ist, wird es eingetragen
         If Not Me.ComboBox7.Items.Contains(wingsheetname) Then
             Me.ComboBox7.Items.Add(wingsheetname)
         End If
 
-        'Select wingsheet in combobox6 / Wingsheet in Combobox6 auswählen
         For i As Integer = 0 To ComboBox6.Items.Count - 1
             If Me.ComboBox6.Items(i).ToString = wingsheetname Then
                 Me.ComboBox6.SelectedIndex = i
@@ -549,30 +453,22 @@ Public Class Form1
 
     End Sub
     Private Sub Button5_MouseHover(sender As Object, e As EventArgs) Handles Button5.MouseHover
-        'Hover Efekt für Button5 (Save Wingsheet)
         Me.ToolTip1.SetToolTip(Button5, Checkxmllanguage("Button5").trim)
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        'Delete Wingsheet / Lösche Wingsheet
-
         Dim wingsheetname As String = Me.TextBox3.Text
 
-        'Check whether Default should be deleted and abort the procedure if it is
-        'Prüfe, ob Default gelöscht werden soll und brich die Prozedur ab, wenn es so ist
         If wingsheetname = "Default" Then
             MessageBox.Show(Checkxmllanguage("Message9.1").trim)
             Exit Sub
         End If
 
-        ''Check whether a WingSheet name has been assigned / Prüfe, ob ein WingSheet Name vergeben wurde
         If Me.TextBox3.Text = "" Or Me.TextBox3.Text = Nothing Or Me.TextBox3.Text = " " Then
             MessageBox.Show(Checkxmllanguage("Message6.1").trim)
             Exit Sub
         End If
 
-        'Warn that the entry will be deleted if you continue
-        'Warnung ausgeben, dass der Eintrag gelöscht wird, wenn man weiter macht
         Dim msgtext1 As String = Checkxmllanguage("Message10.1").trim
         Dim msgtext2 As String = Checkxmllanguage("Message10.2").trim
 
@@ -583,7 +479,6 @@ Public Class Form1
 
         Dim dataset As New StringBuilder
 
-        'Load WingSheet
         Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localwingsheet)
 
             MyReader.TextFieldType = Microsoft.VisualBasic.FileIO.FieldType.Delimited
@@ -609,18 +504,12 @@ Public Class Form1
             End While
         End Using
 
-        'Save Wingsheet Data / Speichere Wingsheet data
         System.IO.File.WriteAllText(localwingsheet, dataset.ToString)
 
-        'Delete wingsheet from combobox6 (wingsheet) / Wingsheet aus Combobox6 (Wingsheet) löschen
         Me.ComboBox6.Items.Remove(wingsheetname)
 
-        'Delete wingsheet from combobox7 (wingsheet other Device) / Wingsheet aus Combobox7 (Wingsheet adnere Geräte) löschen
         Me.ComboBox7.Items.Remove(wingsheetname)
 
-        'Set all Comboboxes on INdex 0 / Setzte alle Comboboxen auf Index 0
-        'By deleting a WingSheet, the entire overview is set to default
-        'Durch das löschen eines WingSheet wird die Gesamte Übersicht auf Default gesetzt
         If ComboBox1.Items.Count - 1 >= 0 Then
             Me.ComboBox1.SelectedIndex = 0
         End If
@@ -638,49 +527,30 @@ Public Class Form1
         MessageBox.Show(Checkxmllanguage("Message11.1").trim)
     End Sub
     Private Sub Button6_MouseHover(sender As Object, e As EventArgs) Handles Button6.MouseHover
-        'Hover Effekt for Button6 (Delete Wingsheet)
         Me.ToolTip1.SetToolTip(Button6, Checkxmllanguage("Button6").trim)
     End Sub
 
     Private Sub TabPage1_Enter(sender As Object, e As EventArgs) Handles TabPage1.Enter
-        'Going into the overview starts the balance and price timer
-        'This should reduce the queries of the Explorer API
-        'Wenn man in die Übersicht geht, wird der Balance und Preis Timer gestartet
-        'Die soll die Abragen der Explorer API verringern
         Timer1.Start()
     End Sub
 
     Private Sub TabPage1_Leave(sender As Object, e As EventArgs) Handles TabPage1.Leave
-        'Exiting the overview menu will stop the balance and price timer
-        'This should reduce the queries of the Explorer API
-        'Wenn man das Menü Übersicht verlässt, wird der Balance und Preis Timer gestoppt
-        'Die soll die Abragen der Explorer API verringern
         Timer1.Stop()
     End Sub
     Private Sub TabPage2_Enter(sender As Object, e As EventArgs) Handles TabPage2.Enter
-        'When you go to the wallet overview, the balance and price timer is started
-        'This should reduce the queries of the Explorer API
-        'Wenn man in die Wallet Übersicht geht, wird der Balance und Preis Timer gestartet
-        'Die soll die Abragen der Explorer API verringern
         Timer1.Start()
     End Sub
 
     Private Sub TabPage2_Leave(sender As Object, e As EventArgs) Handles TabPage2.Leave
-        'Exiting the wallet overview will stop the balance and price timer
-        'This should reduce the queries of the Explorer API
-        'Wenn man in die Wallet Übersicht verlässt, wird der Balance und Preis Timer gestoppt
-        'Die soll die Abragen der Explorer API verringern
         Timer1.Stop()
     End Sub
 
     Private Sub TabPage5_Enter(sender As Object, e As EventArgs) Handles TabPage5.Enter
-        'On Enter TabPage5 (Other Device) load the Devicelist / Bei Betreten der TabPage5 die Geräteliste laden
         Cursor.Current = Cursors.WaitCursor
 
         Me.DataGridView2.Rows.Clear()
         Me.ComboBox8.Items.Clear()
 
-        'Load Devie List an put the Data into the Controlls
         If My.Computer.FileSystem.FileExists(localdevice) Then
             Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localdevice)
 
@@ -701,7 +571,6 @@ Public Class Form1
             End Using
         End If
 
-        'Loade Pool Datat for Device
         If My.Computer.FileSystem.FileExists(localpool) Then
             Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localpool)
 
@@ -734,14 +603,10 @@ Public Class Form1
     End Sub
 
     Private Sub TabPage5_Leave(sender As Object, e As EventArgs) Handles TabPage5.Leave
-        'When Leav the TabPage5 Stop Timer to reduce the API
         Timer3.Stop()
     End Sub
 
     Private Sub ComboBox7_SelectedIndexChanged(sender As Object, e As EventArgs)
-        'Change of wingsheet in section Other devices
-        'Änderung des Wingsheets in Abschnitt Andere Geräte
-
         Dim wallet As String
         If Me.DataGridView1.Rows.Count - 1 >= 0 Then
             wallet = Me.DataGridView1.Item(2, 0).Value.ToString
@@ -761,25 +626,21 @@ Public Class Form1
             Exit Sub
         End If
 
-        'If Default is not selected, the wingsheet file is read
-        'Wenn nicht Default ausgewählt wurde, wird die Wingsheet Datei eingelesen
         Dim wingsheettext As String = Me.ComboBox7.Text
 
-        'Load WingSheet
         If My.Computer.FileSystem.FileExists(localwingsheet) Then
             Dim file As System.IO.StreamReader
             file = My.Computer.FileSystem.OpenTextFileReader(localwingsheet)
             Dim line As String
 
-            'read the File line for Line to End / Lies die Datei Zeile für Zeile bis zum ende
             Do While Not file.EndOfStream
                 line = file.ReadLine
 
-                If line = Nothing Then 'If nothing is written in the line, continue with the next line / Wenn nichts in der zeile geschrieben steht, mit nächster Zeile weiter machen
+                If line = Nothing Then
                     Continue Do
                 End If
 
-                Dim linesplitt() As String = line.Split(";") 'Split the read line after each simicolar / Eingelesene Zeile nach jedem Simikolen splitten
+                Dim linesplitt() As String = line.Split(";")
 
                 If linesplitt(0) = wingsheettext Then
                     For i As Integer = 0 To Me.DataGridView1.Rows.Count - 1
@@ -806,13 +667,10 @@ Public Class Form1
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        'Timer to perform various functions for a refresh / Timer um diverse Funktion für einen Refresh durch zu führen
         Readbalance()
     End Sub
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
-        'Check if a miner is running and color the start mining button accordingly
-        'Prüfen, ob ein Miner Läuft und Färbe den Start Mining Button entsprechend
         Dim p As Process
         For Each p In Diagnostics.Process.GetProcesses()
             If p.ProcessName = "SRBMiner-MULTI" Then
@@ -827,9 +685,6 @@ Public Class Form1
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        'Create new Device / Erstelle neues Gerät
-
-        'Clear Items / Leere Items
         Me.ComboBox8.Text = ""
         Me.TextBox4.Text = ""
         Me.TextBox5.Text = ""
@@ -842,13 +697,9 @@ Public Class Form1
     End Sub
 
     Private Sub Button9_MouseHover(sender As Object, e As EventArgs) Handles Button9.MouseHover
-        'Hover Efekt für Button14 (RTM Explorer)
         Me.ToolTip1.SetToolTip(Button9, Checkxmllanguage("Button9").trim)
     End Sub
     Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles TextBox4.TextChanged
-        'Device Name
-
-        'Check if there are entries / prüfe, ob Eintragungen vorhanden sind
         If Me.TextBox4.Text = Nothing Or Me.TextBox4.Text = "" Or Me.TextBox4.Text = " " Then
             Me.TextBox4.BackColor = Color.PaleVioletRed
             Me.Button8.Enabled = False
@@ -857,7 +708,6 @@ Public Class Form1
             Me.Button8.Enabled = True
         End If
 
-        'Prüfe, ob Device Name zum löschen vorhanden ist
         For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
             Dim devicename As String = Me.DataGridView2.Item(1, i).Value
             If Me.TextBox4.Text = devicename Then
@@ -869,7 +719,6 @@ Public Class Form1
 
         Me.TextBox5.Text = Me.TextBox4.Text
 
-        'Check if name already exists / Prüfe, ob name bereits vorhanden ist
         If Me.Label30.Text = "save" Then
             For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
                 Dim devicename As String = Me.DataGridView2.Item(1, i).Value
@@ -886,8 +735,6 @@ Public Class Form1
     End Sub
 
     Private Sub TextBox5_TextChanged(sender As Object, e As EventArgs) Handles TextBox5.TextChanged
-        'Rig Name
-        'Check if there are entries / prüfe, ob Eintragungen vorhanden sind
         If Me.TextBox5.Text = Nothing Or Me.TextBox5.Text = "" Or Me.TextBox5.Text = " " Then
             Me.TextBox5.BackColor = Color.PaleVioletRed
             Me.Button8.Enabled = False
@@ -896,7 +743,6 @@ Public Class Form1
             Me.Button8.Enabled = True
         End If
 
-        'Prüfe, ob name bereits vorhanden ist
         If Me.Label30.Text = "save" Then
             For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
                 Dim rigname As String = Me.DataGridView2.Item(2, i).Value
@@ -913,9 +759,6 @@ Public Class Form1
     End Sub
 
     Private Sub TextBox6_TextChanged(sender As Object, e As EventArgs) Handles TextBox6.TextChanged
-        'IP-Adress
-
-        'Check if there are entries / prüfe, ob Eintragungen vorhanden sind
         If Me.TextBox6.Text = Nothing Or Me.TextBox6.Text = "" Or Me.TextBox6.Text = " " Then
             Me.TextBox6.BackColor = Color.PaleVioletRed
             Me.Button8.Enabled = False
@@ -924,7 +767,6 @@ Public Class Form1
             Me.Button8.Enabled = True
         End If
 
-        'Prüfe, ob name bereits vorhanden ist
         If Me.Label30.Text = "save" Then
             For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
                 Dim ipadress As String = Me.DataGridView2.Item(4, i).Value
@@ -941,8 +783,6 @@ Public Class Form1
     End Sub
 
     Private Sub TextBox7_TextChanged(sender As Object, e As EventArgs) Handles TextBox7.TextChanged
-        ' IP Port
-        'Check if there are entries / prüfe, ob Eintragungen vorhanden sind
         If Me.TextBox7.Text = Nothing Or Me.TextBox7.Text = "" Or Me.TextBox7.Text = " " Then
             Me.TextBox7.BackColor = Color.PaleVioletRed
             Me.Button8.Enabled = False
@@ -953,8 +793,6 @@ Public Class Form1
     End Sub
 
     Private Sub TextBox8_TextChanged(sender As Object, e As EventArgs) Handles TextBox8.TextChanged
-        'Username
-        'Check if there are entries / prüfe, ob Eintragungen vorhanden sind
         If Me.TextBox8.Text = Nothing Or Me.TextBox8.Text = "" Or Me.TextBox8.Text = " " Then
             Me.TextBox8.BackColor = Color.PaleVioletRed
             Me.Button8.Enabled = False
@@ -967,8 +805,6 @@ Public Class Form1
     End Sub
 
     Private Sub TextBox9_TextChanged(sender As Object, e As EventArgs) Handles TextBox9.TextChanged
-        'Password
-        'Check if there are entries / prüfe, ob Eintragungen vorhanden sind
         If Me.TextBox9.Text = Nothing Or Me.TextBox9.Text = "" Or Me.TextBox9.Text = " " Then
             Me.TextBox9.BackColor = Color.PaleVioletRed
             Me.Button8.Enabled = False
@@ -979,8 +815,6 @@ Public Class Form1
     End Sub
 
     Private Sub TextBox11_TextChanged(sender As Object, e As EventArgs) Handles TextBox11.TextChanged
-        'Path
-        'Check if there are entries / prüfe, ob Eintragungen vorhanden sind
         If Me.TextBox11.Text = Nothing Or Me.TextBox11.Text = "" Or Me.TextBox11.Text = " " Then
             Me.TextBox11.BackColor = Color.PaleVioletRed
             Me.Button8.Enabled = False
@@ -991,8 +825,6 @@ Public Class Form1
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        'Save Devices
-
         Dim device As String = Me.TextBox4.Text
         Dim rigname As String = Me.TextBox5.Text
         Dim ip As String = Me.TextBox6.Text
@@ -1036,7 +868,6 @@ Public Class Form1
 
         Me.Label30.Text = "save"
 
-        'Saving the Device list in the wallet file in the main directory of pct.exe/ Speichern der Device in der Datei Wallet im Hauptverzeichniss der pct.exe
         System.IO.File.WriteAllText(localdevice, dataset.ToString)
 
         Me.TextBox4.Text = ""
@@ -1054,12 +885,10 @@ Public Class Form1
     End Sub
 
     Private Sub Button8_MouseHover(sender As Object, e As EventArgs) Handles Button8.MouseHover
-        'Hover Efekt für Button14 (RTM Explorer)
         Me.ToolTip1.SetToolTip(Button8, Checkxmllanguage("Button8").trim)
     End Sub
 
     Private Sub ComboBox8_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox8.SelectedIndexChanged
-        'Select Device to Edit
         If ComboBox8.Items.Count >= 0 Then
             Dim comboselect As String = Me.ComboBox8.Text
             Dim comboselectsplitt() As String = comboselect.Split("{")
@@ -1084,7 +913,6 @@ Public Class Form1
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        'Delite Device
         Dim device As String = Me.TextBox4.Text
         Dim dataset As New StringBuilder
 
@@ -1110,7 +938,6 @@ Public Class Form1
             Next
             Me.ComboBox8.Sorted = True
 
-            'Saving the Device list in the wallet file in the main directory of pct.exe/ Speichern der Device in der Datei Wallet im Hauptverzeichniss der pct.exe
             System.IO.File.WriteAllText(localdevice, dataset.ToString)
 
             Me.ComboBox8.Text = ""
@@ -1134,13 +961,10 @@ Public Class Form1
     End Sub
 
     Private Sub Button7_MouseHover(sender As Object, e As EventArgs) Handles Button7.MouseHover
-        'Hover Efekt für Button14 (RTM Explorer)
         Me.ToolTip1.SetToolTip(Button7, Checkxmllanguage("Button7").trim)
     End Sub
 
     Private Sub ComboBox7_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles ComboBox7.SelectedIndexChanged
-        'Wingsheet selction for Multi Device
-
         If Me.ComboBox7.Text = "Default" Then
             Dim wallet As String = "you need a Wallet"
             If Me.DataGridView1.Rows.Count - 1 > 0 Then
@@ -1157,7 +981,6 @@ Public Class Form1
             Exit Sub
         End If
 
-        'Load Wingsheet File / Lade WingSheet Datei
         Dim wingsheetname As String = Me.ComboBox7.Text
 
         If My.Computer.FileSystem.FileExists(localwingsheet) Then
@@ -1179,16 +1002,15 @@ Public Class Form1
                 While Not MyReader.EndOfData
                     Try
                         currentRow = MyReader.ReadFields()
-                        'Check if the first split entry matches WingSheet / Prüfe, ob der erste Splitteintrag mit WingSheet übereinstimmt
                         If currentRow(0) = wingsheetname Then
 
-                            wingsheet = currentRow(0) 'Textbox gets the WingSheet name / Textbox bekommt den WingSheet namen
+                            wingsheet = currentRow(0)
                             wallet = currentRow(1)
-                            pool = currentRow(2) 'Poolserver
-                            server = currentRow(3) 'Server + Port
-                            password = currentRow(5) 'password
-                            miner = currentRow(6) 'Miner
-                            cores = currentRow(7) 'Cores
+                            pool = currentRow(2)
+                            server = currentRow(3)
+                            password = currentRow(5)
+                            miner = currentRow(6)
+                            cores = currentRow(7)
                             solo = currentRow(10)
                             donate = currentRow(11)
 
@@ -1219,8 +1041,6 @@ Public Class Form1
                                    "Password: " & password & System.Environment.NewLine &
                                    "Miner: " & miner & System.Environment.NewLine &
                                    "Cores: " + cores + " / " + donate + " for Donate"
-                            '"Cores: " & cores & " / Spend " & donate (Future Code)
-
                             Exit Sub
                         End If
                     Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
@@ -1233,8 +1053,6 @@ Public Class Form1
     End Sub
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
-        'Start MuliWing Mining
-
         Dim msgtext1 As String = Checkxmllanguage("Message14.1").trim
         Dim msgtext2 As String = Checkxmllanguage("Message14.2").trim
 
@@ -1262,7 +1080,6 @@ Public Class Form1
             Directory.CreateDirectory(selfpath + "Thirdparty\tmp\")
         End If
 
-        'Set Varibales
         Dim wingsheet As String = Nothing
         Dim wallet As String = Nothing
         Dim pool As String = Nothing
@@ -1275,7 +1092,6 @@ Public Class Form1
         Dim wingsheetname2 As String = wingsheetname
         Dim donation As String
 
-        'Check Wingsheet
         If Me.ComboBox7.Text = "Default" Then
             wingsheet = "Default"
 
@@ -1296,7 +1112,6 @@ Public Class Form1
             donation = "True"
         Else
 
-            'Load WingSheet
             Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localwingsheet)
 
                 MyReader.TextFieldType = Microsoft.VisualBasic.FileIO.FieldType.Delimited
@@ -1305,17 +1120,16 @@ Public Class Form1
                 While Not MyReader.EndOfData
                     Try
                         currentRow = MyReader.ReadFields()
-                        'Check if the first split entry matches WingSheet / Prüfe, ob der erste Splitteintrag mit WingSheet übereinstimmt
                         If currentRow(0) = wingsheetname Then
 
-                            wingsheet = currentRow(0) 'Textbox gets the WingSheet name / Textbox bekommt den WingSheet namen
+                            wingsheet = currentRow(0)
                             wallet = currentRow(1)
-                            pool = currentRow(2) 'Poolserver
-                            server = currentRow(3) 'Server + Port
-                            password = currentRow(5) 'password
-                            miner = currentRow(6) 'Miner
-                            cores = currentRow(7) 'Cores
-                            donation = currentRow(11) 'Donation?
+                            pool = currentRow(2)
+                            server = currentRow(3)
+                            password = currentRow(5)
+                            miner = currentRow(6)
+                            cores = currentRow(7)
+                            donation = currentRow(11)
                         End If
                     Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
                         MessageBox.Show("Line " & ex.Message & " in Wingsheet List is invalid." + System.Environment.NewLine + System.Environment.NewLine + "Progress ends.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1326,10 +1140,9 @@ Public Class Form1
             End Using
         End If
 
-        Dim spezial As String = Nothing 'Create a special variable for special functions / Lege Variable spezial an, für Sonderfunktionen
-        Dim algo As String = Nothing 'Variable for the mining algo / Variable für den Mining Algo
+        Dim spezial As String = Nothing
+        Dim algo As String = Nothing
 
-        'If the SRBMiner was selected in Combobox3, compile the flight sheet / Wenn in Combobox3 der SRBMiner ausgewählt wurde, stelle das Flightsheet zusammen
         If cores = "Default" Then
             cores = "0"
         End If
@@ -1363,7 +1176,6 @@ Public Class Form1
         End If
 
 
-        'Durchsuche jedes Gerät, welches markiert ist und beginnen Übertragung
         For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
             If Me.DataGridView2.Item(0, i).Value = False Then
                 Continue For
@@ -1384,9 +1196,6 @@ Public Class Form1
 
 
             wingsheet = "./SRBMiner-MULTI " & algo & spezial & "--log-file " & sshpath & "RaptorWings/log.txt " & server & wallet2 & password
-            'MessageBox.Show(wingsheet)
-
-            'create plink
             Dim plinkmain
 
             plinkmain = selfpath & "Thirdparty\plink.exe -ssh " & sship & " -l " & sshuser & " -pw " & sshpassword & " -batch -m " & selfpath & "Thirdparty\tmp\plink." & rigname
@@ -1405,13 +1214,12 @@ Public Class Form1
                      "cd SRBMiner-MULTI" & System.Environment.NewLine &
                      wingsheet & "> /dev/null 2>&1 &"
 
-            'plinkcommand = plinkmain & " " & plink1
             Dim file As System.IO.StreamWriter
-            file = My.Computer.FileSystem.OpenTextFileWriter(selfpath + "Thirdparty\tmp\plink_" & rigname & ".bat", False, Encoding.Default) 'With overwrite / Mit überschreiben
+            file = My.Computer.FileSystem.OpenTextFileWriter(selfpath + "Thirdparty\tmp\plink_" & rigname & ".bat", False, Encoding.Default)
             file.Write(plinkmain)
             file.Close()
 
-            file = My.Computer.FileSystem.OpenTextFileWriter(selfpath + "Thirdparty\tmp\plink." & rigname, False, Encoding.Default) 'With overwrite / Mit überschreiben
+            file = My.Computer.FileSystem.OpenTextFileWriter(selfpath + "Thirdparty\tmp\plink." & rigname, False, Encoding.Default)
             file.Write(plink1)
             file.Close()
 
@@ -1423,7 +1231,6 @@ Public Class Form1
             Me.DataGridView2.Item(11, i).Value = wingsheetname2
         Next
 
-        'Save the Pooldata
         Dim dataset As New StringBuilder
         For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
             dataset.AppendLine(Chr(34) + Me.DataGridView2.Item(2, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(9, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(10, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(11, i).Value.ToString + Chr(34))
@@ -1433,15 +1240,12 @@ Public Class Form1
     End Sub
 
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
-        'Button on MultiWingMining to Select all Devices
         For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
             Me.DataGridView2.Item(0, i).Value = True
         Next
     End Sub
 
     Private Sub TextBox11_Leave(sender As Object, e As EventArgs) Handles TextBox11.Leave
-        'Small Code to check the Path Entry for ext Device
-        'Check the Entry
         Dim path As String = Me.TextBox11.Text.Trim
         Dim zeichen = path(path.Length - 1)
 
@@ -1456,7 +1260,6 @@ Public Class Form1
     End Sub
 
     Private Sub ComboBox9_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox9.SelectedIndexChanged
-        'Set Language Englisch / Setze Sprache Englisch
         Dim combtext As String = Me.ComboBox9.Text
         Dim combtextsplitt() As String = combtext.Split("-")
         Dim xmllanguagecode As String = combtextsplitt(1)
@@ -1466,33 +1269,25 @@ Public Class Form1
     End Sub
 
     Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
-        'Timer to refresh the API Check from Pool
         Apipoolread()
         Showrigdetail()
     End Sub
 
     Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
-        'When a rig is clicked, the details about it are displayed / Wenn ein Rig angeklickt wird, werden die Details dazu angezeigt
         Showrigdetail()
     End Sub
 
     Private Sub RichTextBox2_LinkClicked(sender As Object, e As LinkClickedEventArgs) Handles RichTextBox2.LinkClicked
-        'Open the Pool in Webbrowser, where the Minder is Working
         Dim ProcessStartInfo = New ProcessStartInfo With {.FileName = e.LinkText, .UseShellExecute = True}
         Process.Start(ProcessStartInfo)
     End Sub
 
     Private Sub ToolStripStatusLabel2_Click(sender As Object, e As EventArgs) Handles ToolStripStatusLabel2.Click
-        'Open Donation Adress in RTM Explorer via Webbrowser
         Dim ProcessStartInfo = New ProcessStartInfo With {.FileName = "https://explorer.raptoreum.com/address/" + donationadress, .UseShellExecute = True}
         Process.Start(ProcessStartInfo)
     End Sub
 
     Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
-        'Delete Selecet Entry in Wallet DGV / Lösche markierten eintrag in der Wallet Übersicht
-
-        'Deleting cannot be undone. With this function, the wallet list is not yet saved in the wallet file.
-        'Das löschen kann nicht Rückgängig gemacht werden. Durch diese Funktion, ist die Walletliste aber noch nicht in der wallet Datei gespeicher.
         If Me.DataGridView1.Rows.Count > -1 Then
             Dim selectRowDGV1 As Integer = Me.DataGridView1.CurrentCell.RowIndex.ToString
             Dim selectwallet As String = "Nr. " & Me.DataGridView1.Item(0, selectRowDGV1).Value.ToString & " - " & Me.DataGridView1.Item(2, selectRowDGV1).Value.ToString & " (" & Me.DataGridView1.Item(1, selectRowDGV1).Value.ToString & ")"
@@ -1513,7 +1308,6 @@ Public Class Form1
     End Sub
 
     Private Sub Button13_MouseHover(sender As Object, e As EventArgs) Handles Button13.MouseHover
-        'Hover Efekt für Button13 (Delete Wallet Entry)
         Me.ToolTip1.SetToolTip(Button13, Checkxmllanguage("Button13").trim)
     End Sub
 
@@ -1523,13 +1317,10 @@ Public Class Form1
         Process.Start(ProcessStartInfo)
     End Sub
     Private Sub Button14_MouseHover(sender As Object, e As EventArgs) Handles Button14.MouseHover
-        'Hover Efekt für Button14 (RTM Explorer)
         Me.ToolTip1.SetToolTip(Button14, Checkxmllanguage("Button14").trim)
     End Sub
 
     Private Sub CheckBox4_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox4.CheckedChanged
-        'Dark Mode
-
         Dim dark As Color = Color.DimGray
         Dim transparent As Color = Color.Transparent
         Dim white As Color = Color.White
@@ -1546,7 +1337,6 @@ Public Class Form1
         Me.PictureBox1.BackgroundImage = My.Resources.Rptorwings_logo_small
 
         If Me.CheckBox4.Checked = True Then
-            'Dark Mode
             background = dark
             background2 = dark
             textcolor = white
@@ -1556,7 +1346,6 @@ Public Class Form1
         Else
 
         End If
-        'Light Mode
         Me.ForeColor = textcolor
         Me.LinkLabel1.LinkColor = textcolor
         Me.TabPage1.BackColor = background
@@ -1604,13 +1393,11 @@ Public Class Form1
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
-        'Open Tlata Homepage via Webbrowser
         Dim ProcessStartInfo = New ProcessStartInfo With {.FileName = "https://zlataamaranth.com", .UseShellExecute = True}
         Process.Start(ProcessStartInfo)
     End Sub
 
     Private Sub ComboBox5_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox5.SelectedIndexChanged
-        'If only 1 thread is selected, then turn off Donation / Wenn nur 1 Thread ausgewählt wurde, dann schalte Donation ab
         If Me.ComboBox5.Text = "1" Then
             Me.CheckBox5.Enabled = False
             Me.CheckBox5.CheckState = CheckState.Unchecked

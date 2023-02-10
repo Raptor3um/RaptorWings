@@ -27,7 +27,6 @@ Module readApiPool_rtm
                 Form1.DataGridView2.Item(3, i).Value = "offline"
             End If
 
-            'ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 'Security protocol for downloading API data / Security Protokoll für das Downloadne der API Daten
             Dim client As HttpClient = New HttpClient()
 
             If pool = "Raptorhash" Then
@@ -88,11 +87,9 @@ Module readApiPool_rtm
                             Form1.DataGridView2.Item(3, i).Value = pool & ": Rig online (NOW:" & now & "H/s  / AVG:" & avg & "H/s)"
                             Form1.DataGridView2.Item(12, i).Value = Date.Now
                             If now >= 0 Then
-                                'nowsummary = nowsummary + now
                                 nowsummary += now
                             End If
                             If avg >= 0 Then
-                                'avgsummy = avgsummy + avg
                                 avgsummy += avg
                             End If
                         Else

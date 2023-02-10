@@ -1,6 +1,5 @@
 ﻿Module showRigDetail_rtm
     Public Sub Showrigdetail()
-        'Rigdetails in MUltiWingMining
         If Form1.DataGridView2.Rows.Count - 1 = -1 Then
             Exit Sub
         End If

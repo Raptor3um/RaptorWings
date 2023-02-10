@@ -1,21 +1,16 @@
 ﻿Module miningsetting_rtm
     Public Sub Miningsetting()
-        'Automate mining settings when changing in the mining menu / Mining Einstellungen automatisieren bei Änderungen im Mining Menü
-        'This function is run through with every change in the mining menu / Diese funktion wird bei jeder Änderung im Mining Menü durchlaufen
         Cursor.Current = Cursors.WaitCursor
 
-        Dim pool As String = Form1.ComboBox2.Text 'Fill the variable with the selected pool designation / Variable mit der gewählten Poolbeeichnung befüllen
+        Dim pool As String = Form1.ComboBox2.Text
 
-        'Set Variable Solo to False and activate the associated checkbox / Variable Solo auf False setzten und die zugehörige Checkbox aktivieren
         Dim solo As String = False
         Form1.CheckBox3.Enabled = True
 
-        'If Checkbox3 (SOLO) was clicked set the variable Solo to True / Wenn Cehckbox3 (SOLO) angeklikt wurde die Variable Solo auf True setzten
         If Form1.CheckBox3.Checked = True Then
             solo = True
         End If
 
-        'Enter pool data of the selected pool in the controls /Pooldaten des ausgewählten Pools in die Steuerelemente eintragen
         If pool = "Raptorhash.com" Then
             Form1.ComboBox4.Items.Clear()
             Form1.ComboBox4.Items.Add("statum+tcp://na.raptorhash.com:6900")
@@ -29,7 +24,6 @@
             End If
         End If
 
-        'Enter pool data of the selected pool in the controls /Pooldaten des ausgewählten Pools in die Steuerelemente eintragen
         If pool = "Raptoreum.Zone" Then
             Form1.ComboBox4.Items.Clear()
             Form1.ComboBox4.Items.Add("stratum+tcp://europe-1.raptoreum.zone:3333")
@@ -52,7 +46,6 @@
 
         End If
 
-        'Enter pool data of the selected pool in the controls /Pooldaten des ausgewählten Pools in die Steuerelemente eintragen
         If pool = "FlockPool" Then
             Form1.ComboBox4.Items.Clear()
             Form1.ComboBox4.Items.Add("stratum+tcps://eu.flockpool.com:5555")
