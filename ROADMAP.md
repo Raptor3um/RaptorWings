@@ -8,10 +8,7 @@ There is no ban on thinking here. Every idea and every suggestion is welcome.
 
 3) 03/01/2023 – Releaise Raptorwings v1.0 “Falcon“
 --> All known bugs fixed
---> Update to automatic data exchange with Github
---> Serverpool Datas in Github
---> Mining Config Datas on Github
---> Integration XMRIG
+--> RTM Support Page
 
 4) Future Functions (Not in order)
 --> Primary: Implementing the wishes of the community, if feasible
@@ -23,5 +20,8 @@ There is no ban on thinking here. Every idea and every suggestion is welcome.
 --> "Eagle Eye"
 --> MultiWingMining for Windows devices
 --> Multilanguage
+--> Integration other Mining Software
+--> Air support
+ 
 
 5) Constant optimization of the source code

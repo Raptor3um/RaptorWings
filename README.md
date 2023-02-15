@@ -1,5 +1,5 @@
 RAPTORWINGS ©2023 by Raptoreum and Germardies
-01/27/2023
+16/02/2023
 =============================================
 Lightpaper
 -----------
@@ -14,7 +14,6 @@ This software was written to provide the Raptoreum community with the following:
 
 It is totally free to use without any fee.
 Mining fee is set by the third party miner and the pool server.
-The user can independently select to donate 1 thread at a time to the donation address to help progress Raptorwings, in dualmining, mint but this is not mandatory and this software is entirely free to use.
 If Raptorwings proves popular, we will continue to expand it.
 
 API's: 

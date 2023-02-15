@@ -319,6 +319,7 @@ Partial Class Form1
         Me.CheckBox5.Text = "1 Thread Donation"
         Me.CheckBox5.TextAlign = System.Drawing.ContentAlignment.TopLeft
         Me.CheckBox5.UseVisualStyleBackColor = True
+        Me.CheckBox5.Visible = False
         '
         'Button6
         '
@@ -394,7 +395,7 @@ Partial Class Form1
         '
         Me.Label16.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label16.ForeColor = System.Drawing.Color.Red
-        Me.Label16.Location = New System.Drawing.Point(3, 417)
+        Me.Label16.Location = New System.Drawing.Point(3, 422)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(834, 20)
         Me.Label16.TabIndex = 37

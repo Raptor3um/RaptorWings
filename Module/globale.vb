@@ -1,4 +1,11 @@
-﻿Imports System.Globalization
+﻿'This software is written for the RTM community. It is part of the Raptoreum program and was developed by
+'Germardies (https://github.com/Germardies).
+'It should be freely available To everyone.
+
+'Copyright(c) 2023 The Raptoreum developers
+'Copyright(c) 2023 Germardies
+
+Imports System.Globalization
 
 Module globale
 
@@ -38,5 +45,10 @@ Module globale
     Public SRBMinerDownloadnameLinux = "SRBMiner-Multi-2-0-2-Linux.tar.xz"
     Public SRBdirectory = "SRBMiner-Multi-2-0-2"
 
-
+    Public def_ps As String = "Raptorhash.com"
+    Public def_m As String = "SRBMiner-MULTI"
+    Public def_s As String = "statum+tcp://na.raptorhash.com:6900"
+    Public def_c As String = "Default"
+    Public def_pw As String = "c=RTM"
+    Public def_d As String = "True"
 End Module

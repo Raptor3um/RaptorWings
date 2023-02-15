@@ -1,5 +1,5 @@
 RAPROTWINGS ©2023 by Raptoreum und Germardies
-27.01.2023
+16.02.2023
 =============================================
 Lightpapaer
 -----------
@@ -15,8 +15,6 @@ sowohl mit lokalen als auch mit cloudbasierten Implementierungen
 
 Die Nutzung ist völlig kostenlos und ohne jegliche Gebühr.
 Mining Gebühr wird von den Drittanbietern und der Pool-Server festgelegt.
-Der Benutzer kann selbständig wählen, ob er jeweils 1 Thread an die Spendenadresse spenden möchte, um den Fortschritt von Raptorwings, 
-Dualmining, Mint zu unterstützen, aber dies ist nicht obligatorisch und diese Software ist völlig kostenlos zu benutzen.
 Wenn Raptorwings sich als beliebt erweist, werden wir es weiter ausbauen.
 
 API's: 

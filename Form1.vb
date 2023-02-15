@@ -1,4 +1,11 @@
-﻿Imports System.IO
+﻿'This software is written for the RTM community. It is part of the Raptoreum program and was developed by
+'Germardies (https://github.com/Germardies).
+'It should be freely available To everyone.
+
+'Copyright(c) 2023 The Raptoreum developers
+'Copyright(c) 2023 Germardies
+
+Imports System.IO
 Imports System.IO.Compression
 Imports System.Net
 Imports System.Text
@@ -263,17 +270,17 @@ Public Class Form1
             If Me.DataGridView1.Rows.Count - 1 >= 0 Then
                 Me.ComboBox1.Text = Me.DataGridView1.Item(2, 0).Value.ToString + " (" + Me.DataGridView1.Item(1, 0).Value.ToString + ")"
             End If
-            Me.ComboBox2.Text = "Raptorhash.com"
-            Me.ComboBox3.Text = "SRBMiner-MULTI"
-            Me.ComboBox4.Text = "statum+tcp://na.raptorhash.com:6900"
-            Me.ComboBox5.Text = "Default"
-            Me.TextBox2.Text = "c=RTM"
+            Me.ComboBox2.Text = def_ps
+            Me.ComboBox3.Text = def_m
+            Me.ComboBox4.Text = def_s
+            Me.ComboBox5.Text = def_c
+            Me.TextBox2.Text = def_pw
             Me.TextBox3.Text = ""
             Me.CheckBox3.Enabled = True
             Me.CheckBox1.CheckState = CheckState.Unchecked
             Me.CheckBox2.CheckState = CheckState.Unchecked
             Me.CheckBox3.CheckState = CheckState.Unchecked
-            Me.CheckBox5.CheckState = CheckState.Checked
+            Me.CheckBox5.CheckState = CheckState.Unchecked
             Exit Sub
         End If
 
@@ -617,12 +624,12 @@ Public Class Form1
         If Me.ComboBox7.Text = "Default" Then
             Me.RichTextBox1.Text = "WingSheet: Default" & System.Environment.NewLine &
                                    "Wallet: " & wallet & System.Environment.NewLine &
-                                   "Poolserver: Raptorhash" & System.Environment.NewLine &
-                                   "Straum: stratum+tcp://na.raptorhash.com:6900" & System.Environment.NewLine &
+                                   "Poolserver: " & def_ps & System.Environment.NewLine &
+                                   "Straum: " & def_s & System.Environment.NewLine &
                                    "Solo: No" & System.Environment.NewLine &
-                                   "Password: c=RTM" & System.Environment.NewLine &
-                                   "Miner: SRBMiner-MULTI" & System.Environment.NewLine &
-                                   "Cores: Default"
+                                   "Password: " & def_pw & System.Environment.NewLine &
+                                   "Miner: " & def_m & System.Environment.NewLine &
+                                   "Cores: " & def_c
             Exit Sub
         End If
 
@@ -972,11 +979,11 @@ Public Class Form1
             End If
             Me.RichTextBox1.Text = "WingSheet: Default" & System.Environment.NewLine &
                                    "Wallet: " & wallet & System.Environment.NewLine &
-                                   "Pool: Raptorhash" & System.Environment.NewLine &
-                                   "Server: stratum+tcp://na.raptorhash.com:6900" & System.Environment.NewLine &
+                                   "Pool: " & def_ps & System.Environment.NewLine &
+                                   "Server: " & def_s & System.Environment.NewLine &
                                    "Solo: No" & System.Environment.NewLine &
-                                   "Password: c=RTM" & System.Environment.NewLine &
-                                   "Miner: SRBMiner-MULTI" & System.Environment.NewLine &
+                                   "Password: " & def_pw & System.Environment.NewLine &
+                                   "Miner: " & def_m & System.Environment.NewLine &
                                    "Cores: ALL Cores / 1 for Donation"
             Exit Sub
         End If
@@ -1104,12 +1111,12 @@ Public Class Form1
                 Exit Sub
             End If
 
-            pool = "Raptorhash"
-            server = "stratum+tcp://na.raptorhash.com:6900"
-            password = "c=RTM"
-            miner = "SRBMiner-MULTI"
-            cores = "Default"
-            donation = "True"
+            pool = def_ps
+            server = def_s
+            password = def_pw
+            miner = def_m
+            cores = def_c
+            donation = def_d
         Else
 
             Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localwingsheet)

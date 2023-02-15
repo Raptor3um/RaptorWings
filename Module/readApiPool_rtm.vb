@@ -1,4 +1,11 @@
-﻿Imports System.Net
+﻿'This software is written for the RTM community. It is part of the Raptoreum program and was developed by
+'Germardies (https://github.com/Germardies).
+'It should be freely available To everyone.
+
+'Copyright(c) 2023 The Raptoreum developers
+'Copyright(c) 2023 Germardies
+
+Imports System.Net
 Imports System.Net.Http
 
 Module readApiPool_rtm
