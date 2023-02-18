@@ -1,11 +1,4 @@
-﻿'This software is written for the RTM community. It is part of the Raptoreum program and was developed by
-'Germardies (https://github.com/Germardies).
-'It should be freely available To everyone.
-
-'Copyright(c) 2023 The Raptoreum developers
-'Copyright(c) 2023 Germardies
-
-Module showRigDetail_rtm
+﻿Module showRigDetail_rtm
     Public Sub Showrigdetail()
         If Form1.DataGridView2.Rows.Count - 1 = -1 Then
             Exit Sub

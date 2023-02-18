@@ -135,12 +135,12 @@
 			</Label5>
 			<Label6>
 				<description>Choose Pool</description>
-				<EN>Choos a Pool:</EN>
+				<EN>Choose a Pool:</EN>
 				<GER>Wähle einen Pool</GER>
 			</Label6>
 			<Label7>
 				<description>Choose Wallet</description>
-				<EN>Choos a Wallet:</EN>
+				<EN>Choose a Wallet:</EN>
 				<GER>Wähle eine Wallet:</GER>
 			</Label7>
 			<Label8>
@@ -150,12 +150,12 @@
 			</Label8>
 			<Label9>
 				<description>Password</description>
-				<EN>Choos a Password:</EN>
+				<EN>Choose a Password:</EN>
 				<GER>Wähle ein Passwort:</GER>
 			</Label9>
 			<Label10>
 				<description>Mining Software</description>
-				<EN>Choos a Miner:</EN>
+				<EN>Choose a Miner:</EN>
 				<GER>Wähle einen Miner</GER>
 			</Label10>
 			<Label11>
@@ -164,8 +164,8 @@
 				<GER>Wärend dieses Vorganges wird Mining Software von Drittanbietern herruntergeladen +NewLine+	und auf diesem Gerät gespeichert.</GER>
 			</Label11>
 			<Label12>
-				<description>Choos as Serverport</description>
-				<EN>Choos a Port:</EN>
+				<description>Choose as Serverport</description>
+				<EN>Choose a Port:</EN>
 				<GER>Wähle einen Port:</GER>
 			</Label12>
 			<Label13>
@@ -184,7 +184,7 @@
 				<GER>Bitte Wähle keine Walletadresse die einem Exchange Server gehört. Du könntest deine Coins verlieren.</GER>
 			</Label16>
 			<Label18>
-				<description>Choos Wingsheet</description>
+				<description>Choose Wingsheet</description>
 				<EN>Use WingSheet:</EN>
 				<GER>Wähle Wingsheet:</GER>
 			</Label18>
@@ -263,7 +263,7 @@
 			</Label26>
 			<Label28>
 				<description>Hints</description>
-				<EN>Mark your devices, choose a WingSheet and start mining.</EN>
+				<EN>Mark your devices, Choose a WingSheet and start mining.</EN>
 				<GER>Markieren Sie Ihre Geräte, wählen Sie ein WingSheet +NewLine+ und beginnen Sie mit dem Mining.</GER>
 			</Label28>
 			<Label31>
@@ -313,7 +313,7 @@
 				</Message1.1>
 				<Message1.2>
 					<EN>Entry deleted but not yet saved.</EN>
-					<GER>Entry deleted but not yet saved.</GER>
+					<GER>Eintrag gelöscht, aber noch nicht gespeichert.</GER>
 				</Message1.2>
 				<Message1.3>
 					<EN>Warning</EN>
@@ -346,9 +346,9 @@
 				</Message4.2>			
 		</Message4>
 		<Message5>
-			<description>Message when start Mining and you have no Wallet choos</description>
+			<description>Message when start Mining and you have no Wallet Choose</description>
 				<Message5.1>
-					<EN>Pleas Choos a Waalet Adress</EN>
+					<EN>Pleas Choose a Waalet Adress</EN>
 					<GER>Bitte Wähle eine Walletadresse</GER>
 				</Message5.1>
 		</Message5>
@@ -455,5 +455,103 @@
 				<GER>Bitte die Liste speichern, wenn alle Adressen eingetragen wurden!</GER>
 			</Message18.1>
 		</Message18>
+		<Message19>
+			<description>Download RTM Core portable</description>
+			<Message19.1>
+				<EN>This version of RTM Core Portable is already stored on the desktop+NewLine+ +NewLine+Do you want to launch RTM Core Portable?</EN>
+				<GER>Diese Version von RTM Core Portable ist bereits auf dem Desktop hinterlegt.+NewLine+ +NewLine+Möchten Sie RTM Core Portable starten?</GER>
+			</Message19.1>
+		</Message19>
+		<Message20>
+			<description>Download RTM Core portable</description>
+			<Message20.1>
+				<EN>Would you like to download and run the portable version of RTM Core on your desktop?</EN>
+				<GER>Möchten Sie die portable Version von RTM Core auf den Desktop heerunterladen und starten?</GER>
+			</Message20.1>
+		</Message20>
+		<Message21>
+			<description>Download RTM Core Install Datei</description>
+			<Message21.1>
+				<EN>Do you want to download the RTM Core installation file on the desktop?</EN>
+				<GER>Möchten Sie die Installationsdatei von RTM Core auf den Desktop heerunterladen?</GER>
+			</Message21.1>
+		</Message21>
+		<Message22>
+			<description>Download RTM Core Install Datei</description>
+			<Message22.1>
+				<EN>The RTM Core installation file has been downloaded to the desktop +NewLine+ +NewLine+Please start it manually.</EN>
+				<GER>Die Installationsdatei von RTM Core wurde auf den Desktop herruntergeladen.+NewLine+ +NewLine+Bitte starten Sie diese manuell.</GER>
+			</Message22.1>
+		</Message22>
+		<Message23>
+			<description>RTM Core Install exists</description>
+			<Message23.1>
+				<EN>The installation file of RTM Core is already present on your Dekstop.</EN>
+				<GER>Die Installationsdatei von RTM Core ost bereits auf Ihrem Dekstop vorhanden.</GER>
+			</Message23.1>
+		</Message23>
+		<Message24>
+			<description>RTM Core Install exists</description>
+			<Message24.1>
+				<EN>The wallet.dat was not found in the default directory +NewLine+ +NewLine+Cancels the operation.</EN>
+				<GER>Die wallet.dat wurde nicht im Standardverzeichniss gefunden.+NewLine+ +NewLine+Vorgang wird abgebrochen.</GER>
+			</Message24.1>
+		</Message24>
+		<Message25>
+			<description>Wallet not found in RTM Core</description>
+			<Message25.1>
+				<EN>The wallet.dat was saved.</EN>
+				<GER>Die wallet.dat wurde gespeichert.</GER>
+			</Message25.1>
+		</Message25>
+		<Message26>
+			<description>RTM Core not found</description>
+			<Message26.1>
+				<EN>RTM Core was not found in the default directory +NewLine+ +NewLine+Cancels the operation.</EN>
+				<GER>RTM Core wurde nicht im Standartverzeichniss gefunden.+NewLine+ +NewLine+Vorgang wird abgebrochen.</GER>
+			</Message26.1>
+		</Message26>
+		<Message27>
+			<description>Warning for Bootstrap Update</description>
+			<Message27.1>
+				<EN>You are in the process of replacing the bootstraps in the RTM Core.+NewLine+ +NewLine+ You need 6GB of free space on the desktop.+NewLine+ +NewLine+ This process may take several minutes.+NewLine+ +NewLine+ Do you want to continue?</EN>
+				<GER>Sie sind dabei die Bootstraps in der RTM Core zu erstzen.+NewLine+ +NewLine+Sie benötigen 6GB freien Speicher auf dem Desktop.+NewLine+ +NewLine+ Dieser Vorgang kann mehrere Minuten in Anspruch nehmen.+NewLine+ +NewLine+Möchten Sie fortfahren?</GER>
+			</Message27.1>
+		</Message27>
+		<Message28>
+			<description>Bottstrap Update complete</description>
+			<Message28.1>
+				<EN>Update of bootstrap has been performed. Please start RTM Core.</EN>
+				<GER>Update der Bootstrap wurde durchgeführt. Bitte starten Sie RTM Core.</GER>
+			</Message28.1>
+		</Message28>
+		<Message29>
+			<description>Check if Corewallet is running</description>
+			<Message29.1>
+				<EN>The Raptoreum Core is still running. Please stop it.</EN>
+				<GER>Die Raptoreum Core läuft noch. Bitte beenden Sie diese.</GER>
+			</Message29.1>
+		</Message29>
+		<Message30>
+			<description>Error Messeage in Multiwingsheet, when no Device in List</description>
+			<Message30.1>
+				<EN>You must select at least 1 device from the left list, or create a device first.</EN>
+				<GER>Du must mindestens 1 Gerät aus der linken Liste Auswählen, oder zuerst ein Gerät anlegen.</GER>
+			</Message30.1>
+		</Message30>
+		<Message31>
+			<description>Double Adress in Wallet List</description>
+			<Message31.1>
+				<EN>Duplicate entries are not allowed.+NewLine+ +NewLine+The line for the new entry is deleted.</EN>
+				<GER>Doppelte Einträge sind nicht erlaubt.+NewLine+ +NewLine+Die Zeile für den neuen Eintrag wird gelöscht.</GER>
+			</Message31.1>
+		</Message31>
+		<Message32>
+			<description>Double Check Miner Task</description>
+			<Message32.1>
+				<EN>A mining task is already running.+NewLine++NewLine+The process is aborted for security reasons.</EN>
+				<GER>Es läuft bereits ein Mining Task.+NewLine++NewLine+Der Vorgang wird aus Sicherheitsgründen abgebrochen.</GER>
+			</Message32.1>
+		</Message32>
 	</Messages>
 </RaptorWings>

@@ -1,7 +1,4 @@
-﻿'This software is written for the RTM community. It is part of the Raptoreum program and was developed by
-'Germardies (https://github.com/Germardies).
-'It should be freely available To everyone.
-
+﻿
 'Copyright(c) 2023 The Raptoreum developers
 'Copyright(c) 2023 Germardies
 
@@ -101,7 +98,7 @@ Public Class Form1
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         If Me.DataGridView1.Rows.Count - 1 = -1 Then
-            MessageBox.Show(Checkxmllanguage("Message2.1").trim)
+            MessageBox.Show(Checkxmllanguage("Message2.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Exit Sub
         End If
 
@@ -121,7 +118,7 @@ Public Class Form1
 
         System.IO.File.WriteAllText(localwallet, sb.ToString)
 
-        MessageBox.Show((Checkxmllanguage("Message3.1").trim))
+        MessageBox.Show((Checkxmllanguage("Message3.1").trim), "Note", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
     End Sub
     Private Sub Button2_MouseHover(sender As Object, e As EventArgs) Handles Button2.MouseHover
@@ -131,6 +128,16 @@ Public Class Form1
     Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellEndEdit
         Cursor.Current = Cursors.WaitCursor
 
+        Dim selectRowDGV1 As Integer = Me.DataGridView1.CurrentCell.RowIndex.ToString
+        Dim newwalletadress As String = Me.DataGridView1.Item(1, selectRowDGV1).Value.ToString
+        For i As Integer = 0 To selectRowDGV1 - 1
+            If Me.DataGridView1.Item(1, i).Value.ToString = newwalletadress Then
+                MessageBox.Show(Checkxmllanguage("Message31.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Me.DataGridView1.Rows.Remove(Me.DataGridView1.Rows(selectRowDGV1))
+                Exit Sub
+            End If
+        Next
+
         Dim walletadress As String = Me.DataGridView1.Item(1, Me.DataGridView1.Rows.Count - 1).Value.ToString
         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         Dim client As New WebClient
@@ -138,7 +145,7 @@ Public Class Form1
 
         Dim response As String = client.DownloadString(apiwalletbalanceurl + walletadress)
         If response = "{}" Then
-            MessageBox.Show((Checkxmllanguage("Message17.1").trim))
+            MessageBox.Show((Checkxmllanguage("Message17.1").trim), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Me.DataGridView1.Item(1, Me.DataGridView1.Rows.Count - 1).Value = ""
             Exit Sub
         End If
@@ -170,6 +177,13 @@ Public Class Form1
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        For Each p In Diagnostics.Process.GetProcesses()
+            If p.ProcessName = "SRBMiner-MULTI" And Me.Button4.BackColor = Color.YellowGreen Then
+                MessageBox.Show(Checkxmllanguage("Message32.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
+            End If
+        Next
+
         If Me.Button4.BackColor = Color.PaleVioletRed Then
             For Each Process In System.Diagnostics.Process.GetProcessesByName("SRBMiner-MULTI")
                 Process.Kill()
@@ -203,7 +217,7 @@ Public Class Form1
         End If
 
         If Me.ComboBox1.Text = Nothing Then
-            MessageBox.Show(Checkxmllanguage("Message5.1").trim)
+            MessageBox.Show(Checkxmllanguage("Message5.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
         Dim walletsplitt() As String = Me.ComboBox1.Text.Split("(")
@@ -231,6 +245,10 @@ Public Class Form1
             wingsheet_srb01 = Chr(34) & selfpath & "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe" & Chr(34) & " --disable-gpu --cpu-threads " & threads & " --algorithm ghostrider --pool " & server & " --wallet " & wallet & "." & rig & " --password " & password
         Else
             wingsheet_srb01 = Chr(34) & selfpath & "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe" & Chr(34) & " --disable-gpu --cpu-threads " & threads & ";1 --algorithm ghostrider;ghostrider --pool " & server & ";statum+tcp://na.raptorhash.com:6900 --wallet " & wallet & "." & rig & ";" & donationadress & ".Donation_" & rig & " --password " & password & ";c=RTM"
+        End If
+
+        If Me.CheckBox1.Checked = True Then
+            wingsheet_srb01 += " --background"
         End If
 
         If Me.ComboBox2.Text = "Raptorhash.com" Then
@@ -351,17 +369,17 @@ Public Class Form1
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         If Me.TextBox3.Text = "" Or Me.TextBox3.Text = Nothing Or Me.TextBox3.Text = " " Then
-            MessageBox.Show(Checkxmllanguage("Message6.1").trim)
+            MessageBox.Show(Checkxmllanguage("Message6.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
 
         If Me.TextBox1.Text = "" Or Me.TextBox1.Text = Nothing Or Me.TextBox1.Text = " " Then
-            MessageBox.Show(Checkxmllanguage("Message7.1").trim)
+            MessageBox.Show(Checkxmllanguage("Message7.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
 
         If Me.TextBox3.Text = "Default" Then
-            MessageBox.Show(Checkxmllanguage("Message9.1").trim)
+            MessageBox.Show(Checkxmllanguage("Message9.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
 
@@ -456,7 +474,7 @@ Public Class Form1
             End If
         Next
 
-        MessageBox.Show(Checkxmllanguage("Message8.1").trim)
+        MessageBox.Show(Checkxmllanguage("Message8.1").trim, "Note", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
     End Sub
     Private Sub Button5_MouseHover(sender As Object, e As EventArgs) Handles Button5.MouseHover
@@ -467,12 +485,12 @@ Public Class Form1
         Dim wingsheetname As String = Me.TextBox3.Text
 
         If wingsheetname = "Default" Then
-            MessageBox.Show(Checkxmllanguage("Message9.1").trim)
+            MessageBox.Show(Checkxmllanguage("Message9.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
 
         If Me.TextBox3.Text = "" Or Me.TextBox3.Text = Nothing Or Me.TextBox3.Text = " " Then
-            MessageBox.Show(Checkxmllanguage("Message6.1").trim)
+            MessageBox.Show(Checkxmllanguage("Message6.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
 
@@ -531,7 +549,7 @@ Public Class Form1
         Me.CheckBox3.CheckState = CheckState.Unchecked
 
 
-        MessageBox.Show(Checkxmllanguage("Message11.1").trim)
+        MessageBox.Show(Checkxmllanguage("Message11.1").trim, "Note", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
     Private Sub Button6_MouseHover(sender As Object, e As EventArgs) Handles Button6.MouseHover
         Me.ToolTip1.SetToolTip(Button6, Checkxmllanguage("Button6").trim)
@@ -887,7 +905,7 @@ Public Class Form1
         Me.TextBox9.BackColor = Color.White
         Me.TextBox11.Text = "/home/"
 
-        MessageBox.Show(Checkxmllanguage("Message15.1").trim)
+        MessageBox.Show(Checkxmllanguage("Message15.1").trim, "Note", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
     End Sub
 
@@ -963,7 +981,7 @@ Public Class Form1
 
             Me.Button7.Enabled = False
 
-            MessageBox.Show(Checkxmllanguage("Message13.1").trim)
+            MessageBox.Show(Checkxmllanguage("Message13.1").trim, "Note", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
 
@@ -984,7 +1002,7 @@ Public Class Form1
                                    "Solo: No" & System.Environment.NewLine &
                                    "Password: " & def_pw & System.Environment.NewLine &
                                    "Miner: " & def_m & System.Environment.NewLine &
-                                   "Cores: ALL Cores / 1 for Donation"
+                                   "Cores: ALL Cores"
             Exit Sub
         End If
 
@@ -1060,6 +1078,25 @@ Public Class Form1
     End Sub
 
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        If Me.DataGridView2.Rows.Count = 0 Then
+            MessageBox.Show(Checkxmllanguage("Message30.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
+        Dim selectrownumber As Integer = 0
+        For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
+            If Me.DataGridView2.Item(0, i).Value = False Then
+                Continue For
+            Else
+                selectrownumber += 1
+            End If
+        Next
+
+        If selectrownumber < 0 Then
+            MessageBox.Show(Checkxmllanguage("Message30.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
         Dim msgtext1 As String = Checkxmllanguage("Message14.1").trim
         Dim msgtext2 As String = Checkxmllanguage("Message14.2").trim
 
@@ -1069,17 +1106,17 @@ Public Class Form1
         End If
 
         If Not Directory.Exists(selfpath + "Thirdparty") Then
-            MessageBox.Show("Directory Error. Exit Function")
+            MessageBox.Show("Directory Error. Exit Function", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
 
         If Not File.Exists(selfpath + "Thirdparty\plink.exe") Then
-            MessageBox.Show("File Error. Exit Function")
+            MessageBox.Show("File Error. Exit Function", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
 
         If Not File.Exists(selfpath + "Thirdparty\pscp.exe") Then
-            MessageBox.Show("File Error. Exit Function")
+            MessageBox.Show("File Error. Exit Function", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
 
@@ -1107,7 +1144,7 @@ Public Class Form1
                 wallet = Me.DataGridView1.Item(1, 0).Value.ToString
             End If
             If wallet = "you need a Waalet then" Then
-                MessageBox.Show(Checkxmllanguage("Message16.1").trim)
+                MessageBox.Show(Checkxmllanguage("Message16.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End If
 
@@ -1295,7 +1332,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
-        If Me.DataGridView1.Rows.Count > -1 Then
+        If Me.DataGridView1.Rows.Count - 1 > -1 Then
             Dim selectRowDGV1 As Integer = Me.DataGridView1.CurrentCell.RowIndex.ToString
             Dim selectwallet As String = "Nr. " & Me.DataGridView1.Item(0, selectRowDGV1).Value.ToString & " - " & Me.DataGridView1.Item(2, selectRowDGV1).Value.ToString & " (" & Me.DataGridView1.Item(1, selectRowDGV1).Value.ToString & ")"
 
@@ -1309,7 +1346,8 @@ Public Class Form1
                 For i As Integer = 0 To Me.DataGridView1.Rows.Count - 1
                     Me.DataGridView1.Item(0, i).Value = i + 1
                 Next
-                MessageBox.Show(msgtext2)
+                MessageBox.Show(msgtext2, "Note", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Readbalance()
             End If
         End If
     End Sub
@@ -1319,9 +1357,11 @@ Public Class Form1
     End Sub
 
     Private Sub Button14_Click(sender As Object, e As EventArgs) Handles Button14.Click
-        Dim selectRowDGV1 As Integer = Me.DataGridView1.CurrentCell.RowIndex.ToString
-        Dim ProcessStartInfo = New ProcessStartInfo With {.FileName = "https://explorer.raptoreum.com/address/" + Me.DataGridView1.Item(1, selectRowDGV1).Value.ToString, .UseShellExecute = True}
-        Process.Start(ProcessStartInfo)
+        If Me.DataGridView1.Rows.Count - 1 > -1 Then
+            Dim selectRowDGV1 As Integer = Me.DataGridView1.CurrentCell.RowIndex.ToString
+            Dim ProcessStartInfo = New ProcessStartInfo With {.FileName = "https://explorer.raptoreum.com/address/" + Me.DataGridView1.Item(1, selectRowDGV1).Value.ToString, .UseShellExecute = True}
+            Process.Start(ProcessStartInfo)
+        End If
     End Sub
     Private Sub Button14_MouseHover(sender As Object, e As EventArgs) Handles Button14.MouseHover
         Me.ToolTip1.SetToolTip(Button14, Checkxmllanguage("Button14").trim)
@@ -1414,4 +1454,8 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub RichTextBox3_LinkClicked(sender As Object, e As LinkClickedEventArgs) Handles RichTextBox3.LinkClicked
+        Dim ProcessStartInfo = New ProcessStartInfo With {.FileName = e.LinkText, .UseShellExecute = True}
+        Process.Start(ProcessStartInfo)
+    End Sub
 End Class
