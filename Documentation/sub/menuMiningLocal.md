@@ -47,7 +47,9 @@ RAPTROWINGS - Menu - Mining
 <br /><br />
 16 = If this option is enabled, Raptorwings will close (after pressing "Start Mining") as soon as the mining software is running.
 <br /><br />
-17 = Start mining<br />
+17 = Worker thread priority, 1-5 where 5 is highest (def. is 2).
+<br /><br />
+18 = Start mining<br />
 *If this field is red and not green, you can stop the miner by clicking on this field.*<br />
 *If you have just started Raptorwings and the field is red, then the SRB miner is already running (perhaps from a previous session where you activated the miner)* <br />
 

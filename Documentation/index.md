@@ -1,4 +1,4 @@
-RAPTORWINGS DOCUMENTATION
+RAPTORWINGS v1.0.0 DOCUMENTATION
 =========================
 **NOTE!!**
 **It is entirely normal that windows defender might flag this download as a virus due to the mining files used.<br />
@@ -16,6 +16,7 @@ Genrell
 01. [Filestructur](sub/filestructur.md)
 02. [External Connections](sub/extern.md)
 03. [Languages File](sub/languages.md)
+04. [Finance](sub/financing.md)
 
 The Programm
 ------------
@@ -26,9 +27,11 @@ The Programm
 05. [Main Menu - Mining](sub/menuMiningLocal.md)
 06. [Sub Menu - MultiWING Mining](sub/menuMiningMultiWing.md)
 07. [Sub Menu - MultiWING Mining - Device](sub/menuMiningMultiWingDevice.md)
+08. [Main Menu - RTM Support](sub/rtmsupport.md)
 
 Changelogs
 ------------
+[v1.0.0 - 26.02.2023](changelog/1-0-0.md)<br />
 [v0.99h - 18.02.2023](changelog/099h.md)<br />
 [v0.99g - 12.02.2023](changelog/099g.md)<br />
 [v0.99f - 10.02.2023](changelog/099f.md)<br />

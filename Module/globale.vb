@@ -1,10 +1,24 @@
-﻿Imports System.Globalization
+﻿'Copyright(c) 2023 The Raptoreum developers
+'Copyright(c) 2023 Germardies
+
+Imports System.Globalization
+Imports System.Security.Cryptography.X509Certificates
 
 Module globale
 
+    Public winDesktop = System.Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)
     Public selfpath As String = Application.StartupPath
     Public localfolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData).Replace("Roaming", "Local") + "\RaptorWings\"
     Public balancesummyglobal = 0
+    Public rtmCoreAppDatapfad = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\RaptoreumCore\"
+
+    Public rtmCorePortableWebPfad = "https://github.com/Raptor3um/raptoreum/releases/download/1.3.17.02/raptoreum-win-1.3.17.02.zip"
+    Public rtmCorePortableDownloadName = "raptoreum-win-1.3.17.02.zip"
+    Public rtmCorePortableName = "raptoreum-win-1.3.17.02"
+    Public rtmCoreInstallWebPfad = "https://github.com/Raptor3um/raptoreum/releases/download/1.3.17.02/raptoreumcore-1.3.17-win64-setup.exe"
+    Public rtmCoreInstallName = "raptoreumcore-1.3.17-win64-setup.exe"
+    Public rtmBootstrapWebpfad = "https://bootstrap.raptoreum.com/bootstraps/bootstrap.zip"
+    Public rtmBootstrapDownloadName = "bootstrap.zip"
 
     Public systemlanguage As String = CultureInfo.CurrentCulture.Name
     Public xmlLanguagesCodes As String = "EN"
@@ -30,18 +44,17 @@ Module globale
     Public poolurlraptoreumzone = "https://api.raptoreum.zone/v1/miners?method="
     Public poolurlraptoreumtone_wallet = "https://raptoreum.zone/miners/"
 
-    Public donationadress As String = "REGCJ1eEiopwUFwaHVmUiXZTSPW9gfZdyH"
+    Public donationadress As String = "RDuvGCXFspg9Pkkako32Sx3sbxi7whbXmb"
 
-    Public SRBMinerDownloadpathWinows = "https://github.com/doktor83/SRBMiner-Multi/releases/download/2.0.2/SRBMiner-Multi-2-0-2-win64.zip"
-    Public SRBMinerDownloadpathLinux = "https://github.com/doktor83/SRBMiner-Multi/releases/download/2.0.2/SRBMiner-Multi-2-0-2-Linux.tar.xz"
-    Public SRBMinerDownloadnameWindows = "SRBMiner-Multi-2-0-2-win64.zip"
-    Public SRBMinerDownloadnameLinux = "SRBMiner-Multi-2-0-2-Linux.tar.xz"
-    Public SRBdirectory = "SRBMiner-Multi-2-0-2"
+    Public SRBMinerDownloadpathWinows = "https://github.com/doktor83/SRBMiner-Multi/releases/download/2.1.0/SRBMiner-Multi-2-1-0-win64.zip"
+    Public SRBMinerDownloadpathLinux = "https://github.com/doktor83/SRBMiner-Multi/releases/download/2.1.0/SRBMiner-Multi-2-1-0-Linux.tar.xz"
+    Public SRBMinerDownloadnameWindows = "SRBMiner-Multi-2-1-0-win64.zip"
+    Public SRBMinerDownloadnameLinux = "SRBMiner-Multi-2-1-0-Linux.tar.xz"
+    Public SRBdirectory = "SRBMiner-Multi-2-1-0"
 
     Public def_ps As String = "Raptorhash.com"
     Public def_m As String = "SRBMiner-MULTI"
     Public def_s As String = "statum+tcp://na.raptorhash.com:6900"
     Public def_c As String = "Default"
     Public def_pw As String = "c=RTM"
-    Public def_d As String = "True"
 End Module

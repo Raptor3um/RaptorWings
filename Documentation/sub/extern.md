@@ -36,5 +36,5 @@ Mining Software
 ---------------
 SRBMiner-MULTI (https://www.srbminer.com/)<br />
 
-SRBMiner-MULTI Windows Download: https://github.com/doktor83/SRBMiner-Multi/releases/download/2.0.2/SRBMiner-Multi-2-0-2-win64.zip<br />
-SRBMiner-MULTI Linux Download: https://github.com/doktor83/SRBMiner-Multi/releases/download/2.0.2/SRBMiner-Multi-2-0-2-Linux.tar.xz<br />
+SRBMiner-MULTI Windows Download: https://github.com/doktor83/SRBMiner-Multi/releases/download/2.1.0/SRBMiner-Multi-2-1-0-win64.zi<br />
+SRBMiner-MULTI Linux Download: https://github.com/doktor83/SRBMiner-Multi/releases/download/2.1.0/SRBMiner-Multi-2-1-0-Linux.tar.xz<br />

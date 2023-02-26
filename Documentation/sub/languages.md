@@ -1,5 +1,5 @@
-[Back to Home](../index.md)<br />
-<br />
+[Back to Home](../index.md)
+
 RAPTROWINGS - Languages File                             
 ----------------------------
 

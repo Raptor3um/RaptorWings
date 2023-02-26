@@ -1,4 +1,7 @@
-﻿Module miningsetting_rtm
+﻿'Copyright(c) 2023 The Raptoreum developers
+'Copyright(c) 2023 Germardies
+
+Module miningsetting_rtm
     Public Sub Miningsetting()
         Cursor.Current = Cursors.WaitCursor
 

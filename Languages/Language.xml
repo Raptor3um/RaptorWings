@@ -2,7 +2,8 @@
 <RaptorWings>
 	<Hints>
 		<CountryCodes>
-			<text>http://www.codedigest.com/CodeDigest/207-Get-All-Language-Country-Code-List-for-all-Culture-in-C---ASP-Net.aspx</text>
+			<text>
+				http://www.codedigest.com/CodeDigest/207-Get-All-Language-Country-Code-List-for-all-Culture-in-C---ASP-Net.aspx</text>
 		</CountryCodes>
 	</Hints>
 	<Languages>
@@ -13,6 +14,13 @@
 			<README>README_EN</README>
 			<Creator></Creator>
 		</ENGLISH>
+		<SPAIN>
+			<CountryCode>es-ES</CountryCode>
+			<title>Spain</title>
+			<XMLCode>ES</XMLCode>
+			<README>README_ES</README>
+			<Creator></Creator>
+		</SPAIN>
 		<GERMAN>
 			<CountryCode>de-DE</CountryCode>
 			<title>German</title>
@@ -25,24 +33,34 @@
 		<TabPages>
 			<TabPage1>
 				<EN>Overview</EN>
+				<ES>Resumen</ES>
 				<GER>Übersicht</GER>
 			</TabPage1>
 			<TabPage2>
 				<EN>Wallets</EN>
+				<ES>Carteras</ES>
 				<GER>Wallets</GER>
 			</TabPage2>
 			<TabPage3>
 				<EN>Mining</EN>
+				<ES>Minería</ES>
 				<GER>Mining</GER>
 			</TabPage3>
 			<TabPage6>
 				<EN>About</EN>
+				<ES>Acerca de</ES>
 				<GER>Über</GER>
 			</TabPage6>
+			<TabPage9>
+				<EN>RTM Support</EN>
+				<ES>Soporte RTM</ES>
+				<GER>RTM Hilfe</GER>
+			</TabPage9>
 		</TabPages>
 		<ToolStrip>
 			<ToolStripLabel1>
 				<EN>RaptorWINGS Donation-Adress:</EN>
+				<ES>Dirección de donación de RaptorWINGS:</ES>
 				<GER>RaptorWINGS Spendenadresse:</GER>
 			</ToolStripLabel1>
 		</ToolStrip>
@@ -52,11 +70,13 @@
 			<Label2>
 				<description>Wallet Balace</description>
 				<EN>Balance of all your addresses:</EN>
+				<ES>Saldo de todas tus direcciones:</ES>
 				<GER>Balance deiner Wallet Adressen</GER>
 			</Label2>
 			<Label4>
 				<description>introduction</description>
 				<EN>Your GUI for RTM wallets and RTM mining</EN>
+				<ES>Tu GUI para billeteras y minería de RTM</ES>
 				<GER>Dein GUI für RTM Wallets und RTM Mining</GER>
 			</Label4>
 		</Labels>
@@ -66,42 +86,49 @@
 			<Button1>
 				<description>New Wallet Entry Button</description>
 				<EN>Capture new wallet</EN>
+				<ES>Capturar nueva billetera</ES>
 				<GER>Neue Wallet erfassen</GER>
 			</Button1>
 			<Button2>
 				<description>Save Wallet List</description>
 				<EN>Save</EN>
+				<ES>Guardar</ES>
 				<GER>Speichern</GER>
 			</Button2>
 			<Button13>
-				<description>Delet Wallet List</description>
-				<EN>Delet select Wallet</EN>
+				<description>Delete Wallet List</description>
+				<EN>Delete selected Wallet</EN>
+				<ES>Borrar billetera seleccionada</ES>
 				<GER>Lösche markierte Wallet</GER>
 			</Button13>
 			<Button14>
 				<description>Open Wallet in Explorer</description>
-				<EN>Open selected Wallet on Explorer</EN>
-				<GER>Öffne markeirte Wallet im Explorer</GER>
+				<EN>Open selected Wallet in Explorer</EN>
+				<ES>Abrir billetera seleccionada en el Explorador</ES>
+				<GER>Öffne markierte Wallet im Explorer</GER>
 			</Button14>
 		</Buttons>
 		<Labels>
 			<Label19>
 				<description>Hints on Wallet Page</description>
 				<EN>All wallet information is read out via the RTM Explorer API. All prices are transmitted through the Coingecko API.</EN>
-				<GER>Alle Wallet Angaben werden über die RTM Explorer API ausgelesen. Alle Preise werden durch die Coingecko API übertragen.</GER>            
+				<ES>Toda la información de la billetera se lee a través de la API de RTM Explorer. Todos los precios se transmiten a través de la API de Coingecko.</ES>
+				<GER>Alle Wallet Angaben werden über die RTM Explorer API ausgelesen. Alle Preise werden durch die Coingecko API übertragen.</GER>
 			</Label19>
 		</Labels>
 		<Columns>
 			<Column11>
-				<description>Header Text Tabel Wallets</description>
-				<EN>Adresses</EN>
+				<description>Header Text Table Wallets</description>
+				<EN>Addresses</EN>
+				<ES>Direcciones</ES>
 				<GER>Adresse</GER>
 			</Column11>
 			<Column12>
-				<description>Header Text Tabel Wallets</description>
+				<description>Header Text Table Wallets</description>
 				<EN>Description</EN>
+				<ES>Descripción</ES>
 				<GER>Beschreibung</GER>
-			</Column12>        
+			</Column12>
 		</Columns>
 	</WalletPage>
 	<MiningDevicePage>
@@ -109,102 +136,127 @@
 			<Button3>
 				<description>Button to confirm the mining notes</description>
 				<EN>I have read and understood the warning and would like to proceed</EN>
+				<ES>He leído y entendido la advertencia y me gustaría continuar</ES>
 				<GER>Ich habe die Hinweise gelesen, verstanden und möchte fortfahren.</GER>
 			</Button3>
 			<Button4>
 				<description>Button to Start mining on local Device</description>
 				<EN>Start Mining</EN>
-			<GER>Starte Mining</GER>
+				<ES>Iniciar minería</ES>
+				<GER>Starte Mining</GER>
 			</Button4>
 			<Button5>
 				<description>Button so safe the WingSheet</description>
 				<EN>Save Wingsheet</EN>
+				<ES>Guardar Wingsheet</ES>
 				<GER>WingSheet speichern</GER>
 			</Button5>
 			<Button6>
 				<description>Button so Delet an WingSheet</description>
 				<EN>Delete</EN>
+				<ES>Eliminar</ES>
 				<GER>Löschen</GER>
 			</Button6>
 		</Buttons>
 		<Labels>
 			<Label5>
 				<description>Notices1 that the POW area will be entered</description>
-				<EN>Danger! +NewLine+ On this page you can get the device running this program to mine RTM Coins. +NewLine+ You yourself take full responsibility for what you do here and start.</EN>
-				<GER>ACHTUNG! +NewLine+ Auf dieser Seite kannst du dieses Gerät dazu bringen den RTM Coin zu erminen. +NewLine+ Du bist selbst verantwortlich dafür was du hier machst.</GER>
+				<EN>Danger! +NewLine+ On this page you can get the device running this program to mine RTM Coins. You yourself take full responsibility for what you do+NewLine+here and start.</EN>
+				<GER>ACHTUNG! +NewLine+ Auf dieser Seite kannst du dieses Gerät dazu bringen den RTM+NewLine+Coin zu erminen. +NewLine+ Du bist selbst verantwortlich dafür was du hier machst.</GER>
+				<ES>¡Peligro! +NewLine+ En esta página puedes hacer que el dispositivo que ejecuta este programa mine monedas RTM. +NewLine+ Tú eres el único responsable de lo que hagas aquí y comiences.</ES>
 			</Label5>
 			<Label6>
 				<description>Choose Pool</description>
 				<EN>Choose a Pool:</EN>
 				<GER>Wähle einen Pool</GER>
+				<ES>Elige una pool:</ES>
 			</Label6>
 			<Label7>
 				<description>Choose Wallet</description>
 				<EN>Choose a Wallet:</EN>
 				<GER>Wähle eine Wallet:</GER>
+				<ES>Elige una cartera:</ES>
 			</Label7>
 			<Label8>
 				<description>Device Name</description>
 				<EN>Rig name: </EN>
 				<GER>Name des Rig's: </GER>
+				<ES>Nombre del equipo:</ES>
 			</Label8>
 			<Label9>
 				<description>Password</description>
 				<EN>Choose a Password:</EN>
 				<GER>Wähle ein Passwort:</GER>
+				<ES>Elige una contraseña:</ES>
 			</Label9>
 			<Label10>
 				<description>Mining Software</description>
 				<EN>Choose a Miner:</EN>
 				<GER>Wähle einen Miner</GER>
+				<ES>Elige un minero:</ES>
 			</Label10>
 			<Label11>
 				<description>Notices2 that the POW area will be entered</description>
-				<EN>During the process, the selected third-party mining software will be downloaded +NewLine+ and stored on this device.</EN>
-				<GER>Wärend dieses Vorganges wird Mining Software von Drittanbietern herruntergeladen +NewLine+	und auf diesem Gerät gespeichert.</GER>
+				<EN>During the process, the selected third-party mining software will be downloaded +NewLine+and stored on this device.</EN>
+				<GER>Wärend dieses Vorganges wird Mining Software von Drittanbietern herruntergeladen +NewLine+und auf diesem Gerät gespeichert.</GER>
+				<ES>Durante el proceso, se descargará el software de minería de tercero sseleccionado+NewLine+ y se almacenará en este dispositivo.</ES>
 			</Label11>
 			<Label12>
 				<description>Choose as Serverport</description>
 				<EN>Choose a Port:</EN>
 				<GER>Wähle einen Port:</GER>
+				<ES>Elige un puerto:</ES>
 			</Label12>
 			<Label13>
 				<description>CPU Cores</description>
 				<EN>Number of Cores/Threads to use:</EN>
 				<GER>Anzahl der CPU/Threads:</GER>
+				<ES>Número de núcleos/hilos a utilizar:</ES>
 			</Label13>
 			<Label15>
 				<description>Hints on This Device Mining Page</description>
 				<EN>Please check the mining fee and the mining conditions independently on the respective websites of all providers.</EN>
 				<GER>Bitte prüfe selber die Mining Gebühren und die Mining Bedingungen auf den Internetseiten der Anbieter.</GER>
+				<ES>Por favor, verifique la tarifa de minería y las condiciones de minería de forma	independiente en los sitios web respectivos+NewLine+ de todos los proveedores.</ES>
 			</Label15>
 			<Label16>
 				<description>Hints on This Device Mining Page</description>
 				<EN>Please do not select a wallet address from an exchange server. You could lose your mined coins as a result.</EN>
 				<GER>Bitte Wähle keine Walletadresse die einem Exchange Server gehört. Du könntest deine Coins verlieren.</GER>
+				<ES>Por favor, no seleccione una dirección de billetera de un servidor de intercambio.+NewLine+Podría perder sus monedas minadas como resultado.</ES>
 			</Label16>
 			<Label18>
 				<description>Choose Wingsheet</description>
 				<EN>Use WingSheet:</EN>
 				<GER>Wähle Wingsheet:</GER>
+				<ES>Usar WingSheet:</ES>
 			</Label18>
 			<Label20>
 				<description>Wingsheet Save an Delet</description>
 				<EN>Name of the WingSheet</EN>
 				<GER>Name des Wingsheet:</GER>
+				<ES>Nombre del WingSheet:</ES>
 			</Label20>
+			<Label32>
+				<description>Threths Priotiy</description>
+				<EN>Task Priority of Threads:</EN>
+				<GER>Prioridad de tarea de los hilos:</GER>
+				<ES>Prioridad de tarea de los hilos:</ES>
+			</Label32>
 		</Labels>
 		<CheckBoxes>
 			<Checkbox1>
 				<description>Question check box:Hide miner</description>
 				<EN>Start Miner in background</EN>
+				<ES>Iniciar el minero en segundo plano</ES>
 				<GER>Starte Miner im Hintergrund</GER>
 			</Checkbox1>
 			<Checkbox2>
 				<description>Close RaptorWings</description>
 				<EN>Close RaptorWINGS after start Mining</EN>
+				<ES>Cerrar RaptorWINGS después de iniciar la minería</ES>
 				<GER>RaptorWings nach start schließen</GER>
-			</Checkbox2>                    
+			</Checkbox2>
 		</CheckBoxes>
 	</MiningDevicePage>
 	<MultiWingMiningPage>
@@ -213,26 +265,31 @@
 				<description>Delete a Device on MultiWing DeviceList</description>
 				<EN>Delete Device</EN>
 				<GER>Gerät löschen</GER>
+				<ES>Eliminar dispositivo</ES>
 			</Button7>
 			<Button8>
 				<description>Save a Device on MultiWing DeviceList</description>
 				<EN>Save Device</EN>
 				<GER>Gerät speichern</GER>
+				<ES>Guardar dispositivo</ES>
 			</Button8>
 			<Button9>
 				<description>New Device on MultiWing DeviceList</description>
 				<EN>New Device</EN>
 				<GER>Neues Gerät</GER>
+				<ES>Nuevo dispositivo</ES>
 			</Button9>
 			<Button10>
 				<description>Start MULTIMINING</description>
 				<EN>Start mining</EN>
 				<GER>Starte Mining</GER>
+				<ES>Iniciar minería</ES>
 			</Button10>
 			<Button11>
 				<description>Mark all entries in the device list</description>
 				<EN>Select all</EN>
 				<GER>Makiere alle</GER>
+				<ES>Seleccionar todo</ES>
 			</Button11>
 		</Buttons>
 		<Labels>
@@ -240,233 +297,338 @@
 				<description>device selection</description>
 				<EN>Select Device to change Properties.</EN>
 				<GER>Wähle ein Gerät um es zu ändern.</GER>
+				<ES>Seleccione un dispositivo para cambiar sus propiedades:</ES>
 			</Label3>
 			<Label14>
 				<description>Device Name</description>
 				<EN>Device Name:</EN>
 				<GER>Geräte Name:</GER>
+				<ES>Nombre del aparato:</ES>
 			</Label14>
 			<Label24>
 				<description>Username extern Rig</description>
 				<EN>Username:</EN>
 				<GER>Benutzername:</GER>
+				<ES>Nombre de usuario:</ES>
 			</Label24>
 			<Label25>
 				<description>Password extern Rig</description>
 				<EN>Password:</EN>
 				<GER>Passwort:</GER>
+				<ES>Contraseña:</ES>
 			</Label25>
 			<Label26>
 				<description>Path extern Rig</description>
 				<EN>Path</EN>
 				<GER>Dateipfad:</GER>
+				<ES>Ruta:</ES>
 			</Label26>
 			<Label28>
 				<description>Hints</description>
 				<EN>Mark your devices, Choose a WingSheet and start mining.</EN>
-				<GER>Markieren Sie Ihre Geräte, wählen Sie ein WingSheet +NewLine+ und beginnen Sie mit dem Mining.</GER>
+				<GER>Markieren Sie Ihre Geräte, wählen Sie ein WingSheet +NewLine+ und beginnen Sie	mit dem Mining.</GER>
+				<ES>Marque sus dispositivos, elija una Hoja de Alas y comience a minar.</ES>
 			</Label28>
 			<Label31>
 				<description>Hints under Path</description>
 				<EN>The directory must exist!</EN>
 				<GER>Das Verzeichniss muss existieren!</GER>
-			</Label31>        
+				<ES>¡El directorio debe existir!</ES>
+			</Label31>
 		</Labels>
 		<TabPages>
-				<TabPage4>
-					<EN>This Device</EN>
-					<GER>Dieses Gerät</GER>
-				</TabPage4>
-				<TabPage5>
-					<EN>MultiWING Mining (Experimental)</EN>
-					<GER>MultiWING Mining (Experimentell)</GER>
-				</TabPage5>
-				<TabPage7>
-					<EN>Mining</EN>
-					<GER>Mining</GER>
-				</TabPage7>
-				<TabPage8>
-					<EN>Devices</EN>
-					<GER>Geräte</GER>
-				</TabPage8>
+			<TabPage4>
+				<EN>This Device</EN>
+				<GER>Dieses Gerät</GER>
+				<ES>Este dispositivo</ES>
+			</TabPage4>
+			<TabPage5>
+				<EN>MultiWING Mining (Experimental)</EN>
+				<GER>MultiWING Mining (Experimentell)</GER>
+				<ES>Minería MultiWING (Experimental)</ES>
+			</TabPage5>
+			<TabPage7>
+				<EN>Mining</EN>
+				<GER>Mining</GER>
+				<ES>Minería</ES>
+			</TabPage7>
+			<TabPage8>
+				<EN>Devices</EN>
+				<GER>Geräte</GER>
+				<ES>Dispositivos</ES>
+			</TabPage8>
 		</TabPages>
 		<TextBoxes>
 			<TextBox10>
 				<EN>All ring data is transferred from the PoolAPI after 60 seconds.</EN>
-				<GER>Alle Rigdaten werden nach 60Sekunden von der PoolAPI übertragen.</GER>
+				<ES>Todos los datos del rig se transfieren desde PoolAPI después de 60 segundos.</ES>
+				<GER>Alle Rigdaten werden nach 60 Sekunden von der PoolAPI übertragen.</GER>
 			</TextBox10>
 		</TextBoxes>
 		<Columns>
 			<Column21>
 				<description>Header Text Tabel Devices</description>
 				<EN>Device</EN>
+				<ES>Dispositivo</ES>
 				<GER>Gerät</GER>
-			</Column21>     
-		</Columns>		
+			</Column21>
+		</Columns>
 	</MultiWingMiningPage>
+	<RTMHelp>
+		<Label>
+			<Label36>
+				<description>RTM Support</description>
+				<EN>Your personal RTM support</EN>
+				<GER>Dein persönlicher RTM Support</GER>
+				<ES>Su apoyo personal a la RTM:</ES>
+			</Label36>
+			<Label37>
+				<description>RTM Support Download</description>
+				<EN>Download and run RTM Core:</EN>
+				<GER>Lade RTM Core herunter und starte es:</GER>
+				<ES>Descargue y ejecute RTM Core:</ES>
+			</Label37>
+			<Label38>
+				<description>RTM Support Backup</description>
+				<EN>Save your RTM Wallet.dat:</EN>
+				<GER>Speichern deiner RTM Wallet.dat:</GER>
+				<ES>Guarda tu RTM Wallet.dat:</ES>
+			</Label38>
+			<Label39>
+				<description>Update RTM Core Bootstrap:</description>
+				<EN>RTM Core Bootstrap update:</EN>
+				<GER>RTM Core Bootstrap aktualisieren:</GER>
+				<ES>Actualización RTM Core Bootstrap:</ES>
+			</Label39>
+			<Label41>
+				<description>Update RTM Core Download:</description>
+				<EN>Download:</EN>
+				<GER>Herunterladen:</GER>
+				<ES>Descargar:</ES>
+			</Label41>
+			<Label44>
+				<description>Update RTM Core Download:</description>
+				<EN>Update:</EN>
+				<GER>Update:</GER>
+				<ES>Actualización:</ES>
+			</Label44>
+		</Label>
+		<Button>
+			<Button12>
+				<description>Portable Button on RTM Support Page</description>
+				<EN>Portable</EN>
+				<GER>Portable</GER>
+				<ES>Portable</ES>
+			</Button12>
+			<Button15>
+				<description>Install Button on RTM Support Page</description>
+				<EN>Install</EN>
+				<GER>Install</GER>
+				<ES>Install</ES>
+			</Button15>
+			<Button16>
+				<description>Save Wallet Button on RTM Support Page</description>
+				<EN>Save</EN>
+				<GER>Speichern</GER>
+				<ES>Guardar</ES>
+			</Button16>
+			<Button17>
+				<description>Update Button on RTM Support Page</description>
+				<EN>Update</EN>
+				<GER>Updaten</GER>
+				<ES>Actualización</ES>
+			</Button17>
+		</Button>
+	</RTMHelp>
 	<Messages>
 		<Message1>
 			<description>Delete Wallet Entrys</description>
-				<Message1.1>
-					<EN>You are about to delete wallet +NewLine+ (selectwallet) +NewLine+ from this List? +NewLine+ This action can not be undone. +NewLine+ +NewLine+ Do you want to delete the entry?</EN>
-					<GER>Sie sind dabei die Wallet +NewLine+ (selectwallet) +NewLine+ aus der Liste löschen? +NewLine+ Dieser Vorgang kann nicht Rückgängig gemacht werden. +NewLine+ +NewLine+ Wollen Sie den Eintrag löschen?</GER>
-				</Message1.1>
-				<Message1.2>
-					<EN>Entry deleted but not yet saved.</EN>
-					<GER>Eintrag gelöscht, aber noch nicht gespeichert.</GER>
-				</Message1.2>
-				<Message1.3>
-					<EN>Warning</EN>
-					<GER>Warnung</GER>
-				</Message1.3>
-		</Message1>	
+			<Message1.1>
+				<EN>You are about to delete wallet +NewLine+ (selectwallet) +NewLine+ from this List? +NewLine+ This action can not be undone. +NewLine+ +NewLine+ Do you want to delete the entry?</EN>
+				<GER>Sie sind dabei die Wallet +NewLine+ (selectwallet) +NewLine+ aus der Liste löschen? +NewLine+ Dieser Vorgang kann nicht Rückgängig gemacht werden. +NewLine+ +NewLine+ Wollen Sie den Eintrag löschen?</GER>
+				<ES>¿Está seguro de que desea eliminar la billetera +NewLine+ (selectwallet) +NewLine+ de esta lista? +NewLine+ Esta acción no se puede deshacer. +NewLine+ +NewLine+ ¿Desea eliminar la entrada?</ES>
+			</Message1.1>
+			<Message1.2>
+				<EN>Entry deleted but not yet saved.</EN>
+				<GER>Eintrag gelöscht, aber noch nicht gespeichert.</GER>
+				<ES>Entrada eliminada pero aún no guardada.</ES>
+			</Message1.2>
+			<Message1.3>
+				<EN>Warning</EN>
+				<GER>Warnung</GER>
+				<ES>Advertencia</ES>
+			</Message1.3>
+		</Message1>
 		<Message2>
 			<description>Message when saving the wallet list</description>
-				<Message2.1>
-					<EN>Sorry. Nothing to Save. Please Add a new Entry</EN>
-					<GER>Entschuldigung. Es gibt nichts zu speichern. Bitte erzeuge einene neuen Eintrag</GER>
-				</Message2.1>
-		</Message2>	
+			<Message2.1>
+				<EN>Sorry. Nothing to Save. Please Add a new Entry</EN>
+				<GER>Entschuldigung. Es gibt nichts zu speichern. Bitte erzeuge einene neuen Eintrag</GER>
+				<ES>Lo siento. No hay nada que guardar. Por favor, agregue una nueva entrada.</ES>
+			</Message2.1>
+		</Message2>
 		<Message3>
 			<description>Message when saving the wallet list</description>
-				<Message3.1>
-					<EN>Save completed successfully</EN>
-					<GER>Speichern erfolgreich beendet</GER>
-				</Message3.1>
-		</Message3>	
+			<Message3.1>
+				<EN>Save completed successfully</EN>
+				<GER>Speichern erfolgreich beendet</GER>
+				<ES>Guardado completado con éxito</ES>
+			</Message3.1>
+		</Message3>
 		<Message4>
 			<description>Message when start Mining on the Device</description>
-				<Message4.1>
-					<EN>You are about to mine (Proof of Work - PoW) on this device. +NewLine+ +NewLine+ Use of this feature is your own responsibility. +NewLine+ +NewLine+ Third-party files and programs will be started on this device. +NewLine+ +NewLine+ Make sure that this device is yours personally and that there are no disadvantages on these devices through Proof of Work. +NewLine+ +NewLine+By confirming this, you assume full responsibility for this function. +NewLine+ +NewLine+ Do you want to start the process?</EN>
-					<GER>Sie sind dabei auf diesem Gerät Mining (Proof of Work - PoW) zu betreiben. +NewLine+ +NewLine+ Für die Nutzung dieser Funktion sind Sie eigenständig verantwortlich. +NewLine+ +NewLine+ Es werden Dateien und Programme von Drittanbietern, auf diesem Gerät gestartet. +NewLine+ +NewLine+ Stellen Sie sicher, dass dieses Geräte Ihnen persöhnlich gehört und das auf diesen Geräten, durch Proof of Work keine Nachteile entstehen. +NewLine+ +NewLine+ Durch Ihre Bestätigung übernehmen Sie die volle Verwantwortung für diese Funktion. +NewLine+ +NewLine+ Möchten Sie den Prozess starten?</GER>
-				</Message4.1>
-				<Message4.2>
-					<EN>Warning</EN>
-					<GER>Warnung</GER>
-				</Message4.2>			
+			<Message4.1>
+				<EN>You are about to mine (Proof of Work - PoW) on this device. +NewLine+ +NewLine+Use of this feature is your own responsibility. +NewLine+ +NewLine+ Third-party files and programs will be started on this device. +NewLine+ +NewLine+ Make sure that this device is yours personally and that there are no disadvantages on these devices through Proof of Work. +NewLine+ +NewLine+By confirming this, you assume full responsibility for this function. +NewLine+ +NewLine+ Do you want to start the process?</EN>
+				<GER>Sie sind dabei auf diesem Gerät Mining (Proof of Work - PoW) zu betreiben. +NewLine+ +NewLine+ Für die Nutzung dieser Funktion sind Sie eigenständig verantwortlich. +NewLine+ +NewLine+ Es werden Dateien und Programme von Drittanbietern, auf diesem Gerät gestartet. +NewLine+ +NewLine+ Stellen Sie sicher, dass dieses Geräte Ihnen persöhnlich gehört und das auf diesen Geräten, durch Proof of Work keine Nachteile entstehen. +NewLine+ +NewLine+ Durch Ihre Bestätigung übernehmen Sie die volle Verwantwortung für diese Funktion.+NewLine+ +NewLine+ Möchten Sie den Prozess starten?</GER>
+				<ES>Estás a punto de minar (Prueba de Trabajo - PoW) en este dispositivo. +NewLine+ +NewLine+El uso de esta función es responsabilidad exclusiva tuya. +NewLine+ +NewLine+Se iniciarán archivos y programas de terceros en este dispositivo. +NewLine+ +NewLine+Asegúrate de que este dispositivo sea tuyo personalmente y de que no haya desventajas en estos dispositivos a través de la Prueba de Trabajo. +NewLine+ +NewLine+ Al confirmar esto, asumes la plena responsabilidad de esta función.+NewLine+ +NewLine+¿Quieres iniciar el proceso?</ES>
+			</Message4.1>
+			<Message4.2>
+				<EN>Warning</EN>
+				<GER>Warnung</GER>
+				<ES>Advertencia</ES>
+			</Message4.2>
 		</Message4>
 		<Message5>
 			<description>Message when start Mining and you have no Wallet Choose</description>
-				<Message5.1>
-					<EN>Pleas Choose a Waalet Adress</EN>
-					<GER>Bitte Wähle eine Walletadresse</GER>
-				</Message5.1>
+			<Message5.1>
+				<EN>Please Choose a Wallet Address</EN>
+				<GER>Bitte wählen Sie eine Wallet-Adresse aus</GER>
+				<ES>Por favor, elija una dirección de billetera</ES>
+			</Message5.1>
 		</Message5>
 		<Message6>
 			<description>Message when save/delet the Wingsheet</description>
-				<Message6.1>
-					<EN>Please enter a name for the WingSheet.</EN>
-					<GER>Bitte einen Namen für das WingSheet angeben.</GER>
-				</Message6.1>
+			<Message6.1>
+				<EN>Please enter a name for the WingSheet.</EN>
+				<GER>Bitte einen Namen für das WingSheet angeben.</GER>
+				<ES>Por favor ingrese un nombre para la hoja de alas.</ES>
+			</Message6.1>
 		</Message6>
 		<Message7>
 			<description>Message when your Rig have no Name</description>
-				<Message7.1>
-					<EN>Please enter a name for your Rig.</EN>
-					<GER>Bitte einen Namen für dein Rig ein.</GER>
-				</Message7.1>
+			<Message7.1>
+				<EN>Please enter a name for your Rig.</EN>
+				<GER>Bitte einen Namen für dein Rig ein.</GER>
+				<ES>Por favor ingrese un nombre para su plataforma.</ES>
+			</Message7.1>
 		</Message7>
 		<Message8>
 			<description>Message when WingSheet is saved</description>
-				<Message8.1>
-					<EN>Wingsheet saved.</EN>
-					<GER>WingSheet gespeichert.</GER>
-				</Message8.1>
+			<Message8.1>
+				<EN>Wingsheet saved.</EN>
+				<GER>WingSheet gespeichert.</GER>
+				<ES>WingSheet guardada.</ES>
+			</Message8.1>
 		</Message8>
 		<Message9>
 			<description>Message when you try to overwrite the default profile</description>
-				<Message9.1>
-					<EN>Overriding default is not supported.</EN>
-					<GER>Default überschreiben wird nicht unterstützt.</GER>
-				</Message9.1>
+			<Message9.1>
+				<EN>Overriding default is not supported.</EN>
+				<GER>Default überschreiben wird nicht unterstützt.</GER>
+				<ES>No se admite la sobreescritura del perfil predeterminado.</ES>
+			</Message9.1>
 		</Message9>
 		<Message10>
 			<description>Message when you delete a Wingsheet</description>
-				<Message10.1>
-					<EN>You are about to delete WingSheet. +NewLine+ This action can not be undone. +Newline+ +NewLine+ Do you want to delete the entry?</EN>
-					<GER>ie sind dabei das Wingsheet zu löschen. +NewLine+ Dieser Vorgang kann nicht Rückgängig gemacht werden. +NewLine+ +NewLine+ Wollen Sie den Eintrag löschen?</GER>
-				</Message10.1>	
-				<Message10.2>
-					<EN>Warning</EN>
-					<GER>Warnung</GER>
-				</Message10.2>
+			<Message10.1>
+				<EN>You are about to delete WingSheet. +NewLine+ This action can not be undone.+Newline+ +NewLine+ Do you want to delete the entry?</EN>
+				<GER>Sie sind dabei das Wingsheet zu löschen. +NewLine+ Dieser Vorgang kann nicht Rückgängig gemacht werden. +NewLine+ +NewLine+ Wollen Sie den Eintrag löschen?</GER>
+				<ES>Está a punto de eliminar la WingSheet. +NewLine+ Esta acción no se puede deshacer. +Newline+ +Newline+ ¿Desea eliminar la entrada?</ES>
+			</Message10.1>
+			<Message10.2>
+				<EN>Warning</EN>
+				<GER>Warnung</GER>
+				<ES>Advertencia</ES>
+			</Message10.2>
 		</Message10>
 		<Message11>
 			<description>Message when you have delete a Wingsheet</description>
-				<Message11.1>
-					<EN>Wingsheet delete.</EN>
-					<GER>WingSheet gelöscht</GER>
-				</Message11.1>
+			<Message11.1>
+				<EN>Wingsheet delete.</EN>
+				<ES>Wingsheet eliminado.</ES>
+				<GER>WingSheet gelöscht</GER>
+			</Message11.1>
 		</Message11>
 		<Message12>
 			<description>Message when you will delete a Device</description>
-				<Message12.1>
-					<EN>You are about to delete Device (device) from this List? +NewLine+ This action can not be undone. +NewLine+ +NewLine+ Do you want to delete the entry?</EN>
-					<GER>Sie sind dabei das Gerät (device) aus der Liste löschen? +NewLine+ Dieser Vorgang kann nicht Rückgängig gemacht werden. +NewLine+ +NewLine+ Wollen Sie den Eintrag löschen?</GER>
-				</Message12.1>
-				<Message12.2>
-					<EN>Warning</EN>
-					<GER>Warnung</GER>
-				</Message12.2>
+			<Message12.1>
+				<EN>You are about to delete Device (device) from this List? +NewLine+ This action can not be undone. +NewLine+ +NewLine+ Do you want to delete the entry?</EN>
+				<ES>¿Está a punto de eliminar el dispositivo (device) de esta lista? +NewLine+Esta acción no se puede deshacer. +NewLine+ +NewLine+ ¿Desea eliminar la entrada?</ES>
+				<GER>Sie sind dabei das Gerät (device) aus der Liste löschen? +NewLine+Dieser Vorgang kann nicht Rückgängig gemacht werden. +NewLine+ +NewLine+ Wollen Sie den Eintrag löschen?</GER>
+			</Message12.1>
+			<Message12.2>
+				<EN>Warning</EN>
+				<ES>Advertencia</ES>
+				<GER>Warnung</GER>
+			</Message12.2>
 		</Message12>
 		<Message13>
 			<description>Message when you have will delete a Device</description>
-				<Message13.1>
-					<EN>Dataset saved.</EN>
-					<GER>Datensatz gespeicher</GER>
-				</Message13.1>
+			<Message13.1>
+				<EN>Dataset saved.</EN>
+				<ES>Conjunto de datos guardado.</ES>
+				<GER>Datensatz gespeicher</GER>
+			</Message13.1>
 		</Message13>
 		<Message14>
 			<description>Message when you start MULTIMINING</description>
-				<Message14.1>
-					<EN>You are about to mine (Proof of Work - PoW) on external devices. +NewLine+ +NewLine+ Use of this feature is your own responsibility. +NewLine+ +NewLine+ Third-party files and programs will be transferred to the devices you select. +NewLine+ +NewLine+Make sure that the selected devices belong to you personally and that there are no disadvantages on these devices through Proof of Work. +NewLine+ +NewLine+By confirming this, you assume full responsibility for this function. +NewLine+ +NewLine+ Do you want to start the process?</EN>
-					<GER>Sie sind dabei Mining (Proof of Work - PoW) auf externen Geräten zu betreiben. +NewLine+ +NewLine+ Für die Nutzung dieser Funktion sind Sie eigenständig verantwortlich. +NewLine+ +NewLine+ Es werden Dateien und Programme von Drittanbietern, auf die von ihnen gewählten Geräten, übertragen. +NewLine+ +NewLine+ Stellen Sie sicher, dass die ausgewählten Geräte Ihnen persöhnlich gehören und das auf diesen Geräten, durch Proof of Work keine Nachteile entstehen. +NewLine+ +NewLine+ Durch Ihre Bestätigung übernehmen Sie die volle Verwantwortung für diese Funktion. +NewLine+ +NewLine+ Möchten Sie den Prozess starten?</GER>
-				</Message14.1>
-				<Message14.2>
-					<EN>Warning</EN>
-					<GER>Warnung</GER>
-				</Message14.2>
+			<Message14.1>
+				<EN>You are about to mine (Proof of Work - PoW) on external devices. +NewLine++NewLine+Use of this feature is your own responsibility. +NewLine+ +NewLine+Third-party files and programs will be transferred to the devices you select.+NewLine+ +NewLine+Make sure that the selected devices belong to you personally and that there are no disadvantages on these devices through Proof of Work.+NewLine+ +NewLine+By confirming this, you assume full responsibility for this function. +NewLine+ +NewLine+ Do you want to start the process?</EN>
+				<GER>Sie sind dabei Mining (Proof of Work - PoW) auf externen Geräten zu betreiben.+NewLine+ +NewLine+Für die Nutzung dieser Funktion sind Sie eigenständig verantwortlich.+NewLine+ +NewLine+Es werden Dateien und Programme von Drittanbietern, auf die von ihnen gewählten Geräten, übertragen. +NewLine++NewLine+Stellen Sie sicher, dass die ausgewählten Geräte Ihnen persöhnlich gehören und das auf diesen Geräten, durch Proof of Work keine Nachteile	entstehen. +NewLine+ +NewLine+Durch Ihre Bestätigung übernehmen Sie die volle Verwantwortung für diese Funktion. +NewLine+ +NewLine+ Möchten Sie den Prozess starten?</GER>
+				<ES>Está a punto de minar (Prueba de trabajo - PoW) en dispositivos externos. +NewLine++NewLine+El uso de esta función es responsabilidad exclusiva del usuario. +NewLine++NewLine+Los archivos y programas de terceros se transferirán a los dispositivos seleccionados. +NewLine+ +NewLine+Asegúrese de que los dispositivos seleccionados le pertenecen personalmente y que no hay desventajas en estos dispositivos mediante la	prueba de trabajo. +NewLine+ +NewLine+Al confirmar esto, usted asume la plena responsabilidad de esta función. +NewLine+ +NewLine+ ¿Desea iniciar el proceso?</ES>
+			</Message14.1>
+			<Message14.2>
+				<EN>Warning</EN>
+				<GER>Warnung</GER>
+				<ES>Advertencia</ES>
+			</Message14.2>
 		</Message14>
 		<Message15>
 			<description>Message when you will save a Device</description>
-				<Message15.1>
-					<EN>Dataset saved.</EN>
-					<GER>Datensatz gespeicher.</GER>
-				</Message15.1>
+			<Message15.1>
+				<EN>Dataset saved.</EN>
+				<GER>Datensatz gespeicher.</GER>
+				<ES>Conjunto de datos guardado.</ES>
+			</Message15.1>
 		</Message15>
 		<Message16>
 			<description>No Wallet on MULTIRIG MINING</description>
-				<Message16.1>
-					<EN>You need a Wallet</EN>
-					<GER>Du benötigst eine Wallet.</GER>
-				</Message16.1>
+			<Message16.1>
+				<EN>You need a Wallet</EN>
+				<GER>Du benötigst eine Wallet.</GER>
+				<ES>Necesitas una billetera.</ES>
+			</Message16.1>
 		</Message16>
 		<Message17>
 			<description>No Wallet on RTM Explorer Found</description>
-				<Message17.1>
-					<EN>The entered wallet address was not found on the RTM Explorer. The process is aborted.</EN>
-					<GER>Die eingegebene Walletadresse wurde auf dem RTM Explorer nicht gefunden. Der Vorgang wird abgebrochen.</GER>
-				</Message17.1>
+			<Message17.1>
+				<EN>The entered wallet address was not found on the RTM Explorer. The process is aborted.</EN>
+				<GER>Die eingegebene Walletadresse wurde auf dem RTM Explorer nicht gefunden. Der Vorgang wird abgebrochen.</GER>
+				<ES>No se encontró la dirección de billetera ingresada en RTM Explorer. El proceso se cancela.</ES>
+			</Message17.1>
 		</Message17>
 		<Message18>
 			<description>Save List message</description>
 			<Message18.1>
 				<EN>Please save the list when all addresses have been entered!</EN>
 				<GER>Bitte die Liste speichern, wenn alle Adressen eingetragen wurden!</GER>
+				<ES>¡Por favor, guarde la lista cuando se hayan ingresado todas las direcciones!</ES>
 			</Message18.1>
 		</Message18>
 		<Message19>
 			<description>Download RTM Core portable</description>
 			<Message19.1>
-				<EN>This version of RTM Core Portable is already stored on the desktop+NewLine+ +NewLine+Do you want to launch RTM Core Portable?</EN>
+				<EN>This version of RTM Core Portable is already stored on the desktop+NewLine++NewLine+Do you want to launch RTM Core Portable?</EN>
 				<GER>Diese Version von RTM Core Portable ist bereits auf dem Desktop hinterlegt.+NewLine+ +NewLine+Möchten Sie RTM Core Portable starten?</GER>
+                <ES>Esta versión de RTM Core Portable ya está guardada en el escritorio+NewLine++NewLine+¿Desea iniciar RTM Core Portable?</ES>
 			</Message19.1>
 		</Message19>
 		<Message20>
 			<description>Download RTM Core portable</description>
 			<Message20.1>
-				<EN>Would you like to download and run the portable version of RTM Core on your desktop?</EN>
+				<EN>Would you like to download and run the portable version of RTM Core on your	desktop?</EN>
 				<GER>Möchten Sie die portable Version von RTM Core auf den Desktop heerunterladen und starten?</GER>
+                <ES>¿Le gustaría descargar y ejecutar la versión portátil de RTM Core en su escritorio?</ES>
 			</Message20.1>
 		</Message20>
 		<Message21>
@@ -474,19 +636,22 @@
 			<Message21.1>
 				<EN>Do you want to download the RTM Core installation file on the desktop?</EN>
 				<GER>Möchten Sie die Installationsdatei von RTM Core auf den Desktop heerunterladen?</GER>
+                <ES>¿Desea descargar el archivo de instalación de RTM Core en el escritorio?</ES>
 			</Message21.1>
 		</Message21>
 		<Message22>
 			<description>Download RTM Core Install Datei</description>
 			<Message22.1>
-				<EN>The RTM Core installation file has been downloaded to the desktop +NewLine+ +NewLine+Please start it manually.</EN>
+				<EN>The RTM Core installation file has been downloaded to the desktop +NewLine++NewLine+Please start it manually.</EN>
 				<GER>Die Installationsdatei von RTM Core wurde auf den Desktop herruntergeladen.+NewLine+ +NewLine+Bitte starten Sie diese manuell.</GER>
+                <ES>El archivo de instalación de RTM Core se ha descargado en el escritorio +NewLine+ +NewLine+ Por favor, inícielo manualmente.</ES>
 			</Message22.1>
 		</Message22>
 		<Message23>
 			<description>RTM Core Install exists</description>
 			<Message23.1>
 				<EN>The installation file of RTM Core is already present on your Dekstop.</EN>
+				<ES>El archivo de instalación de RTM Core ya está presente en su escritorio.</ES>
 				<GER>Die Installationsdatei von RTM Core ost bereits auf Ihrem Dekstop vorhanden.</GER>
 			</Message23.1>
 		</Message23>
@@ -494,13 +659,15 @@
 			<description>RTM Core Install exists</description>
 			<Message24.1>
 				<EN>The wallet.dat was not found in the default directory +NewLine+ +NewLine+Cancels the operation.</EN>
-				<GER>Die wallet.dat wurde nicht im Standardverzeichniss gefunden.+NewLine+ +NewLine+Vorgang wird abgebrochen.</GER>
+				<ES>No se encontró el archivo wallet.dat en el directorio predeterminado +NewLine+ +NewLine+Cancela la operación.</ES>
+				<GER>Die wallet.dat wurde nicht im Standardverzeichniss gefunden.+NewLine++NewLine+Vorgang wird abgebrochen.</GER>
 			</Message24.1>
 		</Message24>
 		<Message25>
 			<description>Wallet not found in RTM Core</description>
 			<Message25.1>
 				<EN>The wallet.dat was saved.</EN>
+				<ES>El archivo wallet.dat fue guardado.</ES>
 				<GER>Die wallet.dat wurde gespeichert.</GER>
 			</Message25.1>
 		</Message25>
@@ -508,13 +675,15 @@
 			<description>RTM Core not found</description>
 			<Message26.1>
 				<EN>RTM Core was not found in the default directory +NewLine+ +NewLine+Cancels the operation.</EN>
-				<GER>RTM Core wurde nicht im Standartverzeichniss gefunden.+NewLine+ +NewLine+Vorgang wird abgebrochen.</GER>
+				<ES>No se encontró RTM Core en el directorio predeterminado +NewLine+ +NewLine+Cancela la operación.</ES>
+				<GER>RTM Core wurde nicht im Standartverzeichniss gefunden.+NewLine++NewLine+Vorgang wird abgebrochen.</GER>
 			</Message26.1>
 		</Message26>
 		<Message27>
 			<description>Warning for Bootstrap Update</description>
 			<Message27.1>
-				<EN>You are in the process of replacing the bootstraps in the RTM Core.+NewLine+ +NewLine+ You need 6GB of free space on the desktop.+NewLine+ +NewLine+ This process may take several minutes.+NewLine+ +NewLine+ Do you want to continue?</EN>
+				<EN>You are in the process of replacing the bootstraps in the RTM Core.+NewLine++NewLine+ You need 6GB of free space on the desktop.+NewLine+ +NewLine+ This process may take several minutes.+NewLine+ +NewLine+ Do you want to continue?</EN>
+				<ES>Está en proceso de reemplazar los archivos de arranque en RTM Core.+NewLine+ +NewLine+ Necesita 6GB de espacio libre en el escritorio.+NewLine+ +NewLine+ Este proceso puede tardar varios minutos.+NewLine+ +NewLine+ ¿Desea continuar?</ES>
 				<GER>Sie sind dabei die Bootstraps in der RTM Core zu erstzen.+NewLine+ +NewLine+Sie benötigen 6GB freien Speicher auf dem Desktop.+NewLine+ +NewLine+ Dieser Vorgang kann mehrere Minuten in Anspruch nehmen.+NewLine+ +NewLine+Möchten Sie fortfahren?</GER>
 			</Message27.1>
 		</Message27>
@@ -522,6 +691,7 @@
 			<description>Bottstrap Update complete</description>
 			<Message28.1>
 				<EN>Update of bootstrap has been performed. Please start RTM Core.</EN>
+				<ES>Se ha realizado la actualización de Bootstrap. Por favor, inicie RTM Core.</ES>
 				<GER>Update der Bootstrap wurde durchgeführt. Bitte starten Sie RTM Core.</GER>
 			</Message28.1>
 		</Message28>
@@ -529,6 +699,7 @@
 			<description>Check if Corewallet is running</description>
 			<Message29.1>
 				<EN>The Raptoreum Core is still running. Please stop it.</EN>
+				<ES>Raptoreum Core sigue funcionando. Por favor, deténgalo.</ES>
 				<GER>Die Raptoreum Core läuft noch. Bitte beenden Sie diese.</GER>
 			</Message29.1>
 		</Message29>
@@ -537,6 +708,7 @@
 			<Message30.1>
 				<EN>You must select at least 1 device from the left list, or create a device first.</EN>
 				<GER>Du must mindestens 1 Gerät aus der linken Liste Auswählen, oder zuerst ein Gerät anlegen.</GER>
+				<ES>Debe seleccionar al menos 1 dispositivo de la lista izquierda o crear un dispositivo primero.</ES>
 			</Message30.1>
 		</Message30>
 		<Message31>
@@ -544,6 +716,7 @@
 			<Message31.1>
 				<EN>Duplicate entries are not allowed.+NewLine+ +NewLine+The line for the new entry is deleted.</EN>
 				<GER>Doppelte Einträge sind nicht erlaubt.+NewLine+ +NewLine+Die Zeile für den neuen Eintrag wird gelöscht.</GER>
+				<ES>No se permiten entradas duplicadas. +NewLine+ +NewLine+Se eliminará la línea de la nueva entrada.</ES>
 			</Message31.1>
 		</Message31>
 		<Message32>
@@ -551,7 +724,16 @@
 			<Message32.1>
 				<EN>A mining task is already running.+NewLine++NewLine+The process is aborted for security reasons.</EN>
 				<GER>Es läuft bereits ein Mining Task.+NewLine++NewLine+Der Vorgang wird aus Sicherheitsgründen abgebrochen.</GER>
+				<ES>Ya se está ejecutando una tarea de minería. +NewLine+ +NewLine+El proceso se cancela por motivos de seguridad.</ES>
 			</Message32.1>
 		</Message32>
+		<Message33>
+			<description>Messeage to Save the Wallet List</description>
+			<Message33.1>
+				<EN>You haven't saved your wallet list yet+NewLine++NewLine+Should it be saved?</EN>
+				<GER>Du hast deine Walletliste noch nicht gespeichert.+NewLine++NewLine+Soll diese gespeichert werden?</GER>
+				<ES>Aún no has guardado tu lista de carteras+NewLine++NewLine+Hay que guardarla?</ES>
+			</Message33.1>
+		</Message33>
 	</Messages>
 </RaptorWings>

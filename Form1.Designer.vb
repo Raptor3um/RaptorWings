@@ -43,7 +43,8 @@ Partial Class Form1
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
-        Me.CheckBox5 = New System.Windows.Forms.CheckBox()
+        Me.ComboBox10 = New System.Windows.Forms.ComboBox()
+        Me.Label32 = New System.Windows.Forms.Label()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
@@ -151,11 +152,28 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage9 = New System.Windows.Forms.TabPage()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
+        Me.Button17 = New System.Windows.Forms.Button()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button16 = New System.Windows.Forms.Button()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.Button12 = New System.Windows.Forms.Button()
+        Me.Button15 = New System.Windows.Forms.Button()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.Label36 = New System.Windows.Forms.Label()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         Me.TabPage6.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.TabControl2.SuspendLayout()
@@ -171,6 +189,9 @@ Partial Class Form1
         Me.TabPage1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
+        Me.TabPage9.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -273,7 +294,8 @@ Partial Class Form1
         '
         'TabPage4
         '
-        Me.TabPage4.Controls.Add(Me.CheckBox5)
+        Me.TabPage4.Controls.Add(Me.ComboBox10)
+        Me.TabPage4.Controls.Add(Me.Label32)
         Me.TabPage4.Controls.Add(Me.Button6)
         Me.TabPage4.Controls.Add(Me.Label20)
         Me.TabPage4.Controls.Add(Me.TextBox3)
@@ -308,18 +330,27 @@ Partial Class Form1
         Me.TabPage4.Text = "This Device"
         Me.TabPage4.UseVisualStyleBackColor = True
         '
-        'CheckBox5
+        'ComboBox10
         '
-        Me.CheckBox5.AutoSize = True
-        Me.CheckBox5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox5.Location = New System.Drawing.Point(635, 236)
-        Me.CheckBox5.Name = "CheckBox5"
-        Me.CheckBox5.Size = New System.Drawing.Size(136, 21)
-        Me.CheckBox5.TabIndex = 45
-        Me.CheckBox5.Text = "1 Thread Donation"
-        Me.CheckBox5.TextAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.CheckBox5.UseVisualStyleBackColor = True
-        Me.CheckBox5.Visible = False
+        Me.ComboBox10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.ComboBox10.FormattingEnabled = True
+        Me.ComboBox10.Items.AddRange(New Object() {"Default", "1", "2", "3", "4", "5"})
+        Me.ComboBox10.Location = New System.Drawing.Point(11, 344)
+        Me.ComboBox10.Name = "ComboBox10"
+        Me.ComboBox10.Size = New System.Drawing.Size(179, 25)
+        Me.ComboBox10.TabIndex = 47
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label32.Location = New System.Drawing.Point(11, 326)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(157, 17)
+        Me.Label32.TabIndex = 46
+        Me.Label32.Text = "Number of cores to use:"
+        Me.Label32.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'Button6
         '
@@ -328,7 +359,7 @@ Partial Class Form1
         Me.Button6.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button6.ForeColor = System.Drawing.SystemColors.Window
-        Me.Button6.Location = New System.Drawing.Point(302, 266)
+        Me.Button6.Location = New System.Drawing.Point(302, 258)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(32, 31)
         Me.Button6.TabIndex = 44
@@ -338,7 +369,7 @@ Partial Class Form1
         '
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label20.Location = New System.Drawing.Point(256, 219)
+        Me.Label20.Location = New System.Drawing.Point(256, 211)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(119, 17)
         Me.Label20.TabIndex = 43
@@ -348,7 +379,7 @@ Partial Class Form1
         'TextBox3
         '
         Me.TextBox3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TextBox3.Location = New System.Drawing.Point(256, 237)
+        Me.TextBox3.Location = New System.Drawing.Point(256, 229)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(305, 25)
         Me.TextBox3.TabIndex = 41
@@ -395,31 +426,31 @@ Partial Class Form1
         '
         Me.Label16.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label16.ForeColor = System.Drawing.Color.Red
-        Me.Label16.Location = New System.Drawing.Point(3, 422)
+        Me.Label16.Location = New System.Drawing.Point(3, 416)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(834, 20)
+        Me.Label16.Size = New System.Drawing.Size(844, 37)
         Me.Label16.TabIndex = 37
         Me.Label16.Text = "Please do not select a wallet address from an exchange server. You could lose you" &
     "r mined coins as a result."
-        Me.Label16.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Label16.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
         'Label15
         '
         Me.Label15.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label15.Location = New System.Drawing.Point(3, 400)
+        Me.Label15.Location = New System.Drawing.Point(3, 372)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(831, 17)
+        Me.Label15.Size = New System.Drawing.Size(844, 44)
         Me.Label15.TabIndex = 36
         Me.Label15.Text = "Please check the mining fee and the mining conditions independently on the respec" &
     "tive websites of all providers."
-        Me.Label15.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Label15.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
         'ComboBox5
         '
         Me.ComboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(11, 296)
+        Me.ComboBox5.Location = New System.Drawing.Point(11, 288)
         Me.ComboBox5.Name = "ComboBox5"
         Me.ComboBox5.Size = New System.Drawing.Size(179, 25)
         Me.ComboBox5.TabIndex = 35
@@ -428,7 +459,7 @@ Partial Class Form1
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label13.Location = New System.Drawing.Point(11, 278)
+        Me.Label13.Location = New System.Drawing.Point(11, 270)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(157, 17)
         Me.Label13.TabIndex = 34
@@ -518,7 +549,7 @@ Partial Class Form1
         Me.Button5.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button5.ForeColor = System.Drawing.SystemColors.Window
-        Me.Button5.Location = New System.Drawing.Point(260, 266)
+        Me.Button5.Location = New System.Drawing.Point(260, 258)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(36, 31)
         Me.Button5.TabIndex = 30
@@ -539,7 +570,7 @@ Partial Class Form1
         Me.Button4.BackColor = System.Drawing.Color.YellowGreen
         Me.Button4.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button4.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Button4.Location = New System.Drawing.Point(635, 161)
+        Me.Button4.Location = New System.Drawing.Point(642, 204)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(133, 69)
         Me.Button4.TabIndex = 29
@@ -548,11 +579,10 @@ Partial Class Form1
         '
         'CheckBox2
         '
-        Me.CheckBox2.AutoSize = True
         Me.CheckBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox2.Location = New System.Drawing.Point(581, 134)
+        Me.CheckBox2.Location = New System.Drawing.Point(592, 133)
         Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(244, 21)
+        Me.CheckBox2.Size = New System.Drawing.Size(245, 53)
         Me.CheckBox2.TabIndex = 28
         Me.CheckBox2.Text = "Close RaptorWings after start Mining"
         Me.CheckBox2.UseVisualStyleBackColor = True
@@ -571,11 +601,10 @@ Partial Class Form1
         '
         'CheckBox1
         '
-        Me.CheckBox1.AutoSize = True
         Me.CheckBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox1.Location = New System.Drawing.Point(581, 109)
+        Me.CheckBox1.Location = New System.Drawing.Point(592, 96)
         Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(180, 21)
+        Me.CheckBox1.Size = New System.Drawing.Size(245, 38)
         Me.CheckBox1.TabIndex = 27
         Me.CheckBox1.Text = "Start Miner in background"
         Me.CheckBox1.UseVisualStyleBackColor = True
@@ -586,7 +615,7 @@ Partial Class Form1
         Me.ComboBox3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.ComboBox3.FormattingEnabled = True
         Me.ComboBox3.Items.AddRange(New Object() {"SRBMiner-MULTI"})
-        Me.ComboBox3.Location = New System.Drawing.Point(11, 237)
+        Me.ComboBox3.Location = New System.Drawing.Point(11, 229)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(179, 25)
         Me.ComboBox3.TabIndex = 26
@@ -595,7 +624,7 @@ Partial Class Form1
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label10.Location = New System.Drawing.Point(11, 219)
+        Me.Label10.Location = New System.Drawing.Point(11, 211)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(102, 17)
         Me.Label10.TabIndex = 25
@@ -621,10 +650,10 @@ Partial Class Form1
         '
         Me.TextBox10.BackColor = System.Drawing.SystemColors.HighlightText
         Me.TextBox10.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox10.Location = New System.Drawing.Point(109, 420)
+        Me.TextBox10.Location = New System.Drawing.Point(109, 421)
         Me.TextBox10.Name = "TextBox10"
         Me.TextBox10.ReadOnly = True
-        Me.TextBox10.Size = New System.Drawing.Size(388, 18)
+        Me.TextBox10.Size = New System.Drawing.Size(361, 18)
         Me.TextBox10.TabIndex = 13
         Me.TextBox10.Text = "Rigstatus und Hashleistung aus Pool-API"
         Me.TextBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -633,10 +662,10 @@ Partial Class Form1
         '
         Me.TextBox12.BackColor = System.Drawing.SystemColors.HighlightText
         Me.TextBox12.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox12.Location = New System.Drawing.Point(109, 401)
+        Me.TextBox12.Location = New System.Drawing.Point(109, 402)
         Me.TextBox12.Name = "TextBox12"
         Me.TextBox12.ReadOnly = True
-        Me.TextBox12.Size = New System.Drawing.Size(388, 18)
+        Me.TextBox12.Size = New System.Drawing.Size(361, 18)
         Me.TextBox12.TabIndex = 12
         Me.TextBox12.Text = "Rigstatus und Hashleistung aus Pool-API"
         Me.TextBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -675,7 +704,7 @@ Partial Class Form1
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.RowHeadersVisible = False
         Me.DataGridView2.RowTemplate.Height = 25
-        Me.DataGridView2.Size = New System.Drawing.Size(491, 359)
+        Me.DataGridView2.Size = New System.Drawing.Size(464, 359)
         Me.DataGridView2.TabIndex = 8
         '
         'Column8
@@ -782,10 +811,10 @@ Partial Class Form1
         '
         Me.TabControl3.Controls.Add(Me.TabPage7)
         Me.TabControl3.Controls.Add(Me.TabPage8)
-        Me.TabControl3.Location = New System.Drawing.Point(513, 20)
+        Me.TabControl3.Location = New System.Drawing.Point(476, 20)
         Me.TabControl3.Name = "TabControl3"
         Me.TabControl3.SelectedIndex = 0
-        Me.TabControl3.Size = New System.Drawing.Size(331, 419)
+        Me.TabControl3.Size = New System.Drawing.Size(368, 419)
         Me.TabControl3.TabIndex = 7
         '
         'TabPage7
@@ -799,7 +828,7 @@ Partial Class Form1
         Me.TabPage7.Location = New System.Drawing.Point(4, 26)
         Me.TabPage7.Name = "TabPage7"
         Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(323, 389)
+        Me.TabPage7.Size = New System.Drawing.Size(360, 389)
         Me.TabPage7.TabIndex = 0
         Me.TabPage7.Text = "TabPage7"
         Me.TabPage7.UseVisualStyleBackColor = True
@@ -822,7 +851,7 @@ Partial Class Form1
         Me.RichTextBox2.Location = New System.Drawing.Point(6, 212)
         Me.RichTextBox2.Name = "RichTextBox2"
         Me.RichTextBox2.ReadOnly = True
-        Me.RichTextBox2.Size = New System.Drawing.Size(307, 173)
+        Me.RichTextBox2.Size = New System.Drawing.Size(348, 173)
         Me.RichTextBox2.TabIndex = 11
         Me.RichTextBox2.Text = ""
         '
@@ -844,7 +873,7 @@ Partial Class Form1
         Me.RichTextBox1.Location = New System.Drawing.Point(6, 55)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.Size = New System.Drawing.Size(307, 111)
+        Me.RichTextBox1.Size = New System.Drawing.Size(348, 111)
         Me.RichTextBox1.TabIndex = 8
         Me.RichTextBox1.Text = "WingSheet: Default" & Global.Microsoft.VisualBasic.ChrW(10) & "Wallet: Nr.1" & Global.Microsoft.VisualBasic.ChrW(10) & "Pool: Raptorhash" & Global.Microsoft.VisualBasic.ChrW(10) & "Server: stratum+tcp://na.raptorh" &
     "ash.com:6900" & Global.Microsoft.VisualBasic.ChrW(10) & "Solo: No" & Global.Microsoft.VisualBasic.ChrW(10) & "Password: c=RTM" & Global.Microsoft.VisualBasic.ChrW(10) & "Miner: SRBMiner" & Global.Microsoft.VisualBasic.ChrW(10) & "Cores: Default"
@@ -854,7 +883,7 @@ Partial Class Form1
         Me.Button10.BackColor = System.Drawing.Color.YellowGreen
         Me.Button10.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Button10.Location = New System.Drawing.Point(190, 172)
+        Me.Button10.Location = New System.Drawing.Point(231, 167)
         Me.Button10.Name = "Button10"
         Me.Button10.Size = New System.Drawing.Size(123, 34)
         Me.Button10.TabIndex = 7
@@ -868,7 +897,7 @@ Partial Class Form1
         Me.ComboBox7.Items.AddRange(New Object() {"Default"})
         Me.ComboBox7.Location = New System.Drawing.Point(6, 24)
         Me.ComboBox7.Name = "ComboBox7"
-        Me.ComboBox7.Size = New System.Drawing.Size(304, 25)
+        Me.ComboBox7.Size = New System.Drawing.Size(348, 25)
         Me.ComboBox7.TabIndex = 6
         '
         'TabPage8
@@ -898,7 +927,7 @@ Partial Class Form1
         Me.TabPage8.Location = New System.Drawing.Point(4, 24)
         Me.TabPage8.Name = "TabPage8"
         Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(323, 391)
+        Me.TabPage8.Size = New System.Drawing.Size(360, 391)
         Me.TabPage8.TabIndex = 1
         Me.TabPage8.Text = "TabPage8"
         Me.TabPage8.UseVisualStyleBackColor = True
@@ -916,7 +945,7 @@ Partial Class Form1
         'Label31
         '
         Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(92, 325)
+        Me.Label31.Location = New System.Drawing.Point(141, 327)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(201, 17)
         Me.Label31.TabIndex = 30
@@ -975,54 +1004,54 @@ Partial Class Form1
         '
         'TextBox11
         '
-        Me.TextBox11.Location = New System.Drawing.Point(92, 299)
+        Me.TextBox11.Location = New System.Drawing.Point(141, 299)
         Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(225, 25)
+        Me.TextBox11.Size = New System.Drawing.Size(213, 25)
         Me.TextBox11.TabIndex = 25
         Me.TextBox11.Text = "/home/"
         '
         'TextBox9
         '
-        Me.TextBox9.Location = New System.Drawing.Point(92, 270)
+        Me.TextBox9.Location = New System.Drawing.Point(141, 270)
         Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(225, 25)
+        Me.TextBox9.Size = New System.Drawing.Size(213, 25)
         Me.TextBox9.TabIndex = 24
         '
         'TextBox8
         '
-        Me.TextBox8.Location = New System.Drawing.Point(92, 241)
+        Me.TextBox8.Location = New System.Drawing.Point(141, 241)
         Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(225, 25)
+        Me.TextBox8.Size = New System.Drawing.Size(213, 25)
         Me.TextBox8.TabIndex = 23
         '
         'TextBox7
         '
         Me.TextBox7.Enabled = False
-        Me.TextBox7.Location = New System.Drawing.Point(92, 212)
+        Me.TextBox7.Location = New System.Drawing.Point(141, 212)
         Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(225, 25)
+        Me.TextBox7.Size = New System.Drawing.Size(213, 25)
         Me.TextBox7.TabIndex = 22
         Me.TextBox7.Text = "22"
         '
         'TextBox6
         '
-        Me.TextBox6.Location = New System.Drawing.Point(92, 183)
+        Me.TextBox6.Location = New System.Drawing.Point(141, 183)
         Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(225, 25)
+        Me.TextBox6.Size = New System.Drawing.Size(213, 25)
         Me.TextBox6.TabIndex = 21
         '
         'TextBox5
         '
-        Me.TextBox5.Location = New System.Drawing.Point(92, 154)
+        Me.TextBox5.Location = New System.Drawing.Point(141, 154)
         Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(225, 25)
+        Me.TextBox5.Size = New System.Drawing.Size(213, 25)
         Me.TextBox5.TabIndex = 20
         '
         'TextBox4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(92, 125)
+        Me.TextBox4.Location = New System.Drawing.Point(141, 125)
         Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(225, 25)
+        Me.TextBox4.Size = New System.Drawing.Size(213, 25)
         Me.TextBox4.TabIndex = 19
         '
         'Label26
@@ -1090,12 +1119,13 @@ Partial Class Form1
         '
         'Label3
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(92, 20)
+        Me.Label3.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.Label3.Location = New System.Drawing.Point(92, 3)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(213, 17)
+        Me.Label3.Size = New System.Drawing.Size(262, 34)
         Me.Label3.TabIndex = 11
         Me.Label3.Text = "Select Device to change Properties:"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft
         '
         'ComboBox8
         '
@@ -1103,7 +1133,7 @@ Partial Class Form1
         Me.ComboBox8.FormattingEnabled = True
         Me.ComboBox8.Location = New System.Drawing.Point(92, 40)
         Me.ComboBox8.Name = "ComboBox8"
-        Me.ComboBox8.Size = New System.Drawing.Size(225, 25)
+        Me.ComboBox8.Size = New System.Drawing.Size(262, 25)
         Me.ComboBox8.TabIndex = 0
         '
         'Label28
@@ -1122,7 +1152,7 @@ Partial Class Form1
         Me.Label11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Label11.Location = New System.Drawing.Point(0, 279)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(868, 50)
+        Me.Label11.Size = New System.Drawing.Size(868, 99)
         Me.Label11.TabIndex = 47
         Me.Label11.Text = "During the process, the selected third-party mining software will be downloaded" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) &
     " and stored on this device."
@@ -1132,9 +1162,9 @@ Partial Class Form1
         '
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Label5.ForeColor = System.Drawing.Color.Red
-        Me.Label5.Location = New System.Drawing.Point(3, 95)
+        Me.Label5.Location = New System.Drawing.Point(3, 66)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(861, 75)
+        Me.Label5.Size = New System.Drawing.Size(861, 104)
         Me.Label5.TabIndex = 45
         Me.Label5.Text = "Danger!" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "On this page you can get the device running this program to mine RTM Coi" &
     "ns." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "You yourself take full responsibility for what you do here and start."
@@ -1199,6 +1229,7 @@ Partial Class Form1
         Me.Button2.BackgroundImage = Global.RaptorWings.My.Resources.Resources.Save_icon
         Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button2.Enabled = False
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.ForeColor = System.Drawing.SystemColors.Window
         Me.Button2.Location = New System.Drawing.Point(71, 6)
@@ -1244,7 +1275,7 @@ Partial Class Form1
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column6, Me.Column5, Me.Column7})
         DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.RosyBrown
         DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -1456,6 +1487,7 @@ Partial Class Form1
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
+        Me.TabControl1.Controls.Add(Me.TabPage9)
         Me.TabControl1.Controls.Add(Me.TabPage6)
         Me.TabControl1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
@@ -1463,6 +1495,187 @@ Partial Class Form1
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(872, 522)
         Me.TabControl1.TabIndex = 1
+        '
+        'TabPage9
+        '
+        Me.TabPage9.Controls.Add(Me.GroupBox3)
+        Me.TabPage9.Controls.Add(Me.GroupBox1)
+        Me.TabPage9.Controls.Add(Me.Label36)
+        Me.TabPage9.Location = New System.Drawing.Point(4, 26)
+        Me.TabPage9.Name = "TabPage9"
+        Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage9.Size = New System.Drawing.Size(864, 492)
+        Me.TabPage9.TabIndex = 4
+        Me.TabPage9.Text = "RTM Support"
+        Me.TabPage9.UseVisualStyleBackColor = True
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.Label46)
+        Me.GroupBox3.Controls.Add(Me.Label45)
+        Me.GroupBox3.Controls.Add(Me.Label44)
+        Me.GroupBox3.Controls.Add(Me.Label41)
+        Me.GroupBox3.Controls.Add(Me.ProgressBar1)
+        Me.GroupBox3.Controls.Add(Me.Button17)
+        Me.GroupBox3.Controls.Add(Me.Label39)
+        Me.GroupBox3.Location = New System.Drawing.Point(472, 62)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(376, 132)
+        Me.GroupBox3.TabIndex = 34
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "RTM Core Bootstraps"
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label46.Location = New System.Drawing.Point(124, 108)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(69, 13)
+        Me.Label46.TabIndex = 39
+        Me.Label46.Text = "No activities"
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label45.Location = New System.Drawing.Point(124, 82)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(39, 13)
+        Me.Label45.TabIndex = 38
+        Me.Label45.Text = "Status"
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label44.Location = New System.Drawing.Point(6, 105)
+        Me.Label44.Name = "Label44"
+        Me.Label44.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label44.Size = New System.Drawing.Size(56, 17)
+        Me.Label44.TabIndex = 37
+        Me.Label44.Text = "Update:"
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label41.Location = New System.Drawing.Point(6, 64)
+        Me.Label41.Name = "Label41"
+        Me.Label41.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label41.Size = New System.Drawing.Size(75, 17)
+        Me.Label41.TabIndex = 33
+        Me.Label41.Text = "Download:"
+        Me.Label41.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'ProgressBar1
+        '
+        Me.ProgressBar1.Location = New System.Drawing.Point(124, 58)
+        Me.ProgressBar1.Name = "ProgressBar1"
+        Me.ProgressBar1.Size = New System.Drawing.Size(239, 23)
+        Me.ProgressBar1.TabIndex = 32
+        '
+        'Button17
+        '
+        Me.Button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button17.Location = New System.Drawing.Point(253, 24)
+        Me.Button17.Name = "Button17"
+        Me.Button17.Size = New System.Drawing.Size(110, 28)
+        Me.Button17.TabIndex = 31
+        Me.Button17.Text = "Update"
+        Me.Button17.UseVisualStyleBackColor = True
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label39.Location = New System.Drawing.Point(7, 30)
+        Me.Label39.Name = "Label39"
+        Me.Label39.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label39.Size = New System.Drawing.Size(190, 17)
+        Me.Label39.TabIndex = 29
+        Me.Label39.Text = "Update RTM Core Bootstraps:"
+        Me.Label39.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Button16)
+        Me.GroupBox1.Controls.Add(Me.Label37)
+        Me.GroupBox1.Controls.Add(Me.Button12)
+        Me.GroupBox1.Controls.Add(Me.Button15)
+        Me.GroupBox1.Controls.Add(Me.Label38)
+        Me.GroupBox1.Location = New System.Drawing.Point(18, 62)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(448, 132)
+        Me.GroupBox1.TabIndex = 31
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "RTM Core Wallet"
+        '
+        'Button16
+        '
+        Me.Button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button16.Location = New System.Drawing.Point(281, 63)
+        Me.Button16.Name = "Button16"
+        Me.Button16.Size = New System.Drawing.Size(75, 28)
+        Me.Button16.TabIndex = 30
+        Me.Button16.Text = "Save it"
+        Me.Button16.UseVisualStyleBackColor = True
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label37.Location = New System.Drawing.Point(14, 30)
+        Me.Label37.Name = "Label37"
+        Me.Label37.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label37.Size = New System.Drawing.Size(191, 17)
+        Me.Label37.TabIndex = 25
+        Me.Label37.Text = "Download an start RTM-Core:"
+        Me.Label37.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'Button12
+        '
+        Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button12.Location = New System.Drawing.Point(281, 24)
+        Me.Button12.Name = "Button12"
+        Me.Button12.Size = New System.Drawing.Size(75, 28)
+        Me.Button12.TabIndex = 26
+        Me.Button12.Text = "portable"
+        Me.Button12.UseVisualStyleBackColor = True
+        '
+        'Button15
+        '
+        Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button15.Location = New System.Drawing.Point(367, 24)
+        Me.Button15.Name = "Button15"
+        Me.Button15.Size = New System.Drawing.Size(75, 28)
+        Me.Button15.TabIndex = 28
+        Me.Button15.Text = "install"
+        Me.Button15.UseVisualStyleBackColor = True
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label38.Location = New System.Drawing.Point(14, 69)
+        Me.Label38.Name = "Label38"
+        Me.Label38.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label38.Size = New System.Drawing.Size(200, 17)
+        Me.Label38.TabIndex = 27
+        Me.Label38.Text = "Save RTM Wallet to your Place:"
+        Me.Label38.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label36.Location = New System.Drawing.Point(18, 20)
+        Me.Label36.Name = "Label36"
+        Me.Label36.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.Label36.Size = New System.Drawing.Size(182, 17)
+        Me.Label36.TabIndex = 24
+        Me.Label36.Text = "Your Personal RTM Support:"
+        Me.Label36.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'StatusStrip1
         '
@@ -1504,17 +1717,18 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.BackColor = System.Drawing.Color.White
+        Me.BackColor = System.Drawing.SystemColors.WindowFrame
         Me.ClientSize = New System.Drawing.Size(872, 547)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.TabControl1)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.HelpButton = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Raptorwings v0.99 ""Eyas"""
+        Me.Text = "Raptorwings v1.0.0 ""Falcon"""
         Me.TabPage6.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
         Me.TabControl2.ResumeLayout(False)
@@ -1536,6 +1750,12 @@ Partial Class Form1
         Me.TabPage1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
+        Me.TabPage9.ResumeLayout(False)
+        Me.TabPage9.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -1660,7 +1880,6 @@ Partial Class Form1
     Friend WithEvents Label34 As Label
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents CheckBox4 As CheckBox
-    Friend WithEvents CheckBox5 As CheckBox
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
     Friend WithEvents Column3 As DataGridViewTextBoxColumn
@@ -1668,4 +1887,23 @@ Partial Class Form1
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents TabPage9 As TabPage
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents Button16 As Button
+    Friend WithEvents Label37 As Label
+    Friend WithEvents Label39 As Label
+    Friend WithEvents Button12 As Button
+    Friend WithEvents Button15 As Button
+    Friend WithEvents Label38 As Label
+    Friend WithEvents Label36 As Label
+    Friend WithEvents Button17 As Button
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents Label44 As Label
+    Friend WithEvents Label41 As Label
+    Friend WithEvents ProgressBar1 As ProgressBar
+    Friend WithEvents Label45 As Label
+    Friend WithEvents Label46 As Label
+    Friend WithEvents ComboBox10 As ComboBox
+    Friend WithEvents Label32 As Label
 End Class

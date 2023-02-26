@@ -1,12 +1,11 @@
-﻿
-'Copyright(c) 2023 The Raptoreum developers
+﻿'Copyright(c) 2023 The Raptoreum developers
 'Copyright(c) 2023 Germardies
 
+Imports System.ComponentModel
 Imports System.IO
 Imports System.IO.Compression
 Imports System.Net
 Imports System.Text
-Imports Windows.Media.Control
 
 Public Class Form1
 
@@ -73,6 +72,7 @@ Public Class Form1
         Me.ComboBox5.SelectedIndex = 0
         Me.ComboBox6.SelectedIndex = 0
         Me.ComboBox7.SelectedIndex = 0
+        Me.ComboBox10.SelectedIndex = 0
 
         Me.CheckBox4.Checked = True
 
@@ -83,6 +83,16 @@ Public Class Form1
         Cursor.Current = Cursors.Default
     End Sub
 
+    Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        If Me.Button2.Enabled = True Then
+            Dim msgtext1 As String = Checkxmllanguage("Message33.1").trim
+
+            Dim result = MessageBox.Show(msgtext1, "Questtion", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If result = DialogResult.Yes Then
+                saveWalletList.saveWalletList()
+            End If
+        End If
+    End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If Me.DataGridView1.Rows.Count - 1 = -1 Then
@@ -90,6 +100,7 @@ Public Class Form1
         Else
             Me.DataGridView1.Rows.Add(Me.DataGridView1.Item(0, Me.DataGridView1.Rows.Count - 1).Value.ToString + 1, "", "", "")
         End If
+        Me.Button2.Enabled = True
         MessageBox.Show(Checkxmllanguage("Message18.1").trim, "Note", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
     Private Sub Button1_MouseHover(sender As Object, e As EventArgs) Handles Button1.MouseHover
@@ -97,29 +108,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        If Me.DataGridView1.Rows.Count - 1 = -1 Then
-            MessageBox.Show(Checkxmllanguage("Message2.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Exit Sub
-        End If
-
-        Dim sb = New StringBuilder
-
-        For i As Integer = 0 To Me.DataGridView1.Rows.Count - 1
-            If Me.DataGridView1.Item(0, i).Value.ToString = Nothing Then
-                Continue For
-            End If
-
-            Dim number As String = Chr(34) + Me.DataGridView1.Item(0, i).Value.ToString + Chr(34)
-            Dim walletadress As String = Chr(34) + Me.DataGridView1.Item(1, i).Value.ToString + Chr(34)
-            Dim description As String = Chr(34) + Me.DataGridView1.Item(2, i).Value.ToString + Chr(34)
-
-            sb.AppendLine($"{number},{walletadress},{description}")
-        Next
-
-        System.IO.File.WriteAllText(localwallet, sb.ToString)
-
-        MessageBox.Show((Checkxmllanguage("Message3.1").trim), "Note", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+        saveWalletList.saveWalletList()
     End Sub
     Private Sub Button2_MouseHover(sender As Object, e As EventArgs) Handles Button2.MouseHover
         Me.ToolTip1.SetToolTip(Button2, Checkxmllanguage("Button2").trim)
@@ -155,6 +144,7 @@ Public Class Form1
             Me.ComboBox1.Items.Add(Me.DataGridView1.Item(0, i).Value.ToString + " - " + Me.DataGridView1.Item(2, i).Value.ToString + " (" + Me.DataGridView1.Item(1, i).Value.ToString + ")")
         Next
 
+        Me.Button2.Enabled = True
         Timer1.Stop()
         Readbalance()
         Timer1.Start()
@@ -229,26 +219,22 @@ Public Class Form1
 
         Dim threads As String = Me.ComboBox5.Text
         If threads = "Default" Then
-            threads = Me.ComboBox5.Items.Count - 1
-        End If
-
-        Dim donation As String = False
-        If Me.CheckBox5.CheckState = CheckState.Checked Then
-            donation = True
-            threads -= 1
+            threads = ""
+        Else
+            threads = " --cpu-threads " & Me.ComboBox5.Items.Count - 1
         End If
 
         Dim wingsheet_main As String = Nothing
         Dim wingsheet_srb01 As String = Nothing
 
-        If donation = False Then
-            wingsheet_srb01 = Chr(34) & selfpath & "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe" & Chr(34) & " --disable-gpu --cpu-threads " & threads & " --algorithm ghostrider --pool " & server & " --wallet " & wallet & "." & rig & " --password " & password
-        Else
-            wingsheet_srb01 = Chr(34) & selfpath & "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe" & Chr(34) & " --disable-gpu --cpu-threads " & threads & ";1 --algorithm ghostrider;ghostrider --pool " & server & ";statum+tcp://na.raptorhash.com:6900 --wallet " & wallet & "." & rig & ";" & donationadress & ".Donation_" & rig & " --password " & password & ";c=RTM"
-        End If
+        wingsheet_srb01 = Chr(34) & selfpath & "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe" & Chr(34) & " --disable-gpu" & threads & " --algorithm ghostrider --pool " & server & " --wallet " & wallet & "." & rig & " --password " & password
 
         If Me.CheckBox1.Checked = True Then
             wingsheet_srb01 += " --background"
+        End If
+
+        If Not Me.ComboBox10.Text = "Default" Then
+            wingsheet_srb01 += " --cpu-threads-priority " + Me.ComboBox10.Text
         End If
 
         If Me.ComboBox2.Text = "Raptorhash.com" Then
@@ -292,13 +278,13 @@ Public Class Form1
             Me.ComboBox3.Text = def_m
             Me.ComboBox4.Text = def_s
             Me.ComboBox5.Text = def_c
+            Me.ComboBox10.Text = "Default"
             Me.TextBox2.Text = def_pw
             Me.TextBox3.Text = ""
             Me.CheckBox3.Enabled = True
             Me.CheckBox1.CheckState = CheckState.Unchecked
             Me.CheckBox2.CheckState = CheckState.Unchecked
             Me.CheckBox3.CheckState = CheckState.Unchecked
-            Me.CheckBox5.CheckState = CheckState.Unchecked
             Exit Sub
         End If
 
@@ -330,6 +316,8 @@ Public Class Form1
                         Me.TextBox2.Text = currentRow(5)
                         Me.ComboBox3.Text = currentRow(6)
                         Me.ComboBox5.Text = currentRow(7)
+                        Me.ComboBox10.Text = "Default"
+                        Me.ComboBox10.Text = currentRow(12)
 
                         If currentRow(8) = True Then
                             Me.CheckBox1.CheckState = CheckState.Checked
@@ -348,12 +336,6 @@ Public Class Form1
                         Else
                             Me.CheckBox3.CheckState = CheckState.Unchecked
                         End If
-                        If currentRow(11) = True Then
-                            Me.CheckBox5.CheckState = CheckState.Checked
-                        Else
-                            Me.CheckBox5.CheckState = CheckState.Unchecked
-                        End If
-
                     End If
 
                 Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
@@ -397,6 +379,7 @@ Public Class Form1
         Dim password As String = Me.TextBox2.Text
         Dim miner As String = Me.ComboBox3.Text
         Dim corenumber As String = Me.ComboBox5.Text
+        Dim priority As String = Me.ComboBox10.Text
         Dim check1 As String
         If Me.CheckBox1.CheckState = CheckState.Checked Then
             check1 = True
@@ -415,13 +398,7 @@ Public Class Form1
         Else
             check3 = False
         End If
-        Dim donate As String
-        If Me.CheckBox5.CheckState = CheckState.Checked Then
-            donate = True
-        Else
-            donate = False
-        End If
-        wingsheet = Chr(34) + wingsheetname + Chr(34) + "," + Chr(34) + wallet + Chr(34) + "," + Chr(34) + pool + Chr(34) + "," + Chr(34) + server + Chr(34) + "," + Chr(34) + rigname + Chr(34) + "," + Chr(34) + password + Chr(34) + "," + Chr(34) + miner + Chr(34) + "," + Chr(34) + corenumber + Chr(34) + "," + Chr(34) + check1 + Chr(34) + "," + Chr(34) + check2 + Chr(34) + "," + Chr(34) + check3 + Chr(34) + "," + Chr(34) + donate + Chr(34)
+        wingsheet = Chr(34) + wingsheetname + Chr(34) + "," + Chr(34) + wallet + Chr(34) + "," + Chr(34) + pool + Chr(34) + "," + Chr(34) + server + Chr(34) + "," + Chr(34) + rigname + Chr(34) + "," + Chr(34) + password + Chr(34) + "," + Chr(34) + miner + Chr(34) + "," + Chr(34) + corenumber + Chr(34) + "," + Chr(34) + check1 + Chr(34) + "," + Chr(34) + check2 + Chr(34) + "," + Chr(34) + check3 + Chr(34) + "," + Chr(34) + "Donattion" + Chr(34) + "," + Chr(34) + priority + Chr(34)
         Dim dataset As New StringBuilder
 
         Dim wingsheetcheck As String = False
@@ -490,7 +467,7 @@ Public Class Form1
         End If
 
         If Me.TextBox3.Text = "" Or Me.TextBox3.Text = Nothing Or Me.TextBox3.Text = " " Then
-            MessageBox.Show(Checkxmllanguage("Message6.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(Checkxmllanguage("Message6.1").trim)
             Exit Sub
         End If
 
@@ -567,6 +544,14 @@ Public Class Form1
     End Sub
 
     Private Sub TabPage2_Leave(sender As Object, e As EventArgs) Handles TabPage2.Leave
+        If Me.Button2.Enabled = True Then
+            Dim msgtext1 As String = Checkxmllanguage("Message33.1").trim
+
+            Dim result = MessageBox.Show(msgtext1, "Questtion", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If result = DialogResult.Yes Then
+                saveWalletList.saveWalletList()
+            End If
+        End If
         Timer1.Stop()
     End Sub
 
@@ -696,17 +681,18 @@ Public Class Form1
     End Sub
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
-        Dim p As Process
-        For Each p In Diagnostics.Process.GetProcesses()
-            If p.ProcessName = "SRBMiner-MULTI" Then
+        Try
+            Dim listProc() As System.Diagnostics.Process
+            listProc = System.Diagnostics.Process.GetProcessesByName("SRBMiner-MULTI")
+            If listProc.Length > 0 Then
                 Me.Button4.BackColor = Color.PaleVioletRed
                 Me.Button4.Text = "Stop Miner"
             Else
                 Me.Button4.BackColor = Color.YellowGreen
                 Me.Button4.Text = "Start Miner"
             End If
-        Next
-
+        Catch ex As Exception
+        End Try
     End Sub
 
     Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
@@ -1134,7 +1120,6 @@ Public Class Form1
         Dim spezials As String = Nothing
         Dim wingsheetname As String = Me.ComboBox7.Text
         Dim wingsheetname2 As String = wingsheetname
-        Dim donation As String
 
         If Me.ComboBox7.Text = "Default" Then
             wingsheet = "Default"
@@ -1153,7 +1138,6 @@ Public Class Form1
             password = def_pw
             miner = def_m
             cores = def_c
-            donation = def_d
         Else
 
             Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localwingsheet)
@@ -1173,7 +1157,6 @@ Public Class Form1
                             password = currentRow(5)
                             miner = currentRow(6)
                             cores = currentRow(7)
-                            donation = currentRow(11)
                         End If
                     Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
                         MessageBox.Show("Line " & ex.Message & " in Wingsheet List is invalid." + System.Environment.NewLine + System.Environment.NewLine + "Progress ends.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1192,27 +1175,15 @@ Public Class Form1
         End If
 
         If miner = "SRBMiner-MULTI" Then
-            If donation = "True" Then
-                If cores = "0" Then
-                    spezial = "--disable-gpu --cpu-threads 0\;1 "
-                Else
-                    spezial = "--disable-gpu --cpu-threads " & cores - 1 & "\;1 "
-                End If
-                algo = "--algorithm ghostrider\;ghostrider "
-                server = "--pool " & server & "\;stratum+tcp://na.raptorhash.com:6900 "
-                wallet = "--wallet " & wallet
-                password = " --password " & password & "\;c=RTM "
+            If cores = "0" Then
+                spezial = "--disable-gpu "
             Else
-                If cores = "0" Then
-                    spezial = "--disable-gpu "
-                Else
-                    spezial = "--disable-gpu --cpu-threads " & cores & " "
-                End If
-                algo = "--algorithm ghostrider "
-                server = "--pool " & server & " "
-                wallet = "--wallet " & wallet & ""
-                password = " --password " & password
+                spezial = "--disable-gpu --cpu-threads " & cores & " "
             End If
+            algo = "--algorithm ghostrider "
+            server = "--pool " & server & " "
+            wallet = "--wallet " & wallet & ""
+            password = " --password " & password
         End If
 
         If wingsheet = Nothing Then
@@ -1226,11 +1197,6 @@ Public Class Form1
             End If
             Dim rigname As String = Me.DataGridView2.Item(2, i).Value
             Dim wallet2 As String = wallet & "." & rigname
-
-            If donation = "True" Then
-                wallet2 = wallet2 & "\;" & donationadress & ".Donation"
-            End If
-
 
             Dim sship As String = Me.DataGridView2.Item(4, i).Value
             Dim sshport As String = Me.DataGridView2.Item(5, i).Value
@@ -1349,6 +1315,7 @@ Public Class Form1
                 MessageBox.Show(msgtext2, "Note", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Readbalance()
             End If
+            Me.Button2.Enabled = True
         End If
     End Sub
 
@@ -1403,6 +1370,7 @@ Public Class Form1
         Me.TabPage6.BackColor = background
         Me.TabPage7.BackColor = background
         Me.TabPage8.BackColor = background
+        Me.TabPage9.BackColor = background
         Me.Button1.ForeColor = background
         Me.Button2.ForeColor = background
         Me.Button3.BackColor = background
@@ -1444,18 +1412,159 @@ Public Class Form1
         Process.Start(ProcessStartInfo)
     End Sub
 
-    Private Sub ComboBox5_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox5.SelectedIndexChanged
-        If Me.ComboBox5.Text = "1" Then
-            Me.CheckBox5.Enabled = False
-            Me.CheckBox5.CheckState = CheckState.Unchecked
-        Else
-            Me.CheckBox5.Enabled = True
-            Me.CheckBox5.Checked = CheckState.Checked
-        End If
-    End Sub
-
     Private Sub RichTextBox3_LinkClicked(sender As Object, e As LinkClickedEventArgs) Handles RichTextBox3.LinkClicked
         Dim ProcessStartInfo = New ProcessStartInfo With {.FileName = e.LinkText, .UseShellExecute = True}
         Process.Start(ProcessStartInfo)
     End Sub
+
+    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
+        Dim result = Nothing
+        If File.Exists(winDesktop + "\" + rtmCorePortableName + "\raptoreum-qt.exe") Then
+            result = MessageBox.Show(Checkxmllanguage("Message19.1").trim, "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If result = DialogResult.No Then
+                Exit Sub
+            End If
+            If result = DialogResult.Yes Then
+                Process.Start(winDesktop + "\" + rtmCorePortableName + "\raptoreum-qt.exe")
+                Exit Sub
+            End If
+        End If
+
+        result = MessageBox.Show(Checkxmllanguage("Message20.1").trim, "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If result = DialogResult.No Then
+            Exit Sub
+        End If
+
+        Cursor.Current = Cursors.WaitCursor
+        Dim client As New Net.WebClient
+        client.DownloadFile(rtmCorePortableWebPfad, winDesktop + "\" + rtmCorePortableDownloadName)
+
+        If File.Exists(winDesktop + "\" + rtmCorePortableDownloadName) Then
+            ZipFile.ExtractToDirectory(winDesktop + "\" + rtmCorePortableDownloadName, winDesktop + "\" + rtmCorePortableName)
+            File.Delete(winDesktop + "\" + rtmCorePortableDownloadName)
+        End If
+
+        If File.Exists(winDesktop + "\" + rtmCorePortableName + "\raptoreum-qt.exe") Then
+            Process.Start(winDesktop + "\" + rtmCorePortableName + "\raptoreum-qt.exe")
+        End If
+
+        Cursor.Current = Cursors.Default
+    End Sub
+
+    Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
+        If Not File.Exists(winDesktop + "\" + rtmCoreInstallName) Then
+            Dim result = Nothing
+            result = MessageBox.Show(Checkxmllanguage("Message21.1").trim, "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If result = DialogResult.No Then
+                Exit Sub
+            End If
+
+            Cursor.Current = Cursors.WaitCursor
+            Dim client As New Net.WebClient
+            client.DownloadFile(rtmCoreInstallWebPfad, winDesktop + "\" + rtmCoreInstallName)
+            Cursor.Current = Cursors.Default
+            MessageBox.Show(Checkxmllanguage("Message22.1").trim, "Instruction", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            MessageBox.Show(Checkxmllanguage("Message23.1").trim, "Instruction", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Exit Sub
+        End If
+    End Sub
+
+    Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
+        If Not File.Exists(rtmCoreAppDatapfad + "\wallets\wallet.dat") Then
+            MessageBox.Show(Checkxmllanguage("Message24.1").trim, "Instruction", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Exit Sub
+        End If
+
+        Dim myStream As Stream
+        Dim saveFileDialog1 As New SaveFileDialog()
+
+        saveFileDialog1.Filter = "dat files (*.dat)|*.dat"
+        saveFileDialog1.FilterIndex = 2
+        saveFileDialog1.RestoreDirectory = True
+
+        If saveFileDialog1.ShowDialog() = DialogResult.OK Then
+            File.Copy(rtmCoreAppDatapfad + "\wallets\wallet.dat", saveFileDialog1.FileName)
+            If File.Exists(saveFileDialog1.FileName) Then
+                MessageBox.Show(Checkxmllanguage("Message25.1").trim, "Instruction", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Exit Sub
+            End If
+        End If
+    End Sub
+
+    Private Async Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
+        Dim p As Process
+        For Each p In Diagnostics.Process.GetProcesses()
+            If p.ProcessName = "Raptoreum Core - Wallet" Then
+                MessageBox.Show(Checkxmllanguage("Message29.1").trim, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
+            End If
+        Next
+
+        Dim result = Nothing
+        If Not Directory.Exists(rtmCoreAppDatapfad) Then
+            MessageBox.Show(Checkxmllanguage("Message26.1").trim, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Exit Sub
+        End If
+
+        result = MessageBox.Show(Checkxmllanguage("Message27.1").trim, "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If result = DialogResult.No Then
+            Exit Sub
+        End If
+
+        Cursor.Current = Cursors.WaitCursor
+        Dim download As New WebClient
+        Dim url As String = rtmBootstrapWebpfad
+        Dim savePath As String = winDesktop + "\" + rtmBootstrapDownloadName
+        AddHandler download.DownloadProgressChanged, AddressOf Download_ProgressChanged
+        download.DownloadFileAsync(New Uri(url), savePath)
+        Me.Label46.Text = "Wait until the download is complete."
+    End Sub
+    Public Sub Download_ProgressChanged(ByVal sender As Object, ByVal e As System.Net.DownloadProgressChangedEventArgs)
+        Try
+            ProgressBar1.Value = CInt(Math.Round((e.BytesReceived / e.TotalBytesToReceive) * 100, 0, MidpointRounding.AwayFromZero))
+            Me.Label45.Text = Math.Round((e.BytesReceived / 1024) / 1024) & "MB / " & Math.Round((e.TotalBytesToReceive / 1024) / 1024) & "MB"
+        Catch ex As Exception
+            Debug.Print(ex.ToString)
+        End Try
+        If e.BytesReceived = e.TotalBytesToReceive Then
+            Cursor.Current = Cursors.WaitCursor
+
+            Me.Label46.Text = ""
+            Me.Label46.Text = "Delet old Files"
+            Me.Label46.Refresh()
+
+            If File.Exists("C:\Users\marcu\AppData\Roaming\RaptoreumCore\powcache.dat") Then
+                File.Delete("C:\Users\marcu\AppData\Roaming\RaptoreumCore\powcache.dat")
+            End If
+            If Directory.Exists("C:\Users\marcu\AppData\Roaming\RaptoreumCore\blocks\") Then
+                Directory.Delete("C:\Users\marcu\AppData\Roaming\RaptoreumCore\blocks\", True)
+            End If
+            If Directory.Exists("C:\Users\marcu\AppData\Roaming\RaptoreumCore\chainstate\") Then
+                Directory.Delete("C:\Users\marcu\AppData\Roaming\RaptoreumCore\chainstate\", True)
+            End If
+            If Directory.Exists("C:\Users\marcu\AppData\Roaming\RaptoreumCore\evodb\") Then
+                Directory.Delete("C:\Users\marcu\AppData\Roaming\RaptoreumCore\evodb\", True)
+            End If
+            If Directory.Exists("C:\Users\marcu\AppData\Roaming\RaptoreumCore\llmq\") Then
+                Directory.Delete("C:\Users\marcu\AppData\Roaming\RaptoreumCore\llmq\", True)
+            End If
+            If File.Exists(winDesktop & "\bootstrap.zip") Then
+                Me.Label46.Text = ""
+                Me.Label46.Text = "Unzipping"
+                Me.Label46.Refresh()
+                ZipFile.ExtractToDirectory(winDesktop + "\" + rtmBootstrapDownloadName, rtmCoreAppDatapfad)
+                Me.Label46.Text = "Unzip complete"
+                Me.Label46.Refresh()
+            End If
+
+            Me.ProgressBar1.Value = 0
+            Me.Label45.Text = "Status"
+            Me.Label46.Text = "No activities"
+            MessageBox.Show(Checkxmllanguage("Message28.1").trim, "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            Cursor.Current = Cursors.Default
+        End If
+    End Sub
+
 End Class

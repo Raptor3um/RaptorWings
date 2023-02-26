@@ -1,6 +1,6 @@
 RAPTORWINGS ©2023 by Raptoreum and Germardies
-16/02/2023
 =============================================
+
 Lightpaper
 -----------
 RAPTORWINGS is a fully open source free GUI software.
@@ -16,6 +16,11 @@ This software was written to provide the Raptoreum community with the following:
 It is totally free to use without any fee.
 Mining fee is set by the third party miner and the pool server.
 If Raptorwings proves popular, we will continue to expand it.
+
+Documentation & Instructions
+----------------------------
+You can see the complete documentation, as well as some explanations about Raptorwings at
+https://github.com/Raptor3um/RaptorWings/blob/main/Documentation/index.md
 
 API's: 
 ------
@@ -60,60 +65,31 @@ The MIT License (MIT)
 Copyright (c) 2023 The Raptoreum developers (https://github.com/Raptor3um)
 Copyright (c) 2023 Germardies (https://github.com/Germardies)
 
-Changelog
----------
-Version 0.99h
-Changes:
-01) Message after deleting a wallet address has been adjusted.
-02) Message after saving the wallet list was adjusted.
-03) Message after wallet address verification has been adjusted.
-04) Adjusted message that is displayed when you have not created a wallet address for mining.
-05) Adjusted messages that are displayed when entries are missing when saving a wingsheet.
-06) Adjusted message that is displayed when you want to overwrite the default wingsheet.
-07) Adjusted message that is displayed when you have created a MultinwingMining device.
-08) Adjusted message that is displayed when one has deleted a MultinwingMining device.
-09) Adjusted message that is displayed when something is wrong with the file system for mining.
-10) Adjusted message displayed when trying to mine without wallet (MultiWingmining). 
+
+Changelog v1.0.0
+----------------
+1. Spanish language integration
+*Thanks to Team RTM Spain for the support*
+
+2. New Window/Tab: RTM Support
+*A small support page to download the latest corewallet, backup your wallet and for automatic bootstrap updates*
+
+3. New Mining Setting: Worker Thread Priority
+*Integrated as community wish for BenjixLeGaulois#7543*
+
+4. New Function: Query for saving the wallet list
+*If the wallet list has not yet been saved by the user and the user leaves the wallet menu or wants to close Raptorwings, *
+*a prompt now appears asking if the list should still be saved.*
+
+5. Change the Donation Adress to a Smartnode on SullyNodes
+
+6. Change Roadmap.md
 
 Bug Fixed:
-01) Button "Delete wallet address" no longer executes a function if there is no entry in the list.
-Bug found by Discord User: OvErLoDe#4871
+----------
+1. Bug fixed: The function for querying whether the SRBMiner multi is running as a Windows task has been changed. In the previous version the running process was not always
+2. Bug fixed: An old code fragment from the testnet caused the SRB miner to not use the full number of cores for a specific setting.
 
-02) Button "Open RTM Explorer" no longer performs a function if there is no entry in the list.
-Bug found by Discord OvErLoDe#4871
-
-03) Run Miner in background works again.
-Bug found by Discord User: abdani#6797
-
-04) Under MultiWingMining, "1 Core Donation" was still displayed under Default (Pure display error). Bug fixed
-Bug found by Discord User: abdani#6797
-
-05) After deleting a wallet address, the balance and price was not adjusted immediately. This is due to the 60 second 
-interval of the API query. The function has been rewritten so that a query is started when an address is deleted,
-regardless of the interval.
-Bug found by Discord User: all_danger#5769
-
-06) If no device is selected under MultiWingMining or there is no device in the list, clicking "Start Mining" will 
-now give an error message.
-Bug found by Discord User: abdani#6797
-
-07) Duplicate addresses in wallet overview are now prevented.
-Bug found by Discord User: ヾ((ﾒ`◣ ̧◢ ́) ﾉ ･ﾟ。゜゜#8220
-
-08) Miner can be started multiple times: Normally Raptorwings detects if the SRB Miner is already running and colors 
-the "Start Mining Button" red. Since this does not always seem to happen, when you click on the "Start Mining" 
-button, Raptorwings now also checks if the SRB Miner is running as a Windows task.
-Bug found by Discord User: ヾ((ﾒ`◣ ̧◢ ́) ﾉ ･ﾟ。゜゜#8220
-
-09) Small English adjustments in the language file.
-Bug found from Discord User: vladislav_kosko#1605
-
-10) Header in the Instruction.pdf was adjusted
-Found from Discord User: OvErLoDe#4871
-
-11) Page 4 of the Instruction.pdf was adjusted
-Found from Discord User: OvErLoDe#4871
-
-12) Bug fixed: In the "About" window it was possible to click on the web links, but this did not lead to any further
-action. Now clicking the web links opens the default browser with the clicked address.
-Bug found by Discord User: ヾ((ﾒ`◣ ̧◢ ́) ﾉ ･ﾟ。゜゜#8220
+Third Party Changes:
+--------------------
+Change SRBMiner-MULTI from Version 2.0.2 to 2.1.0 

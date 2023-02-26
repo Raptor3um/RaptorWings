@@ -1,4 +1,7 @@
-﻿Imports System.Net
+﻿'Copyright(c) 2023 The Raptoreum developers
+'Copyright(c) 2023 Germardies
+
+Imports System.Net
 Imports System.Net.Http
 Imports Windows.Media.Protection.PlayReady
 

@@ -8,10 +8,11 @@ RAPTROWINGS - Menu - Main (Overview)
 1 = This Menu <br />
 2 = Wallets Menu <br />
 3 = Mining Menu <br />
-4 = About Menu <br />
-5 = Switch between light and dark mode <br />
-6 = Switch Language <br />
-7 = The balance of all your wallet addresses with the current prices. <br />
+4 = RTM Support Page <br />
+5 = About Menu <br />
+6 = Switch between light and dark mode <br />
+7 = Switch Language <br />
+8 = The balance of all your wallet addresses with the current prices. <br />
 
 ---------------------------------------
 

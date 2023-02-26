@@ -1,4 +1,7 @@
-﻿Module showRigDetail_rtm
+﻿'Copyright(c) 2023 The Raptoreum developers
+'Copyright(c) 2023 Germardies
+
+Module showRigDetail_rtm
     Public Sub Showrigdetail()
         If Form1.DataGridView2.Rows.Count - 1 = -1 Then
             Exit Sub
