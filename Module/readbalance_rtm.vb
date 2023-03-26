@@ -1,14 +1,17 @@
 ﻿'Copyright(c) 2023 The Raptoreum developers
 'Copyright(c) 2023 Germardies
 
+Imports System.Globalization
 Imports System.Net
+Imports System.Net.Http
+Imports System.Security.Policy
 
 Module readbalance_rtm
     Public Function Readbalance()
         Cursor.Current = Cursors.WaitCursor
 
 
-        Dim balancesummary As Integer = 0
+        Dim balancesummary As Double = 0
 
         Form1.Timer1.Stop()
 
@@ -31,8 +34,7 @@ Module readbalance_rtm
                 walletbalance = walletbalance.Replace("""", "")
                 walletbalance = CDbl(walletbalance) / 100000000
 
-                Form1.DataGridView1.Item(3, i).Value = Format(CDbl(walletbalance), "##,##0.00000000")
-
+                Form1.DataGridView1.Item(3, i).Value = walletbalance
                 balancesummary = balancesummary + walletbalance
 
             End If
@@ -40,7 +42,6 @@ Module readbalance_rtm
         Next
 
         balancesummyglobal = balancesummary
-        Form1.Label1.Text = Format(balancesummary, "##,##0.00") & " RTM"
 
         Form1.Timer1.Start()
         Cursor.Current = Cursors.Default

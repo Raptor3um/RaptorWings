@@ -1,6 +1,7 @@
 ﻿'Copyright(c) 2023 The Raptoreum developers
 'Copyright(c) 2023 Germardies
 
+Imports System.Globalization
 Imports System.Net
 Imports System.Net.Http
 Imports Windows.Media.Protection.PlayReady
@@ -31,7 +32,6 @@ Module readprice_rtm
                         btc = resultsplitt(i).Replace("""", "")
                         btc = btc.Replace("btc", "")
                         btc = btc.Replace(":", "")
-                        btc = btc.Replace(".", ",")
                         btc = btc.Trim
                         btccheck = True
                     End If
@@ -39,7 +39,6 @@ Module readprice_rtm
                         euro = resultsplitt(i).Replace("""", "")
                         euro = euro.Replace("eur", "")
                         euro = euro.Replace(":", "")
-                        euro = euro.Replace(".", ",")
                         euro = euro.Trim
                         eurocheck = True
                     End If
@@ -47,7 +46,6 @@ Module readprice_rtm
                         usd = resultsplitt(i).Replace("""", "")
                         usd = usd.Replace("usd", "")
                         usd = usd.Replace(":", "")
-                        usd = usd.Replace(".", ",")
                         usd = usd.Trim
                         usdcheck = True
                     End If
@@ -63,26 +61,31 @@ Module readprice_rtm
                         Continue For
                     End If
                     If Form1.DataGridView1.Item(3, i).Value.ToString > 0 Then
-                        Form1.DataGridView1.Item(4, i).Value = Format(CDbl(Form1.DataGridView1.Item(3, i).Value.ToString * btc), "##,##0.00000000")
-                        Form1.DataGridView1.Item(5, i).Value = Format(CDbl(Form1.DataGridView1.Item(3, i).Value.ToString * usd), "##,##0.00000")
-                        Form1.DataGridView1.Item(6, i).Value = Format(CDbl(Form1.DataGridView1.Item(3, i).Value.ToString * euro), "##,##0.00000")
+                        Dim balance As Double = Convert.ToDouble(Form1.DataGridView1.Item(3, i).Value.ToString, CultureInfo.CurrentCulture)
+                        Form1.DataGridView1.Item(4, i).Value = balance * Convert.ToDouble(btc, CultureInfo.InvariantCulture)
+                        Form1.DataGridView1.Item(4, i).Value = Format(Form1.DataGridView1.Item(4, i).Value, "##,##0.00000000")
+                        Form1.DataGridView1.Item(5, i).Value = balance * Convert.ToDouble(usd, CultureInfo.InvariantCulture)
+                        Form1.DataGridView1.Item(5, i).Value = Format(Form1.DataGridView1.Item(5, i).Value, "##,##0.000")
+                        Form1.DataGridView1.Item(6, i).Value = balance * Convert.ToDouble(euro, CultureInfo.InvariantCulture)
+                        Form1.DataGridView1.Item(6, i).Value = Format(Form1.DataGridView1.Item(6, i).Value, "##,##0.000")
+                        Form1.DataGridView1.Item(3, i).Value = Format(balance, "##,##0.00000000")
                     End If
                 Next
 
-                btc = CDbl(btc * balancesummyglobal)
-                usd = CDbl(usd * balancesummyglobal)
-                euro = CDbl(euro * balancesummyglobal)
-                Form1.Label17.Text = Format(CDbl(btc), "##,##0.0000000 BTC") & " / " & Format(CDbl(usd), "##,##0.0000 $") & " / " & Format(CDbl(euro), "##,##0.0000 €")
+                Dim btcglobal As Double = balancesummyglobal * Convert.ToDouble(btc, CultureInfo.InvariantCulture)
+                Dim usdglobal As Double = balancesummyglobal * Convert.ToDouble(usd, CultureInfo.InvariantCulture)
+                Dim euroglobal As Double = balancesummyglobal * Convert.ToDouble(euro, CultureInfo.InvariantCulture)
+                Form1.Label17.Text = Format(btcglobal, "##,##0.00000000") & " BTC / " & Format(usdglobal, "##,##0.000") & " $ / " & Format(euroglobal, "##,##0.000") & " €"
 
-                Form1.ToolStripStatusLabel4.Text = Format(balancesummyglobal, "##,##0.00") + " RTM / " & Form1.Label17.Text
+                Form1.ToolStripStatusLabel4.Text = Format(balancesummyglobal, "##,##0.00000000") + " RTM / " & Form1.Label17.Text
 
                 Cursor.Current = Cursors.Default
             End Using
         Catch e As HttpRequestException
-            MessageBox.Show("Message :{0} ", e.Message)
+            MessageBox.Show("Error CoinGecko-API:" + System.Environment.NewLine + e.Message, "Error")
         End Try
 
-
+        Form1.Label1.Text = Format(CDbl(balancesummyglobal), "##,##0.0000000") + " RTM"
     End Sub
 
 End Module

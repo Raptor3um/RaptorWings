@@ -5,6 +5,14 @@ Imports System.Text
 
 Module saveWalletList
     Public Function saveWalletList()
+        Dim walletdat As String = Nothing
+        If Form1.ComboBox11.Text = "1 - Default" Then
+            walletdat = localwallet
+        Else
+            Dim textsplitt() As String = Form1.ComboBox11.Text.Split(" ")
+            walletdat = localfolder + "main" + textsplitt(0) + ".dat"
+        End If
+
         If Form1.DataGridView1.Rows.Count - 1 = -1 Then
             MessageBox.Show(Checkxmllanguage("Message2.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Exit Function
@@ -24,7 +32,7 @@ Module saveWalletList
             sb.AppendLine($"{number},{walletadress},{description}")
         Next
 
-        System.IO.File.WriteAllText(localwallet, sb.ToString)
+        System.IO.File.WriteAllText(walletdat, sb.ToString)
 
         MessageBox.Show((Checkxmllanguage("Message3.1").trim), "Note", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Form1.Button2.Enabled = False

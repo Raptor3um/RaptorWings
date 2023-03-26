@@ -6,6 +6,7 @@ Imports System.Security.Cryptography.X509Certificates
 
 Module globale
 
+    Public rtwVersion As String = "1-1-0"
     Public winDesktop = System.Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)
     Public selfpath As String = Application.StartupPath
     Public localfolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData).Replace("Roaming", "Local") + "\RaptorWings\"
@@ -29,6 +30,7 @@ Module globale
     Public localdevice As String = localfolder & "device.dat"
     Public localpool As String = localfolder & "pool.dat"
     Public lovalreadmeEN As String = selfpath + "README_EN.txt"
+    Public localusersetting As String = localfolder + "usersetting.dat"
 
     Public apiwalletbalanceurl = "https://explorer.raptoreum.com/api/getaddressbalance?address="
     Public walletexploererurl = "https://explorer.raptoreum.com/address/"
@@ -46,15 +48,16 @@ Module globale
 
     Public donationadress As String = "RDuvGCXFspg9Pkkako32Sx3sbxi7whbXmb"
 
-    Public SRBMinerDownloadpathWinows = "https://github.com/doktor83/SRBMiner-Multi/releases/download/2.1.0/SRBMiner-Multi-2-1-0-win64.zip"
-    Public SRBMinerDownloadpathLinux = "https://github.com/doktor83/SRBMiner-Multi/releases/download/2.1.0/SRBMiner-Multi-2-1-0-Linux.tar.xz"
-    Public SRBMinerDownloadnameWindows = "SRBMiner-Multi-2-1-0-win64.zip"
-    Public SRBMinerDownloadnameLinux = "SRBMiner-Multi-2-1-0-Linux.tar.xz"
-    Public SRBdirectory = "SRBMiner-Multi-2-1-0"
+    Public SRBMinerDownloadpathWinows = "https://github.com/doktor83/SRBMiner-Multi/releases/download/2.2.3/SRBMiner-Multi-2-2-3-win64.zip"
+    Public SRBMinerDownloadpathLinux = "https://github.com/doktor83/SRBMiner-Multi/releases/download/2.2.3/SRBMiner-Multi-2-2-3-Linux.tar.xz"
+    Public SRBMinerDownloadnameWindows = "SRBMiner-Multi-2-2-3-win64.zip"
+    Public SRBMinerDownloadnameLinux = "SRBMiner-Multi-2-2-3-Linux.tar.xz"
+    Public SRBdirectory = "SRBMiner-Multi-2-2-3"
 
-    Public def_ps As String = "Raptorhash.com"
+    Public def_ps As String = "Raptoreum.zone"
     Public def_m As String = "SRBMiner-MULTI"
-    Public def_s As String = "statum+tcp://na.raptorhash.com:6900"
+    Public def_s As String = "stratum+tcps://europe.raptoreum.zone:4444"
     Public def_c As String = "Default"
-    Public def_pw As String = "c=RTM"
+    Public def_pw As String = "x"
+    Public def_solo = True
 End Module

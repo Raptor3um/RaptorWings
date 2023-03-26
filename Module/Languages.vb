@@ -17,7 +17,6 @@ Module Languages
 
             xmlline = xmlimport.Split(System.Environment.NewLine)
 
-            FindLandguage()
         Else
             MessageBox.Show("The Languages.xml could not be found.")
             End
@@ -89,7 +88,6 @@ Module Languages
 
         Form1.ComboBox9.Text = "English - EN"
         xmlLanguagesCodes = "EN"
-        Languagecontrolls()
     End Function
 
     Public Function Checkxmllanguage(ByVal bezeichnung As String)
@@ -151,24 +149,28 @@ Module Languages
         Form1.Label28.Text = Checkxmllanguage("Label28")
         Form1.Label31.Text = Checkxmllanguage("Label31")
         Form1.Label32.Text = Checkxmllanguage("Label32")
+        Form1.Label35.Text = Checkxmllanguage("Label35")
         Form1.Label36.Text = Checkxmllanguage("Label36")
         Form1.Label37.Text = Checkxmllanguage("Label37")
         Form1.Label38.Text = Checkxmllanguage("Label38")
         Form1.Label39.Text = Checkxmllanguage("Label39")
+        Form1.Label40.Text = Checkxmllanguage("Label40")
         Form1.Label41.Text = Checkxmllanguage("Label41")
+        Form1.Label42.Text = Checkxmllanguage("Label42")
         Form1.Label44.Text = Checkxmllanguage("Label44")
         Form1.TabPage1.Text = Checkxmllanguage("TabPage1")
         Form1.TabPage2.Text = Checkxmllanguage("TabPage2")
         Form1.TabPage3.Text = Checkxmllanguage("TabPage3")
-        Form1.TabPage4.Text = Checkxmllanguage("TabPage4")
         Form1.TabPage5.Text = Checkxmllanguage("TabPage5")
         Form1.TabPage6.Text = Checkxmllanguage("TabPage6")
         Form1.TabPage7.Text = Checkxmllanguage("TabPage7")
         Form1.TabPage8.Text = Checkxmllanguage("TabPage8")
         Form1.TabPage9.Text = Checkxmllanguage("TabPage9")
+        Form1.TabPage10.Text = Checkxmllanguage("TabPage10")
         Form1.DataGridView1.Columns(1).HeaderText = Checkxmllanguage("Column11")
         Form1.DataGridView1.Columns(2).HeaderText = Checkxmllanguage("Column12")
         Form1.DataGridView2.Columns(1).HeaderText = Checkxmllanguage("Column21")
+        Form1.DataGridView3.Columns(1).HeaderText = Checkxmllanguage("Column12")
         Form1.CheckBox1.Text = Checkxmllanguage("Checkbox1")
         Form1.CheckBox2.Text = Checkxmllanguage("Checkbox2")
         Form1.TextBox10.Text = Checkxmllanguage("TextBox10").trim

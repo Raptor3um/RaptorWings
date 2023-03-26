@@ -9,7 +9,7 @@
     <Description>GUI Siftware for RTM API's and Mining</Description>
     <Copyright>Raptoreum &amp; Germardies</Copyright>
     <AssemblyVersion>1.0.0</AssemblyVersion>
-    <FileVersion>1.0.0</FileVersion>
+    <FileVersion>1.1.0</FileVersion>
     <ApplicationIcon>Resources\Rptorwings_logo_6.ico</ApplicationIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <Title>Raptorwings</Title>

@@ -27,26 +27,36 @@ Module miningsetting_rtm
             End If
         End If
 
-        If pool = "Raptoreum.Zone" Then
+        If pool = "Raptoreum.Zone" And Form1.CheckBox3.Checked = False Then
             Form1.ComboBox4.Items.Clear()
-            Form1.ComboBox4.Items.Add("stratum+tcp://europe-1.raptoreum.zone:3333")
-            Form1.ComboBox4.Items.Add("stratum+tcp://europe-1.raptoreum.zone:4444")
-            Form1.ComboBox4.Items.Add("stratum+tcp://europe-2.raptoreum.zone:3333")
-            Form1.ComboBox4.Items.Add("stratum+tcp://europe-2.raptoreum.zone:4444")
-            Form1.ComboBox4.Items.Add("stratum+tcp://usa-east-1.raptoreum.zone:3333")
-            Form1.ComboBox4.Items.Add("stratum+tcp://usa-east-1.raptoreum.zone:4444")
-            Form1.ComboBox4.Items.Add("stratum+tcp://usa-east-2.raptoreum.zone:3333")
-            Form1.ComboBox4.Items.Add("stratum+tcp://usa-east-2.raptoreum.zone:4444")
+            Form1.ComboBox4.Items.Add("stratum+tcp://europe.raptoreum.zone:3333")
+            Form1.ComboBox4.Items.Add("stratum+tcps://europe.raptoreum.zone:4444")
+            Form1.ComboBox4.Items.Add("stratum+tcp://usa-east.raptoreum.zone:3333")
+            Form1.ComboBox4.Items.Add("stratum+tcps://usa-east.raptoreum.zone:4444")
             Form1.ComboBox4.Items.Add("stratum+tcp://usa-west.raptoreum.zone:3333")
-            Form1.ComboBox4.Items.Add("stratum+tcp://usa-west.raptoreum.zone:4444")
+            Form1.ComboBox4.Items.Add("stratum+tcps://usa-west.raptoreum.zone:4444")
             Form1.ComboBox4.Items.Add("stratum+tcp://asia.raptoreum.zone:3333")
-            Form1.ComboBox4.Items.Add("stratum+tcp://asia.raptoreum.zone:4444")
+            Form1.ComboBox4.Items.Add("stratum+tcps://asia.raptoreum.zone:4444")
             Form1.ComboBox4.SelectedIndex = 0
             Form1.TextBox2.Enabled = True
             Form1.TextBox2.Text = "x"
-            Form1.CheckBox3.Checked = False
-            Form1.CheckBox3.Enabled = False
+            Form1.CheckBox3.Enabled = True
+        End If
 
+        If pool = "Raptoreum.Zone" And Form1.CheckBox3.Checked = True Then
+            Form1.ComboBox4.Items.Clear()
+            Form1.ComboBox4.Items.Add("stratum+tcp://europe.raptoreum.zone:4010")
+            Form1.ComboBox4.Items.Add("stratum+tcps://europe.raptoreum.zone:5010")
+            Form1.ComboBox4.Items.Add("stratum+tcp://usa-east.raptoreum.zone:4010")
+            Form1.ComboBox4.Items.Add("stratum+tcps://usa-east.raptoreum.zone:5010")
+            Form1.ComboBox4.Items.Add("stratum+tcp://usa-west.raptoreum.zone:5010")
+            Form1.ComboBox4.Items.Add("stratum+tcps://usa-west.raptoreum.zone:4444")
+            Form1.ComboBox4.Items.Add("stratum+tcp://asia.raptoreum.zone:4010")
+            Form1.ComboBox4.Items.Add("stratum+tcps://asia.raptoreum.zone:5010")
+            Form1.ComboBox4.SelectedIndex = 0
+            Form1.TextBox2.Enabled = True
+            Form1.TextBox2.Text = "x"
+            Form1.CheckBox3.Enabled = True
         End If
 
         If pool = "FlockPool" Then

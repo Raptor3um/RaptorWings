@@ -22,1745 +22,2025 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.txID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Wallet = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Value = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
-        Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
-        Me.TabPage6 = New System.Windows.Forms.TabPage()
-        Me.RichTextBox3 = New System.Windows.Forms.RichTextBox()
-        Me.miniToolStrip = New System.Windows.Forms.StatusStrip()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.TabControl2 = New System.Windows.Forms.TabControl()
-        Me.TabPage4 = New System.Windows.Forms.TabPage()
-        Me.ComboBox10 = New System.Windows.Forms.ComboBox()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.ComboBox6 = New System.Windows.Forms.ComboBox()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
-        Me.TextBox12 = New System.Windows.Forms.TextBox()
-        Me.Button11 = New System.Windows.Forms.Button()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.Column8 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Device = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RigName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TabControl3 = New System.Windows.Forms.TabControl()
-        Me.TabPage7 = New System.Windows.Forms.TabPage()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.ComboBox7 = New System.Windows.Forms.ComboBox()
-        Me.TabPage8 = New System.Windows.Forms.TabPage()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.Label30 = New System.Windows.Forms.Label()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.TextBox11 = New System.Windows.Forms.TextBox()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.Label26 = New System.Windows.Forms.Label()
-        Me.Label25 = New System.Windows.Forms.Label()
-        Me.Label24 = New System.Windows.Forms.Label()
-        Me.Label23 = New System.Windows.Forms.Label()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.ComboBox8 = New System.Windows.Forms.ComboBox()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.Button14 = New System.Windows.Forms.Button()
-        Me.Button13 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label34 = New System.Windows.Forms.Label()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
-        Me.ComboBox9 = New System.Windows.Forms.ComboBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPage9 = New System.Windows.Forms.TabPage()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Label46 = New System.Windows.Forms.Label()
-        Me.Label45 = New System.Windows.Forms.Label()
-        Me.Label44 = New System.Windows.Forms.Label()
-        Me.Label41 = New System.Windows.Forms.Label()
-        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
-        Me.Button17 = New System.Windows.Forms.Button()
-        Me.Label39 = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button16 = New System.Windows.Forms.Button()
-        Me.Label37 = New System.Windows.Forms.Label()
-        Me.Button12 = New System.Windows.Forms.Button()
-        Me.Button15 = New System.Windows.Forms.Button()
-        Me.Label38 = New System.Windows.Forms.Label()
-        Me.Label36 = New System.Windows.Forms.Label()
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
-        Me.ToolStripStatusLabel4 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolStripStatusLabel2 = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.TabPage6.SuspendLayout()
-        Me.TabPage3.SuspendLayout()
-        Me.TabControl2.SuspendLayout()
-        Me.TabPage4.SuspendLayout()
-        Me.TabPage5.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabControl3.SuspendLayout()
-        Me.TabPage7.SuspendLayout()
-        Me.TabPage8.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage2.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage1.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabControl1.SuspendLayout()
-        Me.TabPage9.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        Me.StatusStrip1.SuspendLayout()
-        Me.SuspendLayout()
-        '
-        'Timer1
-        '
-        Me.Timer1.Interval = 60000
-        '
-        'txID
-        '
-        Me.txID.HeaderText = "txID"
-        Me.txID.Name = "txID"
-        Me.txID.ReadOnly = True
-        '
-        'Wallet
-        '
-        Me.Wallet.HeaderText = "Wallet"
-        Me.Wallet.Name = "Wallet"
-        Me.Wallet.ReadOnly = True
-        '
-        'Value
-        '
-        Me.Value.HeaderText = "Value"
-        Me.Value.Name = "Value"
-        Me.Value.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.HeaderText = "txID"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        '
-        'Timer2
-        '
-        Me.Timer2.Interval = 1000
-        '
-        'Timer3
-        '
-        Me.Timer3.Interval = 60000
-        '
-        'TabPage6
-        '
-        Me.TabPage6.Controls.Add(Me.RichTextBox3)
-        Me.TabPage6.Location = New System.Drawing.Point(4, 26)
-        Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage6.Size = New System.Drawing.Size(864, 492)
-        Me.TabPage6.TabIndex = 3
-        Me.TabPage6.Text = "TabPage6"
-        Me.TabPage6.UseVisualStyleBackColor = True
-        '
-        'RichTextBox3
-        '
-        Me.RichTextBox3.BackColor = System.Drawing.SystemColors.Window
-        Me.RichTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.RichTextBox3.Location = New System.Drawing.Point(3, 3)
-        Me.RichTextBox3.Name = "RichTextBox3"
-        Me.RichTextBox3.ReadOnly = True
-        Me.RichTextBox3.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical
-        Me.RichTextBox3.Size = New System.Drawing.Size(858, 486)
-        Me.RichTextBox3.TabIndex = 0
-        Me.RichTextBox3.Text = ""
-        '
-        'miniToolStrip
-        '
-        Me.miniToolStrip.AccessibleName = "Neue Elementauswahl"
-        Me.miniToolStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.ButtonDropDown
-        Me.miniToolStrip.AutoSize = False
-        Me.miniToolStrip.Dock = System.Windows.Forms.DockStyle.None
-        Me.miniToolStrip.Location = New System.Drawing.Point(437, 1)
-        Me.miniToolStrip.Name = "miniToolStrip"
-        Me.miniToolStrip.Size = New System.Drawing.Size(858, 22)
-        Me.miniToolStrip.TabIndex = 13
-        '
-        'TabPage3
-        '
-        Me.TabPage3.Controls.Add(Me.TabControl2)
-        Me.TabPage3.Controls.Add(Me.Label11)
-        Me.TabPage3.Controls.Add(Me.Label5)
-        Me.TabPage3.Controls.Add(Me.Button3)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 26)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(864, 492)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Mining"
-        Me.TabPage3.UseVisualStyleBackColor = True
-        '
-        'TabControl2
-        '
-        Me.TabControl2.Controls.Add(Me.TabPage4)
-        Me.TabControl2.Controls.Add(Me.TabPage5)
-        Me.TabControl2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TabControl2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TabControl2.Location = New System.Drawing.Point(3, 3)
-        Me.TabControl2.Name = "TabControl2"
-        Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(858, 486)
-        Me.TabControl2.TabIndex = 34
-        Me.TabControl2.Visible = False
-        '
-        'TabPage4
-        '
-        Me.TabPage4.Controls.Add(Me.ComboBox10)
-        Me.TabPage4.Controls.Add(Me.Label32)
-        Me.TabPage4.Controls.Add(Me.Button6)
-        Me.TabPage4.Controls.Add(Me.Label20)
-        Me.TabPage4.Controls.Add(Me.TextBox3)
-        Me.TabPage4.Controls.Add(Me.TextBox1)
-        Me.TabPage4.Controls.Add(Me.TextBox2)
-        Me.TabPage4.Controls.Add(Me.Label18)
-        Me.TabPage4.Controls.Add(Me.ComboBox6)
-        Me.TabPage4.Controls.Add(Me.Label16)
-        Me.TabPage4.Controls.Add(Me.Label15)
-        Me.TabPage4.Controls.Add(Me.ComboBox5)
-        Me.TabPage4.Controls.Add(Me.Label13)
-        Me.TabPage4.Controls.Add(Me.ComboBox1)
-        Me.TabPage4.Controls.Add(Me.ComboBox4)
-        Me.TabPage4.Controls.Add(Me.Label7)
-        Me.TabPage4.Controls.Add(Me.Label12)
-        Me.TabPage4.Controls.Add(Me.ComboBox2)
-        Me.TabPage4.Controls.Add(Me.CheckBox3)
-        Me.TabPage4.Controls.Add(Me.Label6)
-        Me.TabPage4.Controls.Add(Me.Button5)
-        Me.TabPage4.Controls.Add(Me.Label8)
-        Me.TabPage4.Controls.Add(Me.Button4)
-        Me.TabPage4.Controls.Add(Me.CheckBox2)
-        Me.TabPage4.Controls.Add(Me.Label9)
-        Me.TabPage4.Controls.Add(Me.CheckBox1)
-        Me.TabPage4.Controls.Add(Me.ComboBox3)
-        Me.TabPage4.Controls.Add(Me.Label10)
-        Me.TabPage4.Location = New System.Drawing.Point(4, 26)
-        Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(850, 456)
-        Me.TabPage4.TabIndex = 0
-        Me.TabPage4.Text = "This Device"
-        Me.TabPage4.UseVisualStyleBackColor = True
-        '
-        'ComboBox10
-        '
-        Me.ComboBox10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.ComboBox10.FormattingEnabled = True
-        Me.ComboBox10.Items.AddRange(New Object() {"Default", "1", "2", "3", "4", "5"})
-        Me.ComboBox10.Location = New System.Drawing.Point(11, 344)
-        Me.ComboBox10.Name = "ComboBox10"
-        Me.ComboBox10.Size = New System.Drawing.Size(179, 25)
-        Me.ComboBox10.TabIndex = 47
-        '
-        'Label32
-        '
-        Me.Label32.AutoSize = True
-        Me.Label32.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label32.Location = New System.Drawing.Point(11, 326)
-        Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(157, 17)
-        Me.Label32.TabIndex = 46
-        Me.Label32.Text = "Number of cores to use:"
-        Me.Label32.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'Button6
-        '
-        Me.Button6.BackgroundImage = Global.RaptorWings.My.Resources.Resources.Delete_file_icon
-        Me.Button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button6.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.ForeColor = System.Drawing.SystemColors.Window
-        Me.Button6.Location = New System.Drawing.Point(302, 258)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(32, 31)
-        Me.Button6.TabIndex = 44
-        Me.Button6.UseVisualStyleBackColor = True
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label20.Location = New System.Drawing.Point(256, 211)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(119, 17)
-        Me.Label20.TabIndex = 43
-        Me.Label20.Text = "WingSheet Name:"
-        Me.Label20.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TextBox3.Location = New System.Drawing.Point(256, 229)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(305, 25)
-        Me.TextBox3.TabIndex = 41
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TextBox1.Location = New System.Drawing.Point(11, 168)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(179, 25)
-        Me.TextBox1.TabIndex = 22
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TextBox2.Location = New System.Drawing.Point(256, 168)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(305, 25)
-        Me.TextBox2.TabIndex = 24
-        Me.TextBox2.Text = "c=RTM"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label18.Location = New System.Drawing.Point(11, 20)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(122, 17)
-        Me.Label18.TabIndex = 40
-        Me.Label18.Text = "Load your Setting:"
-        '
-        'ComboBox6
-        '
-        Me.ComboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.ComboBox6.FormattingEnabled = True
-        Me.ComboBox6.Items.AddRange(New Object() {"Default"})
-        Me.ComboBox6.Location = New System.Drawing.Point(158, 17)
-        Me.ComboBox6.Name = "ComboBox6"
-        Me.ComboBox6.Size = New System.Drawing.Size(676, 25)
-        Me.ComboBox6.TabIndex = 39
-        '
-        'Label16
-        '
-        Me.Label16.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label16.ForeColor = System.Drawing.Color.Red
-        Me.Label16.Location = New System.Drawing.Point(3, 416)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(844, 37)
-        Me.Label16.TabIndex = 37
-        Me.Label16.Text = "Please do not select a wallet address from an exchange server. You could lose you" &
-    "r mined coins as a result."
-        Me.Label16.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'Label15
-        '
-        Me.Label15.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label15.Location = New System.Drawing.Point(3, 372)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(844, 44)
-        Me.Label15.TabIndex = 36
-        Me.Label15.Text = "Please check the mining fee and the mining conditions independently on the respec" &
-    "tive websites of all providers."
-        Me.Label15.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'ComboBox5
-        '
-        Me.ComboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(11, 288)
-        Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(179, 25)
-        Me.ComboBox5.TabIndex = 35
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label13.Location = New System.Drawing.Point(11, 270)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(157, 17)
-        Me.Label13.TabIndex = 34
-        Me.Label13.Text = "Number of cores to use:"
-        Me.Label13.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(158, 50)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(676, 25)
-        Me.ComboBox1.TabIndex = 18
-        '
-        'ComboBox4
-        '
-        Me.ComboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Items.AddRange(New Object() {"Raptorhash.com", "Raptoreum.Zone", "FlockPool"})
-        Me.ComboBox4.Location = New System.Drawing.Point(256, 114)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(306, 25)
-        Me.ComboBox4.TabIndex = 33
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label7.Location = New System.Drawing.Point(8, 53)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(104, 17)
-        Me.Label7.TabIndex = 19
-        Me.Label7.Text = "Choos a Wallet:"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label12.Location = New System.Drawing.Point(256, 96)
-        Me.Label12.Name = "Label12"
-        Me.Label12.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label12.Size = New System.Drawing.Size(91, 17)
-        Me.Label12.TabIndex = 32
-        Me.Label12.Text = "Choos a Port:"
-        Me.Label12.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'ComboBox2
-        '
-        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"Raptorhash.com", "Raptoreum.Zone", "FlockPool"})
-        Me.ComboBox2.Location = New System.Drawing.Point(11, 114)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(179, 25)
-        Me.ComboBox2.TabIndex = 20
-        '
-        'CheckBox3
-        '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox3.Location = New System.Drawing.Point(196, 116)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(59, 21)
-        Me.CheckBox3.TabIndex = 31
-        Me.CheckBox3.Text = "Solo?"
-        Me.CheckBox3.UseVisualStyleBackColor = True
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label6.Location = New System.Drawing.Point(11, 96)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(89, 17)
-        Me.Label6.TabIndex = 17
-        Me.Label6.Text = "Choos a Pool"
-        '
-        'Button5
-        '
-        Me.Button5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Button5.BackgroundImage = Global.RaptorWings.My.Resources.Resources.Save_icon
-        Me.Button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button5.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.ForeColor = System.Drawing.SystemColors.Window
-        Me.Button5.Location = New System.Drawing.Point(260, 258)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(36, 31)
-        Me.Button5.TabIndex = 30
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label8.Location = New System.Drawing.Point(10, 150)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(135, 34)
-        Me.Label8.TabIndex = 21
-        Me.Label8.Text = "Name of this device:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(Rig Name)"
-        '
-        'Button4
-        '
-        Me.Button4.BackColor = System.Drawing.Color.YellowGreen
-        Me.Button4.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button4.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Button4.Location = New System.Drawing.Point(642, 204)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(133, 69)
-        Me.Button4.TabIndex = 29
-        Me.Button4.Text = "Starte Mining"
-        Me.Button4.UseVisualStyleBackColor = False
-        '
-        'CheckBox2
-        '
-        Me.CheckBox2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox2.Location = New System.Drawing.Point(592, 133)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(245, 53)
-        Me.CheckBox2.TabIndex = 28
-        Me.CheckBox2.Text = "Close RaptorWings after start Mining"
-        Me.CheckBox2.UseVisualStyleBackColor = True
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label9.Location = New System.Drawing.Point(256, 150)
-        Me.Label9.Name = "Label9"
-        Me.Label9.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label9.Size = New System.Drawing.Size(123, 17)
-        Me.Label9.TabIndex = 23
-        Me.Label9.Text = "Choos a Password:"
-        Me.Label9.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.CheckBox1.Location = New System.Drawing.Point(592, 96)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(245, 38)
-        Me.CheckBox1.TabIndex = 27
-        Me.CheckBox1.Text = "Start Miner in background"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'ComboBox3
-        '
-        Me.ComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Items.AddRange(New Object() {"SRBMiner-MULTI"})
-        Me.ComboBox3.Location = New System.Drawing.Point(11, 229)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(179, 25)
-        Me.ComboBox3.TabIndex = 26
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label10.Location = New System.Drawing.Point(11, 211)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(102, 17)
-        Me.Label10.TabIndex = 25
-        Me.Label10.Text = "Choos a Miner:"
-        '
-        'TabPage5
-        '
-        Me.TabPage5.Controls.Add(Me.TextBox10)
-        Me.TabPage5.Controls.Add(Me.TextBox12)
-        Me.TabPage5.Controls.Add(Me.Button11)
-        Me.TabPage5.Controls.Add(Me.DataGridView2)
-        Me.TabPage5.Controls.Add(Me.TabControl3)
-        Me.TabPage5.Controls.Add(Me.Label28)
-        Me.TabPage5.Location = New System.Drawing.Point(4, 26)
-        Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage5.Size = New System.Drawing.Size(850, 456)
-        Me.TabPage5.TabIndex = 1
-        Me.TabPage5.Text = "Other Device"
-        Me.TabPage5.UseVisualStyleBackColor = True
-        '
-        'TextBox10
-        '
-        Me.TextBox10.BackColor = System.Drawing.SystemColors.HighlightText
-        Me.TextBox10.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox10.Location = New System.Drawing.Point(109, 421)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.ReadOnly = True
-        Me.TextBox10.Size = New System.Drawing.Size(361, 18)
-        Me.TextBox10.TabIndex = 13
-        Me.TextBox10.Text = "Rigstatus und Hashleistung aus Pool-API"
-        Me.TextBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TextBox12
-        '
-        Me.TextBox12.BackColor = System.Drawing.SystemColors.HighlightText
-        Me.TextBox12.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBox12.Location = New System.Drawing.Point(109, 402)
-        Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.ReadOnly = True
-        Me.TextBox12.Size = New System.Drawing.Size(361, 18)
-        Me.TextBox12.TabIndex = 12
-        Me.TextBox12.Text = "Rigstatus und Hashleistung aus Pool-API"
-        Me.TextBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Button11
-        '
-        Me.Button11.BackColor = System.Drawing.Color.LightBlue
-        Me.Button11.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button11.Location = New System.Drawing.Point(6, 402)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(97, 28)
-        Me.Button11.TabIndex = 11
-        Me.Button11.Text = "Button11"
-        Me.Button11.UseVisualStyleBackColor = False
-        '
-        'DataGridView2
-        '
-        Me.DataGridView2.AllowUserToAddRows = False
-        Me.DataGridView2.AllowUserToDeleteRows = False
-        Me.DataGridView2.AllowUserToResizeColumns = False
-        Me.DataGridView2.AllowUserToResizeRows = False
-        Me.DataGridView2.BackgroundColor = System.Drawing.SystemColors.Window
-        Me.DataGridView2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column8, Me.Device, Me.RigName, Me.Status, Me.Column9, Me.Column13, Me.Column10, Me.Column11, Me.Column12, Me.Column14, Me.Column15, Me.Column16, Me.Column17, Me.Column18, Me.Column19})
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle1
-        Me.DataGridView2.Location = New System.Drawing.Point(6, 37)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.RowHeadersVisible = False
-        Me.DataGridView2.RowTemplate.Height = 25
-        Me.DataGridView2.Size = New System.Drawing.Size(464, 359)
-        Me.DataGridView2.TabIndex = 8
-        '
-        'Column8
-        '
-        Me.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.Column8.HeaderText = "Select"
-        Me.Column8.Name = "Column8"
-        Me.Column8.Width = 48
-        '
-        'Device
-        '
-        Me.Device.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.Device.HeaderText = "Device"
-        Me.Device.Name = "Device"
-        Me.Device.ReadOnly = True
-        Me.Device.Width = 71
-        '
-        'RigName
-        '
-        Me.RigName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.RigName.HeaderText = "RigName"
-        Me.RigName.Name = "RigName"
-        Me.RigName.ReadOnly = True
-        Me.RigName.Width = 87
-        '
-        'Status
-        '
-        Me.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Status.HeaderText = "Status"
-        Me.Status.Name = "Status"
-        Me.Status.ReadOnly = True
-        '
-        'Column9
-        '
-        Me.Column9.HeaderText = "IP"
-        Me.Column9.Name = "Column9"
-        Me.Column9.ReadOnly = True
-        Me.Column9.Visible = False
-        '
-        'Column13
-        '
-        Me.Column13.HeaderText = "Port"
-        Me.Column13.Name = "Column13"
-        Me.Column13.Visible = False
-        '
-        'Column10
-        '
-        Me.Column10.HeaderText = "Benutzer"
-        Me.Column10.Name = "Column10"
-        Me.Column10.ReadOnly = True
-        Me.Column10.Visible = False
-        '
-        'Column11
-        '
-        Me.Column11.HeaderText = "Passwort"
-        Me.Column11.Name = "Column11"
-        Me.Column11.ReadOnly = True
-        Me.Column11.Visible = False
-        '
-        'Column12
-        '
-        Me.Column12.HeaderText = "Pfad"
-        Me.Column12.Name = "Column12"
-        Me.Column12.ReadOnly = True
-        Me.Column12.Visible = False
-        '
-        'Column14
-        '
-        Me.Column14.HeaderText = "Pool"
-        Me.Column14.Name = "Column14"
-        Me.Column14.Visible = False
-        '
-        'Column15
-        '
-        Me.Column15.HeaderText = "wallet"
-        Me.Column15.Name = "Column15"
-        Me.Column15.Visible = False
-        '
-        'Column16
-        '
-        Me.Column16.HeaderText = "wingsheet"
-        Me.Column16.Name = "Column16"
-        Me.Column16.Visible = False
-        '
-        'Column17
-        '
-        Me.Column17.HeaderText = "lastseen"
-        Me.Column17.Name = "Column17"
-        Me.Column17.Visible = False
-        '
-        'Column18
-        '
-        Me.Column18.HeaderText = "now"
-        Me.Column18.Name = "Column18"
-        Me.Column18.Visible = False
-        '
-        'Column19
-        '
-        Me.Column19.HeaderText = "agv"
-        Me.Column19.Name = "Column19"
-        Me.Column19.Visible = False
-        '
-        'TabControl3
-        '
-        Me.TabControl3.Controls.Add(Me.TabPage7)
-        Me.TabControl3.Controls.Add(Me.TabPage8)
-        Me.TabControl3.Location = New System.Drawing.Point(476, 20)
-        Me.TabControl3.Name = "TabControl3"
-        Me.TabControl3.SelectedIndex = 0
-        Me.TabControl3.Size = New System.Drawing.Size(368, 419)
-        Me.TabControl3.TabIndex = 7
-        '
-        'TabPage7
-        '
-        Me.TabPage7.Controls.Add(Me.Label33)
-        Me.TabPage7.Controls.Add(Me.RichTextBox2)
-        Me.TabPage7.Controls.Add(Me.Label27)
-        Me.TabPage7.Controls.Add(Me.RichTextBox1)
-        Me.TabPage7.Controls.Add(Me.Button10)
-        Me.TabPage7.Controls.Add(Me.ComboBox7)
-        Me.TabPage7.Location = New System.Drawing.Point(4, 26)
-        Me.TabPage7.Name = "TabPage7"
-        Me.TabPage7.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage7.Size = New System.Drawing.Size(360, 389)
-        Me.TabPage7.TabIndex = 0
-        Me.TabPage7.Text = "TabPage7"
-        Me.TabPage7.UseVisualStyleBackColor = True
-        '
-        'Label33
-        '
-        Me.Label33.AutoSize = True
-        Me.Label33.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label33.Location = New System.Drawing.Point(6, 192)
-        Me.Label33.Name = "Label33"
-        Me.Label33.Size = New System.Drawing.Size(73, 17)
-        Me.Label33.TabIndex = 12
-        Me.Label33.Text = "Rig Detail:"
-        '
-        'RichTextBox2
-        '
-        Me.RichTextBox2.BackColor = System.Drawing.SystemColors.Window
-        Me.RichTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.RichTextBox2.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.RichTextBox2.Location = New System.Drawing.Point(6, 212)
-        Me.RichTextBox2.Name = "RichTextBox2"
-        Me.RichTextBox2.ReadOnly = True
-        Me.RichTextBox2.Size = New System.Drawing.Size(348, 173)
-        Me.RichTextBox2.TabIndex = 11
-        Me.RichTextBox2.Text = ""
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label27.Location = New System.Drawing.Point(6, 6)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(79, 17)
-        Me.Label27.TabIndex = 10
-        Me.Label27.Text = "WingSheet:"
-        '
-        'RichTextBox1
-        '
-        Me.RichTextBox1.BackColor = System.Drawing.SystemColors.Window
-        Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.RichTextBox1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.RichTextBox1.Location = New System.Drawing.Point(6, 55)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.Size = New System.Drawing.Size(348, 111)
-        Me.RichTextBox1.TabIndex = 8
-        Me.RichTextBox1.Text = "WingSheet: Default" & Global.Microsoft.VisualBasic.ChrW(10) & "Wallet: Nr.1" & Global.Microsoft.VisualBasic.ChrW(10) & "Pool: Raptorhash" & Global.Microsoft.VisualBasic.ChrW(10) & "Server: stratum+tcp://na.raptorh" &
-    "ash.com:6900" & Global.Microsoft.VisualBasic.ChrW(10) & "Solo: No" & Global.Microsoft.VisualBasic.ChrW(10) & "Password: c=RTM" & Global.Microsoft.VisualBasic.ChrW(10) & "Miner: SRBMiner" & Global.Microsoft.VisualBasic.ChrW(10) & "Cores: Default"
-        '
-        'Button10
-        '
-        Me.Button10.BackColor = System.Drawing.Color.YellowGreen
-        Me.Button10.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Button10.Location = New System.Drawing.Point(231, 167)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(123, 34)
-        Me.Button10.TabIndex = 7
-        Me.Button10.Text = "Button10"
-        Me.Button10.UseVisualStyleBackColor = False
-        '
-        'ComboBox7
-        '
-        Me.ComboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox7.FormattingEnabled = True
-        Me.ComboBox7.Items.AddRange(New Object() {"Default"})
-        Me.ComboBox7.Location = New System.Drawing.Point(6, 24)
-        Me.ComboBox7.Name = "ComboBox7"
-        Me.ComboBox7.Size = New System.Drawing.Size(348, 25)
-        Me.ComboBox7.TabIndex = 6
-        '
-        'TabPage8
-        '
-        Me.TabPage8.Controls.Add(Me.PictureBox2)
-        Me.TabPage8.Controls.Add(Me.Label31)
-        Me.TabPage8.Controls.Add(Me.Label30)
-        Me.TabPage8.Controls.Add(Me.Button9)
-        Me.TabPage8.Controls.Add(Me.Button8)
-        Me.TabPage8.Controls.Add(Me.Button7)
-        Me.TabPage8.Controls.Add(Me.TextBox11)
-        Me.TabPage8.Controls.Add(Me.TextBox9)
-        Me.TabPage8.Controls.Add(Me.TextBox8)
-        Me.TabPage8.Controls.Add(Me.TextBox7)
-        Me.TabPage8.Controls.Add(Me.TextBox6)
-        Me.TabPage8.Controls.Add(Me.TextBox5)
-        Me.TabPage8.Controls.Add(Me.TextBox4)
-        Me.TabPage8.Controls.Add(Me.Label26)
-        Me.TabPage8.Controls.Add(Me.Label25)
-        Me.TabPage8.Controls.Add(Me.Label24)
-        Me.TabPage8.Controls.Add(Me.Label23)
-        Me.TabPage8.Controls.Add(Me.Label22)
-        Me.TabPage8.Controls.Add(Me.Label21)
-        Me.TabPage8.Controls.Add(Me.Label14)
-        Me.TabPage8.Controls.Add(Me.Label3)
-        Me.TabPage8.Controls.Add(Me.ComboBox8)
-        Me.TabPage8.Location = New System.Drawing.Point(4, 24)
-        Me.TabPage8.Name = "TabPage8"
-        Me.TabPage8.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage8.Size = New System.Drawing.Size(360, 391)
-        Me.TabPage8.TabIndex = 1
-        Me.TabPage8.Text = "TabPage8"
-        Me.TabPage8.UseVisualStyleBackColor = True
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackgroundImage = Global.RaptorWings.My.Resources.Resources.LINUX_LOGO__1_
-        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox2.Location = New System.Drawing.Point(4, 28)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(82, 83)
-        Me.PictureBox2.TabIndex = 31
-        Me.PictureBox2.TabStop = False
-        '
-        'Label31
-        '
-        Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(141, 327)
-        Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(201, 17)
-        Me.Label31.TabIndex = 30
-        Me.Label31.Text = "Das Verzeichniss muss existieren!"
-        '
-        'Label30
-        '
-        Me.Label30.AutoSize = True
-        Me.Label30.Location = New System.Drawing.Point(283, 344)
-        Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(34, 17)
-        Me.Label30.TabIndex = 29
-        Me.Label30.Text = "save"
-        Me.Label30.Visible = False
-        '
-        'Button9
-        '
-        Me.Button9.BackgroundImage = Global.RaptorWings.My.Resources.Resources.new_icon
-        Me.Button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button9.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button9.ForeColor = System.Drawing.SystemColors.Window
-        Me.Button9.Location = New System.Drawing.Point(92, 69)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(42, 42)
-        Me.Button9.TabIndex = 28
-        Me.Button9.UseVisualStyleBackColor = True
-        '
-        'Button8
-        '
-        Me.Button8.BackgroundImage = Global.RaptorWings.My.Resources.Resources.Save_icon
-        Me.Button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button8.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button8.Enabled = False
-        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button8.ForeColor = System.Drawing.SystemColors.Window
-        Me.Button8.Location = New System.Drawing.Point(155, 69)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(42, 42)
-        Me.Button8.TabIndex = 27
-        Me.Button8.UseVisualStyleBackColor = True
-        '
-        'Button7
-        '
-        Me.Button7.BackgroundImage = Global.RaptorWings.My.Resources.Resources.Delete_file_icon
-        Me.Button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button7.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button7.Enabled = False
-        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button7.ForeColor = System.Drawing.SystemColors.Window
-        Me.Button7.Location = New System.Drawing.Point(214, 69)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(42, 42)
-        Me.Button7.TabIndex = 26
-        Me.Button7.UseVisualStyleBackColor = True
-        '
-        'TextBox11
-        '
-        Me.TextBox11.Location = New System.Drawing.Point(141, 299)
-        Me.TextBox11.Name = "TextBox11"
-        Me.TextBox11.Size = New System.Drawing.Size(213, 25)
-        Me.TextBox11.TabIndex = 25
-        Me.TextBox11.Text = "/home/"
-        '
-        'TextBox9
-        '
-        Me.TextBox9.Location = New System.Drawing.Point(141, 270)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(213, 25)
-        Me.TextBox9.TabIndex = 24
-        '
-        'TextBox8
-        '
-        Me.TextBox8.Location = New System.Drawing.Point(141, 241)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(213, 25)
-        Me.TextBox8.TabIndex = 23
-        '
-        'TextBox7
-        '
-        Me.TextBox7.Enabled = False
-        Me.TextBox7.Location = New System.Drawing.Point(141, 212)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(213, 25)
-        Me.TextBox7.TabIndex = 22
-        Me.TextBox7.Text = "22"
-        '
-        'TextBox6
-        '
-        Me.TextBox6.Location = New System.Drawing.Point(141, 183)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(213, 25)
-        Me.TextBox6.TabIndex = 21
-        '
-        'TextBox5
-        '
-        Me.TextBox5.Location = New System.Drawing.Point(141, 154)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(213, 25)
-        Me.TextBox5.TabIndex = 20
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(141, 125)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(213, 25)
-        Me.TextBox4.TabIndex = 19
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(6, 302)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(36, 17)
-        Me.Label26.TabIndex = 18
-        Me.Label26.Text = "Path:"
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(6, 273)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(67, 17)
-        Me.Label25.TabIndex = 17
-        Me.Label25.Text = "Passowrd:"
-        '
-        'Label24
-        '
-        Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(6, 244)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(70, 17)
-        Me.Label24.TabIndex = 16
-        Me.Label24.Text = "Username:"
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(6, 216)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(35, 17)
-        Me.Label23.TabIndex = 15
-        Me.Label23.Text = "Port:"
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(6, 186)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(66, 17)
-        Me.Label22.TabIndex = 14
-        Me.Label22.Text = "IP-Adress:"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(6, 157)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(65, 17)
-        Me.Label21.TabIndex = 13
-        Me.Label21.Text = "RigName:"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(6, 128)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(88, 17)
-        Me.Label14.TabIndex = 12
-        Me.Label14.Text = "Device Name:"
-        '
-        'Label3
-        '
-        Me.Label3.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.Label3.Location = New System.Drawing.Point(92, 3)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(262, 34)
-        Me.Label3.TabIndex = 11
-        Me.Label3.Text = "Select Device to change Properties:"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft
-        '
-        'ComboBox8
-        '
-        Me.ComboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox8.FormattingEnabled = True
-        Me.ComboBox8.Location = New System.Drawing.Point(92, 40)
-        Me.ComboBox8.Name = "ComboBox8"
-        Me.ComboBox8.Size = New System.Drawing.Size(262, 25)
-        Me.ComboBox8.TabIndex = 0
-        '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(6, 3)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(343, 17)
-        Me.Label28.TabIndex = 6
-        Me.Label28.Text = "Mark your devices, choose a WingSheet and start mining."
-        '
-        'Label11
-        '
-        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label11.ForeColor = System.Drawing.Color.Red
-        Me.Label11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label11.Location = New System.Drawing.Point(0, 279)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(868, 99)
-        Me.Label11.TabIndex = 47
-        Me.Label11.Text = "During the process, the selected third-party mining software will be downloaded" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) &
-    " and stored on this device."
-        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Label5
-        '
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label5.ForeColor = System.Drawing.Color.Red
-        Me.Label5.Location = New System.Drawing.Point(3, 66)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(861, 104)
-        Me.Label5.TabIndex = 45
-        Me.Label5.Text = "Danger!" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "On this page you can get the device running this program to mine RTM Coi" &
-    "ns." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "You yourself take full responsibility for what you do here and start."
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(345, 176)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(172, 81)
-        Me.Button3.TabIndex = 46
-        Me.Button3.Text = "I have read and understood the warning and would like to proceed"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'TabPage2
-        '
-        Me.TabPage2.Controls.Add(Me.Button14)
-        Me.TabPage2.Controls.Add(Me.Button13)
-        Me.TabPage2.Controls.Add(Me.Button2)
-        Me.TabPage2.Controls.Add(Me.Button1)
-        Me.TabPage2.Controls.Add(Me.Label19)
-        Me.TabPage2.Controls.Add(Me.DataGridView1)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 26)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(864, 492)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Wallets"
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'Button14
-        '
-        Me.Button14.BackgroundImage = Global.RaptorWings.My.Resources.Resources._001_RTM_Logo_mini2
-        Me.Button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button14.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button14.FlatAppearance.BorderSize = 0
-        Me.Button14.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White
-        Me.Button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White
-        Me.Button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button14.ForeColor = System.Drawing.SystemColors.Window
-        Me.Button14.Location = New System.Drawing.Point(195, 6)
-        Me.Button14.Name = "Button14"
-        Me.Button14.Size = New System.Drawing.Size(42, 42)
-        Me.Button14.TabIndex = 49
-        Me.Button14.UseVisualStyleBackColor = True
-        '
-        'Button13
-        '
-        Me.Button13.BackgroundImage = Global.RaptorWings.My.Resources.Resources.Delete_file_icon
-        Me.Button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button13.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button13.ForeColor = System.Drawing.SystemColors.Window
-        Me.Button13.Location = New System.Drawing.Point(131, 6)
-        Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(42, 42)
-        Me.Button13.TabIndex = 48
-        Me.Button13.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.BackgroundImage = Global.RaptorWings.My.Resources.Resources.Save_icon
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button2.Enabled = False
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.ForeColor = System.Drawing.SystemColors.Window
-        Me.Button2.Location = New System.Drawing.Point(71, 6)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(45, 42)
-        Me.Button2.TabIndex = 47
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.BackgroundImage = Global.RaptorWings.My.Resources.Resources.new_icon
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.ForeColor = System.Drawing.SystemColors.Window
-        Me.Button1.Location = New System.Drawing.Point(8, 6)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(46, 42)
-        Me.Button1.TabIndex = 46
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label19.Location = New System.Drawing.Point(6, 470)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(659, 17)
-        Me.Label19.TabIndex = 8
-        Me.Label19.Text = "All wallet information is read out via the RTM Explorer API. All prizes are trans" &
-    "mitted through the Coingecko API."
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AllowUserToDeleteRows = False
-        Me.DataGridView1.AllowUserToResizeColumns = False
-        Me.DataGridView1.AllowUserToResizeRows = False
-        Me.DataGridView1.BackgroundColor = System.Drawing.SystemColors.Window
-        Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column6, Me.Column5, Me.Column7})
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.RosyBrown
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle6
-        Me.DataGridView1.Location = New System.Drawing.Point(6, 54)
-        Me.DataGridView1.MultiSelect = False
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.RowTemplate.Height = 25
-        Me.DataGridView1.Size = New System.Drawing.Size(850, 413)
-        Me.DataGridView1.TabIndex = 1
-        '
-        'Column1
-        '
-        Me.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.Column1.HeaderText = "Nr."
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        Me.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.Column1.Width = 32
-        '
-        'Column2
-        '
-        Me.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.Column2.HeaderText = "Adress"
-        Me.Column2.Name = "Column2"
-        Me.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.Column2.Width = 54
-        '
-        'Column3
-        '
-        Me.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Column3.HeaderText = "Description"
-        Me.Column3.Name = "Column3"
-        Me.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        '
-        'Column4
-        '
-        Me.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column4.DefaultCellStyle = DataGridViewCellStyle2
-        Me.Column4.HeaderText = "Balance"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        Me.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.Column4.Width = 58
-        '
-        'Column6
-        '
-        Me.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column6.DefaultCellStyle = DataGridViewCellStyle3
-        Me.Column6.HeaderText = "BTC"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        Me.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.Column6.Width = 34
-        '
-        'Column5
-        '
-        Me.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column5.DefaultCellStyle = DataGridViewCellStyle4
-        Me.Column5.HeaderText = "USD"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        Me.Column5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.Column5.Width = 39
-        '
-        'Column7
-        '
-        Me.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.Column7.DefaultCellStyle = DataGridViewCellStyle5
-        Me.Column7.HeaderText = "EUR"
-        Me.Column7.Name = "Column7"
-        Me.Column7.ReadOnly = True
-        Me.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.Column7.Width = 38
-        '
-        'TabPage1
-        '
-        Me.TabPage1.BackColor = System.Drawing.Color.Transparent
-        Me.TabPage1.Controls.Add(Me.CheckBox4)
-        Me.TabPage1.Controls.Add(Me.PictureBox1)
-        Me.TabPage1.Controls.Add(Me.Label34)
-        Me.TabPage1.Controls.Add(Me.Label29)
-        Me.TabPage1.Controls.Add(Me.LinkLabel1)
-        Me.TabPage1.Controls.Add(Me.ComboBox9)
-        Me.TabPage1.Controls.Add(Me.Label17)
-        Me.TabPage1.Controls.Add(Me.Label4)
-        Me.TabPage1.Controls.Add(Me.Label2)
-        Me.TabPage1.Controls.Add(Me.Label1)
-        Me.TabPage1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 26)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(864, 492)
-        Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Overview"
-        '
-        'CheckBox4
-        '
-        Me.CheckBox4.AutoSize = True
-        Me.CheckBox4.Location = New System.Drawing.Point(777, 421)
-        Me.CheckBox4.Name = "CheckBox4"
-        Me.CheckBox4.Size = New System.Drawing.Size(84, 19)
-        Me.CheckBox4.TabIndex = 14
-        Me.CheckBox4.Text = "Dark Mode"
-        Me.CheckBox4.UseVisualStyleBackColor = True
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = Global.RaptorWings.My.Resources.Resources.Rptorwings_logo_small
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.InitialImage = Nothing
-        Me.PictureBox1.Location = New System.Drawing.Point(20, 33)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(416, 241)
-        Me.PictureBox1.TabIndex = 5
-        Me.PictureBox1.TabStop = False
-        '
-        'Label34
-        '
-        Me.Label34.Font = New System.Drawing.Font("Segoe UI", 39.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label34.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label34.Location = New System.Drawing.Point(433, 109)
-        Me.Label34.Name = "Label34"
-        Me.Label34.Size = New System.Drawing.Size(423, 60)
-        Me.Label34.TabIndex = 13
-        Me.Label34.Text = "RAPTORWINGS"
-        '
-        'Label29
-        '
-        Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(276, 277)
-        Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(53, 15)
-        Me.Label29.TabIndex = 12
-        Me.Label29.Text = "Logo by:"
-        '
-        'LinkLabel1
-        '
-        Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.LinkColor = System.Drawing.Color.Black
-        Me.LinkLabel1.Location = New System.Drawing.Point(327, 277)
-        Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(109, 15)
-        Me.LinkLabel1.TabIndex = 11
-        Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "zlataamaranth.com"
-        '
-        'ComboBox9
-        '
-        Me.ComboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox9.FormattingEnabled = True
-        Me.ComboBox9.Location = New System.Drawing.Point(715, 446)
-        Me.ComboBox9.Name = "ComboBox9"
-        Me.ComboBox9.Size = New System.Drawing.Size(141, 23)
-        Me.ComboBox9.TabIndex = 10
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label17.Location = New System.Drawing.Point(268, 403)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(75, 21)
-        Me.Label17.TabIndex = 8
-        Me.Label17.Text = "0,00 RTM"
-        '
-        'Label4
-        '
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Label4.Location = New System.Drawing.Point(454, 169)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(402, 33)
-        Me.Label4.TabIndex = 6
-        Me.Label4.Text = "RAPTORWING" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "A Software for your personal RTM dashboard" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "your RTM mining support" &
-    "."
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 18.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point)
-        Me.Label2.Location = New System.Drawing.Point(266, 339)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(353, 32)
-        Me.Label2.TabIndex = 4
-        Me.Label2.Text = "Balance of all your addresses:"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.Location = New System.Drawing.Point(266, 371)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(113, 32)
-        Me.Label1.TabIndex = 3
-        Me.Label1.Text = "0,00 RTM"
-        '
-        'TabControl1
-        '
-        Me.TabControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Controls.Add(Me.TabPage9)
-        Me.TabControl1.Controls.Add(Me.TabPage6)
-        Me.TabControl1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(872, 522)
-        Me.TabControl1.TabIndex = 1
-        '
-        'TabPage9
-        '
-        Me.TabPage9.Controls.Add(Me.GroupBox3)
-        Me.TabPage9.Controls.Add(Me.GroupBox1)
-        Me.TabPage9.Controls.Add(Me.Label36)
-        Me.TabPage9.Location = New System.Drawing.Point(4, 26)
-        Me.TabPage9.Name = "TabPage9"
-        Me.TabPage9.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage9.Size = New System.Drawing.Size(864, 492)
-        Me.TabPage9.TabIndex = 4
-        Me.TabPage9.Text = "RTM Support"
-        Me.TabPage9.UseVisualStyleBackColor = True
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.Label46)
-        Me.GroupBox3.Controls.Add(Me.Label45)
-        Me.GroupBox3.Controls.Add(Me.Label44)
-        Me.GroupBox3.Controls.Add(Me.Label41)
-        Me.GroupBox3.Controls.Add(Me.ProgressBar1)
-        Me.GroupBox3.Controls.Add(Me.Button17)
-        Me.GroupBox3.Controls.Add(Me.Label39)
-        Me.GroupBox3.Location = New System.Drawing.Point(472, 62)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(376, 132)
-        Me.GroupBox3.TabIndex = 34
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "RTM Core Bootstraps"
-        '
-        'Label46
-        '
-        Me.Label46.AutoSize = True
-        Me.Label46.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label46.Location = New System.Drawing.Point(124, 108)
-        Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(69, 13)
-        Me.Label46.TabIndex = 39
-        Me.Label46.Text = "No activities"
-        '
-        'Label45
-        '
-        Me.Label45.AutoSize = True
-        Me.Label45.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label45.Location = New System.Drawing.Point(124, 82)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(39, 13)
-        Me.Label45.TabIndex = 38
-        Me.Label45.Text = "Status"
-        '
-        'Label44
-        '
-        Me.Label44.AutoSize = True
-        Me.Label44.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label44.Location = New System.Drawing.Point(6, 105)
-        Me.Label44.Name = "Label44"
-        Me.Label44.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label44.Size = New System.Drawing.Size(56, 17)
-        Me.Label44.TabIndex = 37
-        Me.Label44.Text = "Update:"
-        '
-        'Label41
-        '
-        Me.Label41.AutoSize = True
-        Me.Label41.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label41.Location = New System.Drawing.Point(6, 64)
-        Me.Label41.Name = "Label41"
-        Me.Label41.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label41.Size = New System.Drawing.Size(75, 17)
-        Me.Label41.TabIndex = 33
-        Me.Label41.Text = "Download:"
-        Me.Label41.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'ProgressBar1
-        '
-        Me.ProgressBar1.Location = New System.Drawing.Point(124, 58)
-        Me.ProgressBar1.Name = "ProgressBar1"
-        Me.ProgressBar1.Size = New System.Drawing.Size(239, 23)
-        Me.ProgressBar1.TabIndex = 32
-        '
-        'Button17
-        '
-        Me.Button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button17.Location = New System.Drawing.Point(253, 24)
-        Me.Button17.Name = "Button17"
-        Me.Button17.Size = New System.Drawing.Size(110, 28)
-        Me.Button17.TabIndex = 31
-        Me.Button17.Text = "Update"
-        Me.Button17.UseVisualStyleBackColor = True
-        '
-        'Label39
-        '
-        Me.Label39.AutoSize = True
-        Me.Label39.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label39.Location = New System.Drawing.Point(7, 30)
-        Me.Label39.Name = "Label39"
-        Me.Label39.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label39.Size = New System.Drawing.Size(190, 17)
-        Me.Label39.TabIndex = 29
-        Me.Label39.Text = "Update RTM Core Bootstraps:"
-        Me.Label39.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.Button16)
-        Me.GroupBox1.Controls.Add(Me.Label37)
-        Me.GroupBox1.Controls.Add(Me.Button12)
-        Me.GroupBox1.Controls.Add(Me.Button15)
-        Me.GroupBox1.Controls.Add(Me.Label38)
-        Me.GroupBox1.Location = New System.Drawing.Point(18, 62)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(448, 132)
-        Me.GroupBox1.TabIndex = 31
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "RTM Core Wallet"
-        '
-        'Button16
-        '
-        Me.Button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button16.Location = New System.Drawing.Point(281, 63)
-        Me.Button16.Name = "Button16"
-        Me.Button16.Size = New System.Drawing.Size(75, 28)
-        Me.Button16.TabIndex = 30
-        Me.Button16.Text = "Save it"
-        Me.Button16.UseVisualStyleBackColor = True
-        '
-        'Label37
-        '
-        Me.Label37.AutoSize = True
-        Me.Label37.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label37.Location = New System.Drawing.Point(14, 30)
-        Me.Label37.Name = "Label37"
-        Me.Label37.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label37.Size = New System.Drawing.Size(191, 17)
-        Me.Label37.TabIndex = 25
-        Me.Label37.Text = "Download an start RTM-Core:"
-        Me.Label37.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'Button12
-        '
-        Me.Button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button12.Location = New System.Drawing.Point(281, 24)
-        Me.Button12.Name = "Button12"
-        Me.Button12.Size = New System.Drawing.Size(75, 28)
-        Me.Button12.TabIndex = 26
-        Me.Button12.Text = "portable"
-        Me.Button12.UseVisualStyleBackColor = True
-        '
-        'Button15
-        '
-        Me.Button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button15.Location = New System.Drawing.Point(367, 24)
-        Me.Button15.Name = "Button15"
-        Me.Button15.Size = New System.Drawing.Size(75, 28)
-        Me.Button15.TabIndex = 28
-        Me.Button15.Text = "install"
-        Me.Button15.UseVisualStyleBackColor = True
-        '
-        'Label38
-        '
-        Me.Label38.AutoSize = True
-        Me.Label38.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label38.Location = New System.Drawing.Point(14, 69)
-        Me.Label38.Name = "Label38"
-        Me.Label38.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label38.Size = New System.Drawing.Size(200, 17)
-        Me.Label38.TabIndex = 27
-        Me.Label38.Text = "Save RTM Wallet to your Place:"
-        Me.Label38.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'Label36
-        '
-        Me.Label36.AutoSize = True
-        Me.Label36.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label36.Location = New System.Drawing.Point(18, 20)
-        Me.Label36.Name = "Label36"
-        Me.Label36.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label36.Size = New System.Drawing.Size(182, 17)
-        Me.Label36.TabIndex = 24
-        Me.Label36.Text = "Your Personal RTM Support:"
-        Me.Label36.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'StatusStrip1
-        '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel4, Me.ToolStripStatusLabel1, Me.ToolStripStatusLabel2})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 525)
-        Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(872, 22)
-        Me.StatusStrip1.SizingGrip = False
-        Me.StatusStrip1.TabIndex = 12
-        Me.StatusStrip1.Text = "StatusStrip1"
-        '
-        'ToolStripStatusLabel4
-        '
-        Me.ToolStripStatusLabel4.BackColor = System.Drawing.SystemColors.Control
-        Me.ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
-        Me.ToolStripStatusLabel4.Size = New System.Drawing.Size(119, 17)
-        Me.ToolStripStatusLabel4.Text = "ToolStripStatusLabel4"
-        '
-        'ToolStripStatusLabel1
-        '
-        Me.ToolStripStatusLabel1.BackColor = System.Drawing.SystemColors.Control
-        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(166, 17)
-        Me.ToolStripStatusLabel1.Text = "RaptorWING Donation Adress:"
-        '
-        'ToolStripStatusLabel2
-        '
-        Me.ToolStripStatusLabel2.BackColor = System.Drawing.SystemColors.Control
-        Me.ToolStripStatusLabel2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.ToolStripStatusLabel2.ForeColor = System.Drawing.Color.Red
-        Me.ToolStripStatusLabel2.IsLink = True
-        Me.ToolStripStatusLabel2.LinkColor = System.Drawing.Color.Red
-        Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(119, 17)
-        Me.ToolStripStatusLabel2.Text = "ToolStripStatusLabel2"
-        '
-        'Form1
-        '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.BackColor = System.Drawing.SystemColors.WindowFrame
-        Me.ClientSize = New System.Drawing.Size(872, 547)
-        Me.Controls.Add(Me.StatusStrip1)
-        Me.Controls.Add(Me.TabControl1)
-        Me.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
-        Me.HelpButton = True
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximizeBox = False
-        Me.Name = "Form1"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Raptorwings v1.0.0 ""Falcon"""
-        Me.TabPage6.ResumeLayout(False)
-        Me.TabPage3.ResumeLayout(False)
-        Me.TabControl2.ResumeLayout(False)
-        Me.TabPage4.ResumeLayout(False)
-        Me.TabPage4.PerformLayout()
-        Me.TabPage5.ResumeLayout(False)
-        Me.TabPage5.PerformLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabControl3.ResumeLayout(False)
-        Me.TabPage7.ResumeLayout(False)
-        Me.TabPage7.PerformLayout()
-        Me.TabPage8.ResumeLayout(False)
-        Me.TabPage8.PerformLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabPage2.ResumeLayout(False)
-        Me.TabPage2.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabPage1.ResumeLayout(False)
-        Me.TabPage1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TabControl1.ResumeLayout(False)
-        Me.TabPage9.ResumeLayout(False)
-        Me.TabPage9.PerformLayout()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.StatusStrip1.ResumeLayout(False)
-        Me.StatusStrip1.PerformLayout()
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
-
+        components = New ComponentModel.Container()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Form1))
+        Timer1 = New Timer(components)
+        txID = New DataGridViewTextBoxColumn()
+        Wallet = New DataGridViewTextBoxColumn()
+        Value = New DataGridViewTextBoxColumn()
+        DataGridViewTextBoxColumn1 = New DataGridViewTextBoxColumn()
+        Timer2 = New Timer(components)
+        Timer3 = New Timer(components)
+        TabPage6 = New TabPage()
+        RichTextBox3 = New RichTextBox()
+        miniToolStrip = New StatusStrip()
+        TabPage3 = New TabPage()
+        Panel1 = New Panel()
+        CheckBox5 = New CheckBox()
+        ComboBox10 = New ComboBox()
+        Label32 = New Label()
+        Button6 = New Button()
+        Label20 = New Label()
+        TextBox3 = New TextBox()
+        TextBox1 = New TextBox()
+        TextBox2 = New TextBox()
+        Label18 = New Label()
+        ComboBox6 = New ComboBox()
+        Label16 = New Label()
+        Label15 = New Label()
+        ComboBox5 = New ComboBox()
+        Label13 = New Label()
+        ComboBox1 = New ComboBox()
+        ComboBox4 = New ComboBox()
+        Label7 = New Label()
+        Label12 = New Label()
+        ComboBox2 = New ComboBox()
+        CheckBox3 = New CheckBox()
+        Label6 = New Label()
+        Button5 = New Button()
+        Label8 = New Label()
+        Button4 = New Button()
+        CheckBox2 = New CheckBox()
+        Label9 = New Label()
+        CheckBox1 = New CheckBox()
+        ComboBox3 = New ComboBox()
+        Label10 = New Label()
+        Label11 = New Label()
+        Label5 = New Label()
+        Button3 = New Button()
+        TabPage2 = New TabPage()
+        Label42 = New Label()
+        ComboBox11 = New ComboBox()
+        Button14 = New Button()
+        Button13 = New Button()
+        Button2 = New Button()
+        Button1 = New Button()
+        Label19 = New Label()
+        DataGridView1 = New DataGridView()
+        Column1 = New DataGridViewTextBoxColumn()
+        Column2 = New DataGridViewTextBoxColumn()
+        Column3 = New DataGridViewTextBoxColumn()
+        Column4 = New DataGridViewTextBoxColumn()
+        Column6 = New DataGridViewTextBoxColumn()
+        Column5 = New DataGridViewTextBoxColumn()
+        Column7 = New DataGridViewTextBoxColumn()
+        TabPage1 = New TabPage()
+        PictureBox1 = New PictureBox()
+        Label34 = New Label()
+        Label29 = New Label()
+        LinkLabel1 = New LinkLabel()
+        Label17 = New Label()
+        Label4 = New Label()
+        Label2 = New Label()
+        Label1 = New Label()
+        TabControl1 = New TabControl()
+        TabPage5 = New TabPage()
+        TextBox12 = New TextBox()
+        TextBox10 = New TextBox()
+        Button11 = New Button()
+        DataGridView2 = New DataGridView()
+        Column8 = New DataGridViewCheckBoxColumn()
+        Device = New DataGridViewTextBoxColumn()
+        RigName = New DataGridViewTextBoxColumn()
+        Status = New DataGridViewTextBoxColumn()
+        Column9 = New DataGridViewTextBoxColumn()
+        Column13 = New DataGridViewTextBoxColumn()
+        Column10 = New DataGridViewTextBoxColumn()
+        Column11 = New DataGridViewTextBoxColumn()
+        Column12 = New DataGridViewTextBoxColumn()
+        Column14 = New DataGridViewTextBoxColumn()
+        Column15 = New DataGridViewTextBoxColumn()
+        Column16 = New DataGridViewTextBoxColumn()
+        Column17 = New DataGridViewTextBoxColumn()
+        Column18 = New DataGridViewTextBoxColumn()
+        Column19 = New DataGridViewTextBoxColumn()
+        TabControl3 = New TabControl()
+        TabPage7 = New TabPage()
+        Label33 = New Label()
+        RichTextBox2 = New RichTextBox()
+        Label27 = New Label()
+        RichTextBox1 = New RichTextBox()
+        Button10 = New Button()
+        ComboBox7 = New ComboBox()
+        TabPage8 = New TabPage()
+        PictureBox2 = New PictureBox()
+        Label31 = New Label()
+        Label30 = New Label()
+        Button9 = New Button()
+        Button8 = New Button()
+        Button7 = New Button()
+        TextBox11 = New TextBox()
+        TextBox9 = New TextBox()
+        TextBox8 = New TextBox()
+        TextBox7 = New TextBox()
+        TextBox6 = New TextBox()
+        TextBox5 = New TextBox()
+        TextBox4 = New TextBox()
+        Label26 = New Label()
+        Label25 = New Label()
+        Label24 = New Label()
+        Label23 = New Label()
+        Label22 = New Label()
+        Label21 = New Label()
+        Label14 = New Label()
+        Label3 = New Label()
+        ComboBox8 = New ComboBox()
+        Label28 = New Label()
+        TabPage9 = New TabPage()
+        GroupBox3 = New GroupBox()
+        Label46 = New Label()
+        Label45 = New Label()
+        Label44 = New Label()
+        Label41 = New Label()
+        ProgressBar1 = New ProgressBar()
+        Button17 = New Button()
+        Label39 = New Label()
+        GroupBox1 = New GroupBox()
+        Button16 = New Button()
+        Label37 = New Label()
+        Button12 = New Button()
+        Button15 = New Button()
+        Label38 = New Label()
+        Label36 = New Label()
+        TabPage10 = New TabPage()
+        Button19 = New Button()
+        GroupBox2 = New GroupBox()
+        Button18 = New Button()
+        Button20 = New Button()
+        DataGridView3 = New DataGridView()
+        DataGridViewTextBoxColumn2 = New DataGridViewTextBoxColumn()
+        dgv3_Description = New DataGridViewTextBoxColumn()
+        Label40 = New Label()
+        Label35 = New Label()
+        CheckBox4 = New CheckBox()
+        ComboBox9 = New ComboBox()
+        StatusStrip1 = New StatusStrip()
+        ToolStripStatusLabel4 = New ToolStripStatusLabel()
+        ToolStripStatusLabel1 = New ToolStripStatusLabel()
+        ToolStripStatusLabel2 = New ToolStripStatusLabel()
+        ToolTip1 = New ToolTip(components)
+        SaveFileDialog1 = New SaveFileDialog()
+        Timer4 = New Timer(components)
+        Timer5 = New Timer(components)
+        TabPage6.SuspendLayout()
+        TabPage3.SuspendLayout()
+        Panel1.SuspendLayout()
+        TabPage2.SuspendLayout()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        TabPage1.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        TabControl1.SuspendLayout()
+        TabPage5.SuspendLayout()
+        CType(DataGridView2, ComponentModel.ISupportInitialize).BeginInit()
+        TabControl3.SuspendLayout()
+        TabPage7.SuspendLayout()
+        TabPage8.SuspendLayout()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
+        TabPage9.SuspendLayout()
+        GroupBox3.SuspendLayout()
+        GroupBox1.SuspendLayout()
+        TabPage10.SuspendLayout()
+        GroupBox2.SuspendLayout()
+        CType(DataGridView3, ComponentModel.ISupportInitialize).BeginInit()
+        StatusStrip1.SuspendLayout()
+        SuspendLayout()
+        ' 
+        ' Timer1
+        ' 
+        Timer1.Interval = 60000
+        ' 
+        ' txID
+        ' 
+        txID.HeaderText = "txID"
+        txID.MinimumWidth = 6
+        txID.Name = "txID"
+        txID.ReadOnly = True
+        txID.Width = 125
+        ' 
+        ' Wallet
+        ' 
+        Wallet.HeaderText = "Wallet"
+        Wallet.MinimumWidth = 6
+        Wallet.Name = "Wallet"
+        Wallet.ReadOnly = True
+        Wallet.Width = 125
+        ' 
+        ' Value
+        ' 
+        Value.HeaderText = "Value"
+        Value.MinimumWidth = 6
+        Value.Name = "Value"
+        Value.ReadOnly = True
+        Value.Width = 125
+        ' 
+        ' DataGridViewTextBoxColumn1
+        ' 
+        DataGridViewTextBoxColumn1.HeaderText = "txID"
+        DataGridViewTextBoxColumn1.MinimumWidth = 6
+        DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        DataGridViewTextBoxColumn1.Width = 125
+        ' 
+        ' Timer2
+        ' 
+        Timer2.Interval = 1000
+        ' 
+        ' Timer3
+        ' 
+        Timer3.Interval = 60000
+        ' 
+        ' TabPage6
+        ' 
+        TabPage6.Controls.Add(RichTextBox3)
+        TabPage6.Location = New Point(4, 30)
+        TabPage6.Margin = New Padding(3, 4, 3, 4)
+        TabPage6.Name = "TabPage6"
+        TabPage6.Padding = New Padding(3, 4, 3, 4)
+        TabPage6.Size = New Size(989, 695)
+        TabPage6.TabIndex = 3
+        TabPage6.Text = "TabPage6"
+        TabPage6.UseVisualStyleBackColor = True
+        ' 
+        ' RichTextBox3
+        ' 
+        RichTextBox3.BackColor = SystemColors.Window
+        RichTextBox3.BorderStyle = BorderStyle.None
+        RichTextBox3.Dock = DockStyle.Fill
+        RichTextBox3.Location = New Point(3, 4)
+        RichTextBox3.Margin = New Padding(3, 4, 3, 4)
+        RichTextBox3.Name = "RichTextBox3"
+        RichTextBox3.ReadOnly = True
+        RichTextBox3.ScrollBars = RichTextBoxScrollBars.ForcedVertical
+        RichTextBox3.Size = New Size(983, 687)
+        RichTextBox3.TabIndex = 0
+        RichTextBox3.Text = ""
+        ' 
+        ' miniToolStrip
+        ' 
+        miniToolStrip.AccessibleName = "Neue Elementauswahl"
+        miniToolStrip.AccessibleRole = AccessibleRole.ButtonDropDown
+        miniToolStrip.AutoSize = False
+        miniToolStrip.Dock = DockStyle.None
+        miniToolStrip.ImageScalingSize = New Size(20, 20)
+        miniToolStrip.Location = New Point(437, 1)
+        miniToolStrip.Name = "miniToolStrip"
+        miniToolStrip.Size = New Size(858, 22)
+        miniToolStrip.TabIndex = 13
+        ' 
+        ' TabPage3
+        ' 
+        TabPage3.Controls.Add(Panel1)
+        TabPage3.Controls.Add(Label11)
+        TabPage3.Controls.Add(Label5)
+        TabPage3.Controls.Add(Button3)
+        TabPage3.Location = New Point(4, 30)
+        TabPage3.Margin = New Padding(3, 4, 3, 4)
+        TabPage3.Name = "TabPage3"
+        TabPage3.Padding = New Padding(3, 4, 3, 4)
+        TabPage3.Size = New Size(989, 695)
+        TabPage3.TabIndex = 2
+        TabPage3.Text = "Mining"
+        TabPage3.UseVisualStyleBackColor = True
+        ' 
+        ' Panel1
+        ' 
+        Panel1.Controls.Add(CheckBox5)
+        Panel1.Controls.Add(ComboBox10)
+        Panel1.Controls.Add(Label32)
+        Panel1.Controls.Add(Button6)
+        Panel1.Controls.Add(Label20)
+        Panel1.Controls.Add(TextBox3)
+        Panel1.Controls.Add(TextBox1)
+        Panel1.Controls.Add(TextBox2)
+        Panel1.Controls.Add(Label18)
+        Panel1.Controls.Add(ComboBox6)
+        Panel1.Controls.Add(Label16)
+        Panel1.Controls.Add(Label15)
+        Panel1.Controls.Add(ComboBox5)
+        Panel1.Controls.Add(Label13)
+        Panel1.Controls.Add(ComboBox1)
+        Panel1.Controls.Add(ComboBox4)
+        Panel1.Controls.Add(Label7)
+        Panel1.Controls.Add(Label12)
+        Panel1.Controls.Add(ComboBox2)
+        Panel1.Controls.Add(CheckBox3)
+        Panel1.Controls.Add(Label6)
+        Panel1.Controls.Add(Button5)
+        Panel1.Controls.Add(Label8)
+        Panel1.Controls.Add(Button4)
+        Panel1.Controls.Add(CheckBox2)
+        Panel1.Controls.Add(Label9)
+        Panel1.Controls.Add(CheckBox1)
+        Panel1.Controls.Add(ComboBox3)
+        Panel1.Controls.Add(Label10)
+        Panel1.Dock = DockStyle.Fill
+        Panel1.Location = New Point(3, 4)
+        Panel1.Margin = New Padding(3, 4, 3, 4)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(983, 687)
+        Panel1.TabIndex = 48
+        Panel1.Visible = False
+        ' 
+        ' CheckBox5
+        ' 
+        CheckBox5.Checked = True
+        CheckBox5.CheckState = CheckState.Checked
+        CheckBox5.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        CheckBox5.Location = New Point(742, 383)
+        CheckBox5.Margin = New Padding(3, 4, 3, 4)
+        CheckBox5.Name = "CheckBox5"
+        CheckBox5.Size = New Size(219, 45)
+        CheckBox5.TabIndex = 76
+        CheckBox5.Text = "Raptorwings Donation"
+        CheckBox5.UseVisualStyleBackColor = True
+        ' 
+        ' ComboBox10
+        ' 
+        ComboBox10.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox10.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        ComboBox10.FormattingEnabled = True
+        ComboBox10.Items.AddRange(New Object() {"Default", "1", "2", "3", "4", "5"})
+        ComboBox10.Location = New Point(17, 469)
+        ComboBox10.Margin = New Padding(3, 4, 3, 4)
+        ComboBox10.Name = "ComboBox10"
+        ComboBox10.Size = New Size(204, 29)
+        ComboBox10.TabIndex = 75
+        ' 
+        ' Label32
+        ' 
+        Label32.AutoSize = True
+        Label32.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label32.Location = New Point(17, 445)
+        Label32.Name = "Label32"
+        Label32.Size = New Size(202, 23)
+        Label32.TabIndex = 74
+        Label32.Text = "Number of cores to use:"
+        Label32.TextAlign = ContentAlignment.TopRight
+        ' 
+        ' Button6
+        ' 
+        Button6.BackgroundImage = My.Resources.Resources.Delete_file_icon
+        Button6.BackgroundImageLayout = ImageLayout.Stretch
+        Button6.Cursor = Cursors.Hand
+        Button6.FlatStyle = FlatStyle.Flat
+        Button6.ForeColor = SystemColors.Window
+        Button6.Location = New Point(350, 355)
+        Button6.Margin = New Padding(3, 4, 3, 4)
+        Button6.Name = "Button6"
+        Button6.Size = New Size(37, 41)
+        Button6.TabIndex = 73
+        Button6.UseVisualStyleBackColor = True
+        ' 
+        ' Label20
+        ' 
+        Label20.AutoSize = True
+        Label20.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label20.Location = New Point(297, 292)
+        Label20.Name = "Label20"
+        Label20.Size = New Size(155, 23)
+        Label20.TabIndex = 72
+        Label20.Text = "WingSheet Name:"
+        Label20.TextAlign = ContentAlignment.TopRight
+        ' 
+        ' TextBox3
+        ' 
+        TextBox3.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBox3.Location = New Point(297, 316)
+        TextBox3.Margin = New Padding(3, 4, 3, 4)
+        TextBox3.Name = "TextBox3"
+        TextBox3.Size = New Size(348, 29)
+        TextBox3.TabIndex = 71
+        ' 
+        ' TextBox1
+        ' 
+        TextBox1.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBox1.Location = New Point(17, 235)
+        TextBox1.Margin = New Padding(3, 4, 3, 4)
+        TextBox1.Name = "TextBox1"
+        TextBox1.Size = New Size(204, 29)
+        TextBox1.TabIndex = 53
+        ' 
+        ' TextBox2
+        ' 
+        TextBox2.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBox2.Location = New Point(297, 235)
+        TextBox2.Margin = New Padding(3, 4, 3, 4)
+        TextBox2.Name = "TextBox2"
+        TextBox2.Size = New Size(348, 29)
+        TextBox2.TabIndex = 55
+        TextBox2.Text = "c=RTM"
+        ' 
+        ' Label18
+        ' 
+        Label18.AutoSize = True
+        Label18.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label18.Location = New Point(17, 37)
+        Label18.Name = "Label18"
+        Label18.Size = New Size(159, 23)
+        Label18.TabIndex = 70
+        Label18.Text = "Load your Setting:"
+        ' 
+        ' ComboBox6
+        ' 
+        ComboBox6.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox6.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        ComboBox6.FormattingEnabled = True
+        ComboBox6.Items.AddRange(New Object() {"Default"})
+        ComboBox6.Location = New Point(185, 33)
+        ComboBox6.Margin = New Padding(3, 4, 3, 4)
+        ComboBox6.Name = "ComboBox6"
+        ComboBox6.Size = New Size(772, 29)
+        ComboBox6.TabIndex = 69
+        ' 
+        ' Label16
+        ' 
+        Label16.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Label16.ForeColor = Color.Red
+        Label16.Location = New Point(8, 599)
+        Label16.Name = "Label16"
+        Label16.Size = New Size(965, 49)
+        Label16.TabIndex = 68
+        Label16.Text = "Please do not select a wallet address from an exchange server. You could lose your mined coins as a result."
+        Label16.TextAlign = ContentAlignment.BottomCenter
+        ' 
+        ' Label15
+        ' 
+        Label15.Font = New Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Label15.Location = New Point(8, 540)
+        Label15.Name = "Label15"
+        Label15.Size = New Size(965, 59)
+        Label15.TabIndex = 67
+        Label15.Text = "Please check the mining fee and the mining conditions independently on the respective websites of all providers."
+        Label15.TextAlign = ContentAlignment.BottomCenter
+        ' 
+        ' ComboBox5
+        ' 
+        ComboBox5.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox5.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        ComboBox5.FormattingEnabled = True
+        ComboBox5.Location = New Point(17, 395)
+        ComboBox5.Margin = New Padding(3, 4, 3, 4)
+        ComboBox5.Name = "ComboBox5"
+        ComboBox5.Size = New Size(204, 29)
+        ComboBox5.TabIndex = 66
+        ' 
+        ' Label13
+        ' 
+        Label13.AutoSize = True
+        Label13.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label13.Location = New Point(17, 371)
+        Label13.Name = "Label13"
+        Label13.Size = New Size(202, 23)
+        Label13.TabIndex = 65
+        Label13.Text = "Number of cores to use:"
+        Label13.TextAlign = ContentAlignment.TopRight
+        ' 
+        ' ComboBox1
+        ' 
+        ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox1.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        ComboBox1.FormattingEnabled = True
+        ComboBox1.Location = New Point(185, 77)
+        ComboBox1.Margin = New Padding(3, 4, 3, 4)
+        ComboBox1.Name = "ComboBox1"
+        ComboBox1.Size = New Size(772, 29)
+        ComboBox1.TabIndex = 49
+        ' 
+        ' ComboBox4
+        ' 
+        ComboBox4.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox4.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        ComboBox4.FormattingEnabled = True
+        ComboBox4.Items.AddRange(New Object() {"Raptorhash.com", "Raptoreum.Zone", "FlockPool"})
+        ComboBox4.Location = New Point(297, 163)
+        ComboBox4.Margin = New Padding(3, 4, 3, 4)
+        ComboBox4.Name = "ComboBox4"
+        ComboBox4.Size = New Size(349, 29)
+        ComboBox4.TabIndex = 64
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label7.Location = New Point(14, 81)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(133, 23)
+        Label7.TabIndex = 50
+        Label7.Text = "Choos a Wallet:"
+        ' 
+        ' Label12
+        ' 
+        Label12.AutoSize = True
+        Label12.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label12.Location = New Point(297, 139)
+        Label12.Name = "Label12"
+        Label12.RightToLeft = RightToLeft.No
+        Label12.Size = New Size(115, 23)
+        Label12.TabIndex = 63
+        Label12.Text = "Choos a Port:"
+        Label12.TextAlign = ContentAlignment.TopRight
+        ' 
+        ' ComboBox2
+        ' 
+        ComboBox2.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox2.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        ComboBox2.FormattingEnabled = True
+        ComboBox2.Items.AddRange(New Object() {"Raptorhash.com", "Raptoreum.Zone", "FlockPool"})
+        ComboBox2.Location = New Point(17, 163)
+        ComboBox2.Margin = New Padding(3, 4, 3, 4)
+        ComboBox2.Name = "ComboBox2"
+        ComboBox2.Size = New Size(204, 29)
+        ComboBox2.TabIndex = 51
+        ' 
+        ' CheckBox3
+        ' 
+        CheckBox3.AutoSize = True
+        CheckBox3.Enabled = False
+        CheckBox3.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        CheckBox3.Location = New Point(229, 165)
+        CheckBox3.Margin = New Padding(3, 4, 3, 4)
+        CheckBox3.Name = "CheckBox3"
+        CheckBox3.Size = New Size(73, 27)
+        CheckBox3.TabIndex = 62
+        CheckBox3.Text = "Solo?"
+        CheckBox3.UseVisualStyleBackColor = True
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label6.Location = New Point(17, 139)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(111, 23)
+        Label6.TabIndex = 48
+        Label6.Text = "Choos a Pool"
+        ' 
+        ' Button5
+        ' 
+        Button5.AutoSizeMode = AutoSizeMode.GrowAndShrink
+        Button5.BackgroundImage = My.Resources.Resources.Save_icon
+        Button5.BackgroundImageLayout = ImageLayout.Stretch
+        Button5.Cursor = Cursors.Hand
+        Button5.FlatStyle = FlatStyle.Flat
+        Button5.ForeColor = SystemColors.Window
+        Button5.Location = New Point(302, 355)
+        Button5.Margin = New Padding(3, 4, 3, 4)
+        Button5.Name = "Button5"
+        Button5.Size = New Size(41, 41)
+        Button5.TabIndex = 61
+        Button5.UseVisualStyleBackColor = True
+        ' 
+        ' Label8
+        ' 
+        Label8.AutoSize = True
+        Label8.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label8.Location = New Point(16, 211)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(0, 23)
+        Label8.TabIndex = 52
+        ' 
+        ' Button4
+        ' 
+        Button4.BackColor = Color.YellowGreen
+        Button4.Cursor = Cursors.Hand
+        Button4.Font = New Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point)
+        Button4.Location = New Point(738, 283)
+        Button4.Margin = New Padding(3, 4, 3, 4)
+        Button4.Name = "Button4"
+        Button4.Size = New Size(152, 92)
+        Button4.TabIndex = 60
+        Button4.Text = "Starte Mining"
+        Button4.UseVisualStyleBackColor = False
+        ' 
+        ' CheckBox2
+        ' 
+        CheckBox2.Enabled = False
+        CheckBox2.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        CheckBox2.Location = New Point(681, 188)
+        CheckBox2.Margin = New Padding(3, 4, 3, 4)
+        CheckBox2.Name = "CheckBox2"
+        CheckBox2.Size = New Size(280, 71)
+        CheckBox2.TabIndex = 59
+        CheckBox2.Text = "Close RaptorWings after start Mining"
+        CheckBox2.UseVisualStyleBackColor = True
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label9.Location = New Point(297, 211)
+        Label9.Name = "Label9"
+        Label9.RightToLeft = RightToLeft.No
+        Label9.Size = New Size(157, 23)
+        Label9.TabIndex = 54
+        Label9.Text = "Choos a Password:"
+        Label9.TextAlign = ContentAlignment.TopRight
+        ' 
+        ' CheckBox1
+        ' 
+        CheckBox1.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        CheckBox1.Location = New Point(681, 139)
+        CheckBox1.Margin = New Padding(3, 4, 3, 4)
+        CheckBox1.Name = "CheckBox1"
+        CheckBox1.Size = New Size(280, 51)
+        CheckBox1.TabIndex = 58
+        CheckBox1.Text = "Start Miner in background"
+        CheckBox1.UseVisualStyleBackColor = True
+        ' 
+        ' ComboBox3
+        ' 
+        ComboBox3.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox3.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        ComboBox3.FormattingEnabled = True
+        ComboBox3.Items.AddRange(New Object() {"SRBMiner-MULTI"})
+        ComboBox3.Location = New Point(17, 316)
+        ComboBox3.Margin = New Padding(3, 4, 3, 4)
+        ComboBox3.Name = "ComboBox3"
+        ComboBox3.Size = New Size(204, 29)
+        ComboBox3.TabIndex = 57
+        ' 
+        ' Label10
+        ' 
+        Label10.AutoSize = True
+        Label10.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label10.Location = New Point(17, 292)
+        Label10.Name = "Label10"
+        Label10.Size = New Size(130, 23)
+        Label10.TabIndex = 56
+        Label10.Text = "Choos a Miner:"
+        ' 
+        ' Label11
+        ' 
+        Label11.Font = New Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Label11.ForeColor = Color.Red
+        Label11.ImageAlign = ContentAlignment.MiddleRight
+        Label11.Location = New Point(0, 372)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(992, 132)
+        Label11.TabIndex = 47
+        Label11.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Label5
+        ' 
+        Label5.Font = New Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Label5.ForeColor = Color.Red
+        Label5.Location = New Point(3, 88)
+        Label5.Name = "Label5"
+        Label5.Size = New Size(984, 139)
+        Label5.TabIndex = 45
+        Label5.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Button3
+        ' 
+        Button3.Location = New Point(394, 235)
+        Button3.Margin = New Padding(3, 4, 3, 4)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(197, 108)
+        Button3.TabIndex = 46
+        Button3.Text = "I have read and understood the warning and would like to proceed"
+        Button3.UseVisualStyleBackColor = True
+        ' 
+        ' TabPage2
+        ' 
+        TabPage2.Controls.Add(Label42)
+        TabPage2.Controls.Add(ComboBox11)
+        TabPage2.Controls.Add(Button14)
+        TabPage2.Controls.Add(Button13)
+        TabPage2.Controls.Add(Button2)
+        TabPage2.Controls.Add(Button1)
+        TabPage2.Controls.Add(Label19)
+        TabPage2.Controls.Add(DataGridView1)
+        TabPage2.Location = New Point(4, 30)
+        TabPage2.Margin = New Padding(3, 4, 3, 4)
+        TabPage2.Name = "TabPage2"
+        TabPage2.Padding = New Padding(3, 4, 3, 4)
+        TabPage2.Size = New Size(989, 695)
+        TabPage2.TabIndex = 1
+        TabPage2.Text = "Wallets"
+        TabPage2.UseVisualStyleBackColor = True
+        ' 
+        ' Label42
+        ' 
+        Label42.AutoSize = True
+        Label42.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label42.Location = New Point(685, 8)
+        Label42.Name = "Label42"
+        Label42.Size = New Size(134, 23)
+        Label42.TabIndex = 51
+        Label42.Text = "Change profile:"
+        ' 
+        ' ComboBox11
+        ' 
+        ComboBox11.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox11.FormattingEnabled = True
+        ComboBox11.Items.AddRange(New Object() {"1 - Default"})
+        ComboBox11.Location = New Point(685, 35)
+        ComboBox11.Margin = New Padding(3, 4, 3, 4)
+        ComboBox11.Name = "ComboBox11"
+        ComboBox11.Size = New Size(290, 29)
+        ComboBox11.TabIndex = 50
+        ' 
+        ' Button14
+        ' 
+        Button14.BackgroundImage = My.Resources.Resources._001_RTM_Logo_mini2
+        Button14.BackgroundImageLayout = ImageLayout.Stretch
+        Button14.Cursor = Cursors.Hand
+        Button14.FlatAppearance.BorderSize = 0
+        Button14.FlatAppearance.MouseDownBackColor = Color.White
+        Button14.FlatAppearance.MouseOverBackColor = Color.White
+        Button14.FlatStyle = FlatStyle.Flat
+        Button14.ForeColor = SystemColors.Window
+        Button14.Location = New Point(223, 8)
+        Button14.Margin = New Padding(3, 4, 3, 4)
+        Button14.Name = "Button14"
+        Button14.Size = New Size(48, 56)
+        Button14.TabIndex = 49
+        Button14.UseVisualStyleBackColor = True
+        ' 
+        ' Button13
+        ' 
+        Button13.BackgroundImage = My.Resources.Resources.Delete_file_icon
+        Button13.BackgroundImageLayout = ImageLayout.Stretch
+        Button13.Cursor = Cursors.Hand
+        Button13.FlatStyle = FlatStyle.Flat
+        Button13.ForeColor = SystemColors.Window
+        Button13.Location = New Point(150, 8)
+        Button13.Margin = New Padding(3, 4, 3, 4)
+        Button13.Name = "Button13"
+        Button13.Size = New Size(48, 56)
+        Button13.TabIndex = 48
+        Button13.UseVisualStyleBackColor = True
+        ' 
+        ' Button2
+        ' 
+        Button2.BackgroundImage = My.Resources.Resources.Save_icon
+        Button2.BackgroundImageLayout = ImageLayout.Stretch
+        Button2.Cursor = Cursors.Hand
+        Button2.Enabled = False
+        Button2.FlatStyle = FlatStyle.Flat
+        Button2.ForeColor = SystemColors.Window
+        Button2.Location = New Point(81, 8)
+        Button2.Margin = New Padding(3, 4, 3, 4)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(51, 56)
+        Button2.TabIndex = 47
+        Button2.UseVisualStyleBackColor = True
+        ' 
+        ' Button1
+        ' 
+        Button1.BackgroundImage = My.Resources.Resources.new_icon
+        Button1.BackgroundImageLayout = ImageLayout.Stretch
+        Button1.Cursor = Cursors.Hand
+        Button1.FlatStyle = FlatStyle.Flat
+        Button1.ForeColor = SystemColors.Window
+        Button1.Location = New Point(9, 8)
+        Button1.Margin = New Padding(3, 4, 3, 4)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(53, 56)
+        Button1.TabIndex = 46
+        Button1.UseVisualStyleBackColor = True
+        ' 
+        ' Label19
+        ' 
+        Label19.AutoSize = True
+        Label19.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        Label19.Location = New Point(7, 627)
+        Label19.Name = "Label19"
+        Label19.Size = New Size(866, 23)
+        Label19.TabIndex = 8
+        Label19.Text = "All wallet information is read out via the RTM Explorer API. All prizes are transmitted through the Coingecko API."
+        ' 
+        ' DataGridView1
+        ' 
+        DataGridView1.AllowUserToAddRows = False
+        DataGridView1.AllowUserToDeleteRows = False
+        DataGridView1.AllowUserToResizeColumns = False
+        DataGridView1.AllowUserToResizeRows = False
+        DataGridView1.BackgroundColor = SystemColors.Window
+        DataGridView1.BorderStyle = BorderStyle.Fixed3D
+        DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.Raised
+        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView1.Columns.AddRange(New DataGridViewColumn() {Column1, Column2, Column3, Column4, Column6, Column5, Column7})
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = SystemColors.Window
+        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle5.ForeColor = SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = Color.RosyBrown
+        DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.False
+        DataGridView1.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridView1.Location = New Point(7, 72)
+        DataGridView1.Margin = New Padding(3, 4, 3, 4)
+        DataGridView1.MultiSelect = False
+        DataGridView1.Name = "DataGridView1"
+        DataGridView1.RowHeadersVisible = False
+        DataGridView1.RowHeadersWidth = 51
+        DataGridView1.RowTemplate.Height = 25
+        DataGridView1.Size = New Size(971, 551)
+        DataGridView1.TabIndex = 1
+        ' 
+        ' Column1
+        ' 
+        Column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells
+        Column1.HeaderText = "Nr."
+        Column1.MinimumWidth = 6
+        Column1.Name = "Column1"
+        Column1.ReadOnly = True
+        Column1.SortMode = DataGridViewColumnSortMode.NotSortable
+        Column1.Width = 39
+        ' 
+        ' Column2
+        ' 
+        Column2.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells
+        Column2.HeaderText = "Adress"
+        Column2.MinimumWidth = 6
+        Column2.Name = "Column2"
+        Column2.SortMode = DataGridViewColumnSortMode.NotSortable
+        Column2.Width = 66
+        ' 
+        ' Column3
+        ' 
+        Column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Column3.HeaderText = "Description"
+        Column3.MinimumWidth = 6
+        Column3.Name = "Column3"
+        Column3.SortMode = DataGridViewColumnSortMode.NotSortable
+        ' 
+        ' Column4
+        ' 
+        Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleRight
+        Column4.DefaultCellStyle = DataGridViewCellStyle1
+        Column4.HeaderText = "Balance"
+        Column4.MinimumWidth = 6
+        Column4.Name = "Column4"
+        Column4.ReadOnly = True
+        Column4.SortMode = DataGridViewColumnSortMode.NotSortable
+        Column4.Width = 75
+        ' 
+        ' Column6
+        ' 
+        Column6.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleRight
+        Column6.DefaultCellStyle = DataGridViewCellStyle2
+        Column6.HeaderText = "BTC"
+        Column6.MinimumWidth = 6
+        Column6.Name = "Column6"
+        Column6.ReadOnly = True
+        Column6.SortMode = DataGridViewColumnSortMode.NotSortable
+        Column6.Width = 44
+        ' 
+        ' Column5
+        ' 
+        Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleRight
+        Column5.DefaultCellStyle = DataGridViewCellStyle3
+        Column5.HeaderText = "USD"
+        Column5.MinimumWidth = 6
+        Column5.Name = "Column5"
+        Column5.ReadOnly = True
+        Column5.SortMode = DataGridViewColumnSortMode.NotSortable
+        Column5.Width = 49
+        ' 
+        ' Column7
+        ' 
+        Column7.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleRight
+        Column7.DefaultCellStyle = DataGridViewCellStyle4
+        Column7.HeaderText = "EUR"
+        Column7.MinimumWidth = 6
+        Column7.Name = "Column7"
+        Column7.ReadOnly = True
+        Column7.SortMode = DataGridViewColumnSortMode.NotSortable
+        Column7.Width = 47
+        ' 
+        ' TabPage1
+        ' 
+        TabPage1.BackColor = Color.Transparent
+        TabPage1.Controls.Add(PictureBox1)
+        TabPage1.Controls.Add(Label34)
+        TabPage1.Controls.Add(Label29)
+        TabPage1.Controls.Add(LinkLabel1)
+        TabPage1.Controls.Add(Label17)
+        TabPage1.Controls.Add(Label4)
+        TabPage1.Controls.Add(Label2)
+        TabPage1.Controls.Add(Label1)
+        TabPage1.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        TabPage1.Location = New Point(4, 30)
+        TabPage1.Margin = New Padding(3, 4, 3, 4)
+        TabPage1.Name = "TabPage1"
+        TabPage1.Padding = New Padding(3, 4, 3, 4)
+        TabPage1.Size = New Size(989, 695)
+        TabPage1.TabIndex = 0
+        TabPage1.Text = "Overview"
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.BackgroundImage = My.Resources.Resources.Rptorwings_logo_small
+        PictureBox1.BackgroundImageLayout = ImageLayout.Stretch
+        PictureBox1.InitialImage = Nothing
+        PictureBox1.Location = New Point(23, 44)
+        PictureBox1.Margin = New Padding(3, 4, 3, 4)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(475, 321)
+        PictureBox1.TabIndex = 5
+        PictureBox1.TabStop = False
+        ' 
+        ' Label34
+        ' 
+        Label34.Font = New Font("Segoe UI", 39.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label34.ForeColor = Color.FromArgb(CByte(0), CByte(0), CByte(64))
+        Label34.Location = New Point(495, 145)
+        Label34.Name = "Label34"
+        Label34.Size = New Size(483, 80)
+        Label34.TabIndex = 13
+        Label34.Text = "RAPTORWINGS"
+        ' 
+        ' Label29
+        ' 
+        Label29.AutoSize = True
+        Label29.Location = New Point(315, 369)
+        Label29.Name = "Label29"
+        Label29.Size = New Size(66, 20)
+        Label29.TabIndex = 12
+        Label29.Text = "Logo by:"
+        ' 
+        ' LinkLabel1
+        ' 
+        LinkLabel1.AutoSize = True
+        LinkLabel1.LinkColor = Color.Black
+        LinkLabel1.Location = New Point(374, 369)
+        LinkLabel1.Name = "LinkLabel1"
+        LinkLabel1.Size = New Size(136, 20)
+        LinkLabel1.TabIndex = 11
+        LinkLabel1.TabStop = True
+        LinkLabel1.Text = "zlataamaranth.com"
+        ' 
+        ' Label17
+        ' 
+        Label17.AutoSize = True
+        Label17.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        Label17.Location = New Point(306, 537)
+        Label17.Name = "Label17"
+        Label17.Size = New Size(93, 28)
+        Label17.TabIndex = 8
+        Label17.Text = "0,00 RTM"
+        ' 
+        ' Label4
+        ' 
+        Label4.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label4.ForeColor = Color.FromArgb(CByte(0), CByte(0), CByte(64))
+        Label4.Location = New Point(519, 225)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(459, 44)
+        Label4.TabIndex = 6
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Font = New Font("Segoe UI", 18F, FontStyle.Bold Or FontStyle.Underline, GraphicsUnit.Point)
+        Label2.Location = New Point(304, 452)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(431, 41)
+        Label2.TabIndex = 4
+        Label2.Text = "Balance of all your addresses:"
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Font = New Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point)
+        Label1.Location = New Point(304, 495)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(141, 41)
+        Label1.TabIndex = 3
+        Label1.Text = "0,00 RTM"
+        ' 
+        ' TabControl1
+        ' 
+        TabControl1.Controls.Add(TabPage1)
+        TabControl1.Controls.Add(TabPage2)
+        TabControl1.Controls.Add(TabPage3)
+        TabControl1.Controls.Add(TabPage5)
+        TabControl1.Controls.Add(TabPage9)
+        TabControl1.Controls.Add(TabPage10)
+        TabControl1.Controls.Add(TabPage6)
+        TabControl1.Dock = DockStyle.Fill
+        TabControl1.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        TabControl1.Location = New Point(0, 0)
+        TabControl1.Margin = New Padding(3, 4, 3, 4)
+        TabControl1.Name = "TabControl1"
+        TabControl1.SelectedIndex = 0
+        TabControl1.Size = New Size(997, 729)
+        TabControl1.TabIndex = 1
+        ' 
+        ' TabPage5
+        ' 
+        TabPage5.Controls.Add(TextBox12)
+        TabPage5.Controls.Add(TextBox10)
+        TabPage5.Controls.Add(Button11)
+        TabPage5.Controls.Add(DataGridView2)
+        TabPage5.Controls.Add(TabControl3)
+        TabPage5.Controls.Add(Label28)
+        TabPage5.Location = New Point(4, 30)
+        TabPage5.Margin = New Padding(3, 4, 3, 4)
+        TabPage5.Name = "TabPage5"
+        TabPage5.Size = New Size(989, 695)
+        TabPage5.TabIndex = 6
+        TabPage5.Text = "TabPage5"
+        TabPage5.UseVisualStyleBackColor = True
+        ' 
+        ' TextBox12
+        ' 
+        TextBox12.BorderStyle = BorderStyle.None
+        TextBox12.Location = New Point(15, 583)
+        TextBox12.Margin = New Padding(3, 4, 3, 4)
+        TextBox12.Name = "TextBox12"
+        TextBox12.Size = New Size(529, 22)
+        TextBox12.TabIndex = 14
+        TextBox12.TextAlign = HorizontalAlignment.Right
+        ' 
+        ' TextBox10
+        ' 
+        TextBox10.BorderStyle = BorderStyle.None
+        TextBox10.Location = New Point(15, 541)
+        TextBox10.Margin = New Padding(3, 4, 3, 4)
+        TextBox10.Name = "TextBox10"
+        TextBox10.Size = New Size(529, 22)
+        TextBox10.TabIndex = 13
+        TextBox10.TextAlign = HorizontalAlignment.Right
+        ' 
+        ' Button11
+        ' 
+        Button11.Location = New Point(15, 613)
+        Button11.Margin = New Padding(3, 4, 3, 4)
+        Button11.Name = "Button11"
+        Button11.Size = New Size(99, 36)
+        Button11.TabIndex = 12
+        Button11.Text = "Button11"
+        Button11.UseVisualStyleBackColor = True
+        ' 
+        ' DataGridView2
+        ' 
+        DataGridView2.AllowUserToAddRows = False
+        DataGridView2.AllowUserToDeleteRows = False
+        DataGridView2.AllowUserToResizeColumns = False
+        DataGridView2.AllowUserToResizeRows = False
+        DataGridView2.BackgroundColor = SystemColors.Window
+        DataGridView2.CellBorderStyle = DataGridViewCellBorderStyle.RaisedHorizontal
+        DataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView2.Columns.AddRange(New DataGridViewColumn() {Column8, Device, RigName, Status, Column9, Column13, Column10, Column11, Column12, Column14, Column15, Column16, Column17, Column18, Column19})
+        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = SystemColors.Window
+        DataGridViewCellStyle6.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle6.ForeColor = SystemColors.ControlText
+        DataGridViewCellStyle6.SelectionBackColor = SystemColors.Window
+        DataGridViewCellStyle6.SelectionForeColor = SystemColors.ControlText
+        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.False
+        DataGridView2.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridView2.Location = New Point(15, 60)
+        DataGridView2.Margin = New Padding(3, 4, 3, 4)
+        DataGridView2.Name = "DataGridView2"
+        DataGridView2.RowHeadersVisible = False
+        DataGridView2.RowHeadersWidth = 51
+        DataGridView2.RowTemplate.Height = 25
+        DataGridView2.Size = New Size(530, 479)
+        DataGridView2.TabIndex = 11
+        ' 
+        ' Column8
+        ' 
+        Column8.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells
+        Column8.HeaderText = "Select"
+        Column8.MinimumWidth = 6
+        Column8.Name = "Column8"
+        Column8.Width = 61
+        ' 
+        ' Device
+        ' 
+        Device.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells
+        Device.HeaderText = "Device"
+        Device.MinimumWidth = 6
+        Device.Name = "Device"
+        Device.ReadOnly = True
+        Device.Width = 89
+        ' 
+        ' RigName
+        ' 
+        RigName.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells
+        RigName.HeaderText = "RigName"
+        RigName.MinimumWidth = 6
+        RigName.Name = "RigName"
+        RigName.ReadOnly = True
+        RigName.Width = 109
+        ' 
+        ' Status
+        ' 
+        Status.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        Status.HeaderText = "Status"
+        Status.MinimumWidth = 6
+        Status.Name = "Status"
+        Status.ReadOnly = True
+        ' 
+        ' Column9
+        ' 
+        Column9.HeaderText = "IP"
+        Column9.MinimumWidth = 6
+        Column9.Name = "Column9"
+        Column9.ReadOnly = True
+        Column9.Visible = False
+        Column9.Width = 125
+        ' 
+        ' Column13
+        ' 
+        Column13.HeaderText = "Port"
+        Column13.MinimumWidth = 6
+        Column13.Name = "Column13"
+        Column13.Visible = False
+        Column13.Width = 125
+        ' 
+        ' Column10
+        ' 
+        Column10.HeaderText = "Benutzer"
+        Column10.MinimumWidth = 6
+        Column10.Name = "Column10"
+        Column10.ReadOnly = True
+        Column10.Visible = False
+        Column10.Width = 125
+        ' 
+        ' Column11
+        ' 
+        Column11.HeaderText = "Passwort"
+        Column11.MinimumWidth = 6
+        Column11.Name = "Column11"
+        Column11.ReadOnly = True
+        Column11.Visible = False
+        Column11.Width = 125
+        ' 
+        ' Column12
+        ' 
+        Column12.HeaderText = "Pfad"
+        Column12.MinimumWidth = 6
+        Column12.Name = "Column12"
+        Column12.ReadOnly = True
+        Column12.Visible = False
+        Column12.Width = 125
+        ' 
+        ' Column14
+        ' 
+        Column14.HeaderText = "Pool"
+        Column14.MinimumWidth = 6
+        Column14.Name = "Column14"
+        Column14.Visible = False
+        Column14.Width = 125
+        ' 
+        ' Column15
+        ' 
+        Column15.HeaderText = "wallet"
+        Column15.MinimumWidth = 6
+        Column15.Name = "Column15"
+        Column15.Visible = False
+        Column15.Width = 125
+        ' 
+        ' Column16
+        ' 
+        Column16.HeaderText = "wingsheet"
+        Column16.MinimumWidth = 6
+        Column16.Name = "Column16"
+        Column16.Visible = False
+        Column16.Width = 125
+        ' 
+        ' Column17
+        ' 
+        Column17.HeaderText = "lastseen"
+        Column17.MinimumWidth = 6
+        Column17.Name = "Column17"
+        Column17.Visible = False
+        Column17.Width = 125
+        ' 
+        ' Column18
+        ' 
+        Column18.HeaderText = "now"
+        Column18.MinimumWidth = 6
+        Column18.Name = "Column18"
+        Column18.Visible = False
+        Column18.Width = 125
+        ' 
+        ' Column19
+        ' 
+        Column19.HeaderText = "agv"
+        Column19.MinimumWidth = 6
+        Column19.Name = "Column19"
+        Column19.Visible = False
+        Column19.Width = 125
+        ' 
+        ' TabControl3
+        ' 
+        TabControl3.Controls.Add(TabPage7)
+        TabControl3.Controls.Add(TabPage8)
+        TabControl3.Location = New Point(552, 60)
+        TabControl3.Margin = New Padding(3, 4, 3, 4)
+        TabControl3.Name = "TabControl3"
+        TabControl3.SelectedIndex = 0
+        TabControl3.Size = New Size(421, 589)
+        TabControl3.TabIndex = 10
+        ' 
+        ' TabPage7
+        ' 
+        TabPage7.Controls.Add(Label33)
+        TabPage7.Controls.Add(RichTextBox2)
+        TabPage7.Controls.Add(Label27)
+        TabPage7.Controls.Add(RichTextBox1)
+        TabPage7.Controls.Add(Button10)
+        TabPage7.Controls.Add(ComboBox7)
+        TabPage7.Location = New Point(4, 30)
+        TabPage7.Margin = New Padding(3, 4, 3, 4)
+        TabPage7.Name = "TabPage7"
+        TabPage7.Padding = New Padding(3, 4, 3, 4)
+        TabPage7.Size = New Size(413, 555)
+        TabPage7.TabIndex = 0
+        TabPage7.Text = "TabPage7"
+        TabPage7.UseVisualStyleBackColor = True
+        ' 
+        ' Label33
+        ' 
+        Label33.AutoSize = True
+        Label33.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label33.Location = New Point(10, 260)
+        Label33.Name = "Label33"
+        Label33.Size = New Size(95, 23)
+        Label33.TabIndex = 12
+        Label33.Text = "Rig Detail:"
+        ' 
+        ' RichTextBox2
+        ' 
+        RichTextBox2.BackColor = SystemColors.Window
+        RichTextBox2.BorderStyle = BorderStyle.FixedSingle
+        RichTextBox2.Font = New Font("MS UI Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        RichTextBox2.Location = New Point(7, 283)
+        RichTextBox2.Margin = New Padding(3, 4, 3, 4)
+        RichTextBox2.Name = "RichTextBox2"
+        RichTextBox2.ReadOnly = True
+        RichTextBox2.Size = New Size(397, 264)
+        RichTextBox2.TabIndex = 11
+        RichTextBox2.Text = ""
+        ' 
+        ' Label27
+        ' 
+        Label27.AutoSize = True
+        Label27.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label27.Location = New Point(10, 5)
+        Label27.Name = "Label27"
+        Label27.Size = New Size(103, 23)
+        Label27.TabIndex = 10
+        Label27.Text = "WingSheet:"
+        ' 
+        ' RichTextBox1
+        ' 
+        RichTextBox1.BackColor = SystemColors.Window
+        RichTextBox1.BorderStyle = BorderStyle.FixedSingle
+        RichTextBox1.Font = New Font("MS UI Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        RichTextBox1.Location = New Point(7, 73)
+        RichTextBox1.Margin = New Padding(3, 4, 3, 4)
+        RichTextBox1.Name = "RichTextBox1"
+        RichTextBox1.ReadOnly = True
+        RichTextBox1.Size = New Size(397, 147)
+        RichTextBox1.TabIndex = 8
+        RichTextBox1.Text = ""
+        ' 
+        ' Button10
+        ' 
+        Button10.BackColor = Color.YellowGreen
+        Button10.Cursor = Cursors.Hand
+        Button10.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Button10.Location = New Point(264, 223)
+        Button10.Margin = New Padding(3, 4, 3, 4)
+        Button10.Name = "Button10"
+        Button10.Size = New Size(141, 45)
+        Button10.TabIndex = 7
+        Button10.Text = "Button10"
+        Button10.UseVisualStyleBackColor = False
+        ' 
+        ' ComboBox7
+        ' 
+        ComboBox7.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox7.FormattingEnabled = True
+        ComboBox7.Items.AddRange(New Object() {"Default"})
+        ComboBox7.Location = New Point(7, 32)
+        ComboBox7.Margin = New Padding(3, 4, 3, 4)
+        ComboBox7.Name = "ComboBox7"
+        ComboBox7.Size = New Size(397, 29)
+        ComboBox7.TabIndex = 6
+        ' 
+        ' TabPage8
+        ' 
+        TabPage8.Controls.Add(PictureBox2)
+        TabPage8.Controls.Add(Label31)
+        TabPage8.Controls.Add(Label30)
+        TabPage8.Controls.Add(Button9)
+        TabPage8.Controls.Add(Button8)
+        TabPage8.Controls.Add(Button7)
+        TabPage8.Controls.Add(TextBox11)
+        TabPage8.Controls.Add(TextBox9)
+        TabPage8.Controls.Add(TextBox8)
+        TabPage8.Controls.Add(TextBox7)
+        TabPage8.Controls.Add(TextBox6)
+        TabPage8.Controls.Add(TextBox5)
+        TabPage8.Controls.Add(TextBox4)
+        TabPage8.Controls.Add(Label26)
+        TabPage8.Controls.Add(Label25)
+        TabPage8.Controls.Add(Label24)
+        TabPage8.Controls.Add(Label23)
+        TabPage8.Controls.Add(Label22)
+        TabPage8.Controls.Add(Label21)
+        TabPage8.Controls.Add(Label14)
+        TabPage8.Controls.Add(Label3)
+        TabPage8.Controls.Add(ComboBox8)
+        TabPage8.Location = New Point(4, 29)
+        TabPage8.Margin = New Padding(3, 4, 3, 4)
+        TabPage8.Name = "TabPage8"
+        TabPage8.Padding = New Padding(3, 4, 3, 4)
+        TabPage8.Size = New Size(413, 556)
+        TabPage8.TabIndex = 1
+        TabPage8.Text = "TabPage8"
+        TabPage8.UseVisualStyleBackColor = True
+        ' 
+        ' PictureBox2
+        ' 
+        PictureBox2.BackgroundImage = My.Resources.Resources.LINUX_LOGO__1_
+        PictureBox2.BackgroundImageLayout = ImageLayout.Stretch
+        PictureBox2.Location = New Point(5, 37)
+        PictureBox2.Margin = New Padding(3, 4, 3, 4)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New Size(94, 111)
+        PictureBox2.TabIndex = 31
+        PictureBox2.TabStop = False
+        ' 
+        ' Label31
+        ' 
+        Label31.AutoSize = True
+        Label31.Location = New Point(165, 440)
+        Label31.Name = "Label31"
+        Label31.Size = New Size(261, 23)
+        Label31.TabIndex = 30
+        Label31.Text = "Das Verzeichniss muss existieren!"
+        ' 
+        ' Label30
+        ' 
+        Label30.AutoSize = True
+        Label30.Location = New Point(327, 463)
+        Label30.Name = "Label30"
+        Label30.Size = New Size(43, 23)
+        Label30.TabIndex = 29
+        Label30.Text = "save"
+        Label30.Visible = False
+        ' 
+        ' Button9
+        ' 
+        Button9.BackgroundImage = My.Resources.Resources.new_icon
+        Button9.BackgroundImageLayout = ImageLayout.Stretch
+        Button9.Cursor = Cursors.Hand
+        Button9.FlatStyle = FlatStyle.Flat
+        Button9.ForeColor = SystemColors.Window
+        Button9.Location = New Point(105, 92)
+        Button9.Margin = New Padding(3, 4, 3, 4)
+        Button9.Name = "Button9"
+        Button9.Size = New Size(48, 56)
+        Button9.TabIndex = 28
+        Button9.UseVisualStyleBackColor = True
+        ' 
+        ' Button8
+        ' 
+        Button8.BackgroundImage = My.Resources.Resources.Save_icon
+        Button8.BackgroundImageLayout = ImageLayout.Stretch
+        Button8.Cursor = Cursors.Hand
+        Button8.Enabled = False
+        Button8.FlatStyle = FlatStyle.Flat
+        Button8.ForeColor = SystemColors.Window
+        Button8.Location = New Point(177, 92)
+        Button8.Margin = New Padding(3, 4, 3, 4)
+        Button8.Name = "Button8"
+        Button8.Size = New Size(48, 56)
+        Button8.TabIndex = 27
+        Button8.UseVisualStyleBackColor = True
+        ' 
+        ' Button7
+        ' 
+        Button7.BackgroundImage = My.Resources.Resources.Delete_file_icon
+        Button7.BackgroundImageLayout = ImageLayout.Stretch
+        Button7.Cursor = Cursors.Hand
+        Button7.Enabled = False
+        Button7.FlatStyle = FlatStyle.Flat
+        Button7.ForeColor = SystemColors.Window
+        Button7.Location = New Point(245, 92)
+        Button7.Margin = New Padding(3, 4, 3, 4)
+        Button7.Name = "Button7"
+        Button7.Size = New Size(48, 56)
+        Button7.TabIndex = 26
+        Button7.UseVisualStyleBackColor = True
+        ' 
+        ' TextBox11
+        ' 
+        TextBox11.Location = New Point(161, 399)
+        TextBox11.Margin = New Padding(3, 4, 3, 4)
+        TextBox11.Name = "TextBox11"
+        TextBox11.Size = New Size(243, 29)
+        TextBox11.TabIndex = 25
+        TextBox11.Text = "/home/"
+        ' 
+        ' TextBox9
+        ' 
+        TextBox9.Location = New Point(161, 360)
+        TextBox9.Margin = New Padding(3, 4, 3, 4)
+        TextBox9.Name = "TextBox9"
+        TextBox9.Size = New Size(243, 29)
+        TextBox9.TabIndex = 24
+        ' 
+        ' TextBox8
+        ' 
+        TextBox8.Location = New Point(161, 321)
+        TextBox8.Margin = New Padding(3, 4, 3, 4)
+        TextBox8.Name = "TextBox8"
+        TextBox8.Size = New Size(243, 29)
+        TextBox8.TabIndex = 23
+        ' 
+        ' TextBox7
+        ' 
+        TextBox7.Enabled = False
+        TextBox7.Location = New Point(161, 283)
+        TextBox7.Margin = New Padding(3, 4, 3, 4)
+        TextBox7.Name = "TextBox7"
+        TextBox7.Size = New Size(243, 29)
+        TextBox7.TabIndex = 22
+        TextBox7.Text = "22"
+        ' 
+        ' TextBox6
+        ' 
+        TextBox6.Location = New Point(161, 244)
+        TextBox6.Margin = New Padding(3, 4, 3, 4)
+        TextBox6.Name = "TextBox6"
+        TextBox6.Size = New Size(243, 29)
+        TextBox6.TabIndex = 21
+        ' 
+        ' TextBox5
+        ' 
+        TextBox5.Location = New Point(161, 205)
+        TextBox5.Margin = New Padding(3, 4, 3, 4)
+        TextBox5.Name = "TextBox5"
+        TextBox5.Size = New Size(243, 29)
+        TextBox5.TabIndex = 20
+        ' 
+        ' TextBox4
+        ' 
+        TextBox4.Location = New Point(161, 167)
+        TextBox4.Margin = New Padding(3, 4, 3, 4)
+        TextBox4.Name = "TextBox4"
+        TextBox4.Size = New Size(243, 29)
+        TextBox4.TabIndex = 19
+        ' 
+        ' Label26
+        ' 
+        Label26.AutoSize = True
+        Label26.Location = New Point(10, 407)
+        Label26.Name = "Label26"
+        Label26.Size = New Size(48, 23)
+        Label26.TabIndex = 18
+        Label26.Text = "Path:"
+        ' 
+        ' Label25
+        ' 
+        Label25.AutoSize = True
+        Label25.Location = New Point(10, 368)
+        Label25.Name = "Label25"
+        Label25.Size = New Size(84, 23)
+        Label25.TabIndex = 17
+        Label25.Text = "Passowrd:"
+        ' 
+        ' Label24
+        ' 
+        Label24.AutoSize = True
+        Label24.Location = New Point(10, 329)
+        Label24.Name = "Label24"
+        Label24.Size = New Size(91, 23)
+        Label24.TabIndex = 16
+        Label24.Text = "Username:"
+        ' 
+        ' Label23
+        ' 
+        Label23.AutoSize = True
+        Label23.Location = New Point(10, 292)
+        Label23.Name = "Label23"
+        Label23.Size = New Size(45, 23)
+        Label23.TabIndex = 15
+        Label23.Text = "Port:"
+        ' 
+        ' Label22
+        ' 
+        Label22.AutoSize = True
+        Label22.Location = New Point(10, 252)
+        Label22.Name = "Label22"
+        Label22.Size = New Size(86, 23)
+        Label22.TabIndex = 14
+        Label22.Text = "IP-Adress:"
+        ' 
+        ' Label21
+        ' 
+        Label21.AutoSize = True
+        Label21.Location = New Point(10, 213)
+        Label21.Name = "Label21"
+        Label21.Size = New Size(84, 23)
+        Label21.TabIndex = 13
+        Label21.Text = "RigName:"
+        ' 
+        ' Label14
+        ' 
+        Label14.AutoSize = True
+        Label14.Location = New Point(10, 175)
+        Label14.Name = "Label14"
+        Label14.Size = New Size(115, 23)
+        Label14.TabIndex = 12
+        Label14.Text = "Device Name:"
+        ' 
+        ' Label3
+        ' 
+        Label3.ImageAlign = ContentAlignment.BottomLeft
+        Label3.Location = New Point(105, 4)
+        Label3.Name = "Label3"
+        Label3.Size = New Size(299, 45)
+        Label3.TabIndex = 11
+        Label3.Text = "Select Device to change Properties:"
+        Label3.TextAlign = ContentAlignment.BottomLeft
+        ' 
+        ' ComboBox8
+        ' 
+        ComboBox8.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox8.FormattingEnabled = True
+        ComboBox8.Location = New Point(105, 53)
+        ComboBox8.Margin = New Padding(3, 4, 3, 4)
+        ComboBox8.Name = "ComboBox8"
+        ComboBox8.Size = New Size(299, 29)
+        ComboBox8.TabIndex = 0
+        ' 
+        ' Label28
+        ' 
+        Label28.AutoSize = True
+        Label28.Location = New Point(15, 11)
+        Label28.Name = "Label28"
+        Label28.Size = New Size(447, 23)
+        Label28.TabIndex = 9
+        Label28.Text = "Mark your devices, choose a WingSheet and start mining."
+        ' 
+        ' TabPage9
+        ' 
+        TabPage9.Controls.Add(GroupBox3)
+        TabPage9.Controls.Add(GroupBox1)
+        TabPage9.Controls.Add(Label36)
+        TabPage9.Location = New Point(4, 30)
+        TabPage9.Margin = New Padding(3, 4, 3, 4)
+        TabPage9.Name = "TabPage9"
+        TabPage9.Padding = New Padding(3, 4, 3, 4)
+        TabPage9.Size = New Size(989, 695)
+        TabPage9.TabIndex = 4
+        TabPage9.Text = "RTM Support"
+        TabPage9.UseVisualStyleBackColor = True
+        ' 
+        ' GroupBox3
+        ' 
+        GroupBox3.Controls.Add(Label46)
+        GroupBox3.Controls.Add(Label45)
+        GroupBox3.Controls.Add(Label44)
+        GroupBox3.Controls.Add(Label41)
+        GroupBox3.Controls.Add(ProgressBar1)
+        GroupBox3.Controls.Add(Button17)
+        GroupBox3.Controls.Add(Label39)
+        GroupBox3.Location = New Point(539, 83)
+        GroupBox3.Margin = New Padding(3, 4, 3, 4)
+        GroupBox3.Name = "GroupBox3"
+        GroupBox3.Padding = New Padding(3, 4, 3, 4)
+        GroupBox3.Size = New Size(430, 176)
+        GroupBox3.TabIndex = 34
+        GroupBox3.TabStop = False
+        GroupBox3.Text = "RTM Core Bootstraps"
+        ' 
+        ' Label46
+        ' 
+        Label46.AutoSize = True
+        Label46.Font = New Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Label46.Location = New Point(142, 144)
+        Label46.Name = "Label46"
+        Label46.Size = New Size(83, 19)
+        Label46.TabIndex = 39
+        Label46.Text = "No activities"
+        ' 
+        ' Label45
+        ' 
+        Label45.AutoSize = True
+        Label45.Font = New Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point)
+        Label45.Location = New Point(142, 109)
+        Label45.Name = "Label45"
+        Label45.Size = New Size(47, 19)
+        Label45.TabIndex = 38
+        Label45.Text = "Status"
+        ' 
+        ' Label44
+        ' 
+        Label44.AutoSize = True
+        Label44.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label44.Location = New Point(7, 140)
+        Label44.Name = "Label44"
+        Label44.RightToLeft = RightToLeft.No
+        Label44.Size = New Size(74, 23)
+        Label44.TabIndex = 37
+        Label44.Text = "Update:"
+        ' 
+        ' Label41
+        ' 
+        Label41.AutoSize = True
+        Label41.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label41.Location = New Point(7, 85)
+        Label41.Name = "Label41"
+        Label41.RightToLeft = RightToLeft.No
+        Label41.Size = New Size(97, 23)
+        Label41.TabIndex = 33
+        Label41.Text = "Download:"
+        Label41.TextAlign = ContentAlignment.TopRight
+        ' 
+        ' ProgressBar1
+        ' 
+        ProgressBar1.Location = New Point(142, 77)
+        ProgressBar1.Margin = New Padding(3, 4, 3, 4)
+        ProgressBar1.Name = "ProgressBar1"
+        ProgressBar1.Size = New Size(273, 31)
+        ProgressBar1.TabIndex = 32
+        ' 
+        ' Button17
+        ' 
+        Button17.FlatStyle = FlatStyle.Flat
+        Button17.Location = New Point(289, 32)
+        Button17.Margin = New Padding(3, 4, 3, 4)
+        Button17.Name = "Button17"
+        Button17.Size = New Size(126, 37)
+        Button17.TabIndex = 31
+        Button17.Text = "Update"
+        Button17.UseVisualStyleBackColor = True
+        ' 
+        ' Label39
+        ' 
+        Label39.AutoSize = True
+        Label39.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label39.Location = New Point(8, 40)
+        Label39.Name = "Label39"
+        Label39.RightToLeft = RightToLeft.No
+        Label39.Size = New Size(249, 23)
+        Label39.TabIndex = 29
+        Label39.Text = "Update RTM Core Bootstraps:"
+        Label39.TextAlign = ContentAlignment.TopRight
+        ' 
+        ' GroupBox1
+        ' 
+        GroupBox1.Controls.Add(Button16)
+        GroupBox1.Controls.Add(Label37)
+        GroupBox1.Controls.Add(Button12)
+        GroupBox1.Controls.Add(Button15)
+        GroupBox1.Controls.Add(Label38)
+        GroupBox1.Location = New Point(21, 83)
+        GroupBox1.Margin = New Padding(3, 4, 3, 4)
+        GroupBox1.Name = "GroupBox1"
+        GroupBox1.Padding = New Padding(3, 4, 3, 4)
+        GroupBox1.Size = New Size(512, 176)
+        GroupBox1.TabIndex = 31
+        GroupBox1.TabStop = False
+        GroupBox1.Text = "RTM Core Wallet"
+        ' 
+        ' Button16
+        ' 
+        Button16.FlatStyle = FlatStyle.Flat
+        Button16.Location = New Point(321, 84)
+        Button16.Margin = New Padding(3, 4, 3, 4)
+        Button16.Name = "Button16"
+        Button16.Size = New Size(86, 37)
+        Button16.TabIndex = 30
+        Button16.Text = "Save it"
+        Button16.UseVisualStyleBackColor = True
+        ' 
+        ' Label37
+        ' 
+        Label37.AutoSize = True
+        Label37.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label37.Location = New Point(16, 40)
+        Label37.Name = "Label37"
+        Label37.RightToLeft = RightToLeft.No
+        Label37.Size = New Size(249, 23)
+        Label37.TabIndex = 25
+        Label37.Text = "Download an start RTM-Core:"
+        Label37.TextAlign = ContentAlignment.TopRight
+        ' 
+        ' Button12
+        ' 
+        Button12.FlatStyle = FlatStyle.Flat
+        Button12.Location = New Point(321, 32)
+        Button12.Margin = New Padding(3, 4, 3, 4)
+        Button12.Name = "Button12"
+        Button12.Size = New Size(86, 37)
+        Button12.TabIndex = 26
+        Button12.Text = "portable"
+        Button12.UseVisualStyleBackColor = True
+        ' 
+        ' Button15
+        ' 
+        Button15.FlatStyle = FlatStyle.Flat
+        Button15.Location = New Point(419, 32)
+        Button15.Margin = New Padding(3, 4, 3, 4)
+        Button15.Name = "Button15"
+        Button15.Size = New Size(86, 37)
+        Button15.TabIndex = 28
+        Button15.Text = "install"
+        Button15.UseVisualStyleBackColor = True
+        ' 
+        ' Label38
+        ' 
+        Label38.AutoSize = True
+        Label38.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label38.Location = New Point(16, 92)
+        Label38.Name = "Label38"
+        Label38.RightToLeft = RightToLeft.No
+        Label38.Size = New Size(259, 23)
+        Label38.TabIndex = 27
+        Label38.Text = "Save RTM Wallet to your Place:"
+        Label38.TextAlign = ContentAlignment.TopRight
+        ' 
+        ' Label36
+        ' 
+        Label36.AutoSize = True
+        Label36.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label36.Location = New Point(21, 27)
+        Label36.Name = "Label36"
+        Label36.RightToLeft = RightToLeft.No
+        Label36.Size = New Size(234, 23)
+        Label36.TabIndex = 24
+        Label36.Text = "Your Personal RTM Support:"
+        Label36.TextAlign = ContentAlignment.TopRight
+        ' 
+        ' TabPage10
+        ' 
+        TabPage10.Controls.Add(Button19)
+        TabPage10.Controls.Add(GroupBox2)
+        TabPage10.Controls.Add(Label40)
+        TabPage10.Controls.Add(Label35)
+        TabPage10.Controls.Add(CheckBox4)
+        TabPage10.Controls.Add(ComboBox9)
+        TabPage10.Location = New Point(4, 30)
+        TabPage10.Margin = New Padding(3, 4, 3, 4)
+        TabPage10.Name = "TabPage10"
+        TabPage10.Size = New Size(989, 695)
+        TabPage10.TabIndex = 5
+        TabPage10.Text = "Settings"
+        TabPage10.UseVisualStyleBackColor = True
+        ' 
+        ' Button19
+        ' 
+        Button19.BackgroundImage = My.Resources.Resources.Save_icon
+        Button19.BackgroundImageLayout = ImageLayout.Stretch
+        Button19.Cursor = Cursors.Hand
+        Button19.FlatStyle = FlatStyle.Flat
+        Button19.ForeColor = SystemColors.Window
+        Button19.Location = New Point(29, 19)
+        Button19.Margin = New Padding(3, 4, 3, 4)
+        Button19.Name = "Button19"
+        Button19.Size = New Size(51, 56)
+        Button19.TabIndex = 48
+        Button19.UseVisualStyleBackColor = True
+        ' 
+        ' GroupBox2
+        ' 
+        GroupBox2.Controls.Add(Button18)
+        GroupBox2.Controls.Add(Button20)
+        GroupBox2.Controls.Add(DataGridView3)
+        GroupBox2.Location = New Point(29, 183)
+        GroupBox2.Margin = New Padding(3, 4, 3, 4)
+        GroupBox2.Name = "GroupBox2"
+        GroupBox2.Padding = New Padding(3, 4, 3, 4)
+        GroupBox2.Size = New Size(369, 469)
+        GroupBox2.TabIndex = 20
+        GroupBox2.TabStop = False
+        GroupBox2.Text = "Walletprofile"
+        ' 
+        ' Button18
+        ' 
+        Button18.BackgroundImage = My.Resources.Resources.Delete_file_icon
+        Button18.BackgroundImageLayout = ImageLayout.Stretch
+        Button18.Cursor = Cursors.Hand
+        Button18.FlatStyle = FlatStyle.Flat
+        Button18.ForeColor = SystemColors.Window
+        Button18.Location = New Point(70, 32)
+        Button18.Margin = New Padding(3, 4, 3, 4)
+        Button18.Name = "Button18"
+        Button18.Size = New Size(48, 56)
+        Button18.TabIndex = 51
+        Button18.UseVisualStyleBackColor = True
+        ' 
+        ' Button20
+        ' 
+        Button20.BackgroundImage = My.Resources.Resources.new_icon
+        Button20.BackgroundImageLayout = ImageLayout.Stretch
+        Button20.Cursor = Cursors.Hand
+        Button20.FlatStyle = FlatStyle.Flat
+        Button20.ForeColor = SystemColors.Window
+        Button20.Location = New Point(7, 32)
+        Button20.Margin = New Padding(3, 4, 3, 4)
+        Button20.Name = "Button20"
+        Button20.Size = New Size(53, 56)
+        Button20.TabIndex = 49
+        Button20.UseVisualStyleBackColor = True
+        ' 
+        ' DataGridView3
+        ' 
+        DataGridView3.AllowUserToAddRows = False
+        DataGridView3.AllowUserToDeleteRows = False
+        DataGridView3.AllowUserToResizeColumns = False
+        DataGridView3.AllowUserToResizeRows = False
+        DataGridView3.BackgroundColor = SystemColors.Window
+        DataGridView3.BorderStyle = BorderStyle.Fixed3D
+        DataGridView3.CellBorderStyle = DataGridViewCellBorderStyle.Raised
+        DataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridView3.Columns.AddRange(New DataGridViewColumn() {DataGridViewTextBoxColumn2, dgv3_Description})
+        DataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = SystemColors.Window
+        DataGridViewCellStyle7.Font = New Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle7.ForeColor = SystemColors.ControlText
+        DataGridViewCellStyle7.SelectionBackColor = Color.RosyBrown
+        DataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = DataGridViewTriState.False
+        DataGridView3.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridView3.Location = New Point(5, 103)
+        DataGridView3.Margin = New Padding(3, 4, 3, 4)
+        DataGridView3.MultiSelect = False
+        DataGridView3.Name = "DataGridView3"
+        DataGridView3.RowHeadersVisible = False
+        DataGridView3.RowHeadersWidth = 51
+        DataGridView3.RowTemplate.Height = 25
+        DataGridView3.Size = New Size(358, 359)
+        DataGridView3.TabIndex = 21
+        ' 
+        ' DataGridViewTextBoxColumn2
+        ' 
+        DataGridViewTextBoxColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewTextBoxColumn2.HeaderText = "Nr."
+        DataGridViewTextBoxColumn2.MinimumWidth = 6
+        DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        DataGridViewTextBoxColumn2.ReadOnly = True
+        DataGridViewTextBoxColumn2.SortMode = DataGridViewColumnSortMode.NotSortable
+        DataGridViewTextBoxColumn2.Width = 39
+        ' 
+        ' dgv3_Description
+        ' 
+        dgv3_Description.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        dgv3_Description.HeaderText = "Description"
+        dgv3_Description.MinimumWidth = 6
+        dgv3_Description.Name = "dgv3_Description"
+        ' 
+        ' Label40
+        ' 
+        Label40.AutoSize = True
+        Label40.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label40.Location = New Point(213, 103)
+        Label40.Name = "Label40"
+        Label40.Size = New Size(154, 23)
+        Label40.TabIndex = 19
+        Label40.Text = "Change language:"
+        ' 
+        ' Label35
+        ' 
+        Label35.AutoSize = True
+        Label35.Font = New Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point)
+        Label35.Location = New Point(29, 103)
+        Label35.Name = "Label35"
+        Label35.Size = New Size(133, 23)
+        Label35.TabIndex = 18
+        Label35.Text = "Change design:"
+        ' 
+        ' CheckBox4
+        ' 
+        CheckBox4.AutoSize = True
+        CheckBox4.Location = New Point(33, 129)
+        CheckBox4.Margin = New Padding(3, 4, 3, 4)
+        CheckBox4.Name = "CheckBox4"
+        CheckBox4.Size = New Size(116, 27)
+        CheckBox4.TabIndex = 16
+        CheckBox4.Text = "Dark Mode"
+        CheckBox4.UseVisualStyleBackColor = True
+        ' 
+        ' ComboBox9
+        ' 
+        ComboBox9.DropDownStyle = ComboBoxStyle.DropDownList
+        ComboBox9.FormattingEnabled = True
+        ComboBox9.Location = New Point(213, 129)
+        ComboBox9.Margin = New Padding(3, 4, 3, 4)
+        ComboBox9.Name = "ComboBox9"
+        ComboBox9.Size = New Size(161, 29)
+        ComboBox9.TabIndex = 15
+        ' 
+        ' StatusStrip1
+        ' 
+        StatusStrip1.ImageScalingSize = New Size(20, 20)
+        StatusStrip1.Items.AddRange(New ToolStripItem() {ToolStripStatusLabel4, ToolStripStatusLabel1, ToolStripStatusLabel2})
+        StatusStrip1.Location = New Point(0, 703)
+        StatusStrip1.Name = "StatusStrip1"
+        StatusStrip1.Padding = New Padding(1, 0, 16, 0)
+        StatusStrip1.Size = New Size(997, 26)
+        StatusStrip1.SizingGrip = False
+        StatusStrip1.TabIndex = 12
+        StatusStrip1.Text = "StatusStrip1"
+        ' 
+        ' ToolStripStatusLabel4
+        ' 
+        ToolStripStatusLabel4.BackColor = SystemColors.Control
+        ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
+        ToolStripStatusLabel4.Size = New Size(153, 20)
+        ToolStripStatusLabel4.Text = "ToolStripStatusLabel4"
+        ' 
+        ' ToolStripStatusLabel1
+        ' 
+        ToolStripStatusLabel1.BackColor = SystemColors.Control
+        ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        ToolStripStatusLabel1.Size = New Size(210, 20)
+        ToolStripStatusLabel1.Text = "RaptorWING Donation Adress:"
+        ' 
+        ' ToolStripStatusLabel2
+        ' 
+        ToolStripStatusLabel2.BackColor = SystemColors.Control
+        ToolStripStatusLabel2.DisplayStyle = ToolStripItemDisplayStyle.Text
+        ToolStripStatusLabel2.ForeColor = Color.Red
+        ToolStripStatusLabel2.IsLink = True
+        ToolStripStatusLabel2.LinkColor = Color.Red
+        ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
+        ToolStripStatusLabel2.Size = New Size(153, 20)
+        ToolStripStatusLabel2.Text = "ToolStripStatusLabel2"
+        ' 
+        ' Timer4
+        ' 
+        Timer4.Interval = 12000000
+        ' 
+        ' Timer5
+        ' 
+        Timer5.Interval = 120000
+        ' 
+        ' Form1
+        ' 
+        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleMode = AutoScaleMode.Font
+        AutoSizeMode = AutoSizeMode.GrowAndShrink
+        BackColor = SystemColors.WindowFrame
+        ClientSize = New Size(997, 729)
+        Controls.Add(StatusStrip1)
+        Controls.Add(TabControl1)
+        ForeColor = SystemColors.ControlText
+        FormBorderStyle = FormBorderStyle.Fixed3D
+        HelpButton = True
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
+        Margin = New Padding(3, 4, 3, 4)
+        MaximizeBox = False
+        Name = "Form1"
+        StartPosition = FormStartPosition.CenterScreen
+        Text = "Raptorwings v1.1.0 ""Falcon"""
+        TabPage6.ResumeLayout(False)
+        TabPage3.ResumeLayout(False)
+        Panel1.ResumeLayout(False)
+        Panel1.PerformLayout()
+        TabPage2.ResumeLayout(False)
+        TabPage2.PerformLayout()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        TabPage1.ResumeLayout(False)
+        TabPage1.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        TabControl1.ResumeLayout(False)
+        TabPage5.ResumeLayout(False)
+        TabPage5.PerformLayout()
+        CType(DataGridView2, ComponentModel.ISupportInitialize).EndInit()
+        TabControl3.ResumeLayout(False)
+        TabPage7.ResumeLayout(False)
+        TabPage7.PerformLayout()
+        TabPage8.ResumeLayout(False)
+        TabPage8.PerformLayout()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
+        TabPage9.ResumeLayout(False)
+        TabPage9.PerformLayout()
+        GroupBox3.ResumeLayout(False)
+        GroupBox3.PerformLayout()
+        GroupBox1.ResumeLayout(False)
+        GroupBox1.PerformLayout()
+        TabPage10.ResumeLayout(False)
+        TabPage10.PerformLayout()
+        GroupBox2.ResumeLayout(False)
+        CType(DataGridView3, ComponentModel.ISupportInitialize).EndInit()
+        StatusStrip1.ResumeLayout(False)
+        StatusStrip1.PerformLayout()
+        ResumeLayout(False)
+        PerformLayout()
     End Sub
     Friend WithEvents Timer1 As Timer
     Friend WithEvents txID As DataGridViewTextBoxColumn
@@ -1773,8 +2053,124 @@ Partial Class Form1
     Friend WithEvents RichTextBox3 As RichTextBox
     Friend WithEvents miniToolStrip As StatusStrip
     Friend WithEvents TabPage3 As TabPage
-    Friend WithEvents TabControl2 As TabControl
-    Friend WithEvents TabPage4 As TabPage
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Label5 As Label
+    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents Label19 As Label
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents Label17 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel2 As ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel4 As ToolStripStatusLabel
+    Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents Button13 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents Button14 As Button
+    Friend WithEvents LinkLabel1 As LinkLabel
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Label29 As Label
+    Friend WithEvents Label34 As Label
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column7 As DataGridViewTextBoxColumn
+    Friend WithEvents TabPage9 As TabPage
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents Button16 As Button
+    Friend WithEvents Label37 As Label
+    Friend WithEvents Label39 As Label
+    Friend WithEvents Button12 As Button
+    Friend WithEvents Button15 As Button
+    Friend WithEvents Label38 As Label
+    Friend WithEvents Label36 As Label
+    Friend WithEvents Button17 As Button
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents Label44 As Label
+    Friend WithEvents Label41 As Label
+    Friend WithEvents ProgressBar1 As ProgressBar
+    Friend WithEvents Label45 As Label
+    Friend WithEvents Label46 As Label
+    Friend WithEvents TabPage10 As TabPage
+    Friend WithEvents Label40 As Label
+    Friend WithEvents Label35 As Label
+    Friend WithEvents CheckBox4 As CheckBox
+    Friend WithEvents ComboBox9 As ComboBox
+    Friend WithEvents Label42 As Label
+    Friend WithEvents ComboBox11 As ComboBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents Button18 As Button
+    Friend WithEvents Button20 As Button
+    Friend WithEvents DataGridView3 As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents dgv3_Description As DataGridViewTextBoxColumn
+    Friend WithEvents Button19 As Button
+    Friend WithEvents TabPage5 As TabPage
+    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents Column8 As DataGridViewCheckBoxColumn
+    Friend WithEvents Device As DataGridViewTextBoxColumn
+    Friend WithEvents RigName As DataGridViewTextBoxColumn
+    Friend WithEvents Status As DataGridViewTextBoxColumn
+    Friend WithEvents Column9 As DataGridViewTextBoxColumn
+    Friend WithEvents Column13 As DataGridViewTextBoxColumn
+    Friend WithEvents Column10 As DataGridViewTextBoxColumn
+    Friend WithEvents Column11 As DataGridViewTextBoxColumn
+    Friend WithEvents Column12 As DataGridViewTextBoxColumn
+    Friend WithEvents Column14 As DataGridViewTextBoxColumn
+    Friend WithEvents Column15 As DataGridViewTextBoxColumn
+    Friend WithEvents Column16 As DataGridViewTextBoxColumn
+    Friend WithEvents Column17 As DataGridViewTextBoxColumn
+    Friend WithEvents Column18 As DataGridViewTextBoxColumn
+    Friend WithEvents Column19 As DataGridViewTextBoxColumn
+    Friend WithEvents TabControl3 As TabControl
+    Friend WithEvents TabPage7 As TabPage
+    Friend WithEvents Label33 As Label
+    Friend WithEvents RichTextBox2 As RichTextBox
+    Friend WithEvents Label27 As Label
+    Friend WithEvents RichTextBox1 As RichTextBox
+    Friend WithEvents Button10 As Button
+    Friend WithEvents ComboBox7 As ComboBox
+    Friend WithEvents TabPage8 As TabPage
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents Label31 As Label
+    Friend WithEvents Label30 As Label
+    Friend WithEvents Button9 As Button
+    Friend WithEvents Button8 As Button
+    Friend WithEvents Button7 As Button
+    Friend WithEvents TextBox11 As TextBox
+    Friend WithEvents TextBox9 As TextBox
+    Friend WithEvents TextBox8 As TextBox
+    Friend WithEvents TextBox7 As TextBox
+    Friend WithEvents TextBox6 As TextBox
+    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents TextBox4 As TextBox
+    Friend WithEvents Label26 As Label
+    Friend WithEvents Label25 As Label
+    Friend WithEvents Label24 As Label
+    Friend WithEvents Label23 As Label
+    Friend WithEvents Label22 As Label
+    Friend WithEvents Label21 As Label
+    Friend WithEvents Label14 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents ComboBox8 As ComboBox
+    Friend WithEvents Label28 As Label
+    Friend WithEvents TextBox12 As TextBox
+    Friend WithEvents TextBox10 As TextBox
+    Friend WithEvents Button11 As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents ComboBox10 As ComboBox
+    Friend WithEvents Label32 As Label
     Friend WithEvents Button6 As Button
     Friend WithEvents Label20 As Label
     Friend WithEvents TextBox3 As TextBox
@@ -1801,109 +2197,7 @@ Partial Class Form1
     Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents ComboBox3 As ComboBox
     Friend WithEvents Label10 As Label
-    Friend WithEvents TabPage5 As TabPage
-    Friend WithEvents TextBox12 As TextBox
-    Friend WithEvents Button11 As Button
-    Friend WithEvents DataGridView2 As DataGridView
-    Friend WithEvents Column8 As DataGridViewCheckBoxColumn
-    Friend WithEvents Device As DataGridViewTextBoxColumn
-    Friend WithEvents RigName As DataGridViewTextBoxColumn
-    Friend WithEvents Status As DataGridViewTextBoxColumn
-    Friend WithEvents Column9 As DataGridViewTextBoxColumn
-    Friend WithEvents Column13 As DataGridViewTextBoxColumn
-    Friend WithEvents Column10 As DataGridViewTextBoxColumn
-    Friend WithEvents Column11 As DataGridViewTextBoxColumn
-    Friend WithEvents Column12 As DataGridViewTextBoxColumn
-    Friend WithEvents Column14 As DataGridViewTextBoxColumn
-    Friend WithEvents Column15 As DataGridViewTextBoxColumn
-    Friend WithEvents Column16 As DataGridViewTextBoxColumn
-    Friend WithEvents Column17 As DataGridViewTextBoxColumn
-    Friend WithEvents Column18 As DataGridViewTextBoxColumn
-    Friend WithEvents Column19 As DataGridViewTextBoxColumn
-    Friend WithEvents TabControl3 As TabControl
-    Friend WithEvents TabPage7 As TabPage
-    Friend WithEvents Label33 As Label
-    Friend WithEvents RichTextBox2 As RichTextBox
-    Friend WithEvents Label27 As Label
-    Friend WithEvents RichTextBox1 As RichTextBox
-    Friend WithEvents Button10 As Button
-    Friend WithEvents ComboBox7 As ComboBox
-    Friend WithEvents TabPage8 As TabPage
-    Friend WithEvents Label31 As Label
-    Friend WithEvents Label30 As Label
-    Friend WithEvents Button9 As Button
-    Friend WithEvents Button8 As Button
-    Friend WithEvents Button7 As Button
-    Friend WithEvents TextBox11 As TextBox
-    Friend WithEvents TextBox9 As TextBox
-    Friend WithEvents TextBox8 As TextBox
-    Friend WithEvents TextBox7 As TextBox
-    Friend WithEvents TextBox6 As TextBox
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents Label26 As Label
-    Friend WithEvents Label25 As Label
-    Friend WithEvents Label24 As Label
-    Friend WithEvents Label23 As Label
-    Friend WithEvents Label22 As Label
-    Friend WithEvents Label21 As Label
-    Friend WithEvents Label14 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents ComboBox8 As ComboBox
-    Friend WithEvents Label28 As Label
-    Friend WithEvents Label11 As Label
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Label5 As Label
-    Friend WithEvents TabPage2 As TabPage
-    Friend WithEvents Label19 As Label
-    Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents ComboBox9 As ComboBox
-    Friend WithEvents Label17 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents TabControl1 As TabControl
-    Friend WithEvents StatusStrip1 As StatusStrip
-    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
-    Friend WithEvents ToolStripStatusLabel2 As ToolStripStatusLabel
-    Friend WithEvents ToolStripStatusLabel4 As ToolStripStatusLabel
-    Friend WithEvents TextBox10 As TextBox
-    Friend WithEvents ToolTip1 As ToolTip
-    Friend WithEvents Button13 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button14 As Button
-    Friend WithEvents LinkLabel1 As LinkLabel
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label29 As Label
-    Friend WithEvents Label34 As Label
-    Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents CheckBox4 As CheckBox
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column7 As DataGridViewTextBoxColumn
-    Friend WithEvents TabPage9 As TabPage
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Button16 As Button
-    Friend WithEvents Label37 As Label
-    Friend WithEvents Label39 As Label
-    Friend WithEvents Button12 As Button
-    Friend WithEvents Button15 As Button
-    Friend WithEvents Label38 As Label
-    Friend WithEvents Label36 As Label
-    Friend WithEvents Button17 As Button
-    Friend WithEvents SaveFileDialog1 As SaveFileDialog
-    Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents Label44 As Label
-    Friend WithEvents Label41 As Label
-    Friend WithEvents ProgressBar1 As ProgressBar
-    Friend WithEvents Label45 As Label
-    Friend WithEvents Label46 As Label
-    Friend WithEvents ComboBox10 As ComboBox
-    Friend WithEvents Label32 As Label
+    Friend WithEvents CheckBox5 As CheckBox
+    Friend WithEvents Timer4 As Timer
+    Friend WithEvents Timer5 As Timer
 End Class

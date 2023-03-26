@@ -12,29 +12,12 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Cursor.Current = Cursors.WaitCursor
 
+        checkupdates.checkRTWupdate()
+
         Me.TextBox1.Text = Environment.MachineName
 
         If Not My.Computer.FileSystem.DirectoryExists(localfolder) Then
             My.Computer.FileSystem.CreateDirectory(localfolder)
-        End If
-
-        If File.Exists(localwallet) Then
-            Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localwallet)
-
-                MyReader.TextFieldType = Microsoft.VisualBasic.FileIO.FieldType.Delimited
-                MyReader.Delimiters = New String() {","}
-                Dim currentRow As String()
-                While Not MyReader.EndOfData
-                    Try
-                        currentRow = MyReader.ReadFields()
-                        Me.DataGridView1.Rows.Add(currentRow)
-                    Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
-                        MessageBox.Show("Line " & ex.Message & " in Wallet List is invalid." + System.Environment.NewLine + System.Environment.NewLine + "Raptorwings will end.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        End
-                    End Try
-                End While
-                currentRow = Nothing
-            End Using
         End If
 
         If File.Exists(localwingsheet) Then
@@ -74,16 +57,26 @@ Public Class Form1
         Me.ComboBox7.SelectedIndex = 0
         Me.ComboBox10.SelectedIndex = 0
 
-        Me.CheckBox4.Checked = True
+        Me.ComboBox11.SelectedIndex = 0
 
         Readbalance()
         Timer2.Start()
 
+        Me.DataGridView3.Rows.Add("1", "Default")
+
         Languagesxmlload()
+        FindLandguage()
+
+        If File.Exists(loadusersetting) Then
+            loadusersetting()
+        Else
+            Languagecontrolls()
+        End If
+
         Cursor.Current = Cursors.Default
     End Sub
 
-    Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+    Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles MyBase.Closing
         If Me.Button2.Enabled = True Then
             Dim msgtext1 As String = Checkxmllanguage("Message33.1").trim
 
@@ -155,7 +148,7 @@ Public Class Form1
         Me.Button3.Visible = False
         Me.Label5.Visible = False
         Me.Label11.Visible = False
-        Me.TabControl2.Visible = True
+        Me.Panel1.Visible = True
         Me.ComboBox1.Items.Clear()
         If Me.DataGridView1.Rows.Count - 1 >= 0 Then
             For i As Integer = 0 To Me.DataGridView1.Rows.Count - 1
@@ -167,6 +160,11 @@ Public Class Form1
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Me.Timer4.Stop()
+        Me.Timer5.Stop()
+        Me.Timer4.Interval = 12000000
+        Me.Timer5.Interval = 1200000
+
         For Each p In Diagnostics.Process.GetProcesses()
             If p.ProcessName = "SRBMiner-MULTI" And Me.Button4.BackColor = Color.YellowGreen Then
                 MessageBox.Show(Checkxmllanguage("Message32.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -189,25 +187,28 @@ Public Class Form1
             Exit Sub
         End If
 
-        If Not File.Exists(selfpath + "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe") Then
-            Cursor.Current = Cursors.WaitCursor
-            If Not Directory.Exists(selfpath + "mining\") Then
-                Directory.CreateDirectory(selfpath + "mining\")
-            End If
+        If Me.ComboBox3.Text = "SRBMiner-MULTI" Then
+            If Not File.Exists(selfpath + "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe") Then
+                Cursor.Current = Cursors.WaitCursor
+                If Not Directory.Exists(selfpath + "mining\") Then
+                    Directory.CreateDirectory(selfpath + "mining\")
+                End If
 
-            Dim downloadpath As String = selfpath + "mining\" + SRBMinerDownloadnameWindows
-            Dim client As New Net.WebClient
-            client.DownloadFile(SRBMinerDownloadpathWinows, downloadpath)
+                Dim downloadpath As String = selfpath + "mining\" + SRBMinerDownloadnameWindows
+                Dim client As New Net.WebClient
+                client.DownloadFile(SRBMinerDownloadpathWinows, downloadpath)
 
-            If File.Exists(selfpath + "mining\" + SRBMinerDownloadnameWindows) Then
-                ZipFile.ExtractToDirectory(selfpath + "mining\" + SRBMinerDownloadnameWindows, selfpath + "mining\")
-                File.Delete(selfpath + "mining\" + SRBMinerDownloadnameWindows)
+                If File.Exists(selfpath + "mining\" + SRBMinerDownloadnameWindows) Then
+                    ZipFile.ExtractToDirectory(selfpath + "mining\" + SRBMinerDownloadnameWindows, selfpath + "mining\")
+                    File.Delete(selfpath + "mining\" + SRBMinerDownloadnameWindows)
+                End If
+                Cursor.Current = Cursors.Default
             End If
-            Cursor.Current = Cursors.Default
         End If
 
         If Me.ComboBox1.Text = Nothing Then
             MessageBox.Show(Checkxmllanguage("Message5.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
         End If
 
         Dim walletsplitt() As String = Me.ComboBox1.Text.Split("(")
@@ -229,12 +230,17 @@ Public Class Form1
 
         wingsheet_srb01 = Chr(34) & selfpath & "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe" & Chr(34) & " --disable-gpu" & threads & " --algorithm ghostrider --pool " & server & " --wallet " & wallet & "." & rig & " --password " & password
 
+        Dim wingsheet_donation As String
+        wingsheet_donation = Chr(34) & selfpath & "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe" & Chr(34) & " --disable-gpu" & threads & " --algorithm ghostrider --pool stratum+tcps://europe.raptoreum.zone:4444 --wallet " & donationadress & ".Donation_" & rig & " --password x"
+
         If Me.CheckBox1.Checked = True Then
             wingsheet_srb01 += " --background"
+            wingsheet_donation += " --background"
         End If
 
         If Not Me.ComboBox10.Text = "Default" Then
             wingsheet_srb01 += " --cpu-threads-priority " + Me.ComboBox10.Text
+            wingsheet_donation += " --cpu-threads-priority " + Me.ComboBox10.Text
         End If
 
         If Me.ComboBox2.Text = "Raptorhash.com" Then
@@ -259,11 +265,18 @@ Public Class Form1
             End
         End If
 
+        If CheckBox5.Checked = True Then
+            filewriter = My.Computer.FileSystem.OpenTextFileWriter(selfpath + "mining\" + SRBdirectory + "\donation.bat", False, Encoding.Default)
+            filewriter.Write("@ " & wingsheet_donation)
+            filewriter.Close()
+            Timer4.Start()
+        End If
+
     End Sub
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
         Miningsetting()
     End Sub
-    Private Sub CheckBox3_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
+    Private Sub CheckBox3_CheckedChanged(sender As Object, e As EventArgs) Handles ComboBox3.SelectedIndexChanged
         Miningsetting()
     End Sub
 
@@ -284,8 +297,11 @@ Public Class Form1
             Me.CheckBox3.Enabled = True
             Me.CheckBox1.CheckState = CheckState.Unchecked
             Me.CheckBox2.CheckState = CheckState.Unchecked
-            Me.CheckBox3.CheckState = CheckState.Unchecked
-            Exit Sub
+            If def_solo = False Then
+                Me.CheckBox3.CheckState = CheckState.Unchecked
+                Me.CheckBox3.Enabled = False
+                Exit Sub
+            End If
         End If
 
         Dim wingsheetname As String = Me.ComboBox6.Text
@@ -1268,16 +1284,6 @@ Public Class Form1
         End If
 
     End Sub
-
-    Private Sub ComboBox9_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox9.SelectedIndexChanged
-        Dim combtext As String = Me.ComboBox9.Text
-        Dim combtextsplitt() As String = combtext.Split("-")
-        Dim xmllanguagecode As String = combtextsplitt(1)
-        xmllanguagecode = xmllanguagecode.Trim
-        xmlLanguagesCodes = xmllanguagecode
-        Languagecontrolls()
-    End Sub
-
     Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
         Apipoolread()
         Showrigdetail()
@@ -1333,80 +1339,6 @@ Public Class Form1
     Private Sub Button14_MouseHover(sender As Object, e As EventArgs) Handles Button14.MouseHover
         Me.ToolTip1.SetToolTip(Button14, Checkxmllanguage("Button14").trim)
     End Sub
-
-    Private Sub CheckBox4_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox4.CheckedChanged
-        Dim dark As Color = Color.DimGray
-        Dim transparent As Color = Color.Transparent
-        Dim white As Color = Color.White
-        Dim black As Color = Color.Black
-        Dim red As Color = Color.Red
-        Dim yellow As Color = Color.Yellow
-
-        Dim background As Color = transparent
-        Dim background2 As Color = white
-        Dim textcolor As Color = black
-        Dim textcolor2 As Color = red
-        Dim textcolor3 As Color = black
-
-        Me.PictureBox1.BackgroundImage = My.Resources.Rptorwings_logo_small
-
-        If Me.CheckBox4.Checked = True Then
-            background = dark
-            background2 = dark
-            textcolor = white
-            textcolor2 = yellow
-            textcolor3 = black
-            Me.PictureBox1.BackgroundImage = My.Resources.Rptorwings_logo_dark_small
-        Else
-
-        End If
-        Me.ForeColor = textcolor
-        Me.LinkLabel1.LinkColor = textcolor
-        Me.TabPage1.BackColor = background
-        Me.TabPage2.BackColor = background
-        Me.TabPage3.BackColor = background
-        Me.TabPage4.BackColor = background
-        Me.TabPage5.BackColor = background
-        Me.TabPage6.BackColor = background
-        Me.TabPage7.BackColor = background
-        Me.TabPage8.BackColor = background
-        Me.TabPage9.BackColor = background
-        Me.Button1.ForeColor = background
-        Me.Button2.ForeColor = background
-        Me.Button3.BackColor = background
-        Me.Button3.ForeColor = textcolor
-        Me.Button4.ForeColor = textcolor3
-        Me.Button5.ForeColor = background
-        Me.Button6.ForeColor = background
-        Me.Button7.ForeColor = background
-        Me.Button8.ForeColor = background
-        Me.Button9.ForeColor = background
-        Me.Button10.ForeColor = textcolor3
-        Me.Button11.ForeColor = textcolor3
-        Me.Button14.ForeColor = background
-        Me.Button13.ForeColor = background
-
-        Me.DataGridView1.BackgroundColor = background2
-        Me.DataGridView1.ForeColor = textcolor
-        Me.DataGridView1.DefaultCellStyle.BackColor = background2
-        Me.DataGridView1.DefaultCellStyle.ForeColor = textcolor
-        Me.DataGridView2.BackgroundColor = background2
-        Me.DataGridView2.ForeColor = textcolor
-        Me.DataGridView2.DefaultCellStyle.BackColor = background2
-        Me.DataGridView2.DefaultCellStyle.ForeColor = textcolor
-        Me.Label5.ForeColor = textcolor2
-        Me.Label11.ForeColor = textcolor2
-        Me.Label16.ForeColor = textcolor2
-        Me.ToolStripStatusLabel1.ForeColor = textcolor3
-        Me.ToolStripStatusLabel4.ForeColor = textcolor3
-        Me.TextBox10.BackColor = background2
-        Me.TextBox10.ForeColor = textcolor
-        Me.TextBox12.BackColor = background2
-        Me.TextBox12.ForeColor = textcolor
-        Me.RichTextBox3.ForeColor = textcolor
-        Me.RichTextBox3.BackColor = background2
-    End Sub
-
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
         Dim ProcessStartInfo = New ProcessStartInfo With {.FileName = "https://zlataamaranth.com", .UseShellExecute = True}
         Process.Start(ProcessStartInfo)
@@ -1567,4 +1499,235 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub ComboBox11_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox11.SelectedIndexChanged
+        Dim walletdata As String = Nothing
+        Dim walletprofile As String = Me.ComboBox11.Text
+        If walletprofile = "1 - Default" Then
+            walletdata = localwallet
+        Else
+            Dim textsplitt() As String = Me.ComboBox11.Text.Split(" ")
+            walletdata = localfolder + "main" + textsplitt(0).Trim + ".dat"
+        End If
+
+        Me.DataGridView1.Rows.Clear()
+
+        If File.Exists(walletdata) Then
+            Timer1.Stop()
+
+            Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(walletdata)
+
+                MyReader.TextFieldType = Microsoft.VisualBasic.FileIO.FieldType.Delimited
+                MyReader.Delimiters = New String() {","}
+                Dim currentRow As String()
+                While Not MyReader.EndOfData
+                    Try
+                        currentRow = MyReader.ReadFields()
+                        Me.DataGridView1.Rows.Add(currentRow)
+                    Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
+                        MessageBox.Show("Line " & ex.Message & " in Wallet List is invalid." + System.Environment.NewLine + System.Environment.NewLine + "Raptorwings will end.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        End
+                    End Try
+                End While
+                currentRow = Nothing
+            End Using
+            Timer1.Start()
+            Readbalance()
+
+            Me.ComboBox1.Items.Clear()
+            For i As Integer = 0 To Me.DataGridView1.Rows.Count - 1
+                Me.ComboBox1.Items.Add(Me.DataGridView1.Item(0, i).Value.ToString + " - " + Me.DataGridView1.Item(2, i).Value.ToString + " (" + Me.DataGridView1.Item(1, i).Value.ToString + ")")
+            Next
+            If Me.ComboBox1.Items.Count > -1 Then
+                Me.ComboBox1.SelectedIndex = 0
+            End If
+        End If
+
+    End Sub
+
+    Private Sub ComboBox9_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles ComboBox9.SelectedIndexChanged
+        Dim combtext As String = Me.ComboBox9.Text
+        Dim combtextsplitt() As String = combtext.Split("-")
+        Dim xmllanguagecode As String = combtextsplitt(1)
+        xmllanguagecode = xmllanguagecode.Trim
+        xmlLanguagesCodes = xmllanguagecode
+        Languagecontrolls()
+    End Sub
+
+    Private Sub CheckBox4_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox4.CheckedChanged
+        Dim dark As Color = Color.DimGray
+        Dim transparent As Color = Color.Transparent
+        Dim white As Color = Color.White
+        Dim black As Color = Color.Black
+        Dim red As Color = Color.Red
+        Dim yellow As Color = Color.Yellow
+
+        Dim background As Color = transparent
+        Dim background2 As Color = white
+        Dim textcolor As Color = black
+        Dim textcolor2 As Color = red
+        Dim textcolor3 As Color = black
+
+        Me.PictureBox1.BackgroundImage = My.Resources.Rptorwings_logo_small
+
+        If Me.CheckBox4.Checked = True Then
+            background = dark
+            background2 = dark
+            textcolor = white
+            textcolor2 = yellow
+            textcolor3 = black
+            Me.PictureBox1.BackgroundImage = My.Resources.Rptorwings_logo_dark_small
+        Else
+
+        End If
+        Me.ForeColor = textcolor
+        Me.LinkLabel1.LinkColor = textcolor
+        Me.TabPage1.BackColor = background
+        Me.TabPage2.BackColor = background
+        Me.TabPage3.BackColor = background
+        Me.TabPage5.BackColor = background
+        Me.TabPage6.BackColor = background
+        Me.TabPage7.BackColor = background
+        Me.TabPage8.BackColor = background
+        Me.TabPage9.BackColor = background
+        Me.TabPage10.BackColor = background
+        Me.Panel1.BackColor = background
+        Me.Button1.ForeColor = background
+        Me.Button2.ForeColor = background
+        Me.Button3.BackColor = background
+        Me.Button3.ForeColor = textcolor
+        Me.Button4.ForeColor = textcolor3
+        Me.Button5.ForeColor = background
+        Me.Button6.ForeColor = background
+        Me.Button7.ForeColor = background
+        Me.Button8.ForeColor = background
+        Me.Button9.ForeColor = background
+        Me.Button10.ForeColor = textcolor3
+        Me.Button11.ForeColor = textcolor3
+        Me.Button14.ForeColor = background
+        Me.Button13.ForeColor = background
+        Me.Button18.ForeColor = background
+        Me.Button19.ForeColor = background
+        Me.Button20.ForeColor = background
+
+        Me.DataGridView1.BackgroundColor = background2
+        Me.DataGridView1.ForeColor = textcolor
+        Me.DataGridView1.DefaultCellStyle.BackColor = background2
+        Me.DataGridView1.DefaultCellStyle.ForeColor = textcolor
+        Me.DataGridView2.BackgroundColor = background2
+        Me.DataGridView2.ForeColor = textcolor
+        Me.DataGridView2.DefaultCellStyle.BackColor = background2
+        Me.DataGridView2.DefaultCellStyle.ForeColor = textcolor
+        Me.DataGridView3.BackgroundColor = background2
+        Me.DataGridView3.ForeColor = textcolor
+        Me.DataGridView3.DefaultCellStyle.BackColor = background2
+        Me.DataGridView3.DefaultCellStyle.ForeColor = textcolor
+        Me.Label5.ForeColor = textcolor2
+        Me.Label11.ForeColor = textcolor2
+        Me.Label16.ForeColor = textcolor2
+        Me.ToolStripStatusLabel1.ForeColor = textcolor3
+        Me.ToolStripStatusLabel4.ForeColor = textcolor3
+        Me.TextBox10.BackColor = background2
+        Me.TextBox10.ForeColor = textcolor
+        Me.TextBox12.BackColor = background2
+        Me.TextBox12.ForeColor = textcolor
+        Me.RichTextBox3.ForeColor = textcolor
+        Me.RichTextBox3.BackColor = background2
+    End Sub
+
+    Private Sub Button20_Click(sender As Object, e As EventArgs) Handles Button20.Click
+        Me.DataGridView3.Rows.Add(Me.DataGridView3.Item(0, Me.DataGridView3.Rows.Count - 1).Value.ToString + 1, "", "", "")
+    End Sub
+
+    Private Sub Button18_Click(sender As Object, e As EventArgs) Handles Button18.Click
+        If Me.DataGridView3.Rows.Count - 1 > -1 Then
+            Dim selectRowDGV3 As Integer = Me.DataGridView3.CurrentCell.RowIndex.ToString
+            Dim selectwallet As String = Me.DataGridView3.Item(0, selectRowDGV3).Value.ToString & " - " & Me.DataGridView3.Item(1, selectRowDGV3).Value.ToString
+            Dim selectProfilNummer As String = Me.DataGridView3.Item(0, selectRowDGV3).Value.ToString
+
+            If selectwallet = "1 - Default" Then
+                Exit Sub
+            End If
+
+            Dim msgtext1 As String = Checkxmllanguage("Message34.1").trim
+            Dim msgtext2 As String = Checkxmllanguage("Message34.2").trim
+
+            Dim result = MessageBox.Show(msgtext1, "Questtion", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If result = DialogResult.Yes Then
+                Me.DataGridView3.Rows.Remove(Me.DataGridView3.Rows(selectRowDGV3))
+                For i As Integer = 0 To Me.DataGridView3.Rows.Count - 1
+                    Me.DataGridView3.Item(0, i).Value = i + 1
+                    If File.Exists(localfolder + "main" + selectProfilNummer + ".dat") Then
+                        File.Delete(localfolder + "main" + selectProfilNummer + ".dat")
+                    End If
+                Next
+
+                Me.ComboBox11.Items.Clear()
+                For i As Integer = 0 To Me.DataGridView3.Rows.Count - 1
+                    Me.ComboBox11.Items.Add(Me.DataGridView3.Item(0, i).Value.ToString + " - " + Me.DataGridView3.Item(1, i).Value.ToString)
+                Next
+                Me.ComboBox11.SelectedIndex = 0
+
+                MessageBox.Show(msgtext2, "Note", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        End If
+    End Sub
+
+    Private Sub DataGridView3_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView3.CellEndEdit
+        Dim selectRowDGV3 As Integer = Me.DataGridView3.CurrentCell.RowIndex.ToString
+
+        Me.DataGridView3.Item(1, 0).Value = "Default"
+
+        If Me.DataGridView3.Item(1, selectRowDGV3).Value.ToString = "" Or Me.DataGridView3.Item(1, selectRowDGV3).Value.ToString = Nothing Or Me.DataGridView3.Item(1, selectRowDGV3).Value.ToString = " " Then
+            Exit Sub
+        Else
+            Me.ComboBox11.Items.Clear()
+            For i As Integer = 0 To Me.DataGridView3.Rows.Count - 1
+                Me.ComboBox11.Items.Add(Me.DataGridView3.Item(0, i).Value.ToString + " - " + Me.DataGridView3.Item(1, i).Value.ToString)
+            Next
+            Me.ComboBox11.SelectedIndex = 0
+        End If
+    End Sub
+
+    Private Sub Button19_Click(sender As Object, e As EventArgs) Handles Button19.Click
+        saveusersetting()
+    End Sub
+
+    Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
+        For Each p In Diagnostics.Process.GetProcesses()
+            For Each Process In System.Diagnostics.Process.GetProcessesByName("SRBMiner-MULTI")
+                Process.Kill()
+            Next
+        Next
+        Process.Start(selfpath + "mining\" + SRBdirectory + "\donation.bat")
+        Timer5.Start()
+        Timer4.Stop()
+    End Sub
+
+    Private Sub Timer5_Tick(sender As Object, e As EventArgs) Handles Timer5.Tick
+        For Each p In Diagnostics.Process.GetProcesses()
+            For Each Process In System.Diagnostics.Process.GetProcessesByName("SRBMiner-MULTI")
+                Process.Kill()
+            Next
+        Next
+        Process.Start(selfpath + "mining\" + SRBdirectory + "\rtmtsheet.bat")
+        Timer4.Start()
+    End Sub
+
+    Private Sub CheckBox5_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox5.CheckedChanged
+        If Me.CheckBox5.Checked = True Then
+            Me.CheckBox2.Checked = False
+            Me.CheckBox2.Enabled = False
+        End If
+        If Me.CheckBox5.Checked = False Then
+            Me.CheckBox2.Enabled = True
+        End If
+    End Sub
+
+    Private Sub CheckBox5_MouseHover(sender As Object, e As EventArgs) Handles CheckBox5.MouseHover
+        Me.ToolTip1.SetToolTip(CheckBox5, Checkxmllanguage("Checkbox3").trim)
+    End Sub
+
+    Private Sub CheckBox3_CheckedChanged_1(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
+        Miningsetting()
+    End Sub
 End Class
