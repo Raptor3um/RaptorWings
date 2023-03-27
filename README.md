@@ -66,48 +66,7 @@ Copyright (c) 2023 The Raptoreum developers (https://github.com/Raptor3um)
 Copyright (c) 2023 Germardies (https://github.com/Germardies)
 
 
-Changelog v1.1.0
+Changelog v1.1.1
 ----------------
-01. New language: Portuguese  
-Thnaks to https://github.com/Cadenadb  
- 
-02. New function: Version check 
-Raptowings checks at its own start if a new version is available and displays this via a checkbox.  
-The user can decide for himself whether to download the new version from Gitgub.  
- 
-03. New tab window: Settings
-A new tab has been created to arrange the settings on an extra page.  
-The settings language and darkmode have been moved there from the main page.  
- 
-04. New function: Wallet profiles  
-Under the tab Settings you can now create wallet profiles.  
-These profiles are then visible via a drop-down menu in the "Wallets" tab.  
-It is used to sort/group wallet addresses.  
- 
-05. New function: User settings 
-Under the tab "Settings" you can save your personal settings.  
-Raptorwings will automatically load these settings after saving them the next time you start the program.  
- 
-06. New function: Donation 
-The user can voluntarily choose to operate their device for the period of 2minutes every 200minutes on the donation address mining.  
- 
-07. Mining and MultiWingMining in separate tabs 
-In order to have more space in the future, mining and multiwingmining have been placed in separate tabs.  
- 
-08. Raptoreum.Zone server addresses have been changed  
- 
-09. Added Raptoreum.Zone solo mining 
- 
-10. Change the Default Pool to Raptoreum.Zone 
- 
-
-Bug Fixed:
-----------
-1. The representation of point and comma in the balance, in the BTC price, in the dollar price and in the euro price, led to incorrect information for some users. This error has been fixed. 
-Thanks to Discord Community for help 
- 
-
-Third Party Changes:
---------------------
-1. Change SRBMiner-MULTI to Version 2.2.3 
- 
+Bug Fixed:  When starting Raptorwings there was a conflict while reading a system file 
+<br />

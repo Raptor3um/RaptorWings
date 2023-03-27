@@ -306,62 +306,63 @@ Public Class Form1
 
         Dim wingsheetname As String = Me.ComboBox6.Text
 
-        Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localwingsheet)
+        If File.Exists(localwingsheet) Then
+            Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localwingsheet)
 
-            MyReader.TextFieldType = Microsoft.VisualBasic.FileIO.FieldType.Delimited
-            MyReader.Delimiters = New String() {","}
-            Dim currentRow As String()
-            While Not MyReader.EndOfData
-                Try
-                    currentRow = MyReader.ReadFields()
+                MyReader.TextFieldType = Microsoft.VisualBasic.FileIO.FieldType.Delimited
+                MyReader.Delimiters = New String() {","}
+                Dim currentRow As String()
+                While Not MyReader.EndOfData
+                    Try
+                        currentRow = MyReader.ReadFields()
 
-                    If currentRow(0) = wingsheetname Then
-                        Me.TextBox3.Text = currentRow(0)
+                        If currentRow(0) = wingsheetname Then
+                            Me.TextBox3.Text = currentRow(0)
 
-                        Dim comboboxindex As Integer = 0
-                        For i As Integer = 0 To ComboBox1.Items.Count - 1
-                            Dim comboboxtext As String = Me.ComboBox1.Items(i).ToString
-                            If comboboxtext.Contains(currentRow(1)) Then
-                                ComboBox1.SelectedIndex = i
+                            Dim comboboxindex As Integer = 0
+                            For i As Integer = 0 To ComboBox1.Items.Count - 1
+                                Dim comboboxtext As String = Me.ComboBox1.Items(i).ToString
+                                If comboboxtext.Contains(currentRow(1)) Then
+                                    ComboBox1.SelectedIndex = i
+                                End If
+                            Next
+
+                            Me.ComboBox2.Text = currentRow(2)
+                            Me.ComboBox4.Text = currentRow(3)
+                            Me.TextBox1.Text = currentRow(4)
+                            Me.TextBox2.Text = currentRow(5)
+                            Me.ComboBox3.Text = currentRow(6)
+                            Me.ComboBox5.Text = currentRow(7)
+                            Me.ComboBox10.Text = "Default"
+                            Me.ComboBox10.Text = currentRow(12)
+
+                            If currentRow(8) = True Then
+                                Me.CheckBox1.CheckState = CheckState.Checked
+                            Else
+                                Me.CheckBox1.CheckState = CheckState.Unchecked
                             End If
-                        Next
 
-                        Me.ComboBox2.Text = currentRow(2)
-                        Me.ComboBox4.Text = currentRow(3)
-                        Me.TextBox1.Text = currentRow(4)
-                        Me.TextBox2.Text = currentRow(5)
-                        Me.ComboBox3.Text = currentRow(6)
-                        Me.ComboBox5.Text = currentRow(7)
-                        Me.ComboBox10.Text = "Default"
-                        Me.ComboBox10.Text = currentRow(12)
+                            If currentRow(9) = True Then
+                                Me.CheckBox2.CheckState = CheckState.Checked
+                            Else
+                                Me.CheckBox2.CheckState = CheckState.Unchecked
+                            End If
 
-                        If currentRow(8) = True Then
-                            Me.CheckBox1.CheckState = CheckState.Checked
-                        Else
-                            Me.CheckBox1.CheckState = CheckState.Unchecked
+                            If currentRow(10) = True Then
+                                Me.CheckBox3.CheckState = CheckState.Checked
+                            Else
+                                Me.CheckBox3.CheckState = CheckState.Unchecked
+                            End If
                         End If
 
-                        If currentRow(9) = True Then
-                            Me.CheckBox2.CheckState = CheckState.Checked
-                        Else
-                            Me.CheckBox2.CheckState = CheckState.Unchecked
-                        End If
-
-                        If currentRow(10) = True Then
-                            Me.CheckBox3.CheckState = CheckState.Checked
-                        Else
-                            Me.CheckBox3.CheckState = CheckState.Unchecked
-                        End If
-                    End If
-
-                Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
-                    MessageBox.Show("Line " & ex.Message & " in Wingsheet List is invalid." + System.Environment.NewLine + System.Environment.NewLine + "Progress ends.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Cursor.Current = Cursors.Default
-                    Exit Sub
-                End Try
-            End While
-        End Using
-
+                    Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
+                        MessageBox.Show("Line " & ex.Message & " in Wingsheet List is invalid." + System.Environment.NewLine + System.Environment.NewLine + "Progress ends.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Cursor.Current = Cursors.Default
+                        Exit Sub
+                    End Try
+                End While
+            End Using
+        End If
         Cursor.Current = Cursors.Default
     End Sub
 
