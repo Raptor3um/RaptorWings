@@ -1,4 +1,4 @@
-RAPTORWINGS v1.0.0 RAODMAP
+RAPTORWINGS RAODMAP
 ==========================
 There is no ban on thinking here. Every idea and every suggestion is welcome.<br />
 <br />
@@ -19,3 +19,11 @@ Future Functions (Not in order)
 --> Air support<br />
 --> Change the Code from VB.net to C#<br />
 <br />
+<br />
+
+Disclaimer
+----------
+
+We're always working to improve Raptorwings. <br />
+The points listed here can be worked through in different order. <br />
+It is still possible that some points will never be implemented and it is also possible that additional functions will be integrated which are not listed here.

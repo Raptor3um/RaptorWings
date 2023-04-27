@@ -2006,7 +2006,6 @@ Partial Class Form1
         MaximizeBox = False
         Name = "Form1"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "Raptorwings v1.1.0 ""Falcon"""
         TabPage6.ResumeLayout(False)
         TabPage3.ResumeLayout(False)
         Panel1.ResumeLayout(False)

@@ -12,7 +12,12 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Cursor.Current = Cursors.WaitCursor
 
+        Me.Text = "Raptorwings v" + rtwVersion + " (Falcon)"
+
         checkupdates.checkRTWupdate()
+        checkupdates.checkSRBupdate()
+        checkupdates.checkRTMupdate()
+        checkupdates.checkPoolupdates()
 
         Me.TextBox1.Text = Environment.MachineName
 
@@ -1467,20 +1472,20 @@ Public Class Form1
             Me.Label46.Text = "Delet old Files"
             Me.Label46.Refresh()
 
-            If File.Exists("C:\Users\marcu\AppData\Roaming\RaptoreumCore\powcache.dat") Then
-                File.Delete("C:\Users\marcu\AppData\Roaming\RaptoreumCore\powcache.dat")
+            If File.Exists(rtmCoreAppDatapfad + "powcache.dat") Then
+                File.Delete(rtmCoreAppDatapfad + "powcache.dat")
             End If
-            If Directory.Exists("C:\Users\marcu\AppData\Roaming\RaptoreumCore\blocks\") Then
-                Directory.Delete("C:\Users\marcu\AppData\Roaming\RaptoreumCore\blocks\", True)
+            If Directory.Exists(rtmCoreAppDatapfad + "blocks\") Then
+                Directory.Delete(rtmCoreAppDatapfad + "blocks\", True)
             End If
-            If Directory.Exists("C:\Users\marcu\AppData\Roaming\RaptoreumCore\chainstate\") Then
-                Directory.Delete("C:\Users\marcu\AppData\Roaming\RaptoreumCore\chainstate\", True)
+            If Directory.Exists(rtmCoreAppDatapfad + "chainstate\") Then
+                Directory.Delete(rtmCoreAppDatapfad + "chainstate\", True)
             End If
-            If Directory.Exists("C:\Users\marcu\AppData\Roaming\RaptoreumCore\evodb\") Then
-                Directory.Delete("C:\Users\marcu\AppData\Roaming\RaptoreumCore\evodb\", True)
+            If Directory.Exists(rtmCoreAppDatapfad + "evodb\") Then
+                Directory.Delete(rtmCoreAppDatapfad + "evodb\", True)
             End If
-            If Directory.Exists("C:\Users\marcu\AppData\Roaming\RaptoreumCore\llmq\") Then
-                Directory.Delete("C:\Users\marcu\AppData\Roaming\RaptoreumCore\llmq\", True)
+            If Directory.Exists(rtmCoreAppDatapfad + "llmq\") Then
+                Directory.Delete(rtmCoreAppDatapfad + "llmq\", True)
             End If
             If File.Exists(winDesktop & "\bootstrap.zip") Then
                 Me.Label46.Text = ""

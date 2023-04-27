@@ -35,6 +35,4 @@ Default Mining Pool: Raptorhash<br />
 Mining Software
 ---------------
 SRBMiner-MULTI (https://www.srbminer.com/)<br />
-
-SRBMiner-MULTI Windows Download: https://github.com/doktor83/SRBMiner-Multi/releases/download/2.1.0/SRBMiner-Multi-2-1-0-win64.zi<br />
-SRBMiner-MULTI Linux Download: https://github.com/doktor83/SRBMiner-Multi/releases/download/2.1.0/SRBMiner-Multi-2-1-0-Linux.tar.xz<br />
+When Raptorwings start, the latest SRB-Miner version is now always checked and stored<br />

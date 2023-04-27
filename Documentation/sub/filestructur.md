@@ -7,6 +7,7 @@ In the unpacked Raptorwings folder you will find the following folders:<br />
 1. Third party for external applications, e.g. Putty<br />
 2. Mining for the mining software, which is automatically downloaded<br />
 3. Languages for the language file<br />
+4. Config for Config-Files<br />
 <br /><br />
 The Raptorwings Folder in AppData
 ---------------------------------

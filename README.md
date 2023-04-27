@@ -66,7 +66,25 @@ Copyright (c) 2023 The Raptoreum developers (https://github.com/Raptor3um)
 Copyright (c) 2023 Germardies (https://github.com/Germardies)
 
 
-Changelog v1.1.1
-----------------
-Bug Fixed:  When starting Raptorwings there was a conflict while reading a system file 
+Changes:
+--------
+3 New features to automate some processes so that a Raptorwings update does not have to be created immediately every time a change is made.
+<br />
+1. At Raptorwings start, the latest SRB-Miner version is now always checked and retrieved from Github.
+<br />
+2. At Raptorwings start, the latest Raptoreum-Core (portable & install) version is now always checked and retrieved from Github.
+<br />
+3. At Raptorwings start, the latest Pooldata-List is now always checked and retrieved from Github.
+<br />
+
+Bug Fixed:
+----------
+1. The current Raptorwings version number (header of the window) is now always updated automatically.
+<br />
+2. RTM Core Windows path was adjusted
+<br />
+
+Third Party Changes:
+--------------------
+1. SRB-Miner-Multi (Backup) Version 2-2-3 (See changes point 1)
 <br />

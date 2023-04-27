@@ -6,18 +6,18 @@ Imports System.Security.Cryptography.X509Certificates
 
 Module globale
 
-    Public rtwVersion As String = "1-1-1"
+    Public rtwVersion As String = "1-2-0"
     Public winDesktop = System.Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)
     Public selfpath As String = Application.StartupPath
     Public localfolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData).Replace("Roaming", "Local") + "\RaptorWings\"
     Public balancesummyglobal = 0
     Public rtmCoreAppDatapfad = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\RaptoreumCore\"
 
-    Public rtmCorePortableWebPfad = "https://github.com/Raptor3um/raptoreum/releases/download/1.3.17.02/raptoreum-win-1.3.17.02.zip"
-    Public rtmCorePortableDownloadName = "raptoreum-win-1.3.17.02.zip"
-    Public rtmCorePortableName = "raptoreum-win-1.3.17.02"
-    Public rtmCoreInstallWebPfad = "https://github.com/Raptor3um/raptoreum/releases/download/1.3.17.02/raptoreumcore-1.3.17-win64-setup.exe"
-    Public rtmCoreInstallName = "raptoreumcore-1.3.17-win64-setup.exe"
+    Public rtmCorePortableWebPfad = ""
+    Public rtmCorePortableDownloadName = ""
+    Public rtmCorePortableName = ""
+    Public rtmCoreInstallWebPfad = ""
+    Public rtmCoreInstallName = ""
     Public rtmBootstrapWebpfad = "https://bootstrap.raptoreum.com/bootstraps/bootstrap.zip"
     Public rtmBootstrapDownloadName = "bootstrap.zip"
 
@@ -31,6 +31,7 @@ Module globale
     Public localpool As String = localfolder & "pool.dat"
     Public lovalreadmeEN As String = selfpath + "README_EN.txt"
     Public localusersetting As String = localfolder + "usersetting.dat"
+    Public pooldatafile As String = selfpath + "Config\pools.dat"
 
     Public apiwalletbalanceurl = "https://explorer.raptoreum.com/api/getaddressbalance?address="
     Public walletexploererurl = "https://explorer.raptoreum.com/address/"

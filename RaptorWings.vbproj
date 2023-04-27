@@ -9,7 +9,7 @@
     <Description>GUI Siftware for RTM API's and Mining</Description>
     <Copyright>Raptoreum &amp; Germardies</Copyright>
     <AssemblyVersion>1.0.0</AssemblyVersion>
-    <FileVersion>1.1.0</FileVersion>
+    <FileVersion>1.2.0</FileVersion>
     <ApplicationIcon>Resources\Rptorwings_logo_6.ico</ApplicationIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <Title>Raptorwings</Title>
@@ -65,6 +65,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Config\pools.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Instructions.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -103,11 +106,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Config\" />
     <Folder Include="Thirdparty\tmp\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.2" />
   </ItemGroup>
 
 </Project>
