@@ -1,4 +1,4 @@
-"Raptorhash.com","server","stratum+tcp://raptorhash.net:6900
+"Raptorhash.com","server","stratum+tcp://raptorhash.net:6900"
 "Raptoreum.Zone","poolserver","stratum+tcp://europe.raptoreum.zone:3333"
 "Raptoreum.Zone","poolserver","stratum+tcps://europe.raptoreum.zone:4444"
 "Raptoreum.Zone","poolserver","stratum+tcp://usa-east.raptoreum.zone:3333"
