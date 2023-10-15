@@ -6,20 +6,25 @@ Imports System.IO
 Module miningsetting_rtm
     Public Sub Miningsetting()
         Cursor.Current = Cursors.WaitCursor
-
+        Form1.logging("Modul Miningsettings: Start")
         Dim pool As String = Form1.ComboBox2.Text
-
+        Form1.logging("Modul Miningsettings: Pool = " + Form1.ComboBox2.Text)
         Dim solo As String = False
         Form1.CheckBox3.Enabled = True
 
         If Form1.CheckBox3.Checked = True Then
             solo = True
+            Form1.logging("Modul Miningsettings: Solo = True")
+        Else
+            Form1.logging("Modul Miningsettings: Solo = False")
         End If
 
         If pool = "Raptorhash.com" Then
+            Form1.logging("Modul Miningsettings: Pool = Raptohash")
             Form1.ComboBox4.Items.Clear()
             Dim poolname As String = "Raptorhash.com"
-            If File.Exists(localusersetting) Then
+            Form1.logging("Modul Miningsettings: Check usersettings")
+            If File.Exists(pooldatafile) Then
                 Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(pooldatafile)
 
                     MyReader.TextFieldType = Microsoft.VisualBasic.FileIO.FieldType.Delimited
@@ -31,6 +36,7 @@ Module miningsetting_rtm
                             If currentRow(0) = poolname Then
                                 If currentRow(1) = "server" Then
                                     If Not Form1.ComboBox4.Items.Contains(currentRow(2)) Then
+                                        Form1.logging("Modul Miningsettings: Add to Combo4: " + currentRow(2))
                                         Form1.ComboBox4.Items.Add(currentRow(2))
                                     End If
                                 End If
@@ -52,9 +58,11 @@ Module miningsetting_rtm
         End If
 
         If pool = "Raptoreum.Zone" And Form1.CheckBox3.Checked = False Then
+            Form1.logging("Modul Miningsettings: Pool = Raptoreum.Zone Pool")
             Form1.ComboBox4.Items.Clear()
             Dim poolname As String = "Raptoreum.Zone"
-            If File.Exists(localusersetting) Then
+            Form1.logging("Modul Miningsettings: Check usersettings")
+            If File.Exists(pooldatafile) Then
                 Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(pooldatafile)
 
                     MyReader.TextFieldType = Microsoft.VisualBasic.FileIO.FieldType.Delimited
@@ -66,6 +74,7 @@ Module miningsetting_rtm
                             If currentRow(0) = poolname Then
                                 If currentRow(1) = "poolserver" Then
                                     If Not Form1.ComboBox4.Items.Contains(currentRow(2)) Then
+                                        Form1.logging("Modul Miningsettings: Add to Combo4: " + currentRow(2))
                                         Form1.ComboBox4.Items.Add(currentRow(2))
                                     End If
                                 End If
@@ -85,9 +94,11 @@ Module miningsetting_rtm
         End If
 
         If pool = "Raptoreum.Zone" And Form1.CheckBox3.Checked = True Then
+            Form1.logging("Modul Miningsettings: Pool = Raptoreum.Zone Solo")
             Form1.ComboBox4.Items.Clear()
             Dim poolname As String = "Raptoreum.Zone"
-            If File.Exists(localusersetting) Then
+            Form1.logging("Modul Miningsettings: Check usersettings")
+            If File.Exists(pooldatafile) Then
                 Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(pooldatafile)
 
                     MyReader.TextFieldType = Microsoft.VisualBasic.FileIO.FieldType.Delimited
@@ -99,6 +110,7 @@ Module miningsetting_rtm
                             If currentRow(0) = poolname Then
                                 If currentRow(1) = "soloserver" Then
                                     If Not Form1.ComboBox4.Items.Contains(currentRow(2)) Then
+                                        Form1.logging("Modul Miningsettings: Add to Combo4: " + currentRow(2))
                                         Form1.ComboBox4.Items.Add(currentRow(2))
                                     End If
                                 End If
@@ -117,9 +129,11 @@ Module miningsetting_rtm
         End If
 
         If pool = "FlockPool" Then
+            Form1.logging("Modul Miningsettings: Pool = Flockpool")
             Form1.ComboBox4.Items.Clear()
             Dim poolname As String = "FlockPool"
-            If File.Exists(localusersetting) Then
+            Form1.logging("Modul Miningsettings: Check usersettings")
+            If File.Exists(pooldatafile) Then
                 Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(pooldatafile)
 
                     MyReader.TextFieldType = Microsoft.VisualBasic.FileIO.FieldType.Delimited
@@ -131,6 +145,7 @@ Module miningsetting_rtm
                             If currentRow(0) = poolname Then
                                 If currentRow(1) = "server" Then
                                     If Not Form1.ComboBox4.Items.Contains(currentRow(2)) Then
+                                        Form1.logging("Modul Miningsettings: Add to Combo4: " + currentRow(2))
                                         Form1.ComboBox4.Items.Add(currentRow(2))
                                     End If
                                 End If
@@ -150,5 +165,6 @@ Module miningsetting_rtm
             Form1.CheckBox3.Enabled = False
         End If
         Cursor.Current = Cursors.Default
+        Form1.logging("Modul Miningsettings: END")
     End Sub
 End Module

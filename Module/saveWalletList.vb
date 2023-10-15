@@ -5,8 +5,11 @@ Imports System.Text
 
 Module saveWalletList
     Public Function saveWalletList()
+        Form1.logging("Modul: Save Wallet List: Start")
         Dim walletdat As String = Nothing
+
         If Form1.ComboBox11.Text = "1 - Default" Then
+            Form1.logging("Modul: Save Wallet List: Wallet set Default")
             walletdat = localwallet
         Else
             Dim textsplitt() As String = Form1.ComboBox11.Text.Split(" ")
@@ -14,6 +17,7 @@ Module saveWalletList
         End If
 
         If Form1.DataGridView1.Rows.Count - 1 = -1 Then
+            Form1.logging("Modul: Save Wallet List: Not Entry Found")
             MessageBox.Show(Checkxmllanguage("Message2.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Exit Function
         End If
@@ -36,5 +40,6 @@ Module saveWalletList
 
         MessageBox.Show((Checkxmllanguage("Message3.1").trim), "Note", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Form1.Button2.Enabled = False
+        Form1.logging("Modul: Save Wallet List: END")
     End Function
 End Module

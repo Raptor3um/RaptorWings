@@ -1,6 +1,7 @@
 ﻿'Copyright(c) 2023 The Raptoreum developers
 'Copyright(c) 2023 Germardies
 
+
 Imports System.Globalization
 Imports System.Net
 Imports System.Net.Http
@@ -8,6 +9,7 @@ Imports System.Security.Policy
 
 Module readbalance_rtm
     Public Function Readbalance()
+        Form1.logging("Moul: Readbalance: Start")
         Cursor.Current = Cursors.WaitCursor
 
 
@@ -47,5 +49,6 @@ Module readbalance_rtm
         Cursor.Current = Cursors.Default
 
         Readprice()
+        Form1.logging("Moul: Readbalance: End")
     End Function
 End Module

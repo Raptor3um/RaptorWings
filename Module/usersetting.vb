@@ -8,7 +8,9 @@ Imports Windows.System.Profile
 Module usersetting
 
     Public Function loadusersetting()
+        Form1.logging("Modul: loadusersettings: Start")
         If File.Exists(localusersetting) Then
+            Form1.logging("Modul: loadusersettings: File found")
             Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localusersetting)
 
                 MyReader.TextFieldType = Microsoft.VisualBasic.FileIO.FieldType.Delimited
@@ -46,10 +48,12 @@ Module usersetting
                 currentRow = Nothing
             End Using
         End If
+        Form1.logging("Modul: loadusersettings: END")
     End Function
 
 
     Public Function saveusersetting()
+        Form1.logging("Modul: saveusersttings: Start")
         Dim sb = New StringBuilder
         Dim aussehen As String = "1"
         Dim sprache As String = "English"
@@ -75,5 +79,6 @@ Module usersetting
 
         System.IO.File.WriteAllText(localusersetting, sb.ToString)
         MessageBox.Show((Checkxmllanguage("Message3.1").trim), "Note", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Form1.logging("Modul: saveusersttings: END")
     End Function
 End Module

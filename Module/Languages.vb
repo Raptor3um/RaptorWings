@@ -9,22 +9,28 @@ Module Languages
     Dim xmlline() As String = Nothing
 
     Public Function Languagesxmlload() As IEnumerable(Of String)
+        Form1.logging("Modul: LanguagesXMLload start")
         If My.Computer.FileSystem.FileExists(languagefile) Then
+            Form1.logging("Modul: LanguagesXMLload: File found")
             Dim file As System.IO.StreamReader
             file = My.Computer.FileSystem.OpenTextFileReader(languagefile)
             xmlimport = file.ReadToEnd
             file.Close()
+            Form1.logging("Modul: LanguagesXMLload: read in complete")
 
             xmlline = xmlimport.Split(System.Environment.NewLine)
 
         Else
+            Form1.logging("Modul: LanguagesXMLload: File not found")
             MessageBox.Show("The Languages.xml could not be found.")
             End
         End If
-
+        Form1.logging("Modul: LanguagesXMLload END")
     End Function
 
     Public Function FindLandguage()
+        Form1.logging("Modul: FindLandguage start")
+        Form1.logging("Modul: FindLandguage start: Systemlanguage = " + systemlanguage)
         Dim foundLanguage As String = False
         Dim foundcountryCode As String = False
         Dim countrycode As String = Nothing
@@ -67,6 +73,7 @@ Module Languages
                 Dim combentry As String = countrytitle & " - " & xmlcode
 
                 If Not Form1.ComboBox9.Items.Contains(combentry) Then
+                    Form1.logging("Modul: FindLandguage: Add Entry in Combo9(Langauages): " + combentry)
                     Form1.ComboBox9.Items.Add(combentry)
                 End If
 
@@ -74,6 +81,7 @@ Module Languages
                     xmlLanguagesCodes = xmlcode
                     For i2 As Integer = 0 To Form1.ComboBox9.Items.Count - 1
                         If Form1.ComboBox9.Items(i2).ToString.Contains(xmlcode) Then
+                            Form1.logging("Modul: FindLandguage: Set Entry " + Str(i) + " in Combo9(Langauages): ")
                             Form1.ComboBox9.SelectedIndex = i2
                             Exit Function
                         End If
@@ -88,9 +96,11 @@ Module Languages
 
         Form1.ComboBox9.Text = "English - EN"
         xmlLanguagesCodes = "EN"
+        Form1.logging("Modul: FindLandguage END")
     End Function
 
     Public Function Checkxmllanguage(ByVal bezeichnung As String)
+        Form1.logging("Modul: heckxmllanguag start")
         Dim found As String = False
 
         For i As Integer = 0 To xmlline.Length - 1
@@ -115,8 +125,10 @@ Module Languages
                 Exit For
             End If
         Next
+        Form1.logging("Modul: heckxmllanguag END")
     End Function
     Public Function Languagecontrolls()
+        Form1.logging("Modul: Languagecontrolls Start")
         Form1.Button3.Text = Checkxmllanguage("Button3")
         Form1.Button4.Text = Checkxmllanguage("Button4")
         Form1.Button10.Text = Checkxmllanguage("Button10")
@@ -125,6 +137,7 @@ Module Languages
         Form1.Button15.Text = Checkxmllanguage("Button15")
         Form1.Button16.Text = Checkxmllanguage("Button16")
         Form1.Button17.Text = Checkxmllanguage("Button17")
+        Form1.Button21.Text = Checkxmllanguage("Button21")
         Form1.Label2.Text = Checkxmllanguage("Label2")
         Form1.Label3.Text = Checkxmllanguage("Label3")
         Form1.Label4.Text = Checkxmllanguage("Label4")
@@ -202,5 +215,6 @@ Module Languages
                 End While
             End Using
         End If
+        Form1.logging("Modul: Languagecontrolls End")
     End Function
 End Module

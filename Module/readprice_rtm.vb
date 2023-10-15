@@ -9,6 +9,7 @@ Imports Windows.Media.Protection.PlayReady
 Module readprice_rtm
 
     Public Async Sub Readprice()
+        Form1.logging("Moul: Readprice: Start")
         Cursor.Current = Cursors.WaitCursor
 
         Dim client As HttpClient = New HttpClient()
@@ -86,6 +87,7 @@ Module readprice_rtm
         End Try
 
         Form1.Label1.Text = Format(CDbl(balancesummyglobal), "##,##0.0000000") + " RTM"
+        Form1.logging("Moul: Readprice: End")
     End Sub
 
 End Module

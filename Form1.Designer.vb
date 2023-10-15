@@ -23,6 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
+        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Form1))
         Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
@@ -30,7 +31,6 @@ Partial Class Form1
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Form1))
         Timer1 = New Timer(components)
         txID = New DataGridViewTextBoxColumn()
         Wallet = New DataGridViewTextBoxColumn()
@@ -76,6 +76,7 @@ Partial Class Form1
         Label5 = New Label()
         Button3 = New Button()
         TabPage2 = New TabPage()
+        Button21 = New Button()
         Label42 = New Label()
         ComboBox11 = New ComboBox()
         Button14 = New Button()
@@ -708,6 +709,7 @@ Partial Class Form1
         ' 
         ' TabPage2
         ' 
+        TabPage2.Controls.Add(Button21)
         TabPage2.Controls.Add(Label42)
         TabPage2.Controls.Add(ComboBox11)
         TabPage2.Controls.Add(Button14)
@@ -724,6 +726,23 @@ Partial Class Form1
         TabPage2.TabIndex = 1
         TabPage2.Text = "Wallets"
         TabPage2.UseVisualStyleBackColor = True
+        ' 
+        ' Button21
+        ' 
+        Button21.BackgroundImage = CType(resources.GetObject("Button21.BackgroundImage"), Image)
+        Button21.BackgroundImageLayout = ImageLayout.Stretch
+        Button21.Cursor = Cursors.Hand
+        Button21.FlatAppearance.BorderSize = 0
+        Button21.FlatAppearance.MouseDownBackColor = Color.White
+        Button21.FlatAppearance.MouseOverBackColor = Color.White
+        Button21.FlatStyle = FlatStyle.Flat
+        Button21.ForeColor = SystemColors.Window
+        Button21.Location = New Point(286, 8)
+        Button21.Margin = New Padding(3, 4, 3, 4)
+        Button21.Name = "Button21"
+        Button21.Size = New Size(48, 56)
+        Button21.TabIndex = 52
+        Button21.UseVisualStyleBackColor = True
         ' 
         ' Label42
         ' 
@@ -2199,4 +2218,5 @@ Partial Class Form1
     Friend WithEvents CheckBox5 As CheckBox
     Friend WithEvents Timer4 As Timer
     Friend WithEvents Timer5 As Timer
+    Friend WithEvents Button21 As Button
 End Class

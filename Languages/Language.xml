@@ -132,6 +132,13 @@
 				<GER>Öffne markierte Wallet im Explorer</GER>
 				<PT>Abrir carteira seleccionada no Explorer</PT>
 			</Button14>
+			<Button21>
+					<description>Export Walletlist to CSV</description>
+					<EN>Export the wallet list to a CSV file</EN>
+					<ES>Exportar la Walletlist un archivo CSV</ES>
+					<GER>Exportiere die Walletliste in eine CSV Datei</GER>
+					<PT>Exportar Walletlist para um ficheiro CSV</PT>
+			</Button21>
 		</Buttons>
 		<Labels>
 			<Label19>
