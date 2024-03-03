@@ -1,4 +1,4 @@
-RAPTORWINGS ©2023 by Raptoreum and Germardies
+RAPTORWINGS ©2024 by Raptoreum and Germardies
 =============================================
 
 Lightpaper
@@ -34,7 +34,7 @@ RAPTORWINGS uses the following data points:
 THIRD PARTY SOFTWARE: 
 -----------------------
 The following third-party programs are used and packaged in the current Rapworwings version: 
-- SRBMINER-MULTI: https://srbminer.com
+- SRBMINER-MULTI: https://xmrig.com
 - Putty: https://putty.org
 - RAPTORWINGS is programmed in Visual Basic with Visual Studio Community Edition (https://visualstudio.microsoft.com/de/vs/)
  
@@ -62,22 +62,19 @@ Zlata Amaranth - Graphics
 COPYRIGHT
 ---------
 The MIT License (MIT)
-Copyright (c) 2023 The Raptoreum developers (https://github.com/Raptor3um)
-Copyright (c) 2023 Germardies (https://github.com/Germardies)
+Copyright (c) 2024 The Raptoreum developers (https://github.com/Raptor3um)
+Copyright (c) 2024 Germardies (https://github.com/Germardies)
 
 
 Changes:
 --------
-1. Export function of the wallet list as CSV file
-2. Small logfile in the home directory of Raptorwings
+1. SRB-Miner is no longer supported by Raptorwings. Everything has been changed to XMRig
+2. MultiWing has been removed
 
 Bug Fixed:
 ----------
-1. A bug with the detection of the system language has been fixed. Raptorwings now always starts in English and in dark mode at the first initialization.
-2. Small change to the code to fix a bug in the module, miningsettings.
 <br />
 
-Third Party Changes:
---------------------
-1. Change Raptorhash Pooladresses
-<br />
+NOTE:
+----------
+This is the first BETA version for support with XMRig. It is a test phase!!!

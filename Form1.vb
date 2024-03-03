@@ -5,8 +5,8 @@ Imports System.ComponentModel
 Imports System.IO
 Imports System.IO.Compression
 Imports System.Net
+Imports System.Runtime.Intrinsics.X86
 Imports System.Text
-Imports Microsoft.VisualBasic.ApplicationServices
 
 Public Class Form1
 
@@ -17,7 +17,7 @@ Public Class Form1
         file.Close()
     End Sub
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Async Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If File.Exists(selfpath + "logging.log") Then
             My.Computer.FileSystem.DeleteFile(selfpath + "logging.log")
             logging("Start: delet old Logfile")
@@ -29,9 +29,9 @@ Public Class Form1
         Me.Text = "Raptorwings v" + rtwVersion + " (Falcon)"
 
         checkupdates.checkRTWupdate()
-        checkupdates.checkSRBupdate()
         checkupdates.checkRTMupdate()
-        checkupdates.checkPoolupdates()
+        checkupdates.checkXMRIG()
+        Await checkupdates.CheckPoolUpdates()
 
         Me.TextBox1.Text = Environment.MachineName
         logging("Start: Rigname is:" + Me.TextBox1.Text)
@@ -65,7 +65,6 @@ Public Class Form1
                     Try
                         currentRow = MyReader.ReadFields()
                         Me.ComboBox6.Items.Add(currentRow(0))
-                        Me.ComboBox7.Items.Add(currentRow(0))
                     Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
                         MessageBox.Show("Line " & ex.Message & " in Wingsheet List is invalid." + System.Environment.NewLine + System.Environment.NewLine + "Raptorwings will end.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End Try
@@ -99,8 +98,6 @@ Public Class Form1
         Me.ComboBox5.SelectedIndex = 0
         logging("Start: Set all Comboboxes on INdex 0: Combbobox6")
         Me.ComboBox6.SelectedIndex = 0
-        logging("Start: Set all Comboboxes on INdex 0: Combbobox7")
-        Me.ComboBox7.SelectedIndex = 0
         logging("Start: Set all Comboboxes on INdex 0: Combbobox10")
         Me.ComboBox10.SelectedIndex = 0
         logging("Start: Set all Comboboxes on INdex 0: Combbobox11")
@@ -226,6 +223,11 @@ Public Class Form1
         logging("User: Click Button3 (Minging Area): END")
     End Sub
 
+    Function IsProcessRunning(ByVal processName As String) As Boolean
+        Dim processes() As Process = Process.GetProcessesByName(processName)
+        Return processes.Length > 0
+    End Function
+
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         logging("User: Click Button4 (Start Mining)")
         Me.Timer4.Stop()
@@ -233,26 +235,17 @@ Public Class Form1
         Me.Timer4.Interval = 12000000
         Me.Timer5.Interval = 1200000
 
-        logging("User: Click Button4 (Start Mining): System checks whether miner is running")
-        For Each p In Diagnostics.Process.GetProcesses()
-            If p.ProcessName = "SRBMiner-MULTI" And Me.Button4.BackColor = Color.YellowGreen Then
-                logging("User: Click Button4 (Start Mining): System: Miner is running")
-                MessageBox.Show(Checkxmllanguage("Message32.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Exit Sub
-            Else
-                logging("User: Click Button4 (Start Mining): System: Miner is not running")
-            End If
-        Next
-
+        Dim processName As String = "XMRig"
         logging("User: Click Button4 (Start Mining): System checks color Button4")
         If Me.Button4.BackColor = Color.PaleVioletRed Then
             logging("User: Click Button4 (Start Mining): System: stop Miner")
-            For Each Process In System.Diagnostics.Process.GetProcessesByName("SRBMiner-MULTI")
-                Process.Kill()
-                logging("User: Click Button4 (Start Mining): System: Miner stops")
+            Dim processes() As Process = Process.GetProcessesByName(processName)
+            For Each process As Process In processes
+                process.Kill()
+                process.WaitForExit()
+                Exit Sub
             Next
-            logging("User: Click Button4 (Start Mining): System: Exit sub")
-            Exit Sub
+
         End If
 
         logging("User: Click Button4 (Start Mining): Ask if it should start")
@@ -268,32 +261,33 @@ Public Class Form1
             logging("User: Click Button4 (Start Mining): Ask if it should start: User->YES")
         End If
 
-        logging("User: Click Button4 (Start Mining): System: Check whether SRB is present")
-        If Me.ComboBox3.Text = "SRBMiner-MULTI" Then
-            If Not File.Exists(selfpath + "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe") Then
-                logging("User: Click Button4 (Start Mining): System: SRB Miner not found in: " + selfpath + "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe")
+        logging("User: Click Button4 (Start Mining): System: Check whether XMRIG is present")
+        If Me.ComboBox3.Text = "XMRIG" Then
+            If Not File.Exists(selfpath + "mining\" + XMRIG_MINER_DIRECTORYNAME + "\XMRIG.exe") Then
+                logging("User: Click Button4 (Start Mining): System: XMRIG Miner not found in: " + selfpath + "mining\" + XMRIG_MINER_DIRECTORYNAME + "\XMRIG.exe")
                 Cursor.Current = Cursors.WaitCursor
                 If Not Directory.Exists(selfpath + "mining\") Then
-                    logging("User: Click Button4 (Start Mining): System: Create Directory: " + selfpath + "mining\")
+                    logging("User: Click Button4 (Start Mining): System: " + selfpath + "mining\ not found")
                     Directory.CreateDirectory(selfpath + "mining\")
+                    logging("User: Click Button4 (Start Mining): System: Create Directory " + selfpath + "mining\")
                 End If
 
-                logging("User: Click Button4 (Start Mining): System: Start Download SRB")
-                Dim downloadpath As String = selfpath + "mining\" + SRBMinerDownloadnameWindows
+                logging("User: Click Button4 (Start Mining): System: Start Download XMRIG")
+                Dim downloadpath As String = selfpath + "mining\" + XMRIG_MINER_DOWNLOAD_DATENAME
                 Dim client As New Net.WebClient
-                client.DownloadFile(SRBMinerDownloadpathWinows, downloadpath)
-                logging("User: Click Button4 (Start Mining): System: Start Download SRB -> END")
+                client.DownloadFile(XMRIG_MINER_DOWNLOAD_PATH, downloadpath)
+                logging("User: Click Button4 (Start Mining): System: Start Download XMRIG -> END")
 
-                logging("User: Click Button4 (Start Mining): System: Start unZip SRB")
-                If File.Exists(selfpath + "mining\" + SRBMinerDownloadnameWindows) Then
-                    ZipFile.ExtractToDirectory(selfpath + "mining\" + SRBMinerDownloadnameWindows, selfpath + "mining\")
-                    File.Delete(selfpath + "mining\" + SRBMinerDownloadnameWindows)
-                    logging("User: Click Button4 (Start Mining): System: Start unZip SRB -> END")
+                logging("User: Click Button4 (Start Mining): System: Start unZip XMRIG")
+                If File.Exists(downloadpath) Then
+                    ZipFile.ExtractToDirectory(downloadpath, selfpath + "mining\")
+                    File.Delete(downloadpath)
+                    logging("User: Click Button4 (Start Mining): System: Start unZip XMRIG -> END")
                 End If
                 Cursor.Current = Cursors.Default
             End If
         End If
-        logging("User: Click Button4 (Start Mining): System: Check whether SRB is present -> END")
+        logging("User: Click Button4 (Start Mining): System: Check whether XMRIG is present -> END")
 
         logging("User: Click Button4 (Start Mining): System: Check selectet Wallet")
         If Me.ComboBox1.Text = Nothing Then
@@ -314,54 +308,54 @@ Public Class Form1
         If threads = "Default" Then
             threads = ""
         Else
-            threads = " --cpu-threads " & Me.ComboBox5.Items.Count - 1
+            threads = " --threads=" & Me.ComboBox5.Text
         End If
 
         Dim wingsheet_main As String = Nothing
-        Dim wingsheet_srb01 As String = Nothing
+        Dim wingsheet_cpumineropt01 As String = Nothing
 
-        wingsheet_srb01 = Chr(34) & selfpath & "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe" & Chr(34) & " --disable-gpu" & threads & " --algorithm ghostrider --pool " & server & " --wallet " & wallet & "." & rig & " --password " & password
+        wingsheet_cpumineropt01 = Chr(34) & selfpath & "mining\" & XMRIG_MINER_DIRECTORYNAME & "\" & "xmrig.exe" & Chr(34) & " " & threads & " -a gr -o " & server & " --tls -u " & wallet & "." & rig & " -p " & password
 
         Dim wingsheet_donation As String
-        wingsheet_donation = Chr(34) & selfpath & "mining\" + SRBdirectory + "\SRBMiner-MULTI.exe" & Chr(34) & " --disable-gpu" & threads & " --algorithm ghostrider --pool stratum+tcps://europe.raptoreum.zone:4444 --wallet " & donationadress & ".Donation_" & rig & " --password x"
+        wingsheet_donation = Chr(34) & selfpath & "mining\" & XMRIG_MINER_DIRECTORYNAME & "\" & "xmrig.exe" & Chr(34) & " " & threads & " -a gr -o stratum+tcp://raptorhash.net:6900 --tls -u " & donationadress & ".Donation_" & rig & " -p x"
 
         If Me.CheckBox1.Checked = True Then
-            wingsheet_srb01 += " --background"
+            wingsheet_cpumineropt01 += " --background"
             wingsheet_donation += " --background"
         End If
 
         If Not Me.ComboBox10.Text = "Default" Then
-            wingsheet_srb01 += " --cpu-threads-priority " + Me.ComboBox10.Text
-            wingsheet_donation += " --cpu-threads-priority " + Me.ComboBox10.Text
+            wingsheet_cpumineropt01 += " --cpu-priority=" + Me.ComboBox10.Text
+            wingsheet_donation += " --cpu-priority=" + Me.ComboBox10.Text
         End If
 
         If Me.ComboBox2.Text = "Raptorhash.com" Then
-            wingsheet_main = wingsheet_srb01
+            wingsheet_main = wingsheet_cpumineropt01
         End If
 
         If Me.ComboBox2.Text = "Raptoreum.Zone" Then
-            wingsheet_main = wingsheet_srb01
+            wingsheet_main = wingsheet_cpumineropt01
         End If
 
         If Me.ComboBox2.Text = "FlockPool" Then
-            wingsheet_main = wingsheet_srb01
+            wingsheet_main = wingsheet_cpumineropt01
         End If
 
         Dim filewriter As System.IO.StreamWriter
-        filewriter = My.Computer.FileSystem.OpenTextFileWriter(selfpath + "mining\" + SRBdirectory + "\rtmtsheet.bat", False, Encoding.Default)
+        filewriter = My.Computer.FileSystem.OpenTextFileWriter(selfpath & "mining\" & XMRIG_MINER_DIRECTORYNAME & "\" & "rtmtsheet.bat", False, Encoding.Default)
         filewriter.Write("@ " & wingsheet_main)
         filewriter.Close()
-        logging("User: Click Button4 (Start Mining): System: Wingsheet create under: " + selfpath + "mining\" + SRBdirectory + "\rtmtsheet.bat")
+        logging("User: Click Button4 (Start Mining): System: Wingsheet create under: " + selfpath + "mining\cpuminergr\rtmtsheet.bat")
         logging("User: Click Button4 (Start Mining): System: wingsheet Text:" + "@ " & wingsheet_main)
-        logging("User: Click Button4 (Start Mining): System: Start Process: " + selfpath + "mining\" + SRBdirectory + "\rtmtsheet.bat")
-        Process.Start(selfpath + "mining\" + SRBdirectory + "\rtmtsheet.bat")
+        logging("User: Click Button4 (Start Mining): System: Start Process: " + selfpath + "mining\cpuminergr\rtmtsheet.bat")
+        Process.Start(selfpath & "mining\" & XMRIG_MINER_DIRECTORYNAME & "\" & "rtmtsheet.bat")
 
         If Me.CheckBox2.Checked = True Then
             End
         End If
 
         If CheckBox5.Checked = True Then
-            filewriter = My.Computer.FileSystem.OpenTextFileWriter(selfpath + "mining\" + SRBdirectory + "\donation.bat", False, Encoding.Default)
+            filewriter = My.Computer.FileSystem.OpenTextFileWriter(selfpath & "mining\" & XMRIG_MINER_DIRECTORYNAME & "\" & "donation.bat", False, Encoding.Default)
             filewriter.Write("@ " & wingsheet_donation)
             filewriter.Close()
             Timer4.Start()
@@ -590,10 +584,6 @@ Public Class Form1
             logging("User: Click Button5 (Save Wingsheet): write " + wingsheetname + " in Combo6")
             Me.ComboBox6.Items.Add(wingsheetname)
         End If
-        If Not Me.ComboBox7.Items.Contains(wingsheetname) Then
-            logging("User: Click Button5 (Save Wingsheet): write " + wingsheetname + " in Combo7")
-            Me.ComboBox7.Items.Add(wingsheetname)
-        End If
 
         For i As Integer = 0 To ComboBox6.Items.Count - 1
             If Me.ComboBox6.Items(i).ToString = wingsheetname Then
@@ -670,9 +660,6 @@ Public Class Form1
         logging("USER: Click Button6 (Delete Wingsheet): Remove from Combo6")
         Me.ComboBox6.Items.Remove(wingsheetname)
 
-        logging("USER: Click Button6 (Delete Wingsheet): Remove from Combo7")
-        Me.ComboBox7.Items.Remove(wingsheetname)
-
         If ComboBox1.Items.Count - 1 >= 0 Then
             logging("USER: Click Button6 (Delete Wingsheet): Index Combo1 is 0")
             Me.ComboBox1.SelectedIndex = 0
@@ -733,136 +720,6 @@ Public Class Form1
         Timer1.Stop()
     End Sub
 
-    Private Sub TabPage5_Enter(sender As Object, e As EventArgs) Handles TabPage5.Enter
-        Cursor.Current = Cursors.WaitCursor
-        logging("USER: Enter Tabpage 5")
-        Me.DataGridView2.Rows.Clear()
-        Me.ComboBox8.Items.Clear()
-
-        logging("USER: Enter Tabpage 5: Load Dive List")
-        If My.Computer.FileSystem.FileExists(localdevice) Then
-            logging("USER: Enter Tabpage 5: Device List found")
-            Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localdevice)
-
-                MyReader.TextFieldType = Microsoft.VisualBasic.FileIO.FieldType.Delimited
-                MyReader.Delimiters = New String() {","}
-                Dim currentRow As String()
-                While Not MyReader.EndOfData
-                    Try
-                        currentRow = MyReader.ReadFields()
-                        Me.DataGridView2.Rows.Add(False, currentRow(0), currentRow(1), "", currentRow(2), currentRow(3), currentRow(4), currentRow(5), currentRow(6), "", "", "")
-                        Me.ComboBox8.Items.Add(currentRow(0) & " {" & currentRow(1) & "}")
-                    Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
-                        MessageBox.Show("Line " & ex.Message & " in Device List is invalid." + System.Environment.NewLine + System.Environment.NewLine + "Progress ends.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        Cursor.Current = Cursors.Default
-                        Exit Sub
-                    End Try
-                End While
-            End Using
-        End If
-        logging("USER: Enter Tabpage 5: Load Device List -> END")
-
-        logging("USER: Enter Tabpage 5: Load Poollist List -> Start")
-        If My.Computer.FileSystem.FileExists(localpool) Then
-            logging("USER: Enter Tabpage 5: Load Device List: File found")
-            Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localpool)
-
-                MyReader.TextFieldType = Microsoft.VisualBasic.FileIO.FieldType.Delimited
-                MyReader.Delimiters = New String() {","}
-                Dim currentRow As String()
-                While Not MyReader.EndOfData
-                    Try
-                        currentRow = MyReader.ReadFields()
-                        For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
-                            If Me.DataGridView2.Item(2, i).Value.ToString = currentRow(0) Then
-                                Me.DataGridView2.Item(3, i).Value = "Connecting to " & currentRow(1) & " API"
-                                Me.DataGridView2.Item(9, i).Value = currentRow(1)
-                                Me.DataGridView2.Item(10, i).Value = currentRow(2)
-                                Me.DataGridView2.Item(11, i).Value = currentRow(3)
-                            End If
-                        Next
-                    Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
-                        MessageBox.Show("Line " & ex.Message & " in Device Pool List is invalid." + System.Environment.NewLine + System.Environment.NewLine + "Progress ends.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        Cursor.Current = Cursors.Default
-                        Exit Sub
-                    End Try
-                End While
-            End Using
-        End If
-        logging("USER: Enter Tabpage 5: Load Poollist List -> END")
-
-        Apipoolread()
-        Timer3.Start()
-        Cursor.Current = Cursors.Default
-        logging("USER: Enter Tabpage 5: END")
-    End Sub
-
-    Private Sub TabPage5_Leave(sender As Object, e As EventArgs) Handles TabPage5.Leave
-        logging("USER: Leave Tabpage 5")
-        Timer3.Stop()
-    End Sub
-
-    Private Sub ComboBox7_SelectedIndexChanged(sender As Object, e As EventArgs)
-        logging("USER/Sytsem: Index change in Combo7: Start")
-        Dim wallet As String
-        If Me.DataGridView1.Rows.Count - 1 >= 0 Then
-            wallet = Me.DataGridView1.Item(2, 0).Value.ToString
-        Else
-            wallet = "No Wallet Found"
-        End If
-
-        If Me.ComboBox7.Text = "Default" Then
-            Me.RichTextBox1.Text = "WingSheet: Default" & System.Environment.NewLine &
-                                   "Wallet: " & wallet & System.Environment.NewLine &
-                                   "Poolserver: " & def_ps & System.Environment.NewLine &
-                                   "Straum: " & def_s & System.Environment.NewLine &
-                                   "Solo: No" & System.Environment.NewLine &
-                                   "Password: " & def_pw & System.Environment.NewLine &
-                                   "Miner: " & def_m & System.Environment.NewLine &
-                                   "Cores: " & def_c
-            Exit Sub
-        End If
-
-        Dim wingsheettext As String = Me.ComboBox7.Text
-
-        If My.Computer.FileSystem.FileExists(localwingsheet) Then
-            Dim file As System.IO.StreamReader
-            file = My.Computer.FileSystem.OpenTextFileReader(localwingsheet)
-            Dim line As String
-
-            Do While Not file.EndOfStream
-                line = file.ReadLine
-
-                If line = Nothing Then
-                    Continue Do
-                End If
-
-                Dim linesplitt() As String = line.Split(";")
-
-                If linesplitt(0) = wingsheettext Then
-                    For i As Integer = 0 To Me.DataGridView1.Rows.Count - 1
-                        If Me.DataGridView1.Item(1, i).Value.ToString = linesplitt(1) Then
-                            wallet = Me.DataGridView1.Item(2, i).Value.ToString
-                            file.Close()
-                            Exit For
-                        End If
-                    Next
-                    Me.RichTextBox1.Text = "WingSheet: " & linesplitt(0) & System.Environment.NewLine &
-                                   "Wallet: " & wallet & System.Environment.NewLine &
-                                   "Poolserver: " & linesplitt(2) & System.Environment.NewLine &
-                                   "Straum: " & linesplitt(3) & System.Environment.NewLine &
-                                   "Solo: " & linesplitt(10) & System.Environment.NewLine &
-                                   "Password: " & linesplitt(5) & System.Environment.NewLine &
-                                   "Miner: " & linesplitt(6) & System.Environment.NewLine &
-                                   "Cores: " & linesplitt(7)
-                    Exit Sub
-                End If
-            Loop
-            file.Close()
-        End If
-        logging("USER/Sytsem: Index change in Combo7: END")
-    End Sub
-
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         logging("System: Timer1 tick")
         Readbalance()
@@ -871,9 +728,8 @@ Public Class Form1
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
         logging("System: Timer2 tick")
         Try
-            Dim listProc() As System.Diagnostics.Process
-            listProc = System.Diagnostics.Process.GetProcessesByName("SRBMiner-MULTI")
-            If listProc.Length > 0 Then
+            Dim processName As String = "XMRig"
+            If IsProcessRunning(processName) Then
                 Me.Button4.BackColor = Color.PaleVioletRed
                 Me.Button4.Text = "Stop Miner"
             Else
@@ -882,625 +738,6 @@ Public Class Form1
             End If
         Catch ex As Exception
         End Try
-    End Sub
-
-    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        logging("User: Click Button9 (New Device): Start")
-        Me.ComboBox8.Text = ""
-        Me.TextBox4.Text = ""
-        Me.TextBox5.Text = ""
-        Me.TextBox6.Text = ""
-        Me.TextBox7.Text = "22"
-        Me.TextBox8.Text = ""
-        Me.TextBox9.Text = ""
-        Me.TextBox11.Text = "/home/"
-        Me.Label30.Text = "save"
-        logging("User: Click Button9 (New Device): END")
-    End Sub
-
-    Private Sub Button9_MouseHover(sender As Object, e As EventArgs) Handles Button9.MouseHover
-        logging("User: MouseHover Button9 (New Device)")
-        Me.ToolTip1.SetToolTip(Button9, Checkxmllanguage("Button9").trim)
-    End Sub
-    Private Sub TextBox4_TextChanged(sender As Object, e As EventArgs) Handles TextBox4.TextChanged
-        logging("User/System: TXTB4 (Device Name) change: Start")
-        If Me.TextBox4.Text = Nothing Or Me.TextBox4.Text = "" Or Me.TextBox4.Text = " " Then
-            Me.TextBox4.BackColor = Color.PaleVioletRed
-            Me.Button8.Enabled = False
-        Else
-            Me.TextBox4.BackColor = Color.White
-            Me.Button8.Enabled = True
-        End If
-
-        For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
-            Dim devicename As String = Me.DataGridView2.Item(1, i).Value
-            If Me.TextBox4.Text = devicename Then
-                Me.Button7.Enabled = True
-            Else
-                Me.Button7.Enabled = False
-            End If
-        Next
-
-        Me.TextBox5.Text = Me.TextBox4.Text
-
-        If Me.Label30.Text = "save" Then
-            For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
-                Dim devicename As String = Me.DataGridView2.Item(1, i).Value
-                If Me.TextBox4.Text = devicename Then
-                    Me.TextBox4.BackColor = Color.PaleVioletRed
-                    Me.Button8.Enabled = False
-                    Exit Sub
-                Else
-                    Me.TextBox4.BackColor = Color.White
-                    Me.Button8.Enabled = True
-                End If
-            Next
-        End If
-        logging("User/System: TXTB4 (Device Name) change: End")
-    End Sub
-
-    Private Sub TextBox5_TextChanged(sender As Object, e As EventArgs) Handles TextBox5.TextChanged
-        logging("User/System: TXTB5 (Rig Name) change: Start")
-        If Me.TextBox5.Text = Nothing Or Me.TextBox5.Text = "" Or Me.TextBox5.Text = " " Then
-            Me.TextBox5.BackColor = Color.PaleVioletRed
-            Me.Button8.Enabled = False
-        Else
-            Me.TextBox5.BackColor = Color.White
-            Me.Button8.Enabled = True
-        End If
-
-        If Me.Label30.Text = "save" Then
-            For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
-                Dim rigname As String = Me.DataGridView2.Item(2, i).Value
-                If Me.TextBox5.Text = rigname Then
-                    Me.TextBox5.BackColor = Color.PaleVioletRed
-                    Me.Button8.Enabled = False
-                    Exit Sub
-                Else
-                    Me.TextBox5.BackColor = Color.White
-                    Me.Button8.Enabled = True
-                End If
-            Next
-        End If
-        logging("User/System: TXTB5 (Rig Name) change: end")
-    End Sub
-
-    Private Sub TextBox6_TextChanged(sender As Object, e As EventArgs) Handles TextBox6.TextChanged
-        logging("User/System: TXTB6 (IP) change: Start")
-        If Me.TextBox6.Text = Nothing Or Me.TextBox6.Text = "" Or Me.TextBox6.Text = " " Then
-            Me.TextBox6.BackColor = Color.PaleVioletRed
-            Me.Button8.Enabled = False
-        Else
-            Me.TextBox6.BackColor = Color.White
-            Me.Button8.Enabled = True
-        End If
-
-        If Me.Label30.Text = "save" Then
-            For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
-                Dim ipadress As String = Me.DataGridView2.Item(4, i).Value
-                If Me.TextBox6.Text = ipadress Then
-                    Me.TextBox6.BackColor = Color.PaleVioletRed
-                    Me.Button8.Enabled = False
-                    Exit Sub
-                Else
-                    Me.TextBox6.BackColor = Color.White
-                    Me.Button8.Enabled = True
-                End If
-            Next
-        End If
-        logging("User/System: TXTB6 (IP) change: End")
-    End Sub
-
-    Private Sub TextBox7_TextChanged(sender As Object, e As EventArgs) Handles TextBox7.TextChanged
-        logging("User/System: TXTB7 (IP-Port) change: Start")
-        If Me.TextBox7.Text = Nothing Or Me.TextBox7.Text = "" Or Me.TextBox7.Text = " " Then
-            Me.TextBox7.BackColor = Color.PaleVioletRed
-            Me.Button8.Enabled = False
-        Else
-            Me.TextBox7.BackColor = Color.White
-            Me.Button8.Enabled = True
-        End If
-        logging("User/System: TXTB7 (IP-Port) change: End")
-    End Sub
-
-    Private Sub TextBox8_TextChanged(sender As Object, e As EventArgs) Handles TextBox8.TextChanged
-        logging("User/System: TXTB8 (Username) change: Start")
-        If Me.TextBox8.Text = Nothing Or Me.TextBox8.Text = "" Or Me.TextBox8.Text = " " Then
-            Me.TextBox8.BackColor = Color.PaleVioletRed
-            Me.Button8.Enabled = False
-        Else
-            Me.TextBox8.BackColor = Color.White
-            Me.Button8.Enabled = True
-        End If
-
-        Me.TextBox11.Text = "/home/" & Me.TextBox8.Text & "/mining/"
-        logging("User/System: TXTB8 (Username) change: End")
-    End Sub
-
-    Private Sub TextBox9_TextChanged(sender As Object, e As EventArgs) Handles TextBox9.TextChanged
-        logging("User/System: TXTB9 (Password) change: Start")
-        If Me.TextBox9.Text = Nothing Or Me.TextBox9.Text = "" Or Me.TextBox9.Text = " " Then
-            Me.TextBox9.BackColor = Color.PaleVioletRed
-            Me.Button8.Enabled = False
-        Else
-            Me.TextBox9.BackColor = Color.White
-            Me.Button8.Enabled = True
-        End If
-        logging("User/System: TXTB9 (Password) change: End")
-    End Sub
-
-    Private Sub TextBox11_TextChanged(sender As Object, e As EventArgs) Handles TextBox11.TextChanged
-        logging("User/System: TXTB11 (Path) change: Start")
-        If Me.TextBox11.Text = Nothing Or Me.TextBox11.Text = "" Or Me.TextBox11.Text = " " Then
-            Me.TextBox11.BackColor = Color.PaleVioletRed
-            Me.Button8.Enabled = False
-        Else
-            Me.TextBox11.BackColor = Color.White
-            Me.Button8.Enabled = True
-        End If
-        logging("User/System: TXTB11 (Path) change: End")
-    End Sub
-
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        logging("User: Click Button8 (Save Device): Start")
-        Dim device As String = Me.TextBox4.Text
-        Dim rigname As String = Me.TextBox5.Text
-        Dim ip As String = Me.TextBox6.Text
-        Dim port As String = Me.TextBox7.Text
-        Dim username As String = Me.TextBox8.Text
-        Dim password As String = Me.TextBox9.Text
-        Dim path As String = Me.TextBox11.Text
-
-        Dim dataset As New StringBuilder
-
-        If Me.Label30.Text = "save" Then
-            Me.DataGridView2.Rows.Add(False, device, rigname, "", ip, port, username, password, path, "", "")
-            Me.ComboBox8.Items.Add(device & " {" & rigname & "}")
-            For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
-                dataset.AppendLine(Chr(34) + Me.DataGridView2.Item(1, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(2, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(4, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(5, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(6, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(7, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(8, i).Value.ToString + Chr(34))
-            Next
-
-        End If
-
-        If Me.Label30.Text = "update" Then
-            Me.ComboBox8.Items.Clear()
-            Me.ComboBox8.Text = ""
-            For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
-
-                If Me.DataGridView2.Item(1, i).Value.ToString = device Then
-                    Me.DataGridView2.Item(2, i).Value = rigname
-                    Me.DataGridView2.Item(4, i).Value = ip
-                    Me.DataGridView2.Item(5, i).Value = port
-                    Me.DataGridView2.Item(6, i).Value = username
-                    Me.DataGridView2.Item(7, i).Value = password
-                    Me.DataGridView2.Item(8, i).Value = path
-
-                End If
-                Me.ComboBox8.Items.Add(Me.DataGridView2.Item(1, i).Value & "{" & Me.DataGridView2.Item(2, i).Value & "}")
-
-                dataset.AppendLine(Chr(34) + Me.DataGridView2.Item(1, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(2, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(4, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(5, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(6, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(7, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(8, i).Value.ToString + Chr(34))
-
-            Next
-            Me.ComboBox8.Sorted = True
-        End If
-
-        Me.Label30.Text = "save"
-
-        System.IO.File.WriteAllText(localdevice, dataset.ToString)
-
-        Me.TextBox4.Text = ""
-        Me.TextBox5.Text = ""
-        Me.TextBox6.Text = ""
-        Me.TextBox7.Text = "22"
-        Me.TextBox8.Text = ""
-        Me.TextBox8.BackColor = Color.White
-        Me.TextBox9.Text = ""
-        Me.TextBox9.BackColor = Color.White
-        Me.TextBox11.Text = "/home/"
-
-        MessageBox.Show(Checkxmllanguage("Message15.1").trim, "Note", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        logging("User: Click Button8 (Save Device): END")
-    End Sub
-
-    Private Sub Button8_MouseHover(sender As Object, e As EventArgs) Handles Button8.MouseHover
-        logging("USER: MouseHover Button8")
-        Me.ToolTip1.SetToolTip(Button8, Checkxmllanguage("Button8").trim)
-    End Sub
-
-    Private Sub ComboBox8_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox8.SelectedIndexChanged
-        logging("User/Sytstem: Button8 (Edit Device): Start")
-        If ComboBox8.Items.Count >= 0 Then
-            Dim comboselect As String = Me.ComboBox8.Text
-            Dim comboselectsplitt() As String = comboselect.Split("{")
-            Dim device As String = comboselectsplitt(0).Trim
-
-            For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
-                If Me.DataGridView2.Item(1, i).Value.ToString = device Then
-                    Me.Label30.Text = "update"
-                    Me.TextBox4.Text = Me.DataGridView2.Item(1, i).Value.ToString
-                    Me.TextBox5.Text = Me.DataGridView2.Item(2, i).Value.ToString
-                    Me.TextBox6.Text = Me.DataGridView2.Item(4, i).Value.ToString
-                    Me.TextBox7.Text = Me.DataGridView2.Item(5, i).Value.ToString
-                    Me.TextBox8.Text = Me.DataGridView2.Item(6, i).Value.ToString
-                    Me.TextBox9.Text = Me.DataGridView2.Item(7, i).Value.ToString
-                    Me.TextBox11.Text = Me.DataGridView2.Item(8, i).Value.ToString
-                    Me.Button7.Enabled = True
-                    Exit Sub
-                End If
-            Next
-        End If
-        logging("User/System: Button8 (Edit Device): End")
-    End Sub
-
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        logging("User: Click Button7 (Delite Device): Start")
-        Dim device As String = Me.TextBox4.Text
-        Dim dataset As New StringBuilder
-
-
-        Dim msgtext1 As String = Checkxmllanguage("Message12.1").trim
-        Dim msgtext2 As String = Checkxmllanguage("Message12.2").trim
-
-        Dim result = MessageBox.Show(msgtext1, msgtext2, MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If result = DialogResult.Yes Then
-            For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
-
-                If Me.DataGridView2.Item(1, i).Value.ToString = device Then
-                    Me.DataGridView2.Rows.RemoveAt(i)
-                    Exit For
-                End If
-            Next
-
-            Me.ComboBox8.Items.Clear()
-
-            For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
-                Me.ComboBox8.Items.Add(Me.DataGridView2.Item(1, i).Value & "{" & Me.DataGridView2.Item(2, i).Value & "}")
-                dataset.AppendLine(Chr(34) + Me.DataGridView2.Item(1, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(2, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(4, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(5, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(6, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(7, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(8, i).Value.ToString + Chr(34))
-            Next
-            Me.ComboBox8.Sorted = True
-
-            System.IO.File.WriteAllText(localdevice, dataset.ToString)
-
-            Me.ComboBox8.Text = ""
-            Me.TextBox4.Text = ""
-            Me.TextBox4.BackColor = Color.White
-            Me.TextBox5.Text = ""
-            Me.TextBox5.BackColor = Color.White
-            Me.TextBox6.Text = ""
-            Me.TextBox6.BackColor = Color.White
-            Me.TextBox7.Text = "22"
-            Me.TextBox8.Text = ""
-            Me.TextBox8.BackColor = Color.White
-            Me.TextBox9.Text = ""
-            Me.TextBox9.BackColor = Color.White
-            Me.TextBox11.Text = "/home/"
-
-            Me.Button7.Enabled = False
-
-            MessageBox.Show(Checkxmllanguage("Message13.1").trim, "Note", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        End If
-        logging("User: Click Button7 (Delite Device): End")
-    End Sub
-
-    Private Sub Button7_MouseHover(sender As Object, e As EventArgs) Handles Button7.MouseHover
-        logging("User: MoueHover Button14 (RTM Explorer")
-        Me.ToolTip1.SetToolTip(Button7, Checkxmllanguage("Button7").trim)
-    End Sub
-
-    Private Sub ComboBox7_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles ComboBox7.SelectedIndexChanged
-        logging("User/Sytsem: Combo7 IndexChange: Start")
-        If Me.ComboBox7.Text = "Default" Then
-            Dim wallet As String = "you need a Wallet"
-            If Me.DataGridView1.Rows.Count - 1 > 0 Then
-                wallet = Me.DataGridView1.Item(2, 0).Value.ToString
-            End If
-            Me.RichTextBox1.Text = "WingSheet: Default" & System.Environment.NewLine &
-                                   "Wallet: " & wallet & System.Environment.NewLine &
-                                   "Pool: " & def_ps & System.Environment.NewLine &
-                                   "Server: " & def_s & System.Environment.NewLine &
-                                   "Solo: No" & System.Environment.NewLine &
-                                   "Password: " & def_pw & System.Environment.NewLine &
-                                   "Miner: " & def_m & System.Environment.NewLine &
-                                   "Cores: ALL Cores"
-            Exit Sub
-        End If
-
-        Dim wingsheetname As String = Me.ComboBox7.Text
-
-        If My.Computer.FileSystem.FileExists(localwingsheet) Then
-            Dim wingsheet As String
-            Dim wallet As String
-            Dim pool As String
-            Dim server As String
-            Dim solo As String
-            Dim password As String
-            Dim miner As String
-            Dim cores As String
-            Dim donate As String
-
-            Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localwingsheet)
-
-                MyReader.TextFieldType = Microsoft.VisualBasic.FileIO.FieldType.Delimited
-                MyReader.Delimiters = New String() {","}
-                Dim currentRow As String()
-                While Not MyReader.EndOfData
-                    Try
-                        currentRow = MyReader.ReadFields()
-                        If currentRow(0) = wingsheetname Then
-
-                            wingsheet = currentRow(0)
-                            wallet = currentRow(1)
-                            pool = currentRow(2)
-                            server = currentRow(3)
-                            password = currentRow(5)
-                            miner = currentRow(6)
-                            cores = currentRow(7)
-                            solo = currentRow(10)
-                            donate = currentRow(11)
-
-                            If donate = "True" Then
-                                donate = 1
-                            Else
-                                donate = 0
-                            End If
-
-                            If solo = False Then
-                                solo = "no"
-                            Else
-                                solo = True
-                            End If
-
-                            For i As Integer = 0 To Me.DataGridView1.Rows.Count - 1
-                                If Me.DataGridView1.Item(1, i).Value.ToString = wallet Then
-                                    wallet = Me.DataGridView1.Item(2, i).Value.ToString
-                                    Exit For
-                                End If
-                            Next
-
-                            Me.RichTextBox1.Text = "WingSheet: " & wingsheet & System.Environment.NewLine &
-                                   "Wallet: " & wallet & System.Environment.NewLine &
-                                   "Pool: " & pool & System.Environment.NewLine &
-                                   "Server: " & server & System.Environment.NewLine &
-                                   "Solo: " & solo & System.Environment.NewLine &
-                                   "Password: " & password & System.Environment.NewLine &
-                                   "Miner: " & miner & System.Environment.NewLine &
-                                   "Cores: " + cores + " / " + donate + " for Donate"
-                            Exit Sub
-                        End If
-                    Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
-                        MsgBox("Line " & ex.Message & " is invalid.  Skipping")
-                    End Try
-                End While
-                currentRow = Nothing
-            End Using
-        End If
-        logging("User/Sytsem: Combo7 IndexChange: End")
-    End Sub
-
-    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
-        logging("User/Sytsem: Click Button10 (Start Mining MultiWing): Start")
-        If Me.DataGridView2.Rows.Count = 0 Then
-            MessageBox.Show(Checkxmllanguage("Message30.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Exit Sub
-        End If
-
-        Dim selectrownumber As Integer = 0
-        For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
-            If Me.DataGridView2.Item(0, i).Value = False Then
-                Continue For
-            Else
-                selectrownumber += 1
-            End If
-        Next
-
-        If selectrownumber < 0 Then
-            MessageBox.Show(Checkxmllanguage("Message30.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Exit Sub
-        End If
-
-        Dim msgtext1 As String = Checkxmllanguage("Message14.1").trim
-        Dim msgtext2 As String = Checkxmllanguage("Message14.2").trim
-
-        Dim result = MessageBox.Show(msgtext1, msgtext2, MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-        If result = DialogResult.No Then
-            Exit Sub
-        End If
-
-        If Not Directory.Exists(selfpath + "Thirdparty") Then
-            MessageBox.Show("Directory Error. Exit Function", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Exit Sub
-        End If
-
-        If Not File.Exists(selfpath + "Thirdparty\plink.exe") Then
-            MessageBox.Show("File Error. Exit Function", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Exit Sub
-        End If
-
-        If Not File.Exists(selfpath + "Thirdparty\pscp.exe") Then
-            MessageBox.Show("File Error. Exit Function", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Exit Sub
-        End If
-
-        If Not Directory.Exists(selfpath + "Thirdparty\tmp\") Then
-            Directory.CreateDirectory(selfpath + "Thirdparty\tmp\")
-        End If
-
-        Dim wingsheet As String = Nothing
-        Dim wallet As String = Nothing
-        Dim pool As String = Nothing
-        Dim server As String = Nothing
-        Dim password As String = Nothing
-        Dim miner As String = Nothing
-        Dim cores As String = Nothing
-        Dim spezials As String = Nothing
-        Dim wingsheetname As String = Me.ComboBox7.Text
-        Dim wingsheetname2 As String = wingsheetname
-
-        If Me.ComboBox7.Text = "Default" Then
-            wingsheet = "Default"
-
-            wallet = "you need a Wallet"
-            If Me.DataGridView1.Rows.Count - 1 > 0 Then
-                wallet = Me.DataGridView1.Item(1, 0).Value.ToString
-            End If
-            If wallet = "you need a Waalet then" Then
-                MessageBox.Show(Checkxmllanguage("Message16.1").trim, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Exit Sub
-            End If
-
-            pool = def_ps
-            server = def_s
-            password = def_pw
-            miner = def_m
-            cores = def_c
-        Else
-
-            Using MyReader As New Microsoft.VisualBasic.FileIO.TextFieldParser(localwingsheet)
-
-                MyReader.TextFieldType = Microsoft.VisualBasic.FileIO.FieldType.Delimited
-                MyReader.Delimiters = New String() {","}
-                Dim currentRow As String()
-                While Not MyReader.EndOfData
-                    Try
-                        currentRow = MyReader.ReadFields()
-                        If currentRow(0) = wingsheetname Then
-
-                            wingsheet = currentRow(0)
-                            wallet = currentRow(1)
-                            pool = currentRow(2)
-                            server = currentRow(3)
-                            password = currentRow(5)
-                            miner = currentRow(6)
-                            cores = currentRow(7)
-                        End If
-                    Catch ex As Microsoft.VisualBasic.FileIO.MalformedLineException
-                        MessageBox.Show("Line " & ex.Message & " in Wingsheet List is invalid." + System.Environment.NewLine + System.Environment.NewLine + "Progress ends.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        Cursor.Current = Cursors.Default
-                        Exit Sub
-                    End Try
-                End While
-            End Using
-        End If
-
-        Dim spezial As String = Nothing
-        Dim algo As String = Nothing
-
-        If cores = "Default" Then
-            cores = "0"
-        End If
-
-        If miner = "SRBMiner-MULTI" Then
-            If cores = "0" Then
-                spezial = "--disable-gpu "
-            Else
-                spezial = "--disable-gpu --cpu-threads " & cores & " "
-            End If
-            algo = "--algorithm ghostrider "
-            server = "--pool " & server & " "
-            wallet = "--wallet " & wallet & ""
-            password = " --password " & password
-        End If
-
-        If wingsheet = Nothing Then
-            Exit Sub
-        End If
-
-
-        For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
-            If Me.DataGridView2.Item(0, i).Value = False Then
-                Continue For
-            End If
-            Dim rigname As String = Me.DataGridView2.Item(2, i).Value
-            Dim wallet2 As String = wallet & "." & rigname
-
-            Dim sship As String = Me.DataGridView2.Item(4, i).Value
-            Dim sshport As String = Me.DataGridView2.Item(5, i).Value
-            Dim sshuser As String = Me.DataGridView2.Item(6, i).Value
-            Dim sshpassword As String = Me.DataGridView2.Item(7, i).Value
-            Dim sshpath As String = Me.DataGridView2.Item(8, i).Value
-
-
-            wingsheet = "./SRBMiner-MULTI " & algo & spezial & "--log-file " & sshpath & "RaptorWings/log.txt " & server & wallet2 & password
-            Dim plinkmain
-
-            plinkmain = selfpath & "Thirdparty\plink.exe -ssh " & sship & " -l " & sshuser & " -pw " & sshpassword & " -batch -m " & selfpath & "Thirdparty\tmp\plink." & rigname
-
-            Dim plink1 As String
-
-            plink1 = "pkill SRBMiner-MULTI" & System.Environment.NewLine &
-                     "cd " & sshpath & System.Environment.NewLine &
-                     "mkdir -p RaptorWINGS" & System.Environment.NewLine &
-                     "cd RaptorWINGS" & System.Environment.NewLine &
-                     "wget " & SRBMinerDownloadpathLinux & System.Environment.NewLine &
-                     "rm -R -f SRBMiner-MULTI " & System.Environment.NewLine &
-                     "tar vxf " & SRBMinerDownloadnameLinux & System.Environment.NewLine &
-                     "rm " & SRBMinerDownloadnameLinux & System.Environment.NewLine &
-                     "mv " & SRBdirectory & " SRBMiner-MULTI" & System.Environment.NewLine &
-                     "cd SRBMiner-MULTI" & System.Environment.NewLine &
-                     wingsheet & "> /dev/null 2>&1 &"
-
-            Dim file As System.IO.StreamWriter
-            file = My.Computer.FileSystem.OpenTextFileWriter(selfpath + "Thirdparty\tmp\plink_" & rigname & ".bat", False, Encoding.Default)
-            file.Write(plinkmain)
-            file.Close()
-
-            file = My.Computer.FileSystem.OpenTextFileWriter(selfpath + "Thirdparty\tmp\plink." & rigname, False, Encoding.Default)
-            file.Write(plink1)
-            file.Close()
-
-            Process.Start(selfpath & "Thirdparty\tmp\plink_" & rigname & ".bat")
-
-            Me.DataGridView2.Item(3, i).Value = "Waiting for " & pool & " API"
-            Me.DataGridView2.Item(9, i).Value = pool
-            Me.DataGridView2.Item(10, i).Value = wallet.Replace("--wallet ", "")
-            Me.DataGridView2.Item(11, i).Value = wingsheetname2
-        Next
-
-        Dim dataset As New StringBuilder
-        For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
-            dataset.AppendLine(Chr(34) + Me.DataGridView2.Item(2, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(9, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(10, i).Value.ToString + Chr(34) + "," + Chr(34) + Me.DataGridView2.Item(11, i).Value.ToString + Chr(34))
-        Next
-        System.IO.File.WriteAllText(localpool, dataset.ToString)
-        logging("User/Sytsem: Click Button10 (Start Mining MultiWing): End")
-    End Sub
-
-    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
-        logging("User: Click Button11 (Selct all Device): Start")
-        For i As Integer = 0 To Me.DataGridView2.Rows.Count - 1
-            Me.DataGridView2.Item(0, i).Value = True
-        Next
-        logging("User: Click Button11 (Selct all Device): End")
-    End Sub
-
-    Private Sub TextBox11_Leave(sender As Object, e As EventArgs) Handles TextBox11.Leave
-        logging("User: leave TXTB11: Start")
-        Dim path As String = Me.TextBox11.Text.Trim
-        Dim zeichen = path(path.Length - 1)
-
-        If Not zeichen = "/" Then
-            Me.TextBox11.Text = Me.TextBox11.Text + "/"
-        End If
-
-        If Me.TextBox11.Text.Contains("//") Then
-            Me.TextBox11.Text = Me.TextBox11.Text.Replace("//", "/")
-        End If
-        logging("User: leave TXTB11: End")
-    End Sub
-    Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
-        logging("System: Timer3 tick")
-        Apipoolread()
-        Showrigdetail()
-    End Sub
-
-    Private Sub DataGridView2_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellContentClick
-        logging("User: DGV2 CellCOntendClick")
-        Showrigdetail()
-    End Sub
-
-    Private Sub RichTextBox2_LinkClicked(sender As Object, e As LinkClickedEventArgs) Handles RichTextBox2.LinkClicked
-        logging("User:RTB2 LinkClick start")
-        Dim ProcessStartInfo = New ProcessStartInfo With {.FileName = e.LinkText, .UseShellExecute = True}
-        Process.Start(ProcessStartInfo)
     End Sub
 
     Private Sub ToolStripStatusLabel2_Click(sender As Object, e As EventArgs) Handles ToolStripStatusLabel2.Click
@@ -1594,7 +831,7 @@ Public Class Form1
 
         If File.Exists(winDesktop + "\" + rtmCorePortableDownloadName) Then
             logging("User: Click Button12 (Download RTM Core Portable): Unzip File: " + winDesktop + "\" + rtmCorePortableDownloadName)
-            ZipFile.ExtractToDirectory(winDesktop + "\" + rtmCorePortableDownloadName, winDesktop + "\" + rtmCorePortableName)
+            'ZipFile.ExtractToDirectory(winDesktop + "\" + rtmCorePortableDownloadName, winDesktop + "\" + rtmCorePortableName)
             File.Delete(winDesktop + "\" + rtmCorePortableDownloadName)
         End If
 
@@ -1716,7 +953,7 @@ Public Class Form1
                 Me.Label46.Text = ""
                 Me.Label46.Text = "Unzipping"
                 Me.Label46.Refresh()
-                ZipFile.ExtractToDirectory(winDesktop + "\" + rtmBootstrapDownloadName, rtmCoreAppDatapfad)
+                'ZipFile.ExtractToDirectory(winDesktop + "\" + rtmBootstrapDownloadName, rtmCoreAppDatapfad)
                 Me.Label46.Text = "Unzip complete"
                 Me.Label46.Refresh()
             End If
@@ -1819,10 +1056,7 @@ Public Class Form1
         Me.TabPage1.BackColor = background
         Me.TabPage2.BackColor = background
         Me.TabPage3.BackColor = background
-        Me.TabPage5.BackColor = background
         Me.TabPage6.BackColor = background
-        Me.TabPage7.BackColor = background
-        Me.TabPage8.BackColor = background
         Me.TabPage9.BackColor = background
         Me.TabPage10.BackColor = background
         Me.Panel1.BackColor = background
@@ -1833,11 +1067,6 @@ Public Class Form1
         Me.Button4.ForeColor = textcolor3
         Me.Button5.ForeColor = background
         Me.Button6.ForeColor = background
-        Me.Button7.ForeColor = background
-        Me.Button8.ForeColor = background
-        Me.Button9.ForeColor = background
-        Me.Button10.ForeColor = textcolor3
-        Me.Button11.ForeColor = textcolor3
         Me.Button14.ForeColor = background
         Me.Button13.ForeColor = background
         Me.Button18.ForeColor = background
@@ -1848,10 +1077,6 @@ Public Class Form1
         Me.DataGridView1.ForeColor = textcolor
         Me.DataGridView1.DefaultCellStyle.BackColor = background2
         Me.DataGridView1.DefaultCellStyle.ForeColor = textcolor
-        Me.DataGridView2.BackgroundColor = background2
-        Me.DataGridView2.ForeColor = textcolor
-        Me.DataGridView2.DefaultCellStyle.BackColor = background2
-        Me.DataGridView2.DefaultCellStyle.ForeColor = textcolor
         Me.DataGridView3.BackgroundColor = background2
         Me.DataGridView3.ForeColor = textcolor
         Me.DataGridView3.DefaultCellStyle.BackColor = background2
@@ -1861,10 +1086,6 @@ Public Class Form1
         Me.Label16.ForeColor = textcolor2
         Me.ToolStripStatusLabel1.ForeColor = textcolor3
         Me.ToolStripStatusLabel4.ForeColor = textcolor3
-        Me.TextBox10.BackColor = background2
-        Me.TextBox10.ForeColor = textcolor
-        Me.TextBox12.BackColor = background2
-        Me.TextBox12.ForeColor = textcolor
         Me.RichTextBox3.ForeColor = textcolor
         Me.RichTextBox3.BackColor = background2
         logging("User/Sytsem: Checkbox4 (Darmode) changed: End")
@@ -1941,7 +1162,7 @@ Public Class Form1
                 Process.Kill()
             Next
         Next
-        Process.Start(selfpath + "mining\" + SRBdirectory + "\donation.bat")
+        Process.Start(selfpath + "mining\cpuminergr\donation.bat")
         Timer5.Start()
         Timer4.Stop()
         logging("System Timer4 tick: End")
@@ -1954,7 +1175,7 @@ Public Class Form1
                 Process.Kill()
             Next
         Next
-        Process.Start(selfpath + "mining\" + SRBdirectory + "\rtmtsheet.bat")
+        Process.Start(selfpath + "mining\cpuminergr\rtmtsheet.bat")
         Timer4.Start()
         logging("System Timer5 tick: End")
     End Sub

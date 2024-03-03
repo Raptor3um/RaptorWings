@@ -8,12 +8,10 @@
     <MyType>WindowsForms</MyType>
     <Description>GUI Siftware for RTM API's and Mining</Description>
     <Copyright>Raptoreum &amp; Germardies</Copyright>
-    <AssemblyVersion>1.2.1</AssemblyVersion>
-    <FileVersion>1.2.1</FileVersion>
+    <AssemblyVersion>0.90</AssemblyVersion>
+    <FileVersion>1.3.0.0</FileVersion>
     <ApplicationIcon>Resources\Rptorwings_logo_6.ico</ApplicationIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Title>Raptorwings</Title>
-    <PackageProjectUrl>https://github.com/Raptor3um/RaptorWings</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -88,9 +86,6 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Update="README_ES.md">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="README_GER.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -106,7 +101,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Config\" />
     <Folder Include="Thirdparty\tmp\" />
   </ItemGroup>
 
