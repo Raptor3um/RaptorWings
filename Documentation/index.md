@@ -34,6 +34,7 @@ Changelogs
 ------------
 Version splitting: 1 (Major version) - 1 (Major update) - 1 (Harary update) <br />
 <br />
+[v1.3-0-1 - 03.03.2024](changelog/1-3-0-1.md)<br />
 [v1.3-0-0 - 03.03.2024](changelog/1-3-0-0.md)<br />
 [v1.2.1 - 15.10.2023](changelog/1-2-0.md)<br />
 [v1.2.0 - 27.04.2023](changelog/1-2-0.md)<br />

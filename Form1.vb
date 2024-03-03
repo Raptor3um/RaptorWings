@@ -301,6 +301,14 @@ Public Class Form1
         Dim wallet As String = walletsplitt(1).Replace(")", "")
 
         Dim server As String = Me.ComboBox4.Text
+        Dim SSL As String = ""
+        If server.Contains("tcps") Then
+            SSL = " --tls"
+            server = server.Replace("stratum+tcps://", "")
+        Else
+            server = server.Replace("stratum+tcp://", "")
+        End If
+
         Dim rig As String = Me.TextBox1.Text
         Dim password As String = Me.TextBox2.Text
 
@@ -308,16 +316,16 @@ Public Class Form1
         If threads = "Default" Then
             threads = ""
         Else
-            threads = " --threads=" & Me.ComboBox5.Text
+            threads = "--threads=" & Me.ComboBox5.Text
         End If
 
         Dim wingsheet_main As String = Nothing
         Dim wingsheet_cpumineropt01 As String = Nothing
 
-        wingsheet_cpumineropt01 = Chr(34) & selfpath & "mining\" & XMRIG_MINER_DIRECTORYNAME & "\" & "xmrig.exe" & Chr(34) & " " & threads & " -a gr -o " & server & " --tls -u " & wallet & "." & rig & " -p " & password
+        wingsheet_cpumineropt01 = Chr(34) & selfpath & "mining\" & XMRIG_MINER_DIRECTORYNAME & "\" & "xmrig.exe" & Chr(34) & " " & threads & "-a gr -o " & server & SSL & " -u " & wallet & "." & rig & " -p " & password
 
         Dim wingsheet_donation As String
-        wingsheet_donation = Chr(34) & selfpath & "mining\" & XMRIG_MINER_DIRECTORYNAME & "\" & "xmrig.exe" & Chr(34) & " " & threads & " -a gr -o stratum+tcp://raptorhash.net:6900 --tls -u " & donationadress & ".Donation_" & rig & " -p x"
+        wingsheet_donation = Chr(34) & selfpath & "mining\" & XMRIG_MINER_DIRECTORYNAME & "\" & "xmrig.exe" & Chr(34) & " " & threads & "-a gr -o stratum+tcp://raptorhash.net:6900" & SSL & " -u " & donationadress & ".Donation_" & rig & " -p x"
 
         If Me.CheckBox1.Checked = True Then
             wingsheet_cpumineropt01 += " --background"

@@ -68,11 +68,11 @@ Copyright (c) 2024 Germardies (https://github.com/Germardies)
 
 Changes:
 --------
-1. SRB-Miner is no longer supported by Raptorwings. Everything has been changed to XMRig
-2. MultiWing has been removed
+BUGFIX
 
 Bug Fixed:
 ----------
+1. Problem with SSL ports fixed
 <br />
 
 NOTE:
