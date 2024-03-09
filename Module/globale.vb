@@ -6,7 +6,7 @@ Imports System.Security.Cryptography.X509Certificates
 
 Module globale
 
-    Public rtwVersion As String = "1-3-0-1"
+    Public rtwVersion As String = "1-3-0-2"
     Public winDesktop = System.Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)
     Public selfpath As String = Application.StartupPath
     Public localfolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData).Replace("Roaming", "Local") + "\RaptorWings\"

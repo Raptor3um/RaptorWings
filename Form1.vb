@@ -316,7 +316,7 @@ Public Class Form1
         If threads = "Default" Then
             threads = ""
         Else
-            threads = "--threads=" & Me.ComboBox5.Text
+            threads = "--threads=" & Me.ComboBox5.Text & " "
         End If
 
         Dim wingsheet_main As String = Nothing
