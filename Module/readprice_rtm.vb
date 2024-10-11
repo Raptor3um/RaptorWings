@@ -58,7 +58,7 @@ Module readprice_rtm
                 Next
 
                 For i As Integer = 0 To Form1.DataGridView1.Rows.Count - 1
-                    If Form1.DataGridView1.Item(3, i).Value.ToString = "" Or Form1.DataGridView1.Item(3, i).Value.ToString = Nothing Then
+                    If Form1.DataGridView1.Item(3, i).Value.ToString = "" Then
                         Continue For
                     End If
                     If Form1.DataGridView1.Item(3, i).Value.ToString > 0 Then
