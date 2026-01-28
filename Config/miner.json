@@ -1,0 +1,18 @@
+[
+    {
+        "XMRIG":
+        {
+            "link":"https://api.xmrig.com/1/latest_release"
+        },
+
+        "SRBMiner-MULTI":
+        {
+            "link":"https://api.github.com/repos/doktor83/SRBMiner-Multi/releases/latest"
+        },
+
+        "cpuminer-gr-avx2":
+        {
+            "link":"https://api.github.com/repos/WyvernTKC/cpuminer-gr-avx2/releases/latest"
+        }
+    }
+]
