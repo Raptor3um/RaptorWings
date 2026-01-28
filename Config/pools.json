@@ -36,7 +36,7 @@
         },
         "FlockPool":
         {
-            "server": [
+            "poolserver": [
                 "stratum+tcps://eu.flockpool.com:5555",
                 "stratum+tcp://eu.flockpool.com:4444",
                 "stratum+tcps://us.flockpool.com:5555",
