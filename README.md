@@ -1,6 +1,8 @@
 RAPTORWINGS ©2024 by Raptoreum and Germardies
 =============================================
 
+<img src="Resources/Rptorwings_logo_dark_small.png" width="200px" height="auto">
+
 Lightpaper
 -----------
 RAPTORWINGS is a fully open source free GUI software.\
@@ -21,7 +23,7 @@ If Raptorwings proves popular, we will continue to expand it.
 Documentation & Instructions
 ----------------------------
 You can view the complete documentation, as well as some explanations about RAPTORWINGS at
-https://github.com/Raptor3um/RaptorWings/blob/main/Documentation/index.md
+<https://github.com/Raptor3um/RaptorWings/blob/main/Documentation/index.md>
 
 ## Technical
 
@@ -40,10 +42,10 @@ RAPTORWINGS uses the following data points:
  
 ### Third-party software
 
-The following third-party programs are used and packaged in the current Rapworwings version:
+The following third-party programs are used by OR packaged with the current Rapworwings version:
 
 - [XMRIG](https://xmrig.com): Cryptocurrency mining
-- [PuTTY](https://putty.org): Terminal emulation
+- [PuTTY](https://putty.org): Secure Shell connections (`plink.exe`) and file transfers over SSH (`pscp.exe`)
 - [Visual Studio CE][]: RAPTORWINGS is programmed in Visual Basic with [Visual Studio Community Edition][]
 
 ### Saved and stored data
@@ -52,6 +54,10 @@ In order to operate and be configured, RAPTORWINGS will place its required files
 
 - Windows: `%LocalAppData%\Raptorwings` <!-- `Locale` is not a location under AppData ... -->
 <!-- - Linux (Debian etc): `~/??????` --> <!-- Currently hidden because not sure if RAPTORWINGS runs through Mono or not -->
+
+### Changelog
+
+See: [Changelog folder](Documentation/changelog/)
 
 ## Important
 
@@ -68,16 +74,10 @@ Any data stored by the user will only be stored on the user's devices.
 > [!NOTE]
 > This is official software of Raptoreum, Feathered Corp
 
-Contributors
--------------------
+### Contributors
+
 - Germardies − Code
 - Zlata Amaranth − Graphics
- 
-## Changes
-
-### Bug Fixed:
-
-1. Problem with SSL ports fixed
 
 ## Copyright
 
