@@ -1,0 +1,97 @@
+<div class="mining-container"> 
+    <div class="mining-sticky-header" style="flex-direction: column; align-items: stretch; gap: 15px;"> 
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1 data-i18n="mining.title" style="margin:0;">Mining</h1> 
+            <div style="display: flex; gap: 10px;"> 
+                <button id="btn-show-console" class="btn-secondary" style="display: none;" onclick="window.api.invoke('show-miner-console')">
+                    <span data-i18n="mining.btn_show_console">Show Miner</span>
+                </button>
+                <button id="btn-toggle-mining" class="btn-primary start" onclick="window.miningUI.toggleMining()"> 
+                    <span data-i18n="mining.btn_start">Start Mining</span> 
+                </button> 
+            </div>
+        </div>
+
+        <div id="miner-live-ticker" style="background: #000; border: 1px solid #333; padding: 8px 12px; border-radius: 4px; font-family: monospace; font-size: 0.85rem; color: #aaa; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: none;">
+            <span style="color: #f1c40f; margin-right: 10px;">[LIVE]</span>
+            <span id="ticker-content">Waiting for miner output...</span>
+        </div>
+    </div>
+
+    <div class="mining-card"> 
+        <h3 data-i18n="mining.section_identity">Identity</h3> 
+        <div class="mining-grid"> 
+            <div class="form-group"> 
+                <label data-i18n="mining.label_address">Wallet Address</label> 
+                <select id="select-address" class="mining-input" onchange="window.miningUI.generateCommand()"></select> 
+            </div> 
+            <div class="form-group"> 
+                <label data-i18n="mining.label_rigname">Rig Name</label> 
+                <input type="text" id="input-rigname" class="mining-input" placeholder="MyWorker01" oninput="window.miningUI.generateCommand()"> 
+            </div> 
+            <div class="form-group"> 
+                <label data-i18n="mining.label_password">Password</label> 
+                <input type="text" id="input-password" class="mining-input" value="x" oninput="window.miningUI.generateCommand()"> 
+            </div> 
+        </div> 
+    </div> 
+
+    <div class="mining-card"> 
+        <h3 data-i18n="mining.section_connection">Connection</h3> 
+        <div class="mining-grid"> 
+            <div class="form-group"> 
+                <label data-i18n="mining.label_mode">Mode</label> 
+                <select id="select-mode" class="mining-input" onchange="window.miningUI.onModeChange()"> 
+                    <option value="poolserver">Pool Mining</option> 
+                    <option value="soloserver">Solo Mining</option> 
+                </select> 
+            </div> 
+            <div class="form-group"> 
+                <label data-i18n="mining.label_pool">Pool Provider</label> 
+                <select id="select-pool" class="mining-input" onchange="window.miningUI.onPoolChange(this.value)"></select> 
+            </div> 
+             
+            <div class="form-group full-width" id="group-server" style="display:none;"> 
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;"> 
+                    <label data-i18n="mining.label_server" style="margin: 0;">Region / Server</label> 
+                    <button id="btn-ping-servers" class="btn-primary" style="padding: 2px 10px; font-size: 0.75rem; width: auto;" onclick="window.miningUI.checkPings()"> 
+                        Check Latency 
+                    </button> 
+                </div> 
+                <select id="select-server" class="mining-input" onchange="window.miningUI.generateCommand()"></select> 
+                <div id="ping-result" style="font-size: 0.8rem; margin-top: 5px; color: #aaa;"></div> 
+            </div> 
+        </div> 
+    </div> 
+     
+    <div class="mining-card"> 
+        <h3 data-i18n="mining.section_hardware">Hardware & Software</h3> 
+        <div class="mining-grid"> 
+            <div class="form-group"> 
+                <label data-i18n="mining.label_miner_soft">Miner Software</label> 
+                <select id="select-miner" class="mining-input" onchange="window.miningUI.updateMinerVersion()"></select> 
+            </div> 
+            <div class="form-group"> 
+                <label data-i18n="mining.label_threads">CPU Threads</label> 
+                <select id="select-threads" class="mining-input" onchange="window.miningUI.generateCommand()"></select> 
+            </div> 
+            <div class="form-group full-width"> 
+                <label data-i18n="mining.label_miner_version">Miner Version</label> 
+                <input type="text" id="display-version" class="mining-input" readonly style="opacity: 0.7;"> 
+            </div> 
+        </div> 
+    </div> 
+
+    <div class="mining-card"> 
+        <h3 data-i18n="mining.section_execution">Execution & Command</h3> 
+        <div class="form-group"> 
+            <label data-i18n="mining.label_command">Generated Command (Read-only)</label> 
+            <textarea id="command-preview" readonly style="opacity: 0.7; cursor: not-allowed; background: #0a0a0a; width: 100%; height: 60px;"></textarea> 
+        </div> 
+        <div class="form-group"> 
+            <label data-i18n="mining.label_expert_args">Expert Parameters (Optional)</label> 
+            <input type="text" id="input-expert-args" class="mining-input" placeholder="--cpu-no-yield" oninput="window.miningUI.generateCommand()"> 
+        </div> 
+    </div> 
+
+</div>

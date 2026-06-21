@@ -1,0 +1,41 @@
+<div class="view-container">
+    <div class="view-header">
+        <h1 data-i18n="addresses.title">Addresses</h1>
+        <button class="btn-primary" onclick="addressUI.openModal()" data-i18n="addresses.btn_new">
+            + New Address
+        </button>
+    </div>
+
+    <div class="address-list-container">
+        <table class="address-table">
+            <thead>
+                <tr>
+                    <th data-i18n="addresses.label_address">Address</th>
+                    <th data-i18n="addresses.label_desc">Description</th>
+                    <th data-i18n="addresses.label_actions">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="address-table-body">
+                </tbody>
+        </table>
+    </div>
+    <div id="address-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <h2 id="modal-title">Add New Address</h2> <div class="form-group">
+            <label data-i18n="addresses.label_address">RTM Address</label>
+            <input type="text" id="inp-address">
+        </div>
+        <div class="form-group">
+            <label data-i18n="addresses.label_desc">Description</label>
+            <input type="text" id="inp-desc">
+        </div>
+        <div class="modal-actions">
+            <button onclick="addressUI.closeModal()">Cancel</button>
+            <button onclick="addressUI.save()" class="btn-primary">Save</button>
+        </div>
+    </div>
+</div>
+    <div class="address-footer-hint">
+        <p data-i18n="addresses.get_wallet_hint"></p>
+    </div>
+</div>

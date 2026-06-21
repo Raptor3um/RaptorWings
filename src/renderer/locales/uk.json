@@ -1,0 +1,66 @@
+{
+    "error_miner_url_missing": "Помилка: Не знайдено URL-адресу для завантаження цього майнера. Перевірте підключення до інтернету або статус API.",
+    "menu": {
+        "mining": "Майнінг",
+        "addresses": "Адреси",
+        "settings": "Налаштування"
+    },
+    "settings": {
+        "section_mining": "Майнінг та обладнання",
+        "label_miner_path": "Шлях завантаження майнера",
+        "btn_browse": "Огляд",
+        "av_warning_title": "Важливе зауваження щодо антивіруса:",
+        "av_warning_text": "Програмне забезпечення для майнінгу часто визначається як загроза. Будь ласка, додайте цю папку до винятків вашого антивіруса або Windows Defender, щоб програма не була автоматично видалена.",
+        "logs_title": "Системні логи",
+        "logs_desc": "Відкрити лог-файл для діагностики.",
+        "btn_open_log": "📜 Відкрити лог-файл"
+    },
+    "addresses": {
+        "title": "Управління адресами",
+        "btn_new": "+ Нова адреса",
+        "label_address": "RTM адреса",
+        "label_desc": "Опис",
+        "label_actions": "Дії",
+        "modal_title_add": "Додати нову адресу",
+        "modal_title_edit": "Редагувати адресу",
+        "confirm_delete": "Ви дійсно хочете видалити цю адресу?",
+        "error_invalid": "Недійсна адреса RTM!",
+        "get_wallet_hint": "Якщо у вас ще немає Raptoreum, ви можете обрати гаманець та створити адресу на <a href='#' onclick='window.api.openExternal(\"https://raptoreum.com/downloads/\")'>raptoreum.com</a>."
+    },
+    "mining": {
+        "title": "Майнінг",
+        "section_identity": "Ідентифікація",
+        "section_connection": "З'єднання",
+        "section_hardware": "Обладнання та ПЗ",
+        "label_address": "Адреса гаманця",
+        "label_rigname": "Назва ріга",
+        "label_mode": "Режим",
+        "label_pool": "Провайдер пулу",
+        "label_server": "Сервер / Регіон",
+        "label_miner_soft": "ПЗ для майнінгу",
+        "label_threads": "Потоки CPU",
+        "label_os": "Система",
+        "label_miner_version": "Версія",
+        "btn_start": "Почати майнінг",
+        "thread_auto": "Авто (Стандарт)",
+        "thread_recommended": "Рекомендовано",
+        "thread_powersave": "Енергозбереження",
+        "thread_critical": "Критичний / Макс",
+        "section_execution": "Виконання та команди",
+        "label_command": "Згенерована команда (Тільки для читання)",
+        "label_expert_args": "Експертні параметри (Опціонально)",
+        "expert_warning": "Попередження: Користувацькі параметри на свій страх і ризик!",
+        "error_no_path": "Будь ласка, спочатку вкажіть шлях завантаження в налаштуваннях!",
+        "error_no_address": "Будь ласка, оберіть адресу гаманця!",
+        "error_invalid_address": "Обрана адреса не є дійсною адресою RTM!",
+        "status_starting": "Майнінг підготовлюється...",
+        "auth_title": "Запит прав адміністратора",
+        "auth_message": "Ви хочете запустити майнер з правами адміністратора? Це активує режим MSR і значно підвищить хешрейт.",
+        "auth_confirm": "Так, запустити від імені адміністратора",
+        "auth_cancel": "Ні, запустити зазвичай"
+    },
+    "common": {
+        "save": "Зберегти",
+        "cancel": "Скасувати"
+    }
+}

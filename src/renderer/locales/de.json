@@ -1,0 +1,66 @@
+{
+    "error_miner_url_missing": "Fehler: Keine Download-URL für diesen Miner gefunden. Bitte prüfe die Internetverbindung oder den API-Status.",
+    "menu": {
+        "mining": "Mining",
+        "addresses": "Adressen",
+        "settings": "Einstellungen"
+    },
+    "settings": {
+        "section_mining": "Mining & Hardware",
+        "label_miner_path": "Miner Download-Pfad",
+        "btn_browse": "Durchsuchen",
+        "av_warning_title": "Wichtiger Antiviren-Hinweis:",
+        "av_warning_text": "Mining-Software wird oft als Bedrohung erkannt. Bitte fügen Sie diesen Ordner als Ausnahme in Ihrer Antivirensoftware oder im Windows Defender hinzu, damit die Software nicht automatisch gelöscht wird.",
+        "logs_title": "System-Protokolle",
+        "logs_desc": "Öffne die Log-Datei zur Fehlerdiagnose.",
+        "btn_open_log": "📜 Log-Datei öffnen"
+    },
+    "addresses": {
+        "title": "Adressverwaltung",
+        "btn_new": "+ Neue Adresse",
+        "label_address": "RTM Adresse",
+        "label_desc": "Beschreibung",
+        "label_actions": "Aktionen",
+        "modal_title_add": "Neue Adresse hinzufügen",
+        "modal_title_edit": "Adresse bearbeiten",
+        "confirm_delete": "Möchtest du diese Adresse wirklich löschen?",
+        "error_invalid": "Ungültige RTM Adresse!",
+        "get_wallet_hint": "Falls du noch kein Raptoreum hast, kannst du eine Wallet wählen und eine Adresse einrichten unter <a href='#' onclick='window.api.openExternal(\"https://raptoreum.com/downloads/\")'>raptoreum.com</a>."
+    },
+    "mining": {
+        "title": "Mining",
+        "section_identity": "Identität",
+        "section_connection": "Verbindung",
+        "section_hardware": "Hardware & Software",
+        "label_address": "Wallet Adresse",
+        "label_rigname": "Rig Name",
+        "label_mode": "Modus",
+        "label_pool": "Pool Anbieter",
+        "label_server": "Server / Region",
+        "label_miner_soft": "Miner Software",
+        "label_threads": "CPU Threads",
+        "label_os": "System",
+        "label_miner_version": "Version",
+        "btn_start": "Mining Starten",
+        "thread_auto": "Auto (Standard)",
+        "thread_recommended": "Empfohlen",
+        "thread_powersave": "Energiesparen",
+        "thread_critical": "Kritisch / Max",
+        "section_execution": "Execution & Command",
+        "label_command": "Generell Kommands (Nur-Lesen)",
+        "label_expert_args": "Expeteren Einstellung (Optional)",
+        "expert_warning": "Warnung: Benutzerdefinierte Parameter werden auf eigene Gefahr verwendet!",
+        "error_no_path": "Bitte lege in den Einstellungen erst einen Download-Pfad fest!",
+        "error_no_address": "Bitte wähle eine Wallet-Adresse aus!",
+        "error_invalid_address": "Die gewählte Adresse ist keine gültige RTM-Adresse!",
+        "status_starting": "Mining wird vorbereitet...",
+        "auth_title": "Admin-Rechte anfordern",
+        "auth_message": "Möchten Sie den Miner mit Admin-Rechten (sudo) starten? Dies aktiviert den MSR-Modus und erhöht die Hashrate deutlich.",
+        "auth_confirm": "Ja, als Admin starten",
+        "auth_cancel": "Nein, normal starten"
+    },
+    "common": {
+        "save": "Speichern",
+        "cancel": "Abbrechen"
+    }
+}

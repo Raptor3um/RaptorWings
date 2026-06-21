@@ -1,0 +1,15 @@
+# Abhängigkeiten
+node_modules/
+
+# Build-Ausgaben (Forge)
+out/
+dist/
+
+# Betriebssystem-Müll
+.DS_Store
+Thumbs.db
+
+# Logs & temporäre Dateien
+npm-debug.log*
+*.log
+.env

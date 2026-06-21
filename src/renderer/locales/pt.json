@@ -1,0 +1,66 @@
+{
+    "error_miner_url_missing": "Erro: Nenhuma URL de download encontrada para este minerador. Verifique sua conexão com a internet ou o status da API.",
+    "menu": {
+        "mining": "Mineração",
+        "addresses": "Endereços",
+        "settings": "Configurações"
+    },
+    "settings": {
+        "section_mining": "Mineração e Hardware",
+        "label_miner_path": "Caminho de Download do Minerador",
+        "btn_browse": "Procurar",
+        "av_warning_title": "Aviso importante de antivírus:",
+        "av_warning_text": "O software de mineração é frequentemente detetado como uma ameaça. Por favor, adicione esta pasta como uma exceção no seu antivírus ou Windows Defender para que o software não seja excluído automaticamente.",
+        "logs_title": "Logs do Sistema",
+        "logs_desc": "Abrir o arquivo de log para fins de diagnóstico.",
+        "btn_open_log": "📜 Abrir Arquivo de Log"
+    },
+    "addresses": {
+        "title": "Gerenciamento de Endereços",
+        "btn_new": "+ Novo Endereço",
+        "label_address": "Endereço RTM",
+        "label_desc": "Descrição",
+        "label_actions": "Ações",
+        "modal_title_add": "Adicionar Novo Endereço",
+        "modal_title_edit": "Editar Endereço",
+        "confirm_delete": "Você realmente deseja excluir este endereço?",
+        "error_invalid": "Endereço RTM inválido!",
+        "get_wallet_hint": "Se você ainda não tem Raptoreum, pode escolher uma carteira e configurar um endereço em <a href='#' onclick='window.api.openExternal(\"https://raptoreum.com/downloads/\")'>raptoreum.com</a>."
+    },
+    "mining": {
+        "title": "Mineração",
+        "section_identity": "Identidade",
+        "section_connection": "Conexão",
+        "section_hardware": "Hardware e Software",
+        "label_address": "Endereço da Carteira",
+        "label_rigname": "Nome do Rig",
+        "label_mode": "Modo",
+        "label_pool": "Provedor de Pool",
+        "label_server": "Servidor / Região",
+        "label_miner_soft": "Software Minerador",
+        "label_threads": "Threads da CPU",
+        "label_os": "Sistema",
+        "label_miner_version": "Versão",
+        "btn_start": "Iniciar Mineração",
+        "thread_auto": "Auto (Padrão)",
+        "thread_recommended": "Recomendado",
+        "thread_powersave": "Economia de Energia",
+        "thread_critical": "Crítico / Máx",
+        "section_execution": "Execução e Comando",
+        "label_command": "Comando Gerado (Apenas leitura)",
+        "label_expert_args": "Parâmetros de Especialista (Opcional)",
+        "expert_warning": "Aviso: Parâmetros personalizados são por sua conta e risco!",
+        "error_no_path": "Por favor, especifique primeiro um caminho de download nas configurações!",
+        "error_no_address": "Por favor, selecione um endereço de carteira!",
+        "error_invalid_address": "O endereço selecionado não é um endereço RTM válido!",
+        "status_starting": "A mineração está sendo preparada...",
+        "auth_title": "Solicitar Direitos de Administrador",
+        "auth_message": "Deseja iniciar o minerador com privilégios de administrador? Isso habilita o modo MSR e aumenta significativamente a hashrate.",
+        "auth_confirm": "Sim, iniciar como Administrador",
+        "auth_cancel": "Não, iniciar normalmente"
+    },
+    "common": {
+        "save": "Salvar",
+        "cancel": "Cancelar"
+    }
+}
