@@ -1,0 +1,66 @@
+{
+    "error_miner_url_missing": "Ошибка: URL-адрес для загрузки этого майнера не найден. Проверьте подключение к интернету или статус API.",
+    "menu": {
+        "mining": "Майнинг",
+        "addresses": "Адреса",
+        "settings": "Настройки"
+    },
+    "settings": {
+        "section_mining": "Майнинг и оборудование",
+        "label_miner_path": "Путь загрузки майнера",
+        "btn_browse": "Обзор",
+        "av_warning_title": "Важное уведомление об антивирусе:",
+        "av_warning_text": "Программное обеспечение для майнинга часто определяется как угроза. Пожалуйста, добавьте эту папку в исключения вашего антивируса или Windows Defender, чтобы программа не была автоматически удалена.",
+        "logs_title": "Системные логи",
+        "logs_desc": "Открыть лог-файл для диагностики.",
+        "btn_open_log": "📜 Открыть лог-файл"
+    },
+    "addresses": {
+        "title": "Управление адресами",
+        "btn_new": "+ Новый адрес",
+        "label_address": "RTM адрес",
+        "label_desc": "Описание",
+        "label_actions": "Действия",
+        "modal_title_add": "Добавить новый адрес",
+        "modal_title_edit": "Редактировать адрес",
+        "confirm_delete": "Вы действительно хотите удалить этот адрес?",
+        "error_invalid": "Неверный адрес RTM!",
+        "get_wallet_hint": "Если у вас еще нет Raptoreum, вы можете выбрать кошелек и создать адрес на <a href='#' onclick='window.api.openExternal(\"https://raptoreum.com/downloads/\")'>raptoreum.com</a>."
+    },
+    "mining": {
+        "title": "Майнинг",
+        "section_identity": "Идентификация",
+        "section_connection": "Соединение",
+        "section_hardware": "Оборудование и ПО",
+        "label_address": "Адрес кошелька",
+        "label_rigname": "Имя рига",
+        "label_mode": "Режим",
+        "label_pool": "Провайдер пула",
+        "label_server": "Сервер / Регион",
+        "label_miner_soft": "ПО для майнинга",
+        "label_threads": "Потоки CPU",
+        "label_os": "Система",
+        "label_miner_version": "Версия",
+        "btn_start": "Начать майнинг",
+        "thread_auto": "Авто (Стандарт)",
+        "thread_recommended": "Рекомендуется",
+        "thread_powersave": "Экономия энергии",
+        "thread_critical": "Критический / Макс",
+        "section_execution": "Выполнение и команды",
+        "label_command": "Сгенерированная команда (Только чтение)",
+        "label_expert_args": "Экспертные параметры (Опционально)",
+        "expert_warning": "Внимание: Пользовательские параметры на ваш страх и риск!",
+        "error_no_path": "Пожалуйста, сначала укажите путь загрузки в настройках!",
+        "error_no_address": "Пожалуйста, выберите адрес кошелька!",
+        "error_invalid_address": "Выбранный адрес не является допустимым адресом RTM!",
+        "status_starting": "Майнинг подготавливается...",
+        "auth_title": "Запрос прав администратора",
+        "auth_message": "Вы хотите запустить майнер с правами администратора? Это активирует режим MSR и значительно увеличит хешрейт.",
+        "auth_confirm": "Да, запустить от имени администратора",
+        "auth_cancel": "Нет, запустить обычно"
+    },
+    "common": {
+        "save": "Сохранить",
+        "cancel": "Отмена"
+    }
+}

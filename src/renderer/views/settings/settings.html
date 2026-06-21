@@ -1,0 +1,49 @@
+<div class="settings-container">
+    <h1 data-i18n="settings.title">Einstellungen</h1>
+    
+    <div class="settings-section">
+        <h3 data-i18n="settings.language_title">Sprache / Language</h3>
+        <p data-i18n="settings.language_desc">Wähle die Anzeigesprache der Applikation.</p>
+        
+        <select id="select-language" class="settings-input" onchange="window.settingsUI.changeLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="de">Deutsch</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="pt">Português</option>
+            <option value="pl">Polski</option>
+            <option value="ru">Русский</option>
+            <option value="uk">Українська</option>
+            <option value="zh">中文 (Mandarin)</option>
+            </select>
+    </div>
+    
+    <div class="settings-card">
+        <h3 data-i18n="settings.section_mining">Mining & Hardware</h3>
+        <div class="form-group">
+            <label data-i18n="settings.label_miner_path">Miner Download Path</label>
+            <div style="display: flex; gap: 10px;">
+                <input type="text" id="input-miner-path" class="settings-input" readonly>
+                <button class="btn-secondary" onclick="window.settingsUI.browseMinerPath()" data-i18n="settings.btn_browse">Browse</button>
+            </div>
+            <div class="av-warning-box" style="margin-top: 15px; padding: 12px; border: 1px solid #e67e22; background: rgba(230, 126, 34, 0.1); border-radius: 4px;">
+                <p style="color: #e67e22; font-size: 0.85rem; margin: 0; line-height: 1.4;">
+                    <strong data-i18n="settings.av_warning_title">Important Anti-Virus Note:</strong><br>
+                    <span data-i18n="settings.av_warning_text">Mining software is often flagged as a threat. Please add this folder to your Antivirus/Windows Defender exclusions to prevent the software from being deleted.</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="settings-section">
+        <h3 data-i18n="settings.info_title">App Info</h3>
+        <p>Raptorwings v2 - Build 2026.01</p>
+    </div>
+    <div class="settings-section">
+        <h3 data-i18n="settings.logs_title">System Logs</h3>
+        <p data-i18n="settings.logs_desc">Open the log file for diagnostic purposes.</p>
+        <button class="btn-secondary" onclick="window.settingsUI.openLogFile()" data-i18n="settings.btn_open_log">
+            Log-Datei öffnen
+        </button>
+    </div>
+</div>

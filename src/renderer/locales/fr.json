@@ -1,0 +1,66 @@
+{
+    "error_miner_url_missing": "Erreur : Aucune URL de téléchargement trouvée pour ce mineur. Veuillez vérifier votre connexion Internet ou le statut de l'API.",
+    "menu": {
+        "mining": "Minage",
+        "addresses": "Adresses",
+        "settings": "Paramètres"
+    },
+    "settings": {
+        "section_mining": "Minage & Matériel",
+        "label_miner_path": "Chemin de téléchargement du mineur",
+        "btn_browse": "Parcourir",
+        "av_warning_title": "Avis important antivirus :",
+        "av_warning_text": "Les logiciels de minage sont souvent détectés comme des menaces. Veuillez ajouter ce dossier comme exception dans votre antivirus ou Windows Defender afin que le logiciel ne soit pas supprimé automatiquement.",
+        "logs_title": "Logs système",
+        "logs_desc": "Ouvrir le fichier log pour diagnostic.",
+        "btn_open_log": "📜 Ouvrir le fichier log"
+    },
+    "addresses": {
+        "title": "Gestion des adresses",
+        "btn_new": "+ Nouvelle adresse",
+        "label_address": "Adresse RTM",
+        "label_desc": "Description",
+        "label_actions": "Actions",
+        "modal_title_add": "Ajouter une nouvelle adresse",
+        "modal_title_edit": "Modifier l'adresse",
+        "confirm_delete": "Voulez-vous vraiment supprimer cette adresse ?",
+        "error_invalid": "Adresse RTM invalide !",
+        "get_wallet_hint": "Si vous n'avez pas encore de Raptoreum, vous pouvez choisir un portefeuille et créer une adresse sur <a href='#' onclick='window.api.openExternal(\"https://raptoreum.com/downloads/\")'>raptoreum.com</a>."
+    },
+    "mining": {
+        "title": "Minage",
+        "section_identity": "Identité",
+        "section_connection": "Connexion",
+        "section_hardware": "Matériel & Logiciel",
+        "label_address": "Adresse du portefeuille",
+        "label_rigname": "Nom du Rig",
+        "label_mode": "Mode",
+        "label_pool": "Fournisseur de Pool",
+        "label_server": "Serveur / Région",
+        "label_miner_soft": "Logiciel de minage",
+        "label_threads": "Threads CPU",
+        "label_os": "Système",
+        "label_miner_version": "Version",
+        "btn_start": "Démarrer le minage",
+        "thread_auto": "Auto (Standard)",
+        "thread_recommended": "Recommandé",
+        "thread_powersave": "Économie d'énergie",
+        "thread_critical": "Critique / Max",
+        "section_execution": "Exécution & Commande",
+        "label_command": "Commande générée (Lecture seule)",
+        "label_expert_args": "Paramètres experts (Optionnel)",
+        "expert_warning": "Attention : Les paramètres personnalisés sont à vos propres risques !",
+        "error_no_path": "Veuillez d'abord spécifier un chemin de téléchargement dans les paramètres !",
+        "error_no_address": "Veuillez sélectionner une adresse de portefeuille !",
+        "error_invalid_address": "L'adresse sélectionnée n'est pas une adresse RTM valide !",
+        "status_starting": "Le minage est en cours de préparation...",
+        "auth_title": "Demander des droits d'administrateur",
+        "auth_message": "Voulez-vous démarrer le mineur avec des privilèges d'administrateur ? Cela active le mode MSR et augmente considérablement le hashrate.",
+        "auth_confirm": "Oui, démarrer en tant qu'administrateur",
+        "auth_cancel": "Non, démarrer normalement"
+    },
+    "common": {
+        "save": "Enregistrer",
+        "cancel": "Annuler"
+    }
+}

@@ -1,0 +1,66 @@
+{
+    "error_miner_url_missing": "Błąd: Nie znaleziono adresu URL pobierania dla tego minera. Sprawdź połączenie internetowe lub status API.",
+    "menu": {
+        "mining": "Mining",
+        "addresses": "Adresy",
+        "settings": "Ustawienia"
+    },
+    "settings": {
+        "section_mining": "Mining i sprzęt",
+        "label_miner_path": "Ścieżka pobierania minera",
+        "btn_browse": "Przeglądaj",
+        "av_warning_title": "Ważna informacja o antywirusie:",
+        "av_warning_text": "Oprogramowanie do miningu jest często wykrywane jako zagrożenie. Proszę dodać ten folder jako wyjątek w antywirusie lub Windows Defender, aby program nie został automatycznie usunięty.",
+        "logs_title": "Logi systemowe",
+        "logs_desc": "Otwórz plik logów w celach diagnostycznych.",
+        "btn_open_log": "📜 Otwórz plik logów"
+    },
+    "addresses": {
+        "title": "Zarządzanie adresami",
+        "btn_new": "+ Nowy adres",
+        "label_address": "Adres RTM",
+        "label_desc": "Opis",
+        "label_actions": "Akcje",
+        "modal_title_add": "Dodaj nowy adres",
+        "modal_title_edit": "Edytuj adres",
+        "confirm_delete": "Czy na pewno chcesz usunąć ten adres?",
+        "error_invalid": "Nieprawidłowy adres RTM!",
+        "get_wallet_hint": "Jeśli nie masz jeszcze Raptoreum, możesz wybrać portfel i ustawić adres na stronie <a href='#' onclick='window.api.openExternal(\"https://raptoreum.com/downloads/\")'>raptoreum.com</a>."
+    },
+    "mining": {
+        "title": "Mining",
+        "section_identity": "Tożsamość",
+        "section_connection": "Połączenie",
+        "section_hardware": "Sprzęt i oprogramowanie",
+        "label_address": "Adres portfela",
+        "label_rigname": "Nazwa riga",
+        "label_mode": "Tryb",
+        "label_pool": "Dostawca poola",
+        "label_server": "Serwer / Region",
+        "label_miner_soft": "Oprogramowanie minera",
+        "label_threads": "Wątki CPU",
+        "label_os": "System",
+        "label_miner_version": "Wersja",
+        "btn_start": "Uruchom mining",
+        "thread_auto": "Auto (Standard)",
+        "thread_recommended": "Zalecane",
+        "thread_powersave": "Oszczędzanie energii",
+        "thread_critical": "Krytyczne / Max",
+        "section_execution": "Wykonanie i komendy",
+        "label_command": "Wygenerowana komenda (Tylko do odczytu)",
+        "label_expert_args": "Parametry eksperckie (Opcjonalnie)",
+        "expert_warning": "Ostrzeżenie: Własne parametry na własne ryzyko!",
+        "error_no_path": "Proszę najpierw podać ścieżkę pobierania w ustawieniach!",
+        "error_no_address": "Proszę wybrać adres portfela!",
+        "error_invalid_address": "Wybrany adres nie jest prawidłowym adresem RTM!",
+        "status_starting": "Przygotowywanie miningu...",
+        "auth_title": "Wymagane uprawnienia administratora",
+        "auth_message": "Czy chcesz uruchomić minera z uprawnieniami administratora? Umożliwia to tryb MSR i znacznie zwiększa hashrate.",
+        "auth_confirm": "Tak, uruchom jako administrator",
+        "auth_cancel": "Nie, uruchom normalnie"
+    },
+    "common": {
+        "save": "Zapisz",
+        "cancel": "Anuluj"
+    }
+}

@@ -1,4 +1,4 @@
-RAPTORWINGS ©2024 by Raptoreum and Germardies
+RAPTORWINGS ©2026 by Raptoreum and Germardies
 =============================================
 
 <img src="Resources/Rptorwings_logo_dark_small.png" width="200px" height="auto">
